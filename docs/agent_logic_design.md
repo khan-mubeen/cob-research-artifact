@@ -603,18 +603,80 @@ In rounds after round 1: if current_best_bid - platform_minimum_decrement >= min
 
 ## Local SLM Candidates
 
-Each stage process, material, manufacturer, logistics, and the supervisor, loads one model instance for its own process. Agents within the same stage share that one instance, but the instance is not shared across stages. Each invocation receives the corresponding agent's profile, current dynamic state, and the RFQ, so the model's behavior varies according to the supplied context rather than separate loaded weights.
+The six candidate models are listed below. Each stage process (material, manufacturer, logistics and supervisor) loads its own model instance. Agents within a stage share that instance, with each call supplying the agent profile, current state and request.
 
-| Model | Params | Link |
+| Model | Published parameter count | Exact checkpoint |
 |---|---|---|
-| Qwen3.5 4B | 4B | [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) |
-| Nemotron 3 Nano 4B | 4B | [nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16](https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16) |
-| Phi-4 mini | 3.8B | [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) |
-| Granite 4.1 3B | 3B | [ibm-granite/granite-4.1-3b](https://huggingface.co/ibm-granite/granite-4.1-3b) |
-| LFM2.5 8B-A1B | 8.3B total / 1.5B active | [LiquidAI/LFM2.5-8B-A1B](https://huggingface.co/LiquidAI/LFM2.5-8B-A1B) |
-| Gemma 4 E2B | ~2B active | [google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it) |
+| Qwen3.5-4B | 4B | [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) |
+| Granite 4.1-3B | 3B | [ibm-granite/granite-4.1-3b](https://huggingface.co/ibm-granite/granite-4.1-3b) |
+| Phi-4-mini-instruct | 3.8B | [microsoft/Phi-4-mini-instruct](https://huggingface.co/microsoft/Phi-4-mini-instruct) |
+| Ministral 3 3B Instruct | 3B | [mistralai/Ministral-3-3B-Instruct-2512-BF16](https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512-BF16) |
+| Gemma 4 E2B IT | 2.3B effective; 5.1B including embeddings | [google/gemma-4-E2B-it](https://huggingface.co/google/gemma-4-E2B-it) |
+| SmolLM3-3B | 3B | [HuggingFaceTB/SmolLM3-3B](https://huggingface.co/HuggingFaceTB/SmolLM3-3B) |
 
-**Note on Qwen thinking mode:** In prior testing, Qwen's thinking mode added latency without a clear benefit for this task type. If Qwen stays in the final candidate list, it is tested in no-thinking mode only.
+Parameter counts follow the local model cards. Gemma's E2B name refers to effective parameters; its count including embeddings is 5.1B.
+
+### Fine-tuning Settings
+
+All six models share the common LoRA settings below. Each model is configured for one continuous three-epoch run per task, with an adapter saved after each epoch. The linear learning-rate schedule spans the full run.
+
+LoRA adapters are attached to attention and feed-forward projection modules. The JSON lists their exact names. Phi uses fused query/key/value and gate/up projections, so its module names differ. Sequence length varies by task, and the optimizer varies by training backend.
+
+```json
+{
+  "scope": "fine-tuning configuration for all six SLM candidates",
+  "common": {
+    "method": "LoRA",
+    "num_train_epochs": 3,
+    "learning_rate": 0.0002,
+    "lr_scheduler_type": "linear",
+    "warmup_steps": 5,
+    "weight_decay": 0.01,
+    "per_device_train_batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "effective_batch_size_single_device": 16,
+    "seed": 42,
+    "lora_rank": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0,
+    "lora_bias": "none",
+    "gradient_checkpointing": "unsloth",
+    "save_steps": 250,
+    "save_epoch_adapters": true,
+    "load_in_4bit": false
+  },
+  "max_seq_length_by_task": {
+    "sealed": 1024,
+    "reverse_auction": 1280,
+    "supervisor": 2048
+  },
+  "optimizer_by_backend": {
+    "rocm": "adamw_torch",
+    "cuda": "adamw_8bit"
+  },
+  "lora_target_modules": {
+    "qwen_granite_ministral_gemma_smollm3": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "phi": [
+      "qkv_proj",
+      "o_proj",
+      "gate_up_proj",
+      "down_proj"
+    ]
+  }
+}
+```
+
+The configuration specifies BF16 precision. Training loss is computed on assistant responses, with prompt tokens masked. Each model uses its own chat template and response markers.
+
+Checkpoint revisions and model-specific settings are in [`model_registry.py`](../src/experiments/v5/model_registry.py). The training implementation is in [`finetune_lora.py`](../src/experiments/finetune_lora.py), and task-specific sequence lengths are defined in [`training_data.py`](../src/experiments/v5/training_data.py).
 
 ---
 
