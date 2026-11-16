@@ -1,0 +1,1629 @@
+{
+  "purpose": "verification artifact for src/dataset/material_pricing.py: it proves the module reproduces its anchors and resolves dated prices from the pinned files. it is not a replacement for data/synthetic/v4/material_agents.csv, which this task does not touch",
+  "method_reference": "docs/data_synthesis_methodology.md section 5.1",
+  "choices_made_here": {
+    "anchor_dates": {
+      "cotton": {
+        "date": "2024-11-01",
+        "basis": "Tabb Textile 2024 catalog. it prints no price date; its url is filed under uploads/2024/11, the earliest month the catalog is evidenced as published"
+      },
+      "denim": {
+        "date": "2024-11-01",
+        "basis": "Tabb Textile 2024 catalog, same basis as cotton"
+      },
+      "polyester": {
+        "date": "2024-11-01",
+        "basis": "Tabb Textile 2024 catalog, same basis as cotton. with no temporal series the anchor date does not change the price"
+      },
+      "linen": {
+        "date": "2024-01-01",
+        "basis": "iMaterial 'January 2024 Fabric Pricelist', the first day of the edition month"
+      },
+      "leather": {
+        "date": "2026-09-11",
+        "basis": "the Leather Unlimited product page carries no price date; the access date recorded on the manual record is used"
+      }
+    },
+    "multi_product_anchor": "arithmetic mean of per-product USD/kg",
+    "leather_oz_per_sqft": "midpoint of the 2-3 oz range the product is sold as",
+    "materials_without_a_temporal_series": {
+      "polyester": "fixed at its Tabb Textile finished-fabric anchor, because its SunSirs observations are missing (methodology section 5.1)"
+    }
+  },
+  "source_sha256": {
+    "data/raw/v5/fx/ecb_eurofxref_hist.csv": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae",
+    "data/raw/v5/material/cotton/PCOTTINDUSDM.csv": "900505dbc00da597955427d125f4b15c45e2bcce1179b584986208bcf21d1f51",
+    "data/raw/v5/material/cotton/tabb_jersey_knit.json": "63e84df0f99d8001fe437ff10426f29b204577c0509b5dcadc996265c7f38662",
+    "data/raw/v5/material/denim/WPU03420104.csv": "0a0b96125852a6f5cb3ae95f4a3d18c6e4a0487e50b566286d9844d07104137c",
+    "data/raw/v5/material/denim/tabb_denim.json": "61486bd0a9b731882fc6606a8644d4b1ad7ca7f87613c78ac57c880124a992a7",
+    "data/raw/v5/material/leather/PHIDEUSDM.csv": "c78c484101fb0cb5e7a6cfaa8cb64be2020f68e9e9e46ed55eac08325ad9ffd9",
+    "data/raw/v5/material/leather/leather_unlimited.json": "fa538760667ba469a539b96d53bcb3235723f5d5524c4a6cdabfc90e28fc1b31",
+    "data/raw/v5/material/linen/alliance_flax.json": "b310e3b9b3c8e7b63562ea585a2ba51dc5a6f5706fda177d2e7790ffc1b47859",
+    "data/raw/v5/material/linen/imaterial_linen.json": "4b828a7eb04653aeb7fb81a364240a8072fc19f4419570a229cca0171ef75490",
+    "data/raw/v5/material/polyester/sunsirs_dty.json": "edd13e1fefa221976acad5b28ce10f179208b0db8c1bbf50d6088f39326557f6",
+    "data/raw/v5/material/polyester/tabb_polyester_twill.json": "8cf6469722bc510155efaaca451ba7e3bcb74b41c4938248327d2c89b3fbf98c"
+  },
+  "order_window": {
+    "base_date": "2026-07-11",
+    "creation_window_days": 180,
+    "first_order_created": "2026-07-11T08:00:00",
+    "last_order_created": "2027-01-06T17:00:00",
+    "read_from": [
+      "data/synthetic/v4/orders_metadata.json",
+      "data/synthetic/v4/orders.csv"
+    ]
+  },
+  "spot_check_dates": [
+    "2026-07-11",
+    "2026-08-15",
+    "2026-09-11",
+    "2026-10-15",
+    "2026-11-15",
+    "2026-12-15",
+    "2027-01-06"
+  ],
+  "anchors": {
+    "cotton": {
+      "material": "cotton",
+      "anchor_date": "2024-11-01",
+      "anchor_date_basis": "Tabb Textile 2024 catalog. it prints no price date; its url is filed under uploads/2024/11, the earliest month the catalog is evidenced as published",
+      "usd_per_kg": 16.093726,
+      "aggregation": "arithmetic mean of the per-product USD/kg values",
+      "reference_source": "Tabb Textile Company, 2024 Product Catalog",
+      "reference_record": "data/raw/v5/material/cotton/tabb_jersey_knit.json",
+      "reference_currency": "USD",
+      "products": [
+        {
+          "sku": "JKCWI",
+          "source_price": 6.65,
+          "source_unit": "USD/lb",
+          "usd_per_kg": 14.660722999999999,
+          "arithmetic": "6.65 USD/lb x 2.20462 = 14.660723 USD/kg"
+        },
+        {
+          "sku": "JKCCI",
+          "source_price": 6.95,
+          "source_unit": "USD/lb",
+          "usd_per_kg": 15.322109,
+          "arithmetic": "6.95 USD/lb x 2.20462 = 15.322109 USD/kg"
+        },
+        {
+          "sku": "JKCWD",
+          "source_price": 7.65,
+          "source_unit": "USD/lb",
+          "usd_per_kg": 16.865343,
+          "arithmetic": "7.65 USD/lb x 2.20462 = 16.865343 USD/kg"
+        },
+        {
+          "sku": "JKCCD",
+          "source_price": 7.95,
+          "source_unit": "USD/lb",
+          "usd_per_kg": 17.526729,
+          "arithmetic": "7.95 USD/lb x 2.20462 = 17.526729 USD/kg"
+        }
+      ]
+    },
+    "polyester": {
+      "material": "polyester",
+      "anchor_date": "2024-11-01",
+      "anchor_date_basis": "Tabb Textile 2024 catalog, same basis as cotton. with no temporal series the anchor date does not change the price",
+      "usd_per_kg": 14.688721510000573,
+      "aggregation": "arithmetic mean of the per-product USD/kg values",
+      "reference_source": "Tabb Textile Company, 2024 Product Catalog",
+      "reference_record": "data/raw/v5/material/polyester/tabb_polyester_twill.json",
+      "reference_currency": "USD",
+      "products": [
+        {
+          "sku": "TWPWD",
+          "source_price": 4.65,
+          "source_unit": "USD/yard",
+          "oz_per_sq_yd": 6.7,
+          "width_inches": 60,
+          "usd_per_kg": 14.688721510000573,
+          "arithmetic": "6.7 oz/yd2 x 60 in / 36 = 11.166667 oz per linear yard; x 28.3495 / 1000 = 0.316569 kg; 4.65 USD / 0.316569 kg = 14.688722 USD/kg"
+        }
+      ]
+    },
+    "linen": {
+      "material": "linen",
+      "anchor_date": "2024-01-01",
+      "anchor_date_basis": "iMaterial 'January 2024 Fabric Pricelist', the first day of the edition month",
+      "usd_per_kg": 40.2869100114127,
+      "aggregation": "arithmetic mean of the per-product USD/kg values",
+      "reference_source": "iMaterial, January 2024 Fabric Pricelist",
+      "reference_record": "data/raw/v5/material/linen/imaterial_linen.json",
+      "reference_currency": "ZAR",
+      "products": [
+        {
+          "sku": "IMA10",
+          "source_price": 265.0,
+          "source_unit": "ZAR/m",
+          "gsm": 310,
+          "width_cm": 148,
+          "usd_per_kg": 31.366742366178464,
+          "fx": {
+            "base": "ZAR",
+            "quote": "USD",
+            "rate": 0.0543058920664252,
+            "requested_date": "2024-01-01",
+            "rate_date": "2023-12-29",
+            "days_carried": 3,
+            "via": "EUR/USD divided by EUR/ZAR",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "1.48 m x 310 / 1000 = 0.458800 kg per metre; 265.00 ZAR / 0.458800 kg = 577.593723 ZAR/kg; x ZAR_to_USD 0.05430589 (EUR/USD divided by EUR/ZAR, rate date 2023-12-29) = 31.366742 USD/kg"
+        },
+        {
+          "sku": "IMA23",
+          "source_price": 320.0,
+          "source_unit": "ZAR/m",
+          "gsm": 300,
+          "width_cm": 145,
+          "usd_per_kg": 39.949161979898996,
+          "fx": {
+            "base": "ZAR",
+            "quote": "USD",
+            "rate": 0.0543058920664252,
+            "requested_date": "2024-01-01",
+            "rate_date": "2023-12-29",
+            "days_carried": 3,
+            "via": "EUR/USD divided by EUR/ZAR",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "1.45 m x 300 / 1000 = 0.435000 kg per metre; 320.00 ZAR / 0.435000 kg = 735.632184 ZAR/kg; x ZAR_to_USD 0.05430589 (EUR/USD divided by EUR/ZAR, rate date 2023-12-29) = 39.949162 USD/kg"
+        },
+        {
+          "sku": "IMA34",
+          "source_price": 170.0,
+          "source_unit": "ZAR/m",
+          "gsm": 160,
+          "width_cm": 130,
+          "usd_per_kg": 44.3846233235206,
+          "fx": {
+            "base": "ZAR",
+            "quote": "USD",
+            "rate": 0.0543058920664252,
+            "requested_date": "2024-01-01",
+            "rate_date": "2023-12-29",
+            "days_carried": 3,
+            "via": "EUR/USD divided by EUR/ZAR",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "1.3 m x 160 / 1000 = 0.208000 kg per metre; 170.00 ZAR / 0.208000 kg = 817.307692 ZAR/kg; x ZAR_to_USD 0.05430589 (EUR/USD divided by EUR/ZAR, rate date 2023-12-29) = 44.384623 USD/kg"
+        },
+        {
+          "sku": "IMA9",
+          "source_price": 303.45,
+          "source_unit": "ZAR/m",
+          "gsm": 245,
+          "width_cm": 148,
+          "usd_per_kg": 45.44711237605274,
+          "fx": {
+            "base": "ZAR",
+            "quote": "USD",
+            "rate": 0.0543058920664252,
+            "requested_date": "2024-01-01",
+            "rate_date": "2023-12-29",
+            "days_carried": 3,
+            "via": "EUR/USD divided by EUR/ZAR",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "1.48 m x 245 / 1000 = 0.362600 kg per metre; 303.45 ZAR / 0.362600 kg = 836.872587 ZAR/kg; x ZAR_to_USD 0.05430589 (EUR/USD divided by EUR/ZAR, rate date 2023-12-29) = 45.447112 USD/kg"
+        }
+      ]
+    },
+    "denim": {
+      "material": "denim",
+      "anchor_date": "2024-11-01",
+      "anchor_date_basis": "Tabb Textile 2024 catalog, same basis as cotton",
+      "usd_per_kg": 8.854334250966637,
+      "aggregation": "arithmetic mean of the per-product USD/kg values",
+      "reference_source": "Tabb Textile Company, 2024 Product Catalog",
+      "reference_record": "data/raw/v5/material/denim/tabb_denim.json",
+      "reference_currency": "USD",
+      "products": [
+        {
+          "sku": "DEHI",
+          "source_price": 4.85,
+          "source_unit": "USD/yard",
+          "oz_per_sq_yd": 14.5,
+          "width_inches": 60,
+          "usd_per_kg": 7.079125034741839,
+          "arithmetic": "14.5 oz/yd2 x 60 in / 36 = 24.166667 oz per linear yard; x 28.3495 / 1000 = 0.685113 kg; 4.85 USD / 0.685113 kg = 7.079125 USD/kg"
+        },
+        {
+          "sku": "DELI",
+          "source_price": 3.85,
+          "source_unit": "USD/yard",
+          "oz_per_sq_yd": 10.0,
+          "width_inches": 60,
+          "usd_per_kg": 8.148291856999242,
+          "arithmetic": "10.0 oz/yd2 x 60 in / 36 = 16.666667 oz per linear yard; x 28.3495 / 1000 = 0.472492 kg; 3.85 USD / 0.472492 kg = 8.148292 USD/kg"
+        },
+        {
+          "sku": "DEHBLD",
+          "source_price": 7.5,
+          "source_unit": "USD/yard",
+          "oz_per_sq_yd": 14.5,
+          "width_inches": 68,
+          "usd_per_kg": 9.65920638457801,
+          "arithmetic": "14.5 oz/yd2 x 68 in / 36 = 27.388889 oz per linear yard; x 28.3495 / 1000 = 0.776461 kg; 7.50 USD / 0.776461 kg = 9.659206 USD/kg"
+        },
+        {
+          "sku": "DEHBD",
+          "source_price": 7.5,
+          "source_unit": "USD/yard",
+          "oz_per_sq_yd": 13.3,
+          "width_inches": 68,
+          "usd_per_kg": 10.530713727547456,
+          "arithmetic": "13.3 oz/yd2 x 68 in / 36 = 25.122222 oz per linear yard; x 28.3495 / 1000 = 0.712202 kg; 7.50 USD / 0.712202 kg = 10.530714 USD/kg"
+        }
+      ]
+    },
+    "leather": {
+      "material": "leather",
+      "anchor_date": "2026-09-11",
+      "anchor_date_basis": "the Leather Unlimited product page carries no price date; the access date recorded on the manual record is used",
+      "usd_per_kg": 63.45790931056985,
+      "aggregation": "arithmetic mean of the per-product USD/kg values",
+      "reference_source": "Leather Unlimited, Garment & Bag Leather Hides collection",
+      "reference_record": "data/raw/v5/material/leather/leather_unlimited.json",
+      "reference_currency": "USD",
+      "products": [
+        {
+          "product": "Premium Soft Light Weight Garment Leather Hide",
+          "source_price": 89.95,
+          "source_unit": "USD/hide",
+          "area_sqft": 20,
+          "oz_per_sqft_used": 2.5,
+          "oz_per_sqft_as_sold": "2-3",
+          "usd_per_kg": 63.45790931056985,
+          "usd_per_kg_at_range_bounds": {
+            "2.0 oz/sqft": 79.32238663821232,
+            "3.0 oz/sqft": 52.88159109214155
+          },
+          "arithmetic": "20 sqft x 2.5 oz/sqft = 50.000000 oz; x 28.3495 / 1000 = 1.417475 kg; 89.95 USD / 1.417475 kg = 63.457909 USD/kg"
+        }
+      ]
+    }
+  },
+  "anchor_reproduction": {
+    "cotton": {
+      "anchor_date": "2024-11-01",
+      "anchor_usd_per_kg": 16.093726,
+      "price_at_anchor_date": 16.093726,
+      "exactly_equal": true,
+      "price_basis": "anchor_times_dated_series"
+    },
+    "polyester": {
+      "anchor_date": "2024-11-01",
+      "anchor_usd_per_kg": 14.688721510000573,
+      "price_at_anchor_date": 14.688721510000573,
+      "exactly_equal": true,
+      "price_basis": "fixed_anchor_no_temporal_series"
+    },
+    "linen": {
+      "anchor_date": "2024-01-01",
+      "anchor_usd_per_kg": 40.2869100114127,
+      "price_at_anchor_date": 40.2869100114127,
+      "exactly_equal": true,
+      "price_basis": "anchor_times_dated_series"
+    },
+    "denim": {
+      "anchor_date": "2024-11-01",
+      "anchor_usd_per_kg": 8.854334250966637,
+      "price_at_anchor_date": 8.854334250966637,
+      "exactly_equal": true,
+      "price_basis": "anchor_times_dated_series"
+    },
+    "leather": {
+      "anchor_date": "2026-09-11",
+      "anchor_usd_per_kg": 63.45790931056985,
+      "price_at_anchor_date": 63.45790931056985,
+      "exactly_equal": true,
+      "price_basis": "anchor_times_dated_series"
+    }
+  },
+  "spot_checks": {
+    "cotton": [
+      {
+        "material": "cotton",
+        "requested_date": "2026-07-11",
+        "usd_per_kg": 17.519053508495855,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "16.093726 x 1.957151 / 1.797920 = 17.519054 USD/kg",
+        "anchor_usd_per_kg": 16.093726,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0885641714352448,
+        "series_at_requested_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2026-07-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 88.775,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 10,
+          "after_last_observation": true,
+          "arithmetic": "(88.775 / 100) x 2.20462 = 1.957151 USD/kg",
+          "value_usd": 1.9571514049999998
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 81.55238095238094,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "(81.55238095238094 / 100) x 2.20462 = 1.797920 USD/kg",
+          "value_usd": 1.7979201009523806
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "cotton",
+        "requested_date": "2026-08-15",
+        "usd_per_kg": 17.519053508495855,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "16.093726 x 1.957151 / 1.797920 = 17.519054 USD/kg",
+        "anchor_usd_per_kg": 16.093726,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0885641714352448,
+        "series_at_requested_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2026-08-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 88.775,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 45,
+          "after_last_observation": true,
+          "arithmetic": "(88.775 / 100) x 2.20462 = 1.957151 USD/kg",
+          "value_usd": 1.9571514049999998
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 81.55238095238094,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "(81.55238095238094 / 100) x 2.20462 = 1.797920 USD/kg",
+          "value_usd": 1.7979201009523806
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "cotton",
+        "requested_date": "2026-09-11",
+        "usd_per_kg": 17.519053508495855,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "16.093726 x 1.957151 / 1.797920 = 17.519054 USD/kg",
+        "anchor_usd_per_kg": 16.093726,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0885641714352448,
+        "series_at_requested_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 88.775,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(88.775 / 100) x 2.20462 = 1.957151 USD/kg",
+          "value_usd": 1.9571514049999998
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 81.55238095238094,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "(81.55238095238094 / 100) x 2.20462 = 1.797920 USD/kg",
+          "value_usd": 1.7979201009523806
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "cotton",
+        "requested_date": "2026-10-15",
+        "usd_per_kg": 17.519053508495855,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "16.093726 x 1.957151 / 1.797920 = 17.519054 USD/kg",
+        "anchor_usd_per_kg": 16.093726,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0885641714352448,
+        "series_at_requested_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2026-10-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 88.775,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 106,
+          "after_last_observation": true,
+          "arithmetic": "(88.775 / 100) x 2.20462 = 1.957151 USD/kg",
+          "value_usd": 1.9571514049999998
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 81.55238095238094,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "(81.55238095238094 / 100) x 2.20462 = 1.797920 USD/kg",
+          "value_usd": 1.7979201009523806
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "cotton",
+        "requested_date": "2026-11-15",
+        "usd_per_kg": 17.519053508495855,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "16.093726 x 1.957151 / 1.797920 = 17.519054 USD/kg",
+        "anchor_usd_per_kg": 16.093726,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0885641714352448,
+        "series_at_requested_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2026-11-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 88.775,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 137,
+          "after_last_observation": true,
+          "arithmetic": "(88.775 / 100) x 2.20462 = 1.957151 USD/kg",
+          "value_usd": 1.9571514049999998
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 81.55238095238094,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "(81.55238095238094 / 100) x 2.20462 = 1.797920 USD/kg",
+          "value_usd": 1.7979201009523806
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "cotton",
+        "requested_date": "2026-12-15",
+        "usd_per_kg": 17.519053508495855,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "16.093726 x 1.957151 / 1.797920 = 17.519054 USD/kg",
+        "anchor_usd_per_kg": 16.093726,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0885641714352448,
+        "series_at_requested_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2026-12-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 88.775,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 167,
+          "after_last_observation": true,
+          "arithmetic": "(88.775 / 100) x 2.20462 = 1.957151 USD/kg",
+          "value_usd": 1.9571514049999998
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 81.55238095238094,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "(81.55238095238094 / 100) x 2.20462 = 1.797920 USD/kg",
+          "value_usd": 1.7979201009523806
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "cotton",
+        "requested_date": "2027-01-06",
+        "usd_per_kg": 17.519053508495855,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "16.093726 x 1.957151 / 1.797920 = 17.519054 USD/kg",
+        "anchor_usd_per_kg": 16.093726,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0885641714352448,
+        "series_at_requested_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2027-01-06",
+          "observation_date": "2026-07-01",
+          "observation_value": 88.775,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 189,
+          "after_last_observation": true,
+          "arithmetic": "(88.775 / 100) x 2.20462 = 1.957151 USD/kg",
+          "value_usd": 1.9571514049999998
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PCOTTINDUSDM",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 81.55238095238094,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "(81.55238095238094 / 100) x 2.20462 = 1.797920 USD/kg",
+          "value_usd": 1.7979201009523806
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      }
+    ],
+    "polyester": [
+      {
+        "material": "polyester",
+        "requested_date": "2026-07-11",
+        "usd_per_kg": 14.688721510000573,
+        "price_basis": "fixed_anchor_no_temporal_series",
+        "method": "fixed finished-material anchor: no credible historical series is available, so the sourced price stays fixed (methodology section 5.1)",
+        "arithmetic": "14.688722 USD/kg, the same on every date",
+        "anchor_usd_per_kg": 14.688721510000573,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0,
+        "series_at_requested_date": null,
+        "series_at_anchor_date": null,
+        "carried_past_last_observation": false,
+        "temporal_series_status": "missing",
+        "temporal_series_record": "data/raw/v5/material/polyester/sunsirs_dty.json"
+      },
+      {
+        "material": "polyester",
+        "requested_date": "2026-08-15",
+        "usd_per_kg": 14.688721510000573,
+        "price_basis": "fixed_anchor_no_temporal_series",
+        "method": "fixed finished-material anchor: no credible historical series is available, so the sourced price stays fixed (methodology section 5.1)",
+        "arithmetic": "14.688722 USD/kg, the same on every date",
+        "anchor_usd_per_kg": 14.688721510000573,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0,
+        "series_at_requested_date": null,
+        "series_at_anchor_date": null,
+        "carried_past_last_observation": false,
+        "temporal_series_status": "missing",
+        "temporal_series_record": "data/raw/v5/material/polyester/sunsirs_dty.json"
+      },
+      {
+        "material": "polyester",
+        "requested_date": "2026-09-11",
+        "usd_per_kg": 14.688721510000573,
+        "price_basis": "fixed_anchor_no_temporal_series",
+        "method": "fixed finished-material anchor: no credible historical series is available, so the sourced price stays fixed (methodology section 5.1)",
+        "arithmetic": "14.688722 USD/kg, the same on every date",
+        "anchor_usd_per_kg": 14.688721510000573,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0,
+        "series_at_requested_date": null,
+        "series_at_anchor_date": null,
+        "carried_past_last_observation": false,
+        "temporal_series_status": "missing",
+        "temporal_series_record": "data/raw/v5/material/polyester/sunsirs_dty.json"
+      },
+      {
+        "material": "polyester",
+        "requested_date": "2026-10-15",
+        "usd_per_kg": 14.688721510000573,
+        "price_basis": "fixed_anchor_no_temporal_series",
+        "method": "fixed finished-material anchor: no credible historical series is available, so the sourced price stays fixed (methodology section 5.1)",
+        "arithmetic": "14.688722 USD/kg, the same on every date",
+        "anchor_usd_per_kg": 14.688721510000573,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0,
+        "series_at_requested_date": null,
+        "series_at_anchor_date": null,
+        "carried_past_last_observation": false,
+        "temporal_series_status": "missing",
+        "temporal_series_record": "data/raw/v5/material/polyester/sunsirs_dty.json"
+      },
+      {
+        "material": "polyester",
+        "requested_date": "2026-11-15",
+        "usd_per_kg": 14.688721510000573,
+        "price_basis": "fixed_anchor_no_temporal_series",
+        "method": "fixed finished-material anchor: no credible historical series is available, so the sourced price stays fixed (methodology section 5.1)",
+        "arithmetic": "14.688722 USD/kg, the same on every date",
+        "anchor_usd_per_kg": 14.688721510000573,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0,
+        "series_at_requested_date": null,
+        "series_at_anchor_date": null,
+        "carried_past_last_observation": false,
+        "temporal_series_status": "missing",
+        "temporal_series_record": "data/raw/v5/material/polyester/sunsirs_dty.json"
+      },
+      {
+        "material": "polyester",
+        "requested_date": "2026-12-15",
+        "usd_per_kg": 14.688721510000573,
+        "price_basis": "fixed_anchor_no_temporal_series",
+        "method": "fixed finished-material anchor: no credible historical series is available, so the sourced price stays fixed (methodology section 5.1)",
+        "arithmetic": "14.688722 USD/kg, the same on every date",
+        "anchor_usd_per_kg": 14.688721510000573,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0,
+        "series_at_requested_date": null,
+        "series_at_anchor_date": null,
+        "carried_past_last_observation": false,
+        "temporal_series_status": "missing",
+        "temporal_series_record": "data/raw/v5/material/polyester/sunsirs_dty.json"
+      },
+      {
+        "material": "polyester",
+        "requested_date": "2027-01-06",
+        "usd_per_kg": 14.688721510000573,
+        "price_basis": "fixed_anchor_no_temporal_series",
+        "method": "fixed finished-material anchor: no credible historical series is available, so the sourced price stays fixed (methodology section 5.1)",
+        "arithmetic": "14.688722 USD/kg, the same on every date",
+        "anchor_usd_per_kg": 14.688721510000573,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 1.0,
+        "series_at_requested_date": null,
+        "series_at_anchor_date": null,
+        "carried_past_last_observation": false,
+        "temporal_series_status": "missing",
+        "temporal_series_record": "data/raw/v5/material/polyester/sunsirs_dty.json"
+      }
+    ],
+    "linen": [
+      {
+        "material": "linen",
+        "requested_date": "2026-07-11",
+        "usd_per_kg": 32.30192685720942,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "40.286910 x 6.953145 / 8.671951 = 32.301927 USD/kg",
+        "anchor_usd_per_kg": 40.2869100114127,
+        "anchor_date": "2024-01-01",
+        "series_ratio": 0.801797081187382,
+        "series_at_requested_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2026-07-11",
+          "observation_date": "2026-03-01",
+          "observation_value": 5.89,
+          "observation_unit": "EUR per kg",
+          "days_carried": 132,
+          "after_last_observation": true,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1805,
+            "requested_date": "2026-03-01",
+            "rate_date": "2026-02-27",
+            "days_carried": 2,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "5.89 EUR/kg x EUR_to_USD 1.1805 (rate date 2026-02-27) = 6.953145 USD/kg",
+          "value_usd": 6.953145
+        },
+        "series_at_anchor_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2024-01-01",
+          "observation_date": "2023-11-01",
+          "observation_value": 8.23,
+          "observation_unit": "EUR per kg",
+          "days_carried": 61,
+          "after_last_observation": false,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0537,
+            "requested_date": "2023-11-01",
+            "rate_date": "2023-11-01",
+            "days_carried": 0,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "8.23 EUR/kg x EUR_to_USD 1.0537 (rate date 2023-11-01) = 8.671951 USD/kg",
+          "value_usd": 8.671951000000002
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "linen",
+        "requested_date": "2026-08-15",
+        "usd_per_kg": 32.30192685720942,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "40.286910 x 6.953145 / 8.671951 = 32.301927 USD/kg",
+        "anchor_usd_per_kg": 40.2869100114127,
+        "anchor_date": "2024-01-01",
+        "series_ratio": 0.801797081187382,
+        "series_at_requested_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2026-08-15",
+          "observation_date": "2026-03-01",
+          "observation_value": 5.89,
+          "observation_unit": "EUR per kg",
+          "days_carried": 167,
+          "after_last_observation": true,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1805,
+            "requested_date": "2026-03-01",
+            "rate_date": "2026-02-27",
+            "days_carried": 2,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "5.89 EUR/kg x EUR_to_USD 1.1805 (rate date 2026-02-27) = 6.953145 USD/kg",
+          "value_usd": 6.953145
+        },
+        "series_at_anchor_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2024-01-01",
+          "observation_date": "2023-11-01",
+          "observation_value": 8.23,
+          "observation_unit": "EUR per kg",
+          "days_carried": 61,
+          "after_last_observation": false,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0537,
+            "requested_date": "2023-11-01",
+            "rate_date": "2023-11-01",
+            "days_carried": 0,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "8.23 EUR/kg x EUR_to_USD 1.0537 (rate date 2023-11-01) = 8.671951 USD/kg",
+          "value_usd": 8.671951000000002
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "linen",
+        "requested_date": "2026-09-11",
+        "usd_per_kg": 32.30192685720942,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "40.286910 x 6.953145 / 8.671951 = 32.301927 USD/kg",
+        "anchor_usd_per_kg": 40.2869100114127,
+        "anchor_date": "2024-01-01",
+        "series_ratio": 0.801797081187382,
+        "series_at_requested_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-03-01",
+          "observation_value": 5.89,
+          "observation_unit": "EUR per kg",
+          "days_carried": 194,
+          "after_last_observation": true,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1805,
+            "requested_date": "2026-03-01",
+            "rate_date": "2026-02-27",
+            "days_carried": 2,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "5.89 EUR/kg x EUR_to_USD 1.1805 (rate date 2026-02-27) = 6.953145 USD/kg",
+          "value_usd": 6.953145
+        },
+        "series_at_anchor_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2024-01-01",
+          "observation_date": "2023-11-01",
+          "observation_value": 8.23,
+          "observation_unit": "EUR per kg",
+          "days_carried": 61,
+          "after_last_observation": false,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0537,
+            "requested_date": "2023-11-01",
+            "rate_date": "2023-11-01",
+            "days_carried": 0,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "8.23 EUR/kg x EUR_to_USD 1.0537 (rate date 2023-11-01) = 8.671951 USD/kg",
+          "value_usd": 8.671951000000002
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "linen",
+        "requested_date": "2026-10-15",
+        "usd_per_kg": 32.30192685720942,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "40.286910 x 6.953145 / 8.671951 = 32.301927 USD/kg",
+        "anchor_usd_per_kg": 40.2869100114127,
+        "anchor_date": "2024-01-01",
+        "series_ratio": 0.801797081187382,
+        "series_at_requested_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2026-10-15",
+          "observation_date": "2026-03-01",
+          "observation_value": 5.89,
+          "observation_unit": "EUR per kg",
+          "days_carried": 228,
+          "after_last_observation": true,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1805,
+            "requested_date": "2026-03-01",
+            "rate_date": "2026-02-27",
+            "days_carried": 2,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "5.89 EUR/kg x EUR_to_USD 1.1805 (rate date 2026-02-27) = 6.953145 USD/kg",
+          "value_usd": 6.953145
+        },
+        "series_at_anchor_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2024-01-01",
+          "observation_date": "2023-11-01",
+          "observation_value": 8.23,
+          "observation_unit": "EUR per kg",
+          "days_carried": 61,
+          "after_last_observation": false,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0537,
+            "requested_date": "2023-11-01",
+            "rate_date": "2023-11-01",
+            "days_carried": 0,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "8.23 EUR/kg x EUR_to_USD 1.0537 (rate date 2023-11-01) = 8.671951 USD/kg",
+          "value_usd": 8.671951000000002
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "linen",
+        "requested_date": "2026-11-15",
+        "usd_per_kg": 32.30192685720942,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "40.286910 x 6.953145 / 8.671951 = 32.301927 USD/kg",
+        "anchor_usd_per_kg": 40.2869100114127,
+        "anchor_date": "2024-01-01",
+        "series_ratio": 0.801797081187382,
+        "series_at_requested_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2026-11-15",
+          "observation_date": "2026-03-01",
+          "observation_value": 5.89,
+          "observation_unit": "EUR per kg",
+          "days_carried": 259,
+          "after_last_observation": true,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1805,
+            "requested_date": "2026-03-01",
+            "rate_date": "2026-02-27",
+            "days_carried": 2,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "5.89 EUR/kg x EUR_to_USD 1.1805 (rate date 2026-02-27) = 6.953145 USD/kg",
+          "value_usd": 6.953145
+        },
+        "series_at_anchor_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2024-01-01",
+          "observation_date": "2023-11-01",
+          "observation_value": 8.23,
+          "observation_unit": "EUR per kg",
+          "days_carried": 61,
+          "after_last_observation": false,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0537,
+            "requested_date": "2023-11-01",
+            "rate_date": "2023-11-01",
+            "days_carried": 0,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "8.23 EUR/kg x EUR_to_USD 1.0537 (rate date 2023-11-01) = 8.671951 USD/kg",
+          "value_usd": 8.671951000000002
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "linen",
+        "requested_date": "2026-12-15",
+        "usd_per_kg": 32.30192685720942,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "40.286910 x 6.953145 / 8.671951 = 32.301927 USD/kg",
+        "anchor_usd_per_kg": 40.2869100114127,
+        "anchor_date": "2024-01-01",
+        "series_ratio": 0.801797081187382,
+        "series_at_requested_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2026-12-15",
+          "observation_date": "2026-03-01",
+          "observation_value": 5.89,
+          "observation_unit": "EUR per kg",
+          "days_carried": 289,
+          "after_last_observation": true,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1805,
+            "requested_date": "2026-03-01",
+            "rate_date": "2026-02-27",
+            "days_carried": 2,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "5.89 EUR/kg x EUR_to_USD 1.1805 (rate date 2026-02-27) = 6.953145 USD/kg",
+          "value_usd": 6.953145
+        },
+        "series_at_anchor_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2024-01-01",
+          "observation_date": "2023-11-01",
+          "observation_value": 8.23,
+          "observation_unit": "EUR per kg",
+          "days_carried": 61,
+          "after_last_observation": false,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0537,
+            "requested_date": "2023-11-01",
+            "rate_date": "2023-11-01",
+            "days_carried": 0,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "8.23 EUR/kg x EUR_to_USD 1.0537 (rate date 2023-11-01) = 8.671951 USD/kg",
+          "value_usd": 8.671951000000002
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "linen",
+        "requested_date": "2027-01-06",
+        "usd_per_kg": 32.30192685720942,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "40.286910 x 6.953145 / 8.671951 = 32.301927 USD/kg",
+        "anchor_usd_per_kg": 40.2869100114127,
+        "anchor_date": "2024-01-01",
+        "series_ratio": 0.801797081187382,
+        "series_at_requested_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2027-01-06",
+          "observation_date": "2026-03-01",
+          "observation_value": 5.89,
+          "observation_unit": "EUR per kg",
+          "days_carried": 311,
+          "after_last_observation": true,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1805,
+            "requested_date": "2026-03-01",
+            "rate_date": "2026-02-27",
+            "days_carried": 2,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "5.89 EUR/kg x EUR_to_USD 1.1805 (rate date 2026-02-27) = 6.953145 USD/kg",
+          "value_usd": 6.953145
+        },
+        "series_at_anchor_date": {
+          "series": "Alliance flax observations",
+          "requested_date": "2024-01-01",
+          "observation_date": "2023-11-01",
+          "observation_value": 8.23,
+          "observation_unit": "EUR per kg",
+          "days_carried": 61,
+          "after_last_observation": false,
+          "fx": {
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0537,
+            "requested_date": "2023-11-01",
+            "rate_date": "2023-11-01",
+            "days_carried": 0,
+            "via": "ecb reference rate",
+            "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+            "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+          },
+          "arithmetic": "8.23 EUR/kg x EUR_to_USD 1.0537 (rate date 2023-11-01) = 8.671951 USD/kg",
+          "value_usd": 8.671951000000002
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      }
+    ],
+    "denim": [
+      {
+        "material": "denim",
+        "requested_date": "2026-07-11",
+        "usd_per_kg": 8.54528289003139,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "8.854334 x 167.421000 / 173.476000 = 8.545283 USD/kg",
+        "anchor_usd_per_kg": 8.854334250966637,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 0.9650960363393207,
+        "series_at_requested_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2026-07-11",
+          "observation_date": "2026-04-01",
+          "observation_value": 167.421,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 101,
+          "after_last_observation": true,
+          "arithmetic": "index level 167.421, unitless",
+          "value_usd": 167.421
+        },
+        "series_at_anchor_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 173.476,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "index level 173.476, unitless",
+          "value_usd": 173.476
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "denim",
+        "requested_date": "2026-08-15",
+        "usd_per_kg": 8.54528289003139,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "8.854334 x 167.421000 / 173.476000 = 8.545283 USD/kg",
+        "anchor_usd_per_kg": 8.854334250966637,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 0.9650960363393207,
+        "series_at_requested_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2026-08-15",
+          "observation_date": "2026-04-01",
+          "observation_value": 167.421,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 136,
+          "after_last_observation": true,
+          "arithmetic": "index level 167.421, unitless",
+          "value_usd": 167.421
+        },
+        "series_at_anchor_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 173.476,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "index level 173.476, unitless",
+          "value_usd": 173.476
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "denim",
+        "requested_date": "2026-09-11",
+        "usd_per_kg": 8.54528289003139,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "8.854334 x 167.421000 / 173.476000 = 8.545283 USD/kg",
+        "anchor_usd_per_kg": 8.854334250966637,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 0.9650960363393207,
+        "series_at_requested_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-04-01",
+          "observation_value": 167.421,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 163,
+          "after_last_observation": true,
+          "arithmetic": "index level 167.421, unitless",
+          "value_usd": 167.421
+        },
+        "series_at_anchor_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 173.476,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "index level 173.476, unitless",
+          "value_usd": 173.476
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "denim",
+        "requested_date": "2026-10-15",
+        "usd_per_kg": 8.54528289003139,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "8.854334 x 167.421000 / 173.476000 = 8.545283 USD/kg",
+        "anchor_usd_per_kg": 8.854334250966637,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 0.9650960363393207,
+        "series_at_requested_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2026-10-15",
+          "observation_date": "2026-04-01",
+          "observation_value": 167.421,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 197,
+          "after_last_observation": true,
+          "arithmetic": "index level 167.421, unitless",
+          "value_usd": 167.421
+        },
+        "series_at_anchor_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 173.476,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "index level 173.476, unitless",
+          "value_usd": 173.476
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "denim",
+        "requested_date": "2026-11-15",
+        "usd_per_kg": 8.54528289003139,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "8.854334 x 167.421000 / 173.476000 = 8.545283 USD/kg",
+        "anchor_usd_per_kg": 8.854334250966637,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 0.9650960363393207,
+        "series_at_requested_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2026-11-15",
+          "observation_date": "2026-04-01",
+          "observation_value": 167.421,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 228,
+          "after_last_observation": true,
+          "arithmetic": "index level 167.421, unitless",
+          "value_usd": 167.421
+        },
+        "series_at_anchor_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 173.476,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "index level 173.476, unitless",
+          "value_usd": 173.476
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "denim",
+        "requested_date": "2026-12-15",
+        "usd_per_kg": 8.54528289003139,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "8.854334 x 167.421000 / 173.476000 = 8.545283 USD/kg",
+        "anchor_usd_per_kg": 8.854334250966637,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 0.9650960363393207,
+        "series_at_requested_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2026-12-15",
+          "observation_date": "2026-04-01",
+          "observation_value": 167.421,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 258,
+          "after_last_observation": true,
+          "arithmetic": "index level 167.421, unitless",
+          "value_usd": 167.421
+        },
+        "series_at_anchor_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 173.476,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "index level 173.476, unitless",
+          "value_usd": 173.476
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "denim",
+        "requested_date": "2027-01-06",
+        "usd_per_kg": 8.54528289003139,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "8.854334 x 167.421000 / 173.476000 = 8.545283 USD/kg",
+        "anchor_usd_per_kg": 8.854334250966637,
+        "anchor_date": "2024-11-01",
+        "series_ratio": 0.9650960363393207,
+        "series_at_requested_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2027-01-06",
+          "observation_date": "2026-04-01",
+          "observation_value": 167.421,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 280,
+          "after_last_observation": true,
+          "arithmetic": "index level 167.421, unitless",
+          "value_usd": 167.421
+        },
+        "series_at_anchor_date": {
+          "series": "FRED WPU03420104",
+          "requested_date": "2024-11-01",
+          "observation_date": "2024-11-01",
+          "observation_value": 173.476,
+          "observation_unit": "Index Dec 1994=100",
+          "days_carried": 0,
+          "after_last_observation": false,
+          "arithmetic": "index level 173.476, unitless",
+          "value_usd": 173.476
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      }
+    ],
+    "leather": [
+      {
+        "material": "leather",
+        "requested_date": "2026-07-11",
+        "usd_per_kg": 63.45790931056985,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "63.457909 x 1.249870 / 1.249870 = 63.457909 USD/kg",
+        "anchor_usd_per_kg": 63.45790931056985,
+        "anchor_date": "2026-09-11",
+        "series_ratio": 1.0,
+        "series_at_requested_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-07-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 10,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "leather",
+        "requested_date": "2026-08-15",
+        "usd_per_kg": 63.45790931056985,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "63.457909 x 1.249870 / 1.249870 = 63.457909 USD/kg",
+        "anchor_usd_per_kg": 63.45790931056985,
+        "anchor_date": "2026-09-11",
+        "series_ratio": 1.0,
+        "series_at_requested_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-08-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 45,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "leather",
+        "requested_date": "2026-09-11",
+        "usd_per_kg": 63.45790931056985,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "63.457909 x 1.249870 / 1.249870 = 63.457909 USD/kg",
+        "anchor_usd_per_kg": 63.45790931056985,
+        "anchor_date": "2026-09-11",
+        "series_ratio": 1.0,
+        "series_at_requested_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "leather",
+        "requested_date": "2026-10-15",
+        "usd_per_kg": 63.45790931056985,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "63.457909 x 1.249870 / 1.249870 = 63.457909 USD/kg",
+        "anchor_usd_per_kg": 63.45790931056985,
+        "anchor_date": "2026-09-11",
+        "series_ratio": 1.0,
+        "series_at_requested_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-10-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 106,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "leather",
+        "requested_date": "2026-11-15",
+        "usd_per_kg": 63.45790931056985,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "63.457909 x 1.249870 / 1.249870 = 63.457909 USD/kg",
+        "anchor_usd_per_kg": 63.45790931056985,
+        "anchor_date": "2026-09-11",
+        "series_ratio": 1.0,
+        "series_at_requested_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-11-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 137,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "leather",
+        "requested_date": "2026-12-15",
+        "usd_per_kg": 63.45790931056985,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "63.457909 x 1.249870 / 1.249870 = 63.457909 USD/kg",
+        "anchor_usd_per_kg": 63.45790931056985,
+        "anchor_date": "2026-09-11",
+        "series_ratio": 1.0,
+        "series_at_requested_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-12-15",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 167,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      },
+      {
+        "material": "leather",
+        "requested_date": "2027-01-06",
+        "usd_per_kg": 63.45790931056985,
+        "price_basis": "anchor_times_dated_series",
+        "method": "anchor_usd_per_kg x series_usd(t) / series_usd(anchor)",
+        "arithmetic": "63.457909 x 1.249870 / 1.249870 = 63.457909 USD/kg",
+        "anchor_usd_per_kg": 63.45790931056985,
+        "anchor_date": "2026-09-11",
+        "series_ratio": 1.0,
+        "series_at_requested_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2027-01-06",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 189,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "series_at_anchor_date": {
+          "series": "FRED PHIDEUSDM",
+          "requested_date": "2026-09-11",
+          "observation_date": "2026-07-01",
+          "observation_value": 56.69320116,
+          "observation_unit": "U.S. Cents per Pound",
+          "days_carried": 72,
+          "after_last_observation": true,
+          "arithmetic": "(56.69320116 / 100) x 2.20462 = 1.249870 USD/kg",
+          "value_usd": 1.249869651413592
+        },
+        "carried_past_last_observation": true,
+        "temporal_series_status": "available"
+      }
+    ]
+  },
+  "window_movement": {
+    "cotton": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices_across_window": 1,
+      "series_observations_used": [
+        "2026-07-01"
+      ],
+      "all_carried_past_last_observation": true
+    },
+    "polyester": {
+      "price_basis": "fixed_anchor_no_temporal_series",
+      "distinct_prices_across_window": 1,
+      "series_observations_used": [],
+      "all_carried_past_last_observation": null
+    },
+    "linen": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices_across_window": 1,
+      "series_observations_used": [
+        "2026-03-01"
+      ],
+      "all_carried_past_last_observation": true
+    },
+    "denim": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices_across_window": 1,
+      "series_observations_used": [
+        "2026-04-01"
+      ],
+      "all_carried_past_last_observation": true
+    },
+    "leather": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices_across_window": 1,
+      "series_observations_used": [
+        "2026-07-01"
+      ],
+      "all_carried_past_last_observation": true
+    }
+  }
+}

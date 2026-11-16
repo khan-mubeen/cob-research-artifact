@@ -1,0 +1,17 @@
+tests.test_auction_rounds            phase1 ('ok', 11)  phase2 ('ok', 11)  same
+tests.test_deadline_anchor           phase1 ('ok', 11)  phase2 ('ok', 11)  same
+tests.test_v4_golden                 phase1 ('ok', 9)  phase2 ('ok', 9)  same
+tests.test_dataset_context           phase1 ('ok', 19)  phase2 ('ok', 19)  same
+tests.test_dataset_schemas           phase1 ('ok', 18)  phase2 ('ok', 18)  same
+tests.test_source_manifest           phase1 ('ok', 30)  phase2 ('ok', 30)  same
+tests.test_history_lookup            phase1 ('ok', 27)  phase2 ('ok', 27)  same
+tests.test_fx                        phase1 ('ok', 30)  phase2 ('ok', 30)  same
+tests.test_logistics_sources         phase1 ('ok', 19)  phase2 ('ok', 19)  same
+tests.test_logistics_calibration     phase1 ('ok', 16)  phase2 ('ok', 16)  same
+tests.test_material_pricing          phase1 ('ok', 17)  phase2 ('ok', 17)  same
+tests.test_route_distance            phase1 ('ok', 10)  phase2 ('ok', 10)  same
+tests.test_v5_synthesis              phase1 ('ok', 29)  phase2 ('ok', 29)  same
+tests.test_freight_assignment        phase1 ('ok', 12)  phase2 ('ok', 12)  same
+tests.test_calibration_proposal_v3   phase1 ('ok', 14)  phase2 ('ok', 14)  same
+TOTAL                                phase1 (272, 0)  phase2 (272, 0)  same
+identical: True

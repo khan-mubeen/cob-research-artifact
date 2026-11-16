@@ -1,0 +1,69 @@
+proposal awaiting one more review before it is made final and regenerated for real. production data/synthetic/v5/ and data/processed/v5/logistics/agent_calibration.csv are untouched by it
+
+lowest-cost logistics win share, %
+  agent   production                  proposal    alternative_heavy_span
+  L01            8.7                       0.5                       0.5
+  L02           12.1                      38.0                      36.9
+  L03            2.0                       2.1                       2.0
+  L04           45.4                       0.5                       0.5
+  L05            9.5                       1.8                       2.8
+  L06            0.0                       0.0                       0.0
+  L07            3.7                       3.9                       3.8
+  L08            7.3                       3.4                       5.2
+  L09           10.9                      48.7                      47.3
+  L10            0.4                       0.4                       0.4
+  L11            0.0                       0.7                       0.7
+  L12            0.0                       0.0                       0.0
+
+  feasible orders                        44617                     42308                     43567
+  feasibility %                           89.2                      84.6                      87.1
+  high_quality feasibility %              68.6                      61.4                      61.8
+  orders with no logistics bidder          309                      3661                      1541
+  weight domain violations                   0                         0                         0
+  zero-win logistics agents            L06,L12                   L06,L12                   L06,L12
+  largest logistics share             L04 45.4                  L09 48.7                  L09 47.3
+
+lowest-cost logistics wins by agent and weight band: production
+  agent domain kg               under 25 kg         25-35 kg        35-500 kg      500-1000 kg     1000-1500 kg     1500-2000 kg     2000-2500 kg 2500 kg and over
+  L01   any weight                        0              191             3603               72               15                6                0                0
+  L02   any weight                        0                0             4339              414              404              231                0                0
+  L03   [0, 25]                         889                0                0                0                0                0                0                0
+  L04   any weight                        0                0            19115             1123               14                0                0                0
+  L05   any weight                        0                0              761             2286              748              453                1                0
+  L06   [0, 25]                           0                0                0                0                0                0                0                0
+  L07   [0, 35]                         671              995                2                0                0                0                0                0
+  L08   any weight                        0                0              168             1021             1270              780                0                0
+  L09   any weight                        3               27             1288             3244              247               42                0                0
+  L10   [0, 35]                           0              176                0                0                0                0                0                0
+  L11   any weight                        0                0                0                0               10                8                0                0
+  L12   [0, 35]                           0                0                0                0                0                0                0                0
+
+lowest-cost logistics wins by agent and weight band: proposal
+  agent domain kg               under 25 kg         25-35 kg        35-500 kg      500-1000 kg     1000-1500 kg     1500-2000 kg     2000-2500 kg 2500 kg and over
+  L01   [0, 1000)                         0                0              125               75                0                0                0                0
+  L02   [0, 1000)                         0                0            12463             3617                0                0                0                0
+  L03   [0, 25]                         886                0                0                0                0                0                0                0
+  L04   [0, 1000)                         0                0              118               90                0                0                0                0
+  L05   [1000, 1500)                      0                0                0                0              756                0                0                0
+  L06   [0, 25]                           0                0                0                0                0                0                0                0
+  L07   [0, 35]                         667              989                2                0                0                0                0                0
+  L08   [1000, 1500)                      0                0                0                0             1454                0                0                0
+  L09   [0, 1000)                         3              217            16081             4292                0                0                0                0
+  L10   [0, 35]                           0              175                0                0                0                0                0                0
+  L11   [35, 500]                         0                0              291                7                0                0                0                0
+  L12   [0, 35]                           0                0                0                0                0                0                0                0
+
+lowest-cost logistics wins by agent and weight band: alternative_heavy_span
+  agent domain kg               under 25 kg         25-35 kg        35-500 kg      500-1000 kg     1000-1500 kg     1500-2000 kg     2000-2500 kg 2500 kg and over
+  L01   [0, 1000)                         0                0              125               75                0                0                0                0
+  L02   [0, 1000)                         0                0            12463             3617                0                0                0                0
+  L03   [0, 25]                         886                0                0                0                0                0                0                0
+  L04   [0, 1000)                         0                0              118               90                0                0                0                0
+  L05   [1000, 3000)                      0                0                0                0              756              455                1                0
+  L06   [0, 25]                           0                0                0                0                0                0                0                0
+  L07   [0, 35]                         667              989                2                0                0                0                0                0
+  L08   [1000, 3000)                      0                0                0                0             1454              803                0                0
+  L09   [0, 1000)                         3              217            16081             4292                0                0                0                0
+  L10   [0, 35]                           0              175                0                0                0                0                0                0
+  L11   [35, 500]                         0                0              291                7                0                0                0                0
+  L12   [0, 35]                           0                0                0                0                0                0                0                0

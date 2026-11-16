@@ -1,0 +1,17 @@
+{
+  "differences": [
+    "files/sources/src/experiments/eval_finetune.py: 5e7f0bccb5a67ce7c77cf41e2dba685ba76c2535736f1b40c605574a16a6a143 != 00d704d9fd038acd47f79f97f6399a5769abc370fde3936ddcfdc8bbad77dc45",
+    "files/sources/src/experiments/eval_reverse_auction.py: da4f312e113f91eaf050b61f663a0f21f649fb9dbc6c97c235339e5a3261799b != 2c19442fbb12917cd6c663414ab56a0654a6a6722a5c23d2efe1ec71dd738c84"
+  ],
+  "allowed_to_change": [
+    "src/experiments/eval_finetune.py",
+    "src/experiments/eval_reverse_auction.py"
+  ],
+  "unexpected_differences": [],
+  "help_lines_removed_or_changed": {
+    "src/experiments/compare_epochs.py": [],
+    "src/experiments/eval_finetune.py": [],
+    "src/experiments/finetune_lora.py": []
+  },
+  "identical_apart_from_allowed": true
+}

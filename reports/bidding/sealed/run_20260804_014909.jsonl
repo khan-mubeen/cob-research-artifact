@@ -1,0 +1,1 @@
+{"order_id": "ORD-00001", "mode": "sealed", "priority": "urgent", "budget": 6047.88, "outcome": {"order_id": "ORD-00001", "status": "completed", "chain": {"material": "M10", "tailoring": "T6", "logistics": "L06"}, "total_cost": 5589.64}, "stage_traces": [], "elapsed_seconds": 30.04, "recorded_at": "unknown"}

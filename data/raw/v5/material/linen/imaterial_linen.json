@@ -1,0 +1,106 @@
+{
+  "source": "iMaterial, January 2024 Fabric Pricelist",
+  "source_url": "https://www.imaterial.co.za/Portals/81/Price-Lists/Fabric-pricelist-Jan-2024.pdf",
+  "page_or_section": "linen and cotton sections of the January 2024 pricelist",
+  "role": "finished-fabric price level for linen",
+  "observation_kind": "catalog list prices, one pricelist edition, not a series",
+  "catalog_edition": "January 2024",
+  "currency": "ZAR",
+  "unit": "ZAR per metre",
+  "conversion_formula": "USD/kg = (price_per_metre_ZAR x ZAR_to_USD(date)) / (width_m x GSM / 1000)",
+  "observations": [
+    {
+      "sku": "IMA10",
+      "composition": "100% Linen",
+      "gsm": 310,
+      "width_cm": 148,
+      "value": 265.0,
+      "unit": "ZAR/m",
+      "use": "linen"
+    },
+    {
+      "sku": "IMA23",
+      "composition": "100% Linen",
+      "gsm": 300,
+      "width_cm": 145,
+      "value": 320.0,
+      "unit": "ZAR/m",
+      "use": "linen"
+    },
+    {
+      "sku": "IMA34",
+      "composition": "100% Linen",
+      "gsm": 160,
+      "width_cm": 130,
+      "value": 170.0,
+      "unit": "ZAR/m",
+      "use": "linen"
+    },
+    {
+      "sku": "IMA9",
+      "composition": "100% Linen",
+      "gsm": 245,
+      "width_cm": 148,
+      "value": 303.45,
+      "unit": "ZAR/m",
+      "use": "linen"
+    },
+    {
+      "sku": "IMA5",
+      "description": "Poplin",
+      "composition": "100% Cotton",
+      "gsm": 119,
+      "width_cm": 147,
+      "value": 90.45,
+      "unit": "ZAR/m",
+      "use": "cotton comparator, documentation-only ratio"
+    },
+    {
+      "sku": "IMA8",
+      "description": "Twill",
+      "composition": "100% Cotton",
+      "gsm": 220,
+      "width_cm": 150,
+      "value": 72.0,
+      "unit": "ZAR/m",
+      "use": "cotton comparator, documentation-only ratio"
+    },
+    {
+      "sku": "IMA20",
+      "description": "Canvas",
+      "composition": "100% Cotton",
+      "gsm": 230,
+      "width_cm": 150,
+      "value": 85.0,
+      "unit": "ZAR/m",
+      "use": "cotton comparator, documentation-only ratio"
+    },
+    {
+      "sku": "IMA24",
+      "description": "2/1 Fine Twill",
+      "composition": "100% Cotton",
+      "gsm": 145,
+      "width_cm": 150,
+      "value": 90.0,
+      "unit": "ZAR/m",
+      "use": "cotton comparator, documentation-only ratio"
+    },
+    {
+      "sku": "IMA27",
+      "description": "Calico",
+      "composition": "100% Cotton",
+      "gsm": 125,
+      "width_cm": 135,
+      "value": 58.45,
+      "unit": "ZAR/m",
+      "use": "cotton comparator, documentation-only ratio"
+    }
+  ],
+  "comparator_note": "the cotton SKUs are kept only for the documentation-only linen:cotton ratio and are not used to generate v5 cotton prices",
+  "verification_note": "ZAR-denominated; convert using the FX layer built in Part 6, not a hardcoded rate; conversion formula is USD/kg = (price_per_metre_ZAR x ZAR_to_USD(date)) / (width_m x GSM / 1000)",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-11",
+  "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+}

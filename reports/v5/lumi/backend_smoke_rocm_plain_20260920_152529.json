@@ -1,0 +1,119 @@
+{
+  "started_at": "2026-09-20T15:24:22",
+  "arguments": {
+    "probe_only": false,
+    "path": "plain",
+    "mode": "sealed",
+    "steps": 10,
+    "batch_size": 1,
+    "grad_accum": 2,
+    "optim": "adamw_8bit",
+    "base_model": "",
+    "revision": ""
+  },
+  "probe": {
+    "ok": true,
+    "result": {
+      "python": "3.12.11",
+      "platform": "Linux-6.4.0-150600.23.73_15.0.14-cray_shasta_c-x86_64-with-glibc2.31",
+      "torch": "2.7.1+rocm6.2.4",
+      "torch_cuda": null,
+      "torch_hip": "6.2.41134-65d174c3e",
+      "backend": "rocm",
+      "accelerator_available": true,
+      "environment": {
+        "HSA_OVERRIDE_GFX_VERSION": null,
+        "ROCR_VISIBLE_DEVICES": "0",
+        "HIP_VISIBLE_DEVICES": null,
+        "CUDA_VISIBLE_DEVICES": null,
+        "PYTORCH_ROCM_ARCH": "gfx90a",
+        "PYTORCH_CUDA_ALLOC_CONF": null
+      },
+      "device_count": 1,
+      "device_name": "AMD Instinct MI250X",
+      "architecture": "gfx90a:sramecc+:xnack-",
+      "capability": [
+        9,
+        0
+      ],
+      "memory_gib": 63.98,
+      "bf16_supported": true,
+      "packages": {
+        "torch": "2.7.1+rocm6.2.4",
+        "unsloth": "import failed: ModuleNotFoundError: No module named 'unsloth'",
+        "unsloth_zoo": "import failed: ModuleNotFoundError: No module named 'unsloth_zoo'",
+        "bitsandbytes": "0.43.3.dev",
+        "xformers": "0.0.32+09d42ac5.d20250822",
+        "flash_attn": "2.7.3",
+        "triton": "3.3.0",
+        "cut_cross_entropy": "import failed: ModuleNotFoundError: No module named 'cut_cross_entropy'",
+        "peft": "0.17.1",
+        "trl": "import failed: ModuleNotFoundError: No module named 'trl'",
+        "transformers": "4.55.3",
+        "accelerate": "0.34.2",
+        "datasets": "4.0.0"
+      }
+    },
+    "seconds": 14.7
+  },
+  "kernels": {
+    "ok": true,
+    "result": {
+      "bf16_matmul": {
+        "ok": true,
+        "result": 12.654873847961426,
+        "seconds": 8.85
+      },
+      "sdpa_attention": {
+        "ok": true,
+        "result": [
+          1,
+          8,
+          128,
+          64
+        ],
+        "seconds": 0.04
+      },
+      "triton_kernel": {
+        "ok": false,
+        "error": "CompilationError: at 1:41:\ndef add(x_ptr, y_ptr, out_ptr, n, block: tl.constexpr):\n                                         ^\nNameError('tl is not defined')",
+        "trace_tail": [
+          "    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,",
+          "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+          "triton.compiler.errors.CompilationError: at 1:41:",
+          "def add(x_ptr, y_ptr, out_ptr, n, block: tl.constexpr):",
+          "                                         ^",
+          "NameError('tl is not defined')"
+        ]
+      },
+      "xformers_attention": {
+        "ok": true,
+        "result": [
+          1,
+          128,
+          8,
+          64
+        ],
+        "seconds": 0.23
+      },
+      "bitsandbytes_adamw8bit_step": {
+        "ok": true,
+        "result": 0.7971410751342773,
+        "seconds": 0.01
+      }
+    },
+    "seconds": 12.02
+  },
+  "plain": {
+    "ok": false,
+    "error": "RuntimeError: Data processing error: CAS service error : IO Error: Disk quota exceeded (os error 122)",
+    "trace_tail": [
+      "    _download_to_tmp_and_move(",
+      "  File \"/opt/miniconda3/envs/pytorch/lib/python3.12/site-packages/huggingface_hub/file_download.py\", line 1723, in _download_to_tmp_and_move",
+      "    xet_get(",
+      "  File \"/opt/miniconda3/envs/pytorch/lib/python3.12/site-packages/huggingface_hub/file_download.py\", line 629, in xet_get",
+      "    download_files(",
+      "RuntimeError: Data processing error: CAS service error : IO Error: Disk quota exceeded (os error 122)"
+    ]
+  }
+}

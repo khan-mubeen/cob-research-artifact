@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-27T02:30:38",
+  "base_model": "ibm-granite/granite-4.1-3b",
+  "base_revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+  "adapter": "models\\epoch-2\\production\\granite-4.1-3b-bidding-lora-v2\\final",
+  "out": "models\\epoch-2\\deployment\\granite-sealed\\merged",
+  "loaded_architecture": "GraniteForCausalLM",
+  "probe_weight_max_abs_delta": {
+    "model.layers.0.self_attn.q_proj.weight": 0.00122833251953125,
+    "model.layers.0.self_attn.o_proj.weight": 0.00030517578125,
+    "model.layers.0.mlp.down_proj.weight": 0.00030517578125
+  },
+  "merged_safetensors_gib": 6.338,
+  "merged_safetensors_sha256": "1da83381e36ff6f33542f5cf8c3d38a669da47251c0fea83602d86cfcc30bc95"
+}

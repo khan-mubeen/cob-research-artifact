@@ -1,0 +1,16 @@
+reran sealed: 10 files
+reran reverse_auction: 10 files
+reran supervisor: 4 files
+reran edge: 4 files
+reran reverse_auction/floor_boundary: 10 files
+{
+  "files_compared": 38,
+  "files_differing": [],
+  "split_recomputed_identical": true,
+  "passed": true
+}
+
+real	6m2.892s
+user	0m0.015s
+sys	0m0.015s
+exit 0

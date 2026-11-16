@@ -1,0 +1,170 @@
+{
+  "row_files": {
+    "edge/logistics_edge.jsonl": {
+      "sha256": "61f5980ad7a69907d69c5d7a24994ac0e889c307f8f3c059a57c906829d0da78",
+      "bytes": 78645
+    },
+    "edge/material_edge.jsonl": {
+      "sha256": "928049db7ff83e6957be46d42109cf491896509c7ca87b23c7f4fa6187cb4a62",
+      "bytes": 314819
+    },
+    "edge/tailoring_edge.jsonl": {
+      "sha256": "f38e2ddcd119ab19834ae16cd199cd8077b1e22d2ceb1020f1a11ce19d34d17f",
+      "bytes": 187257
+    },
+    "logistics_test.jsonl": {
+      "sha256": "95f5af9ffd371062b902ea335c41a0d4ebc4cfad438688995de70a19c5c6516e",
+      "bytes": 67189871
+    },
+    "logistics_train.jsonl": {
+      "sha256": "ba8f0a23ac589a82e592d4e1d4d300c45f84206fdd7131cb672f5f69c7ab260c",
+      "bytes": 537192774
+    },
+    "logistics_validation.jsonl": {
+      "sha256": "f169fe05d760f5d766bdd25804193b6a809824cd36dff4cda3acdfb29f363780",
+      "bytes": 67479348
+    },
+    "material_test.jsonl": {
+      "sha256": "91fea9226851f51a2b84d86c3bf9e8683e47af90530c87bedfdb37fb115296d2",
+      "bytes": 59127790
+    },
+    "material_train.jsonl": {
+      "sha256": "7837aadcaf2a928abe7991acff08d8a058993d421bbe6ea2ff8b48ef69750fe7",
+      "bytes": 473764151
+    },
+    "material_validation.jsonl": {
+      "sha256": "fc177f0096e3647970946513eab4c8d1181ffba27ef685305fc5395e0ac42175",
+      "bytes": 59162183
+    },
+    "reverse_auction/floor_boundary/logistics_above_floor.jsonl": {
+      "sha256": "9b2c0a88107e1302f4eeb517f1ff6377c7139d5b776cb4f853d2fad4ccb3a224",
+      "bytes": 479839
+    },
+    "reverse_auction/floor_boundary/logistics_at_floor.jsonl": {
+      "sha256": "991728cd1eaffcc06d5492b72b865586537d52fdb32b482a7b157a57cf7c3948",
+      "bytes": 479033
+    },
+    "reverse_auction/floor_boundary/logistics_below_floor.jsonl": {
+      "sha256": "04bedf9c698d29fb3e8f65166424bc254b6c646e6cb4ca30304de7f5c84349df",
+      "bytes": 480786
+    },
+    "reverse_auction/floor_boundary/material_above_floor.jsonl": {
+      "sha256": "8813aa7e0b07b54e73176eb63edd750046650fc9446b1ccc2088ff242f30823e",
+      "bytes": 442282
+    },
+    "reverse_auction/floor_boundary/material_at_floor.jsonl": {
+      "sha256": "04c96e09765c5bd7030873e0367a625a5995d6b575a317f031e2fde1a3269fb6",
+      "bytes": 441488
+    },
+    "reverse_auction/floor_boundary/material_below_floor.jsonl": {
+      "sha256": "79a59d162132ec2dc39c26964849f6af8ff1c005423e0fd9a3f088c3489b9185",
+      "bytes": 443091
+    },
+    "reverse_auction/floor_boundary/tailoring_above_floor.jsonl": {
+      "sha256": "99c70352350877afee5340a2e139383fa7585b24f3101ff7d88a6cdb6151d61b",
+      "bytes": 476831
+    },
+    "reverse_auction/floor_boundary/tailoring_at_floor.jsonl": {
+      "sha256": "57193c6df327503f20fb7f9e3c29148084e34ae78bab1725b1cb28845a095900",
+      "bytes": 476039
+    },
+    "reverse_auction/floor_boundary/tailoring_below_floor.jsonl": {
+      "sha256": "2eccf15588ed93dd49e5e17589506b20843e0e769488b7d9c5712229fc4787f5",
+      "bytes": 477250
+    },
+    "reverse_auction/logistics_test.jsonl": {
+      "sha256": "145e650cc76556bfe9711a108f39e1685014e5a03ea9f66fcd5609c54a9950d4",
+      "bytes": 86082162
+    },
+    "reverse_auction/logistics_train.jsonl": {
+      "sha256": "52c830cf6222c91eaee3fd6aa96e9f2bf3e15147cb41649d49e4c30c058de392",
+      "bytes": 684644773
+    },
+    "reverse_auction/logistics_validation.jsonl": {
+      "sha256": "2f1b99332310bccfee2040a50d3d09555153a9c5953d5642b9daff2f9068d62e",
+      "bytes": 86155392
+    },
+    "reverse_auction/material_test.jsonl": {
+      "sha256": "bf94af2481607ccb1df8ae23e75858e24089ebba5730c9a6bb90e124d3cb0f15",
+      "bytes": 76967011
+    },
+    "reverse_auction/material_train.jsonl": {
+      "sha256": "2f2079aa0697189909382dbf232a591c3b68a518e83ee134865d9d29db0abe10",
+      "bytes": 613833264
+    },
+    "reverse_auction/material_validation.jsonl": {
+      "sha256": "5555f7c586ae905a0b3b7aba668f9244621776ce12f5b50a16c43fd38f9ce9c1",
+      "bytes": 76760290
+    },
+    "reverse_auction/tailoring_test.jsonl": {
+      "sha256": "bca5739c92e83c5808a4eb738ffb75550147bda9503c49c3d241e52cd4ae042a",
+      "bytes": 94775836
+    },
+    "reverse_auction/tailoring_train.jsonl": {
+      "sha256": "48554bafffbf84c09d819f0af86e3c459026379f30265568fd1bf169bc18d229",
+      "bytes": 757814520
+    },
+    "reverse_auction/tailoring_validation.jsonl": {
+      "sha256": "2ca4e0babe088a73943ea9404b40685ab08c1455a7c39eb92407e5567f5cd233",
+      "bytes": 95081029
+    },
+    "split/order_split.csv": {
+      "sha256": "c068ed116da214a822df4e30b72c313cda309de48c76a3dd154396f292fcdd5f",
+      "bytes": 1983000
+    },
+    "supervisor/selection_test.jsonl": {
+      "sha256": "7d8649084acdeeaf66087df1a0b37f10bcea3ad293865cb01c7adf08f2828795",
+      "bytes": 19474162
+    },
+    "supervisor/selection_train.jsonl": {
+      "sha256": "5c9ef14dd783c96bccd40dbb5b27d45177541ba5bcf8b8cbb7eee027e132c3b6",
+      "bytes": 156108784
+    },
+    "supervisor/selection_validation.jsonl": {
+      "sha256": "80f9b2b400e5ddb30546eb04653d6d7fac810b24db1822b42f1e11121ceb18c9",
+      "bytes": 19610922
+    },
+    "tailoring_test.jsonl": {
+      "sha256": "2565074c14b519c42fee905b041dd8d6802f1a0bf738e231d009c07f544f351f",
+      "bytes": 74788702
+    },
+    "tailoring_train.jsonl": {
+      "sha256": "a7e9f170b2a6fc1971f851732a2aab073748c7cea8e478d91da20ab9e6ce0c77",
+      "bytes": 600759281
+    },
+    "tailoring_validation.jsonl": {
+      "sha256": "68b50f30490bb94be04020e99bcdb49b67c8dd6122a5ffa601ea3b6b364d61df",
+      "bytes": 75281733
+    }
+  },
+  "metadata_files": {
+    "edge/metadata.json": {
+      "sha256": "1fc8fda0fa157e64e6b98a0196754f8c38ac83f345874e1b0eda7f56656afcf3",
+      "bytes": 2558
+    },
+    "manifest.json": {
+      "sha256": "cbf21f69acf1ffce8df72ec7aab1cb19498cbde5dbd046835995b6f8439bda1d",
+      "bytes": 9879
+    },
+    "metadata.json": {
+      "sha256": "159ae05a56b926e434ff4b7b4fd346be63e1e708c552e612803c9eb513deae45",
+      "bytes": 2919
+    },
+    "reverse_auction/floor_boundary/metadata.json": {
+      "sha256": "d9134f42ae6155e68ee3b4b2cc69fda68341c7956f0201c1cd26a28528a2c8e3",
+      "bytes": 1548
+    },
+    "reverse_auction/metadata.json": {
+      "sha256": "7f20e42ad1df1641458c0aab834eabc942d568933bde49413a41b2d21f337cca",
+      "bytes": 5360
+    },
+    "split/metadata.json": {
+      "sha256": "4b168f17830527baf55cd087fdaeae82915b2f42a891cb519e6c45ad0726a5a9",
+      "bytes": 15831
+    },
+    "supervisor/metadata.json": {
+      "sha256": "72596ea1696e6cbbf3fa383e16b557167e267ee946b4dcb797f94692cb234d24",
+      "bytes": 2448
+    }
+  }
+}

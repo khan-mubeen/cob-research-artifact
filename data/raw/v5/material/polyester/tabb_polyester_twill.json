@@ -1,0 +1,26 @@
+{
+  "source": "Tabb Textile Company, 2024 Product Catalog",
+  "source_url": "https://www.tabbtextileinc.com/wp-content/uploads/2024/11/Tabb-Textile-Fabric-Catalog-Final-Version-1.pdf",
+  "page_or_section": "twill section of the fabric catalog",
+  "role": "finished-fabric price level for polyester",
+  "observation_kind": "catalog list price, one catalog edition, not a series",
+  "catalog_edition": "2024",
+  "currency": "USD",
+  "unit": "USD per yard",
+  "observations": [
+    {
+      "sku": "TWPWD",
+      "description": "Domestic 6.7oz Twill 100% Texturized Polyester White",
+      "composition": "100% Texturized Polyester",
+      "width_inches": 60,
+      "value": 4.65,
+      "unit": "USD/yard"
+    }
+  ],
+  "verification_note": "printed as '100% Texturized Polyester', not a blend",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-11",
+  "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+}

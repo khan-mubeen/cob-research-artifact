@@ -1,0 +1,886 @@
+{
+  "purpose": "the per-agent F_i, alpha_i, beta_i, weight limit and fuel series behind agent_calibration.csv, with the rule and evidence for every value",
+  "status": "every F_i and alpha_i is one whole reading from the calibration evidence. the fuel percentage is not stored: every agent resolves it from one shared series at each order's own date",
+  "inputs": {
+    "data/processed/v5/logistics/rate_calibration_range.json": "dcd523e5e862da87147e33d56cc161bd4339570bde1f31553931a6631ac97ee2",
+    "data/raw/v5/logistics/rate_calibration/posti_parcel.json": "840fa1b0fb8cf41ff48f00e87489d9aa29d2b27e113053d5ccbd50a66b0e8469",
+    "data/synthetic/v4/logistics_agents.csv": "56b6145189e746007184bcf983b16bc7e39b6e2988f8f4f10969cd764a7444cf"
+  },
+  "rules": {
+    "corner": {
+      "freight_words": [
+        "medium",
+        "large",
+        "bulk"
+      ],
+      "parcel_words": [
+        "small",
+        "light",
+        "low-load"
+      ],
+      "default": "freight"
+    },
+    "reading": "see reading_for in src/data_synthesis/v5/agent_calibration.py",
+    "weight_limit": "a parcel-corner agent is capped at the weight its own calibration service documents in the pinned Posti record; freight has no cap",
+    "fuel": "one shared series for every agent"
+  },
+  "shared_fuel_series": {
+    "shared_series": "matkahuolto_lavarahti",
+    "basis": "one common temporal fuel-cost signal for every agent. Matkahuolto Lavarahti has the best coverage of the v5 window among the usable pinned series: 22 dated observations inside the window and no day carried past its last observation. absolute surcharge levels published by different carriers sit on different bases and are not comparable, so agents do not differ by fuel series in v5",
+    "observations_in_window": 21,
+    "distinct_percentages_across_window_days": 22,
+    "window_days_after_last_observation": 0,
+    "has_the_most_distinct_percentages_of_the_usable_series": true,
+    "has_no_day_after_its_last_observation": true,
+    "usable_series_compared": {
+      "postnord_parcels": {
+        "observations_in_window": 4,
+        "distinct_percentages_across_window_days": 5,
+        "window_days_after_last_observation": 70
+      },
+      "pakettipiste_domestic": {
+        "observations_in_window": 6,
+        "distinct_percentages_across_window_days": 7,
+        "window_days_after_last_observation": 0
+      },
+      "matkahuolto_parcel_and_transport": {
+        "observations_in_window": 9,
+        "distinct_percentages_across_window_days": 10,
+        "window_days_after_last_observation": 0
+      },
+      "postnord_pallets_and_groupage": {
+        "observations_in_window": 4,
+        "distinct_percentages_across_window_days": 5,
+        "window_days_after_last_observation": 70
+      },
+      "matkahuolto_lavarahti": {
+        "observations_in_window": 21,
+        "distinct_percentages_across_window_days": 22,
+        "window_days_after_last_observation": 0
+      }
+    },
+    "unusable_series": {
+      "posti_parcel": "no observation on or before the window start 2025-10-15: posti_parcel: no observation on or before 2025-10-15, the series starts at 2026-09-02. there is no policy for pricing a date the source does not cover",
+      "posti_freight": "no observation on or before the window start 2025-10-15: posti_freight: no observation on or before 2025-10-15, the series starts at 2026-09-02. there is no policy for pricing a date the source does not cover",
+      "matkahuolto_rahti": "no observation on or before the window start 2025-10-15: matkahuolto_rahti: no observation on or before 2025-10-15, the series starts at 2026-01-01. there is no policy for pricing a date the source does not cover"
+    }
+  },
+  "fuel_mapping_change": "this replaces the earlier per-agent carrier-series mapping. that mapping made the carriers' incomparable percentage bases decide which agents won, an artifact of the evidence rather than a real difference between agents; agent-specific fuel variation is not undesirable in principle",
+  "parcel_weight_limits": {
+    "posti_postal_parcel": {
+      "max_shipment_weight_kg": 25.0,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "rule": "Postal Parcel carries up to 25 kg; the Oversized additional service does not raise its weight limit (25 kg), so it is capped at 25 kg",
+      "source_wording": {
+        "base": "maximum weight 25 kg",
+        "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+        "oversized_fee": "€ 3.50",
+        "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+        "page": "weight limits page 6"
+      }
+    },
+    "posti_home_parcel": {
+      "max_shipment_weight_kg": 35.0,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "rule": "Home Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg",
+      "source_wording": {
+        "base": "maximum weight 25 kg",
+        "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+        "oversized_fee": "€ 3.50",
+        "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+        "page": "weight limits page 6"
+      }
+    },
+    "posti_express_parcel": {
+      "max_shipment_weight_kg": 35.0,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "rule": "Express Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg",
+      "source_wording": {
+        "base": "maximum weight 25 kg",
+        "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+        "oversized_fee": "€ 3.50",
+        "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+        "page": "weight limits page 6"
+      }
+    }
+  },
+  "beta": {
+    "value_eur_per_tonne_km": 0.07163,
+    "basis": "used as directly specified by the project supervisor, identical for every agent because no documented reason to vary it exists. its derivation remains a candidate, not confirmed, exactly as data/processed/v5/logistics/beta_candidate_derivation.json records"
+  },
+  "readings_available": {
+    "posti_postal_parcel": {
+      "reading_id": "posti_postal_parcel",
+      "corner": "parcel",
+      "evidence_carrier": "Posti",
+      "service": "Postal Parcel, digital contract prices",
+      "fixed_charge_eur": 5.9,
+      "alpha_eur_per_kg": 0.3,
+      "arithmetic": "F = 5.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+      "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[0]",
+      "valid_weight_domain_kg": [
+        1,
+        25
+      ],
+      "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+    },
+    "posti_express_parcel": {
+      "reading_id": "posti_express_parcel",
+      "corner": "parcel",
+      "evidence_carrier": "Posti",
+      "service": "Express Parcel, digital contract prices",
+      "fixed_charge_eur": 8.9,
+      "alpha_eur_per_kg": 0.3,
+      "arithmetic": "F = 8.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+      "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[1]",
+      "valid_weight_domain_kg": [
+        1,
+        25
+      ],
+      "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+    },
+    "posti_home_parcel": {
+      "reading_id": "posti_home_parcel",
+      "corner": "parcel",
+      "evidence_carrier": "Posti",
+      "service": "Home Parcel, digital contract prices",
+      "fixed_charge_eur": 10.9,
+      "alpha_eur_per_kg": 0.3,
+      "arithmetic": "F = 10.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+      "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[2]",
+      "valid_weight_domain_kg": [
+        1,
+        25
+      ],
+      "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+    },
+    "posti_express_freight_zone0_loose_to_half_pallet_with_pickup": {
+      "reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+      "corner": "freight",
+      "evidence_carrier": "Posti",
+      "service": "Express Freight 14, zone 0, door to door",
+      "fixed_charge_eur": 78.65,
+      "alpha_eur_per_kg": 0.048,
+      "arithmetic": "alpha = (62.3200 - 40.0000) / (500.0000 - 35.0000) = 0.0480 EUR/kg; F = 40.0000 - 0.0480 x 35.0000 = 38.3200 EUR; with the separate pickup the route needs at the manufacturer: F = 38.3200 + 40.33 = 78.6500 EUR",
+      "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.posti_express_freight.by_zone[0].secant_loose_package_to_half_pallet and pickup_normalization.separate_pickup_one_unit_eur",
+      "valid_weight_domain_kg": [
+        35,
+        500
+      ],
+      "pickup": "included: Posti's separate pickup of one transport unit, 40.33 EUR"
+    },
+    "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup": {
+      "reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+      "corner": "freight",
+      "evidence_carrier": "Posti",
+      "service": "Express Freight 14, zone 0, door to door",
+      "fixed_charge_eur": 75.38,
+      "alpha_eur_per_kg": 0.054540000000000005,
+      "arithmetic": "alpha = (89.5900 - 62.3200) / (1000.0000 - 500.0000) = 0.0545 EUR/kg; F = 62.3200 - 0.0545 x 500.0000 = 35.0500 EUR; with the separate pickup the route needs at the manufacturer: F = 35.0500 + 40.33 = 75.3800 EUR",
+      "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.posti_express_freight.by_zone[0].secant_half_pallet_to_pallet and pickup_normalization.separate_pickup_one_unit_eur",
+      "valid_weight_domain_kg": [
+        500,
+        1000
+      ],
+      "pickup": "included: Posti's separate pickup of one transport unit, 40.33 EUR"
+    },
+    "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup",
+      "corner": "freight",
+      "evidence_carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 42.396668449197854,
+      "alpha_eur_per_kg": 0.1269197860962567,
+      "arithmetic": "alpha = (166.0800 - 47.4100) / (974.5000 - 39.5000) = 0.1269 EUR/kg; F = 47.4100 - 0.1269 x 39.5000 = 42.3967 EUR",
+      "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.matkahuolto_lavarahti.secants[1]",
+      "valid_weight_domain_kg": [
+        39.5,
+        974.5
+      ],
+      "pickup": "included: Lavarahti pickup is always part of the service"
+    },
+    "matkahuolto_lavarahti_1_49km_100_149_to_950_999kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_100_149_to_950_999kg_with_pickup",
+      "corner": "freight",
+      "evidence_carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 40.908341176470586,
+      "alpha_eur_per_kg": 0.12844705882352941,
+      "arithmetic": "alpha = (166.0800 - 56.9000) / (974.5000 - 124.5000) = 0.1284 EUR/kg; F = 56.9000 - 0.1284 x 124.5000 = 40.9083 EUR",
+      "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.matkahuolto_lavarahti.secants[3]",
+      "valid_weight_domain_kg": [
+        124.5,
+        974.5
+      ],
+      "pickup": "included: Lavarahti pickup is always part of the service"
+    }
+  },
+  "readings_excluded": {
+    "matkahuolto_lavarahti secants without pickup": "Lavarahti pickup is mandatory ('Palveluun kuuluu aina nouto'), so a reading without it leaves out a charge every shipment pays",
+    "posti_express_freight zone 0 secants without pickup": "the route starts at the manufacturer, so collection is needed; the with-pickup reading of the same secant is used instead",
+    "posti_express_freight zones 1 to 5": "the zones are not defined in the price list and their prices rise with zone, so they carry distance that beta_i already represents",
+    "posti_express_freight marginal full pallet": "an alpha-only reading with no fixed charge, so it is not a coherent F and alpha pair",
+    "posti_express_freight whole-unit prices with alpha 0": "valid only up to one unit's gross weight; as an F and alpha pair it would price every heavier shipment at the same amount",
+    "posti Express Parcel zone fee variants": "the fee depends on the destination postal code zone, and the postal-code zone list is not pinned, so it cannot be mapped to the seven cities",
+    "postnord_parcel_zones": "not identifiable: one weight bracket per zone cannot separate F from alpha, and its metadata could not be read (HTTP 403)"
+  },
+  "fuel_series_window_coverage": {
+    "postnord_parcels": {
+      "usable": true,
+      "first_observation": "2025-01-01",
+      "last_observation": "2026-02-01",
+      "observations_in_window": 4,
+      "at_window_start": {
+        "percent": 2.8,
+        "observation_date": "2025-10-01"
+      },
+      "at_last_window_day": {
+        "percent": 4.6,
+        "observation_date": "2026-02-01",
+        "days_carried": 70,
+        "after_last_observation": true
+      },
+      "distinct_percentages_across_window_days": 5,
+      "window_days_after_last_observation": 70
+    },
+    "pakettipiste_domestic": {
+      "usable": true,
+      "first_observation": "2025-01-01",
+      "last_observation": "2026-09-01",
+      "observations_in_window": 6,
+      "at_window_start": {
+        "percent": 12.32,
+        "observation_date": "2025-10-01"
+      },
+      "at_last_window_day": {
+        "percent": 14.62,
+        "observation_date": "2026-04-01",
+        "days_carried": 11,
+        "after_last_observation": false
+      },
+      "distinct_percentages_across_window_days": 7,
+      "window_days_after_last_observation": 0
+    },
+    "matkahuolto_parcel_and_transport": {
+      "usable": true,
+      "first_observation": "2025-01-01",
+      "last_observation": "2026-09-03",
+      "observations_in_window": 9,
+      "at_window_start": {
+        "percent": 13.65,
+        "observation_date": "2025-10-01"
+      },
+      "at_last_window_day": {
+        "percent": 18.76,
+        "observation_date": "2026-04-09",
+        "days_carried": 3,
+        "after_last_observation": false
+      },
+      "distinct_percentages_across_window_days": 10,
+      "window_days_after_last_observation": 0
+    },
+    "postnord_pallets_and_groupage": {
+      "usable": true,
+      "first_observation": "2025-01-01",
+      "last_observation": "2026-02-01",
+      "observations_in_window": 4,
+      "at_window_start": {
+        "percent": 4.2,
+        "observation_date": "2025-10-01"
+      },
+      "at_last_window_day": {
+        "percent": 6.7,
+        "observation_date": "2026-02-01",
+        "days_carried": 70,
+        "after_last_observation": true
+      },
+      "distinct_percentages_across_window_days": 5,
+      "window_days_after_last_observation": 70
+    },
+    "matkahuolto_lavarahti": {
+      "usable": true,
+      "first_observation": "2025-01-07",
+      "last_observation": "2026-09-07",
+      "observations_in_window": 21,
+      "at_window_start": {
+        "percent": 17.31,
+        "observation_date": "2025-10-13"
+      },
+      "at_last_window_day": {
+        "percent": 33.14,
+        "observation_date": "2026-04-10",
+        "days_carried": 2,
+        "after_last_observation": false
+      },
+      "distinct_percentages_across_window_days": 22,
+      "window_days_after_last_observation": 0
+    },
+    "posti_parcel": {
+      "usable": false,
+      "reason": "no observation on or before the window start 2025-10-15: posti_parcel: no observation on or before 2025-10-15, the series starts at 2026-09-02. there is no policy for pricing a date the source does not cover",
+      "first_observation": "2026-09-02",
+      "last_observation": "2026-09-09",
+      "observations_in_window": 0
+    },
+    "posti_freight": {
+      "usable": false,
+      "reason": "no observation on or before the window start 2025-10-15: posti_freight: no observation on or before 2025-10-15, the series starts at 2026-09-02. there is no policy for pricing a date the source does not cover",
+      "first_observation": "2026-09-02",
+      "last_observation": "2026-09-09",
+      "observations_in_window": 0
+    },
+    "matkahuolto_rahti": {
+      "usable": false,
+      "reason": "no observation on or before the window start 2025-10-15: matkahuolto_rahti: no observation on or before 2025-10-15, the series starts at 2026-01-01. there is no policy for pricing a date the source does not cover",
+      "first_observation": "2026-01-01",
+      "last_observation": "2026-09-03",
+      "observations_in_window": 7
+    }
+  },
+  "window_days": [
+    "2025-10-15",
+    "2026-04-12"
+  ],
+  "agents": [
+    {
+      "agent_id": "L01",
+      "v4_specialty": "national carrier, balanced pricing across all cities",
+      "v4_location": "Helsinki",
+      "corner": "freight",
+      "corner_rule": "specialty has no shipment-size wording; freight is the default because the v5 median shipment is 257 kg, far above the 25-35 kg parcel limit",
+      "reading_id": "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup",
+      "reading_rule": "freight agent with medium or no size wording: the lower-alpha Lavarahti reading",
+      "reading": {
+        "reading_id": "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup",
+        "corner": "freight",
+        "evidence_carrier": "Matkahuolto",
+        "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+        "fixed_charge_eur": 42.396668449197854,
+        "alpha_eur_per_kg": 0.1269197860962567,
+        "arithmetic": "alpha = (166.0800 - 47.4100) / (974.5000 - 39.5000) = 0.1269 EUR/kg; F = 47.4100 - 0.1269 x 39.5000 = 42.3967 EUR",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.matkahuolto_lavarahti.secants[1]",
+        "valid_weight_domain_kg": [
+          39.5,
+          974.5
+        ],
+        "pickup": "included: Lavarahti pickup is always part of the service"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": null,
+        "rule": "freight-corner agent: eligible across its existing range, no weight cap"
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 39.5 to 974.5 kg; v5 shipments outside that range use it as an extrapolation",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Helsinki",
+        "service_regions": "Espoo|Helsinki|Jyvaskyla|Lahti|Oulu|Tampere|Turku",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 3.0,
+        "delay_probability": 0.06,
+        "damage_probability": 0.035,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L02",
+      "v4_specialty": "central finland carrier with fast 2-day intercity service",
+      "v4_location": "Tampere",
+      "corner": "freight",
+      "corner_rule": "specialty has no shipment-size wording; freight is the default because the v5 median shipment is 257 kg, far above the 25-35 kg parcel limit",
+      "reading_id": "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup",
+      "reading_rule": "freight agent with medium or no size wording: the lower-alpha Lavarahti reading",
+      "reading": {
+        "reading_id": "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup",
+        "corner": "freight",
+        "evidence_carrier": "Matkahuolto",
+        "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+        "fixed_charge_eur": 42.396668449197854,
+        "alpha_eur_per_kg": 0.1269197860962567,
+        "arithmetic": "alpha = (166.0800 - 47.4100) / (974.5000 - 39.5000) = 0.1269 EUR/kg; F = 47.4100 - 0.1269 x 39.5000 = 42.3967 EUR",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.matkahuolto_lavarahti.secants[1]",
+        "valid_weight_domain_kg": [
+          39.5,
+          974.5
+        ],
+        "pickup": "included: Lavarahti pickup is always part of the service"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": null,
+        "rule": "freight-corner agent: eligible across its existing range, no weight cap"
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 39.5 to 974.5 kg; v5 shipments outside that range use it as an extrapolation",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Tampere",
+        "service_regions": "Espoo|Helsinki|Jyvaskyla|Lahti|Tampere|Turku",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 2.0,
+        "delay_probability": 0.04,
+        "damage_probability": 0.03,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L03",
+      "v4_specialty": "northern budget carrier, cheapest base cost, wins small northern orders",
+      "v4_location": "Oulu",
+      "corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small']",
+      "reading_id": "posti_postal_parcel",
+      "reading_rule": "specialty mentions budget or cheapest",
+      "reading": {
+        "reading_id": "posti_postal_parcel",
+        "corner": "parcel",
+        "evidence_carrier": "Posti",
+        "service": "Postal Parcel, digital contract prices",
+        "fixed_charge_eur": 5.9,
+        "alpha_eur_per_kg": 0.3,
+        "arithmetic": "F = 5.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[0]",
+        "valid_weight_domain_kg": [
+          1,
+          25
+        ],
+        "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": 25.0,
+        "oversized_above_kg": null,
+        "oversized_fee_eur": null,
+        "rule": "Postal Parcel carries up to 25 kg; the Oversized additional service does not raise its weight limit (25 kg), so it is capped at 25 kg",
+        "source_wording": {
+          "base": "maximum weight 25 kg",
+          "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+          "oversized_fee": "€ 3.50",
+          "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+          "page": "weight limits page 6"
+        }
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 1 to 25 kg; the weight cap keeps the agent inside what its own service documents",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Oulu",
+        "service_regions": "Jyvaskyla|Lahti|Oulu|Tampere",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 3.0,
+        "delay_probability": 0.05,
+        "damage_probability": 0.025,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L04",
+      "v4_specialty": "southwest carrier, wins small and medium orders in southern cities",
+      "v4_location": "Turku",
+      "corner": "freight",
+      "corner_rule": "specialty mentions ['medium']",
+      "reading_id": "matkahuolto_lavarahti_1_49km_100_149_to_950_999kg_with_pickup",
+      "reading_rule": "freight agent whose specialty also mentions small orders: the lower-F Lavarahti reading",
+      "reading": {
+        "reading_id": "matkahuolto_lavarahti_1_49km_100_149_to_950_999kg_with_pickup",
+        "corner": "freight",
+        "evidence_carrier": "Matkahuolto",
+        "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+        "fixed_charge_eur": 40.908341176470586,
+        "alpha_eur_per_kg": 0.12844705882352941,
+        "arithmetic": "alpha = (166.0800 - 56.9000) / (974.5000 - 124.5000) = 0.1284 EUR/kg; F = 56.9000 - 0.1284 x 124.5000 = 40.9083 EUR",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.matkahuolto_lavarahti.secants[3]",
+        "valid_weight_domain_kg": [
+          124.5,
+          974.5
+        ],
+        "pickup": "included: Lavarahti pickup is always part of the service"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": null,
+        "rule": "freight-corner agent: eligible across its existing range, no weight cap"
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 124.5 to 974.5 kg; v5 shipments outside that range use it as an extrapolation",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Turku",
+        "service_regions": "Espoo|Helsinki|Lahti|Tampere|Turku",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 2.0,
+        "delay_probability": 0.05,
+        "damage_probability": 0.032,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L05",
+      "v4_specialty": "premium carrier with lowest damage risk, wins large southern orders",
+      "v4_location": "Espoo",
+      "corner": "freight",
+      "corner_rule": "specialty mentions ['large']",
+      "reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+      "reading_rule": "specialty mentions large or premium: the pallet reading",
+      "reading": {
+        "reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+        "corner": "freight",
+        "evidence_carrier": "Posti",
+        "service": "Express Freight 14, zone 0, door to door",
+        "fixed_charge_eur": 75.38,
+        "alpha_eur_per_kg": 0.054540000000000005,
+        "arithmetic": "alpha = (89.5900 - 62.3200) / (1000.0000 - 500.0000) = 0.0545 EUR/kg; F = 62.3200 - 0.0545 x 500.0000 = 35.0500 EUR; with the separate pickup the route needs at the manufacturer: F = 35.0500 + 40.33 = 75.3800 EUR",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.posti_express_freight.by_zone[0].secant_half_pallet_to_pallet and pickup_normalization.separate_pickup_one_unit_eur",
+        "valid_weight_domain_kg": [
+          500,
+          1000
+        ],
+        "pickup": "included: Posti's separate pickup of one transport unit, 40.33 EUR"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": null,
+        "rule": "freight-corner agent: eligible across its existing range, no weight cap"
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 500 to 1000 kg; v5 shipments outside that range use it as an extrapolation",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Espoo",
+        "service_regions": "Espoo|Helsinki",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 2.0,
+        "delay_probability": 0.025,
+        "damage_probability": 0.01,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L06",
+      "v4_specialty": "northern budget carrier, lowest base cost, wins small central and northern orders",
+      "v4_location": "Lahti",
+      "corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small']",
+      "reading_id": "posti_postal_parcel",
+      "reading_rule": "specialty mentions budget or cheapest",
+      "reading": {
+        "reading_id": "posti_postal_parcel",
+        "corner": "parcel",
+        "evidence_carrier": "Posti",
+        "service": "Postal Parcel, digital contract prices",
+        "fixed_charge_eur": 5.9,
+        "alpha_eur_per_kg": 0.3,
+        "arithmetic": "F = 5.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[0]",
+        "valid_weight_domain_kg": [
+          1,
+          25
+        ],
+        "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": 25.0,
+        "oversized_above_kg": null,
+        "oversized_fee_eur": null,
+        "rule": "Postal Parcel carries up to 25 kg; the Oversized additional service does not raise its weight limit (25 kg), so it is capped at 25 kg",
+        "source_wording": {
+          "base": "maximum weight 25 kg",
+          "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+          "oversized_fee": "€ 3.50",
+          "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+          "page": "weight limits page 6"
+        }
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 1 to 25 kg; the weight cap keeps the agent inside what its own service documents",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Lahti",
+        "service_regions": "Jyvaskyla|Lahti|Oulu|Tampere",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 4.0,
+        "delay_probability": 0.08,
+        "damage_probability": 0.045,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L07",
+      "v4_specialty": "express carrier, fastest at 1.5 days intercity, wins urgent small southern orders",
+      "v4_location": "Helsinki",
+      "corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small']",
+      "reading_id": "posti_express_parcel",
+      "reading_rule": "specialty mentions express or fastest",
+      "reading": {
+        "reading_id": "posti_express_parcel",
+        "corner": "parcel",
+        "evidence_carrier": "Posti",
+        "service": "Express Parcel, digital contract prices",
+        "fixed_charge_eur": 8.9,
+        "alpha_eur_per_kg": 0.3,
+        "arithmetic": "F = 8.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[1]",
+        "valid_weight_domain_kg": [
+          1,
+          25
+        ],
+        "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": 35.0,
+        "oversized_above_kg": 25.0,
+        "oversized_fee_eur": 3.5,
+        "rule": "Express Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg",
+        "source_wording": {
+          "base": "maximum weight 25 kg",
+          "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+          "oversized_fee": "€ 3.50",
+          "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+          "page": "weight limits page 6"
+        }
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 1 to 25 kg; the weight cap keeps the agent inside what its own service documents",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Helsinki",
+        "service_regions": "Espoo|Helsinki|Lahti|Tampere|Turku",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 1.5,
+        "delay_probability": 0.02,
+        "damage_probability": 0.018,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L08",
+      "v4_specialty": "northern bulk carrier, high capacity, wins large central and northern orders",
+      "v4_location": "Jyvaskyla",
+      "corner": "freight",
+      "corner_rule": "specialty mentions ['large', 'bulk']",
+      "reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+      "reading_rule": "specialty mentions bulk or high capacity: the lowest-alpha reading",
+      "reading": {
+        "reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+        "corner": "freight",
+        "evidence_carrier": "Posti",
+        "service": "Express Freight 14, zone 0, door to door",
+        "fixed_charge_eur": 78.65,
+        "alpha_eur_per_kg": 0.048,
+        "arithmetic": "alpha = (62.3200 - 40.0000) / (500.0000 - 35.0000) = 0.0480 EUR/kg; F = 40.0000 - 0.0480 x 35.0000 = 38.3200 EUR; with the separate pickup the route needs at the manufacturer: F = 38.3200 + 40.33 = 78.6500 EUR",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.posti_express_freight.by_zone[0].secant_loose_package_to_half_pallet and pickup_normalization.separate_pickup_one_unit_eur",
+        "valid_weight_domain_kg": [
+          35,
+          500
+        ],
+        "pickup": "included: Posti's separate pickup of one transport unit, 40.33 EUR"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": null,
+        "rule": "freight-corner agent: eligible across its existing range, no weight cap"
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 35 to 500 kg; v5 shipments outside that range use it as an extrapolation",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Jyvaskyla",
+        "service_regions": "Jyvaskyla|Lahti|Oulu|Tampere",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 3.5,
+        "delay_probability": 0.07,
+        "damage_probability": 0.04,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L09",
+      "v4_specialty": "reliable northern premium carrier, low damage, competes closely with L08",
+      "v4_location": "Oulu",
+      "corner": "freight",
+      "corner_rule": "specialty has no shipment-size wording; freight is the default because the v5 median shipment is 257 kg, far above the 25-35 kg parcel limit",
+      "reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+      "reading_rule": "specialty mentions large or premium: the pallet reading",
+      "reading": {
+        "reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+        "corner": "freight",
+        "evidence_carrier": "Posti",
+        "service": "Express Freight 14, zone 0, door to door",
+        "fixed_charge_eur": 75.38,
+        "alpha_eur_per_kg": 0.054540000000000005,
+        "arithmetic": "alpha = (89.5900 - 62.3200) / (1000.0000 - 500.0000) = 0.0545 EUR/kg; F = 62.3200 - 0.0545 x 500.0000 = 35.0500 EUR; with the separate pickup the route needs at the manufacturer: F = 35.0500 + 40.33 = 75.3800 EUR",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.posti_express_freight.by_zone[0].secant_half_pallet_to_pallet and pickup_normalization.separate_pickup_one_unit_eur",
+        "valid_weight_domain_kg": [
+          500,
+          1000
+        ],
+        "pickup": "included: Posti's separate pickup of one transport unit, 40.33 EUR"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": null,
+        "rule": "freight-corner agent: eligible across its existing range, no weight cap"
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 500 to 1000 kg; v5 shipments outside that range use it as an extrapolation",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Oulu",
+        "service_regions": "Helsinki|Jyvaskyla|Oulu|Tampere",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 3.0,
+        "delay_probability": 0.03,
+        "damage_probability": 0.015,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L10",
+      "v4_specialty": "flexible low-load carrier, balanced across central cities",
+      "v4_location": "Tampere",
+      "corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['low-load']",
+      "reading_id": "posti_home_parcel",
+      "reading_rule": "no budget or express wording: the standard doorstep parcel",
+      "reading": {
+        "reading_id": "posti_home_parcel",
+        "corner": "parcel",
+        "evidence_carrier": "Posti",
+        "service": "Home Parcel, digital contract prices",
+        "fixed_charge_eur": 10.9,
+        "alpha_eur_per_kg": 0.3,
+        "arithmetic": "F = 10.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[2]",
+        "valid_weight_domain_kg": [
+          1,
+          25
+        ],
+        "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": 35.0,
+        "oversized_above_kg": 25.0,
+        "oversized_fee_eur": 3.5,
+        "rule": "Home Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg",
+        "source_wording": {
+          "base": "maximum weight 25 kg",
+          "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+          "oversized_fee": "€ 3.50",
+          "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+          "page": "weight limits page 6"
+        }
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 1 to 25 kg; the weight cap keeps the agent inside what its own service documents",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Tampere",
+        "service_regions": "Espoo|Helsinki|Jyvaskyla|Lahti|Tampere|Turku",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 2.5,
+        "delay_probability": 0.045,
+        "damage_probability": 0.028,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L11",
+      "v4_specialty": "southern specialist, wins medium orders in Turku, Helsinki, Espoo",
+      "v4_location": "Turku",
+      "corner": "freight",
+      "corner_rule": "specialty mentions ['medium']",
+      "reading_id": "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup",
+      "reading_rule": "freight agent with medium or no size wording: the lower-alpha Lavarahti reading",
+      "reading": {
+        "reading_id": "matkahuolto_lavarahti_1_49km_0_79_to_950_999kg_with_pickup",
+        "corner": "freight",
+        "evidence_carrier": "Matkahuolto",
+        "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+        "fixed_charge_eur": 42.396668449197854,
+        "alpha_eur_per_kg": 0.1269197860962567,
+        "arithmetic": "alpha = (166.0800 - 47.4100) / (974.5000 - 39.5000) = 0.1269 EUR/kg; F = 47.4100 - 0.1269 x 39.5000 = 42.3967 EUR",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json upper_bound_evidence.matkahuolto_lavarahti.secants[1]",
+        "valid_weight_domain_kg": [
+          39.5,
+          974.5
+        ],
+        "pickup": "included: Lavarahti pickup is always part of the service"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": null,
+        "rule": "freight-corner agent: eligible across its existing range, no weight cap"
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 39.5 to 974.5 kg; v5 shipments outside that range use it as an extrapolation",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Turku",
+        "service_regions": "Espoo|Helsinki|Turku",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 3.0,
+        "delay_probability": 0.075,
+        "damage_probability": 0.034,
+        "reputation_score": 0.5
+      }
+    },
+    {
+      "agent_id": "L12",
+      "v4_specialty": "small careful southern carrier, second lowest damage, competitive on light loads",
+      "v4_location": "Espoo",
+      "corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small', 'light']",
+      "reading_id": "posti_home_parcel",
+      "reading_rule": "no budget or express wording: the standard doorstep parcel",
+      "reading": {
+        "reading_id": "posti_home_parcel",
+        "corner": "parcel",
+        "evidence_carrier": "Posti",
+        "service": "Home Parcel, digital contract prices",
+        "fixed_charge_eur": 10.9,
+        "alpha_eur_per_kg": 0.3,
+        "arithmetic": "F = 10.90 (EUR/item as printed); alpha = 0.30 (EUR/kg as printed)",
+        "source": "data/processed/v5/logistics/rate_calibration_range.json lower_bound_evidence.posti_parcel[2]",
+        "valid_weight_domain_kg": [
+          1,
+          25
+        ],
+        "pickup": "hand-in at a Posti outlet; the evidence holds no parcel pickup reading"
+      },
+      "weight_limit": {
+        "max_shipment_weight_kg": 35.0,
+        "oversized_above_kg": 25.0,
+        "oversized_fee_eur": 3.5,
+        "rule": "Home Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg",
+        "source_wording": {
+          "base": "maximum weight 25 kg",
+          "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+          "oversized_fee": "€ 3.50",
+          "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+          "page": "weight limits page 6"
+        }
+      },
+      "evidence_domain_caveat": "the reading is evidenced for about 1 to 25 kg; the weight cap keeps the agent inside what its own service documents",
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "fuel_rule": "every agent uses the shared series, see shared_fuel_series in this file",
+      "unchanged_from_v4": {
+        "location": "Espoo",
+        "service_regions": "Espoo|Helsinki|Lahti|Turku",
+        "default_completion_same_city_days": 1,
+        "default_completion_intercity_days": 2.0,
+        "delay_probability": 0.035,
+        "damage_probability": 0.012,
+        "reputation_score": 0.5
+      }
+    }
+  ]
+}

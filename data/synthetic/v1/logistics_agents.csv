@@ -1,0 +1,7 @@
+agent_id,stage,service_regions,base_delivery_cost,cost_per_kg,default_completion_same_city_days,default_completion_intercity_days,damage_probability,min_profit_margin,initial_markup,reputation_score,location
+L1,logistics,Espoo|Helsinki|Jyvaskyla|Lahti|Oulu|Tampere|Turku,45.0,0.85,1,3,0.04,0.1,0.25,0.5,Helsinki
+L2,logistics,Espoo|Helsinki|Jyvaskyla|Lahti|Tampere,38.0,0.75,1,2,0.03,0.1,0.25,0.5,Tampere
+L3,logistics,Jyvaskyla|Oulu|Tampere,32.0,0.7,1,3,0.02,0.1,0.25,0.5,Oulu
+L4,logistics,Espoo|Helsinki|Tampere|Turku,35.0,0.8,1,2,0.03,0.1,0.25,0.5,Turku
+L5,logistics,Espoo|Helsinki|Lahti|Tampere|Turku,55.0,0.65,1,2,0.01,0.1,0.25,0.5,Espoo
+L6,logistics,Espoo|Helsinki|Jyvaskyla|Lahti|Oulu|Tampere,28.0,0.95,1,4,0.06,0.1,0.25,0.5,Lahti

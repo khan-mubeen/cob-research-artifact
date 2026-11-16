@@ -1,0 +1,145 @@
+{
+  "tag": "phi4mini",
+  "steps": {
+    "B1_tokenizer_and_template": {
+      "status": "pass",
+      "loader": "AutoProcessor",
+      "thinking_controls": {
+        "enable_thinking=False": "accepted_but_ignored",
+        "thinking=False": "accepted_but_ignored",
+        "reasoning_effort=none": "accepted_but_ignored",
+        "add_reasoning_prompt=False": "accepted_but_ignored"
+      },
+      "gen_prefix_is_training_prefix": true,
+      "default_gen_tail": "'NO_BID\",\\n  \"offer_amount\": null,\\n  \"estimated_completion_days\": null,\\n  \"defect_probability\": 0.04\\n}<|end|><|assistant|>'",
+      "templates_file": ".\\reports\\feasibility\\templates_phi4mini.txt",
+      "seconds": 2.4
+    },
+    "B2_model_load": {
+      "status": "pass",
+      "trust_remote_code": false,
+      "load_seconds": 5.4,
+      "load_vram_gib": 7.15,
+      "param_count": 3836021760,
+      "config_architectures": [
+        "Phi3ForCausalLM"
+      ],
+      "seconds": 5.4
+    },
+    "B3_module_inventory": {
+      "status": "pass",
+      "linear_suffix_counts": {
+        "o_proj": 32,
+        "qkv_proj": 32,
+        "gate_up_proj": 32,
+        "down_proj": 32,
+        "lm_head": 1
+      },
+      "qwen_targets_present": {
+        "q_proj": 0,
+        "k_proj": 0,
+        "v_proj": 0,
+        "o_proj": 32,
+        "gate_proj": 0,
+        "up_proj": 0,
+        "down_proj": 32
+      },
+      "non_qwen_linears": {
+        "qkv_proj": 32,
+        "gate_up_proj": 32
+      },
+      "seconds": 0.0
+    },
+    "B4_json_inference": {
+      "status": "pass",
+      "generations": [
+        {
+          "stage": "material",
+          "latency_s": 3.29,
+          "parseable_json": true,
+          "new_tokens": 73,
+          "raw": "```json\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 321.0006,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}\n```"
+        },
+        {
+          "stage": "material",
+          "latency_s": 2.58,
+          "parseable_json": true,
+          "new_tokens": 68,
+          "raw": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M02\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 302.5,\n  \"estimated_completion_days\": 1,\n  \"defect_probability\": 0.01\n}"
+        },
+        {
+          "stage": "tailoring",
+          "latency_s": 2.46,
+          "parseable_json": true,
+          "new_tokens": 70,
+          "raw": "```json\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}\n```"
+        }
+      ],
+      "json_ok_count": 3,
+      "seconds": 8.3
+    },
+    "C1_lora_attach": {
+      "status": "pass",
+      "strict_qwen_targets_present": [
+        "o_proj",
+        "down_proj"
+      ],
+      "strict_qwen_targets_missing": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "gate_proj",
+        "up_proj"
+      ],
+      "functional_targets": [
+        "down_proj",
+        "gate_up_proj",
+        "o_proj",
+        "qkv_proj"
+      ],
+      "functional_categories": {
+        "attention": [
+          "o_proj",
+          "qkv_proj"
+        ],
+        "mlp": [
+          "down_proj",
+          "gate_up_proj"
+        ]
+      },
+      "strict_trainable_params": 8912896,
+      "trainable_params": 23068672,
+      "trainable_pct_of_total": 0.598,
+      "seconds": 1.6
+    },
+    "C2_gradient_smoke": {
+      "status": "pass",
+      "losses": [
+        1.890550136566162,
+        1.8484978675842285,
+        1.8441985845565796,
+        1.6513288021087646,
+        1.5934171676635742,
+        1.5395666360855103,
+        1.486771583557129,
+        1.4750211238861084
+      ],
+      "median_step_s": 16.8,
+      "peak_train_vram_gib": 53.61,
+      "loss_changed": true,
+      "runtime_s": 143.9,
+      "batch_size_used": 8,
+      "exact_qwen_config": true,
+      "seconds": 146.6
+    },
+    "C3_adapter_save_reload_merge": {
+      "status": "pass",
+      "adapter_dir": ".\\reports\\feasibility\\adapter_phi4mini",
+      "merge_ok": true,
+      "seconds": 6.4
+    }
+  },
+  "model": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "thinking_off_kwargs": {}
+}

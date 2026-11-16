@@ -1,0 +1,8 @@
+[pre_gaps] comparisons reproduce published: True
+W0917 17:03:59.029000 32656 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+[pre_gaps] evaluation sets hashed: 54a4757e9e0f3ca6
+[pre_gaps] training sets hashed
+wrote reports\v5\pipeline\pipeline_regression_pre_gaps.json
+exit 0

@@ -1,0 +1,12 @@
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.10.0+cu130).
+W0914 16:22:34.307000 16892 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+This model config has set a `rope_parameters['original_max_position_embeddings']` field, to be used together with `max_position_embeddings` to determine a scaling factor. Please set the `factor` field of `rope_parameters`with this ratio instead -- we recommend the use of this field over `original_max_position_embeddings`, as it is compatible with most model architectures.
+sealed: 180 longest and 900 sampled rows
+qwen: {'sealed': {'max_over_longest_rows': 932, 'sample_median': 860.0, 'sample_mean': 854.9, 'sample_p99': 922}}
+granite: {'sealed': {'max_over_longest_rows': 944, 'sample_median': 888.0, 'sample_mean': 873.0, 'sample_p99': 932}}
+phi: {'sealed': {'max_over_longest_rows': 842, 'sample_median': 776.0, 'sample_mean': 770.0, 'sample_p99': 832}}
+ministral: {'sealed': {'max_over_longest_rows': 931, 'sample_median': 857.0, 'sample_mean': 849.1, 'sample_p99': 922}}
+gemma: {'sealed': {'max_over_longest_rows': 972, 'sample_median': 913.0, 'sample_mean': 896.9, 'sample_p99': 961}}
+smollm3: {'sealed': {'max_over_longest_rows': 892, 'sample_median': 822.0, 'sample_mean': 817.3, 'sample_p99': 880}}
+max tokens {'sealed': 972}, windows {'sealed': 1024}
+exit 0

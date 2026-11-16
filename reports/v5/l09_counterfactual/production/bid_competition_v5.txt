@@ -1,0 +1,250 @@
+
+======================================================================
+BID COMPETITION DIAGNOSTICS - v5 L09 counterfactual: production
+======================================================================
+orders simulated: 50000
+orders by material: {'polyester': 15966, 'linen': 12760, 'cotton': 11955, 'leather': 4662, 'denim': 4657}
+
+======================================================================
+ELIGIBILITY
+======================================================================
+material     zero bidders 1564 (3.1%)  2+ bidders 44692 (89.4%)  mean 3.9  max 6
+manufacturer zero bidders 0 (0.0%)  2+ bidders 49931 (99.9%)  mean 4.9  max 8
+logistics    zero bidders 309 (0.6%)  2+ bidders 48500 (97.0%)  mean 4.4  max 9
+
+======================================================================
+ELIGIBILITY VS WINS PER AGENT (lowest cost)
+======================================================================
+material:
+  M01: eligible 24303, wins 46, win rate 0.2%
+  M02: eligible 11955, wins 1194, win rate 10.0%
+  M03: eligible 6831, wins 6801, win rate 99.6%
+  M04: eligible 3748, wins 3748, win rate 100.0%
+  M05: eligible 15966, wins 235, win rate 1.5%
+  M06: eligible 24303, wins 11229, win rate 46.2%
+  M07: eligible 8876, wins 2756, win rate 31.1%
+  M08: eligible 9060, wins 634, win rate 7.0%
+  M09: eligible 12742, wins 132, win rate 1.0%
+  M10: eligible 20855, wins 10146, win rate 48.7%
+  M11: eligible 27276, wins 2379, win rate 8.7%
+  M12: eligible 14723, wins 162, win rate 1.1%
+  M13: eligible 5984, wins 53, win rate 0.9%
+  M14: eligible 7812, wins 3673, win rate 47.0%
+  M15: eligible 1470, wins 1429, win rate 97.2%
+manufacturer:
+  T1: eligible 32589, wins 173, win rate 0.5%
+  T2: eligible 19891, wins 3021, win rate 15.2%
+  T3: eligible 17355, wins 8284, win rate 47.7%
+  T4: eligible 29416, wins 2312, win rate 7.9%
+  T5: eligible 12096, wins 3045, win rate 25.2%
+  T6: eligible 19080, wins 4318, win rate 22.6%
+  T7: eligible 10710, wins 10026, win rate 93.6%
+  T8: eligible 6608, wins 5651, win rate 85.5%
+  T9: eligible 19584, wins 211, win rate 1.1%
+  T10: eligible 29927, wins 42, win rate 0.1%
+  T11: eligible 32107, wins 59, win rate 0.2%
+  T12: eligible 16662, wins 7475, win rate 44.9%
+logistics:
+  L01: eligible 46436, wins 3887, win rate 8.4%
+  L02: eligible 41855, wins 5388, win rate 12.9%
+  L03: eligible 906, wins 889, win rate 98.1%
+  L04: eligible 34146, wins 20252, win rate 59.3%
+  L05: eligible 14219, wins 4249, win rate 29.9%
+  L06: eligible 722, wins 0, win rate 0.0%
+  L07: eligible 2174, wins 1668, win rate 76.7%
+  L08: eligible 25292, wins 3239, win rate 12.8%
+  L09: eligible 28664, wins 4851, win rate 16.9%
+  L10: eligible 2514, wins 176, win rate 7.0%
+  L11: eligible 19930, wins 18, win rate 0.1%
+  L12: eligible 1752, wins 0, win rate 0.0%
+
+======================================================================
+FEASIBLE CHAINS AND INFEASIBILITY CASES
+======================================================================
+feasible orders: 44617 / 50000 (89.2%)
+case
+feasible                        44617
+case3_over_budget_only           2975
+case2_a_stage_with_no_bidder     1845
+case3_over_deadline_only          427
+case3_mixed                       136
+mean feasible chains per order: 55.7
+
+======================================================================
+BID PRICE CLOSENESS (top-2 gap %)
+======================================================================
+material     median 2.4%  p75 10.5%  p90 16.1%  max 22.5%
+manufacturer median 1.6%  p75 9.6%  p90 13.0%  max 17.4%
+logistics    median 1.8%  p75 2.8%  p90 26.8%  max 668.7%
+logistics gaps are priced from the cheapest manufacturer's location
+
+======================================================================
+WIN SHARE (lowest-cost chain, then fastest chain)
+======================================================================
+lowest cost material: {'M06': 25.2, 'M10': 22.7, 'M03': 15.2, 'M04': 8.4, 'M14': 8.2, 'M07': 6.2, 'M11': 5.3, 'M15': 3.2, 'M02': 2.7, 'M08': 1.4, 'M05': 0.5, 'M12': 0.4, 'M09': 0.3, 'M13': 0.1, 'M01': 0.1}
+lowest cost manufacturer: {'T7': 22.5, 'T3': 18.6, 'T12': 16.8, 'T8': 12.7, 'T6': 9.7, 'T5': 6.8, 'T2': 6.8, 'T4': 5.2, 'T9': 0.5, 'T1': 0.4, 'T11': 0.1, 'T10': 0.1}
+lowest cost logistics: {'L04': 45.4, 'L02': 12.1, 'L09': 10.9, 'L05': 9.5, 'L01': 8.7, 'L08': 7.3, 'L07': 3.7, 'L03': 2.0, 'L10': 0.4, 'L11': 0.0}
+fastest material: {'M11': 40.5, 'M02': 17.4, 'M06': 7.8, 'M14': 7.5, 'M10': 6.9, 'M12': 5.6, 'M08': 4.2, 'M01': 2.8, 'M04': 1.8, 'M07': 1.8, 'M03': 1.5, 'M13': 1.0, 'M05': 0.5, 'M15': 0.5, 'M09': 0.3}
+fastest manufacturer: {'T11': 39.2, 'T10': 21.1, 'T9': 12.3, 'T4': 7.4, 'T7': 5.4, 'T1': 4.2, 'T8': 4.0, 'T3': 2.4, 'T5': 1.4, 'T12': 1.2, 'T6': 0.8, 'T2': 0.6}
+fastest logistics: {'L04': 24.2, 'L02': 16.9, 'L09': 14.3, 'L05': 13.6, 'L08': 13.0, 'L01': 12.6, 'L07': 1.7, 'L12': 1.0, 'L10': 0.9, 'L11': 0.8, 'L03': 0.5, 'L06': 0.4}
+
+======================================================================
+LOGISTICS WINS BY CALIBRATION CORNER AND SHIPMENT WEIGHT (lowest cost)
+======================================================================
+  under 25 kg    parcel   1560  freight      3  (99.8% parcel)
+  25-35 kg       parcel   1171  freight    218  (84.3% parcel)
+  35-500 kg      parcel      2  freight  29274  (0.0% parcel)
+  500-1000 kg    parcel      0  freight   8160  (0.0% parcel)
+  1000-1500 kg   parcel      0  freight   2708  (0.0% parcel)
+  1500-2000 kg   parcel      0  freight   1520  (0.0% parcel)
+  2000-2500 kg   parcel      0  freight      1  (0.0% parcel)
+  2500 kg and over parcel      0  freight      0  (0.0% parcel)
+
+lowest-cost wins per logistics agent and shipment weight, against the agent's weight domain:
+  agent  domain kg             under 25 kg         25-35 kg        35-500 kg      500-1000 kg     1000-1500 kg     1500-2000 kg     2000-2500 kg 2500 kg and over  lightest  heaviest
+  L01    any weight                      0              191             3603               72               15                6                0                0      25.2    1812.0
+  L02    any weight                      0                0             4339              414              404              231                0                0      35.0    1993.0
+  L03    [0, 25]                       889                0                0                0                0                0                0                0      12.0      25.0
+  L04    any weight                      0                0            19115             1123               14                0                0                0      35.0    1199.2
+  L05    any weight                      0                0              761             2286              748              453                1                0      35.5    2000.0
+  L06    [0, 25]                         0                0                0                0                0                0                0                0         -         -
+  L07    [0, 35]                       671              995                2                0                0                0                0                0      12.0      35.0
+  L08    any weight                      0                0              168             1021             1270              780                0                0      61.8    1997.0
+  L09    any weight                      3               27             1288             3244              247               42                0                0      15.3    1986.0
+  L10    [0, 35]                         0              176                0                0                0                0                0                0      25.1      34.8
+  L11    any weight                      0                0                0                0               10                8                0                0    1269.0    1945.0
+  L12    [0, 35]                         0                0                0                0                0                0                0                0         -         -
+wins outside an agent's own weight domain (lowest cost or fastest): 0
+
+======================================================================
+FEASIBILITY BY SCENARIO, MATERIAL, PRIORITY AND MONTH
+======================================================================
+
+by scenario_type:
+                    sum  count   pct
+scenario_type                       
+high_quality       1714   2500  68.6
+large_quantity     2237   2500  89.5
+low_budget         1949   3000  65.0
+random_realistic  33653  35500  94.8
+rare_combo         1871   2000  93.6
+tight_deadline     2413   3000  80.4
+tight_low_budget    780   1500  52.0
+
+by material_type:
+                 sum  count   pct
+material_type                    
+cotton         10820  11955  90.5
+denim           4231   4657  90.9
+leather         2944   4662  63.1
+linen          11866  12760  93.0
+polyester      14756  15966  92.4
+
+by priority:
+            sum  count   pct
+priority                    
+flexible   6530   6981  93.5
+normal    26682  28823  92.6
+urgent    11405  14196  80.3
+
+by month:
+          sum  count   pct
+month                     
+2025-10  4338   4870  89.1
+2025-11  7244   8112  89.3
+2025-12  7742   8718  88.8
+2026-01  7676   8510  90.2
+2026-02  6951   7783  89.3
+2026-03  7720   8701  88.7
+2026-04  2946   3306  89.1
+
+scenario vs case:
+case              case2_a_stage_with_no_bidder  case3_mixed  case3_over_budget_only  case3_over_deadline_only  feasible
+scenario_type                                                                                                          
+high_quality                               440           17                     262                        67      1714
+large_quantity                             219            0                      44                         0      2237
+low_budget                                  47            1                    1003                         0      1949
+random_realistic                           663           17                     976                       191     33653
+rare_combo                                  99            0                      30                         0      1871
+tight_deadline                             298           49                      80                       160      2413
+tight_low_budget                            79           52                     580                         9       780
+
+material vs case:
+case           case2_a_stage_with_no_bidder  case3_mixed  case3_over_budget_only  case3_over_deadline_only  feasible
+material_type                                                                                                       
+cotton                                   78           12                    1030                        15     10820
+denim                                    33           29                     231                       133      4231
+leather                                1376            9                     238                        95      2944
+linen                                   256           73                     406                       159     11866
+polyester                               102           13                    1070                        25     14756
+
+======================================================================
+BUDGETS AGAINST THE CHEAPEST CHAIN (budget / cheapest chain, any deadline)
+======================================================================
+
+by priority:
+            count    25%    50%    75%
+priority                              
+flexible   6899.0  1.072  1.143  1.217
+normal    28152.0  1.105  1.195  1.289
+urgent    13104.0  1.069  1.154  1.247
+
+by month:
+          count    25%    50%    75%
+month                               
+2025-10  4695.0  1.090  1.174  1.267
+2025-11  7799.0  1.088  1.177  1.268
+2025-12  8398.0  1.083  1.171  1.266
+2026-01  8221.0  1.092  1.176  1.270
+2026-02  7481.0  1.091  1.178  1.269
+2026-03  8391.0  1.086  1.173  1.266
+2026-04  3170.0  1.091  1.171  1.261
+
+by material_type:
+                 count    25%    50%    75%
+material_type                              
+cotton         11877.0  1.076  1.165  1.258
+denim           4624.0  1.090  1.176  1.268
+leather         3286.0  1.077  1.163  1.249
+linen          12504.0  1.107  1.192  1.289
+polyester      15864.0  1.083  1.170  1.261
+
+correlation of budget per unit with the material reference price, per dated pair: {'hoodie/cotton': 0.091, 'jacket/leather': 0.096, 'jacket/linen': 0.424, 'jeans/denim': 0.013, 'shirt/cotton': 0.052, 'shirt/linen': 0.248, 'skirt/cotton': 0.072, 'skirt/linen': 0.445}
+
+======================================================================
+MATERIAL PRICE MOVEMENT ACROSS THE WINDOW
+======================================================================
+  cotton    {'price_basis': 'anchor_times_dated_series', 'distinct_prices': 7, 'min_usd_per_kg': 14.5954, 'max_usd_per_kg': 16.8889, 'observation_dates_used': ['2025-10-01', '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01'], 'days_after_last_observation': 0}
+  polyester {'price_basis': 'fixed_anchor_no_temporal_series', 'distinct_prices': 1, 'min_usd_per_kg': 14.6887, 'max_usd_per_kg': 14.6887, 'observation_dates_used': [], 'days_after_last_observation': 0}
+            fixed by design: fixed at the Tabb Textile TWPWD finished-fabric anchor for every date: data/raw/v5/material/polyester/sunsirs_dty.json still declares observations_status=missing, so no temporal series moves it
+  linen     {'price_basis': 'anchor_times_dated_series', 'distinct_prices': 2, 'min_usd_per_kg': 32.3019, 'max_usd_per_kg': 45.612, 'observation_dates_used': ['2024-03-01', '2026-03-01'], 'days_after_last_observation': 148}
+  denim     {'price_basis': 'anchor_times_dated_series', 'distinct_prices': 7, 'min_usd_per_kg': 8.5412, 'max_usd_per_kg': 8.6638, 'observation_dates_used': ['2025-10-01', '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01'], 'days_after_last_observation': 0}
+  leather   {'price_basis': 'anchor_times_dated_series', 'distinct_prices': 7, 'min_usd_per_kg': 64.054, 'max_usd_per_kg': 67.0992, 'observation_dates_used': ['2025-10-01', '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01'], 'days_after_last_observation': 0}
+
+======================================================================
+FUEL SURCHARGE RESOLUTION BY ORDER DATE
+======================================================================
+  matkahuolto_lavarahti: agents ['L01', 'L02', 'L03', 'L04', 'L05', 'L06', 'L07', 'L08', 'L09', 'L10', 'L11', 'L12'], 22 distinct percentages (16.98 to 33.14), 0.0% of orders carried past the last observation, by month {'2025-10': 3, '2025-11': 4, '2025-12': 4, '2026-01': 4, '2026-02': 3, '2026-03': 6, '2026-04': 3}
+
+======================================================================
+TIED PRICE GROUPS (identical F, alpha, beta, fuel, oversized and weight terms)
+======================================================================
+  ['L01', 'L02', 'L11']: 5044 orders with two or more members eligible and a member winning lowest cost, wins {'L01': 218, 'L02': 4808, 'L11': 18}
+  ['L03', 'L06']: 708 orders with two or more members eligible and a member winning lowest cost, wins {'L03': 708, 'L06': 0}
+  ['L05', 'L09']: 1985 orders with two or more members eligible and a member winning lowest cost, wins {'L05': 1985, 'L09': 0}
+  ['L10', 'L12']: 0 orders with two or more members eligible and a member winning lowest cost, wins {'L10': 0, 'L12': 0}
+
+======================================================================
+WARNINGS (reported for a decision, nothing adjusted)
+======================================================================
+  WARNING material agent M01 wins lowest cost in only 46 of 24303 eligible orders
+  WARNING material agent M13 wins lowest cost in only 53 of 5984 eligible orders
+  WARNING manufacturer agent T1 wins lowest cost in only 173 of 32589 eligible orders
+  WARNING manufacturer agent T10 wins lowest cost in only 42 of 29927 eligible orders
+  WARNING manufacturer agent T11 wins lowest cost in only 59 of 32107 eligible orders
+  WARNING logistics agent L06 is eligible 722 times but never wins lowest cost
+  WARNING logistics agent L11 wins lowest cost in only 18 of 19930 eligible orders
+  WARNING logistics agent L12 is eligible 1752 times but never wins lowest cost
+  WARNING lowest cost logistics: L04 takes 45.4% of wins (v4 threshold 30%)
+  WARNING tied price group ['L03', 'L06']: one agent wins every contested order {'L03': 708, 'L06': 0}
+  WARNING tied price group ['L05', 'L09']: one agent wins every contested order {'L05': 1985, 'L09': 0}

@@ -1,0 +1,6 @@
+usable examples 44442 {'test': 4435, 'train': 35552, 'validation': 4455}, skipped {'orders_without_a_product_pair': 0, 'stage_had_no_bidder': 1845, 'fewer_than_min_candidates': 3713, 'rule_declined': 0}, strategy mix {'urgent': 11252, 'flexible': 6525, 'normal': 26665}
+candidates per example mean 11.47, selected index mean 5.24
+chains enumerated per order {'min': 2, 'median': 90.0, 'mean': 100.3982, 'p95': 216, 'max': 432}
+rows whose optimum is tied with another chain 2
+written to data/finetune/v5/supervisor
+exit 0, wall clock 158s

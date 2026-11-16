@@ -1,0 +1,23 @@
+{
+  "model": "models/base-checkpoints/hf/smollm3-v2-base",
+  "revision": null,
+  "gguf": "models/base-checkpoints/gguf-convertibility/smollm3-base-bf16.gguf",
+  "instruction_part": "<|im_start|>user\n",
+  "response_part": "<|im_start|>assistant\n",
+  "template_kwargs": {
+    "enable_thinking": false
+  },
+  "thinking_capable_template": true,
+  "checks": {
+    "gen_prompt_is_prefix_of_train_text": true,
+    "assistant_content_follows_prefix": true,
+    "gguf_template_equals_hf_template": true,
+    "gguf_render_equals_hf_render": true,
+    "instruction_part_count_in_train_text": 1,
+    "response_part_count_in_train_text": 1,
+    "response_part_ends_gen_prompt": true
+  },
+  "gate": "PASS",
+  "gen_prompt_tail": ",\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.04\n}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n",
+  "train_text_around_boundary": "\": 0.04\n}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent"
+}

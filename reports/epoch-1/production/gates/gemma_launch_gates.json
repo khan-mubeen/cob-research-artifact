@@ -1,0 +1,48 @@
+{
+  "recorded_at": "unknown",
+  "model": "google/gemma-4-E2B-it",
+  "revision": "179516f0c449474fdc46f08f30ead5b11e178497",
+  "base_path_used": "local HF snapshot dir (avoids unsloth mirror remap, same pattern as phi)",
+  "gates": {
+    "1_checkpoint_revision_matches_feasibility": {
+      "status": "PASS",
+      "evidence": "snapshot 179516f0..., the feasibility revision; model_type gemma4_audio (multimodal), 5.12B stored / 2.3B effective"
+    },
+    "2_protocol_v2_files_hashes_unchanged": {
+      "status": "PASS",
+      "evidence": "same protocol_v2 edge (c952f02b / 47a1dcdf) + real subsample as qwen/granite/phi v2"
+    },
+    "3_validated_functional_lora_targets": {
+      "status": "PASS",
+      "evidence": "q/k/v/o/gate/up/down via unsloth -> 25,337,856 trainable (0.492%), matches feasibility 25.3M; gemma is NOT fused so default names are already functional"
+    },
+    "4_response_only_masking_template_alignment": {
+      "status": "PASS",
+      "evidence": "gemma_template_alignment.json gate PASS: gguf render == hf render, markers <|turn>user/<|turn>model occur once, gen prompt is exact prefix; textual gguf template differs but renders identically. system role accepted (smoke tokenized+trained)"
+    },
+    "5_native_fit_batch8x2": {
+      "status": "PASS",
+      "evidence": "feasibility gemma smoke 13.9 GiB reserved (best-fitting model); this smoke reached training steps with 25.3M targets; full-run peak recorded in console"
+    },
+    "6_isolated_paths": {
+      "status": "PASS",
+      "evidence": "output models/epoch-1/production/gemma4-e2b-bidding-lora-v2"
+    },
+    "7_no_protocol_variable_changed": {
+      "status": "PASS",
+      "evidence": "same 15,203 rows, seed 42, seq 1024, 1 epoch, eff batch 16, adamw_8bit 2e-4, greedy eval; unsloth stack as frozen; only adaptation is model-specific template markers (functionally equivalent)"
+    }
+  },
+  "controlled_adaptations_disclosed": [
+    "unsloth-only path (gemma requires unsloth dispatch; plain PEFT can't wrap Gemma4ClippableLinear), same as protocol v2 froze for all models",
+    "model-specific template markers <|turn>user / <|turn>model (gemma-4 chat format), functionally equivalent to the qwen/granite/phi role markers",
+    "loaded from local snapshot path to avoid unsloth mirror remap; no weight/tokenizer change (gemma has a distinct <pad> token, no pad fix needed)"
+  ],
+  "recovery": "--save-steps 200 enabled",
+  "decision": "LAUNCH full Gemma Protocol v2 training, output models/finetune/gemma4-e2b-bidding-lora-v2",
+  "post_reorganization_locations": {
+    "adapter_produced_by_this_launch": "models/epoch-1/production/gemma4-e2b-bidding-lora-v2",
+    "note": "path updated 2026-07-25 during the repository reorganization; *_at_launch_time keys preserve the string recorded when the record was written",
+    "decision": "left verbatim as the record of what was actually executed"
+  }
+}

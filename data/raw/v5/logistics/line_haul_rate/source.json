@@ -1,0 +1,30 @@
+{
+  "group": "logistics/line_haul_rate",
+  "calibration_feeds": "beta_i",
+  "hash_algorithm": "sha256",
+  "hash_purpose_means": {
+    "source_artifact_integrity": "sha-256 of the downloaded artifact itself. it proves the pinned file stored in this repository has not changed since it was retrieved from the source url on the recorded retrieval date. it says nothing about whether the source has since revised or withdrawn the series",
+    "record_integrity": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+  },
+  "sources": [
+    {
+      "artifact": "line_haul_rate/upply_corridor_rates.json",
+      "acquisition_mode": "manual_record",
+      "sha256": "3d11a8d77fdceb7c6bd2c0493bb9efc927aca6fa3d8c0d0d0bdcd40db32014d8",
+      "hash_purpose": "record_integrity",
+      "bytes": 7555,
+      "source": "IRU / Upply / Ti, The European Road Freight Rate Benchmark, Q2 2026 - August 2026",
+      "source_url": "https://www.upply.com/en/ti-upply-iru-benchmarks-reports",
+      "page_or_section": "page 22 'City pairs - Contract, Headhaul Contract Rates, Data on Rates'; page 25 'City pairs - Spot, Headhaul Spot Rates, Data on Rates'; methodology page 36",
+      "access_date": "2026-09-13",
+      "access_date_basis": "read on this date from the local pdf copy identified in local_copy. the euro sign was confirmed on rendered images of pages 22 and 25, because the pdf text layer does not map that glyph",
+      "unit": "EUR per km",
+      "currency": "EUR",
+      "role": "source values for the beta_i candidate derivation",
+      "calibration_feeds": "beta_i",
+      "reverification_status": "reverified from the local copy",
+      "observation_count": 8,
+      "verification_note": "corridor rates and page references only, as printed on pages 22 and 25; no payload division, derivation arithmetic or comparison to 0.07163 is recorded here, that lives in data/processed/v5/logistics/beta_candidate_derivation.json"
+    }
+  ]
+}

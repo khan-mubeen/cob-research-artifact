@@ -1,0 +1,24 @@
+| Mode | Model | Latency difference | TTFT part | Output length effect | Per token effect |
+|---|---|---:|---:|---:|---:|
+| Sealed bid | Gemma | 2001.8 | 39.2 | -636.1 | 2598.8 |
+| Sealed bid | Granite | 3192.8 | 36.2 | 55.1 | 3101.5 |
+| Sealed bid | Ministral | 2160.0 | 41.5 | -77.8 | 2196.3 |
+| Sealed bid | Phi | 1689.7 | 8.9 | 77.0 | 1603.9 |
+| Sealed bid | Qwen | 1691.3 | 22.6 | -10.5 | 1679.2 |
+| Sealed bid | SmolLM3 | -874.5 | 39.0 | -3373.2 | 2459.6 |
+| Reverse auction | Gemma | 2111.1 | 39.8 | -538.6 | 2609.9 |
+| Reverse auction | Granite | 3094.7 | 28.7 | 33.5 | 3032.4 |
+| Reverse auction | Ministral | 2124.0 | 42.4 | -18.6 | 2100.2 |
+| Reverse auction | Phi | 1550.9 | 18.3 | -40.8 | 1573.4 |
+| Reverse auction | Qwen | 1446.9 | 21.8 | -151.2 | 1576.3 |
+| Reverse auction | SmolLM3 | 2361.1 | 34.1 | -420.8 | 2747.8 |
+| Supervisor | Gemma | -415.3 | 42.6 | -1152.7 | 694.7 |
+| Supervisor | Granite | 939.0 | 50.8 | -153.2 | 1041.4 |
+| Supervisor | Ministral | 100.3 | 56.3 | -637.6 | 681.6 |
+| Supervisor | Phi | 388.5 | 29.1 | -139.5 | 499.0 |
+| Supervisor | Qwen | -711.3 | 27.1 | -1123.6 | 385.1 |
+| Supervisor | SmolLM3 | 693.8 | 49.6 | -260.5 | 904.7 |
+
+Whole test split, one request at a time, adapter attached and not merged; latency statistics exclude warm-up rows except in Table 3, and token means use every row.
+Fine-tuned minus base, ms: difference = TTFT part + output length effect + per token effect, with
+T = (L - F)/(n - 1) as a ratio of means; the terms may differ from the sum in the last digit by rounding.

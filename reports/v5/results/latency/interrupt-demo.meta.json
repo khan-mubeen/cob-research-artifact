@@ -1,0 +1,88 @@
+{
+  "run": "interrupt-demo",
+  "family": "latency",
+  "split": "validation",
+  "rows_requested": 40,
+  "warmup": 1,
+  "checkpoint": "Qwen/Qwen3.5-4B",
+  "execution": {
+    "backend": "cuda",
+    "profile": "local",
+    "root": ".",
+    "hf_home": "/anonymous/home\\.cache\\huggingface",
+    "hf_hub_cache": "/anonymous/home\\.cache\\huggingface\\hub",
+    "models_dir": ".\\models",
+    "default_optim": "adamw_8bit"
+  },
+  "input_length_reference": "reports/v5/phase6_token_lengths.json",
+  "measurement": "single example, batch size 1, not a training step and not eval throughput",
+  "provenance": {
+    "model": "qwen",
+    "mode": "sealed",
+    "epoch": 0,
+    "checkpoint": "Qwen/Qwen3.5-4B",
+    "git_commit": "unknown",
+    "git_dirty": true,
+    "corpus_manifest_sha256": "cbf21f69acf1ffce8df72ec7aab1cb19498cbde5dbd046835995b6f8439bda1d",
+    "backend": "cuda",
+    "profile": "local",
+    "hardware": {
+      "host": "unknown",
+      "slurm_job_id": null,
+      "torch": "2.10.0+cu130",
+      "torch_backend": "cuda",
+      "torch_backend_version": "13.0",
+      "device": "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "architecture": "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "device_count": 1,
+      "memory_gib": 23.86
+    },
+    "recorded_at": "unknown"
+  },
+  "summary": {
+    "rows_timed": 39,
+    "rows_warmup_excluded": 1,
+    "warmup_median_ms": 17602.38,
+    "ms_per_decision": {
+      "n": 39,
+      "median": 7086.15,
+      "mean": 7130.22,
+      "min": 5337.26,
+      "max": 14303.85,
+      "p90": 7622.7
+    },
+    "input_tokens": {
+      "n": 39,
+      "median": 710,
+      "mean": 709.1,
+      "min": 704,
+      "max": 715,
+      "p90": 711
+    },
+    "output_tokens": {
+      "n": 39,
+      "median": 84,
+      "mean": 84.28,
+      "min": 83,
+      "max": 95,
+      "p90": 85
+    },
+    "total_tokens": {
+      "n": 39,
+      "median": 793,
+      "mean": 793.38,
+      "min": 788,
+      "max": 805,
+      "p90": 796
+    },
+    "output_tokens_per_second": {
+      "n": 39,
+      "median": 11.88,
+      "mean": 12.07,
+      "min": 5.8,
+      "max": 15.55,
+      "p90": 13.51
+    },
+    "rows_hitting_the_token_cap": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "model": "models/base-checkpoints/hf/phi4mini-v2-base",
+  "revision": null,
+  "gguf": "models/feasibility/smoke-artifacts/phi4mini/phi4mini-Q8_0.gguf",
+  "instruction_part": "<|user|>",
+  "response_part": "<|assistant|>",
+  "template_kwargs": {},
+  "thinking_capable_template": false,
+  "checks": {
+    "gen_prompt_is_prefix_of_train_text": true,
+    "assistant_content_follows_prefix": true,
+    "gguf_template_equals_hf_template": true,
+    "gguf_render_equals_hf_render": true,
+    "instruction_part_count_in_train_text": 1,
+    "response_part_count_in_train_text": 1,
+    "response_part_ends_gen_prompt": true
+  },
+  "gate": "PASS",
+  "gen_prompt_tail": "NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.04\n}<|end|><|assistant|>",
+  "train_text_around_boundary": "s\": null,\n  \"defect_probability\": 0.04\n}<|end|><|assistant|>{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent"
+}

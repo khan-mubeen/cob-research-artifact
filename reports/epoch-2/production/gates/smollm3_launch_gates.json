@@ -1,0 +1,62 @@
+{
+  "recorded_at": "unknown",
+  "family": "epoch-2 production (smollm3, sixth and final model)",
+  "model": "HuggingFaceTB/SmolLM3-3B",
+  "revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+  "base_path_used": "models/base-checkpoints/hf/smollm3-v2-base",
+  "single_variable_under_test": "num_train_epochs 1 -> 2; every other protocol v2 variable held",
+  "gates": {
+    "1_frozen_data_hashes": {
+      "status": "PASS (same disclosed orders.csv exception, re-proven inert AT SMOLLM3'S RENDER LAYER)",
+      "evidence": "5 of 6 pinned files match protocol_v2.json exactly; orders.csv carries the known dated drift. Rendering all 15,203 rows through SmolLM3's template (with enable_thinking=false, as training uses) against both orders.csv versions gives the identical fingerprint 5f7baa9662794cad1c622666e57503eb9c8755bb3775a026246b72926ad03534 with an identical order_id sequence. SIXTH distinct per-model fingerprint (granite cb762cc6, phi 38fc4698, qwen 5f14347c, gemma 208431c8, ministral c4a95beb). Six different values from the same 15,203 records is the concrete justification for re-deriving this per model.",
+      "action_taken": "none. orders.csv untouched, protocol hash not re-pinned."
+    },
+    "2_adapter_targets_match_validated_set": {
+      "status": "PASS",
+      "evidence": "q/k/v/o/gate/up/down -> 30,228,480 trainable of 3,105,327,104 (0.97%), identical to epoch-1 smollm3-v2. The largest trainable fraction of the six."
+    },
+    "3_template_alignment_train_vs_gguf": {
+      "status": "PASS",
+      "evidence": "reports/epoch-2/production/gates/smollm3_template_alignment.json: 7/7 including gguf_template_equals_hf_template TRUE (string-identical). Markers occur once each; the closed <think></think> block is present in the training render.",
+      "reasoning_kwarg_check_requested": "SmolLM3's template DOES branch on enable_thinking (thinking_capable_template: true). No warning fired because --template-kwargs was supplied, which is the correct behaviour. Across all six models the detector now reads: qwen TRUE, gemma TRUE, smollm3 TRUE, granite FALSE, phi FALSE, ministral FALSE -- it discriminates rather than warning indiscriminately."
+    },
+    "4_native_fit_no_sysmem_spill": {
+      "status": "PASS expected -- but SmolLM3 sat exactly AT the ceiling in epoch-1",
+      "evidence": "epoch-1 smollm3-v2 measured 9.0 GiB allocated / 23.9 GiB reserved against a 23.889 GiB ceiling -- effectively AT the limit, arguably a hair over. A real measurement at the identical configuration.",
+      "why_not_probe_based": "the 12-step probe reports 9.0/13.1 GiB. All five prior probes underpredicted (epoch-1's own smollm3 smoke said 15.3 vs 23.9 actual), so it confirms only the trainable count and step time.",
+      "spill_avoidance_applied": "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True (see below). No prediction is made; the full training log is the authoritative record."
+    }
+  },
+  "spill_avoidance_investigation": {
+    "goal": "avoid touching the marginal PCIe link at all, without changing what the model learns",
+    "option_A_tested_and_ADOPTED": {
+      "change": "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True",
+      "what_it_does": "allocator-level only: lets CUDA caching-allocator segments grow in place instead of allocating fresh fixed-size blocks, which is what fragmentation accumulates in. It changes NO arithmetic and NO batch composition.",
+      "evidence_it_is_free": "a 10-step probe produced BIT-IDENTICAL losses to the untuned 8x2 baseline (0.261, 0.2724, 0.2258, 0.2187, 0.2135, 0.213, 0.1915, 0.217, 0.185, 0.1853 in both). Not 'close' -- identical.",
+      "why_it_targets_the_right_thing": "the observed epoch-2 drift is fragmentation-driven: allocated memory was stable in all five prior models (granite 9.3->9.3, phi 11.2->11.2, qwen 10.8->10.8, gemma 12.5->12.5) while RESERVED drifted (phi +2.1, gemma +2.3). expandable_segments attacks exactly that mechanism.",
+      "limitation": "a 10-step probe cannot demonstrate a fragmentation benefit, since fragmentation accumulates over thousands of steps. Both probes read 13.1 GiB. This is a best-effort measure that cannot hurt, not a guarantee."
+    },
+    "option_B_tested_and_DECLINED": {
+      "change": "per-device batch 8 -> 4 with grad_accum 2 -> 4, preserving effective batch 16",
+      "explicitly_permitted": "the frozen protocol sanctions this: training_frozen.batch.rule = 'native-fit rule from v1: reduce per-device only if reserved memory exceeds physical, keep effective 16, disclose'. It is pre-registered, not a deviation.",
+      "it_works": "probe reserved fell 13.1 -> 9.2 GiB, a 3.9 GiB reduction, and losses matched to 3-4 significant figures with the first two steps bit-identical -- floating-point accumulation-order noise, not a different objective.",
+      "why_declined_anyway": "adopting it would make SmolLM3 the ONLY model in the six-model epoch-2 family trained at a different microbatch split, and its epoch-1 counterpart used 8x2. Over 1,902 steps the FP-noise divergence compounds, so the final adapter would differ from an 8x2 run much as a different seed would. That is a second difference in a comparison whose entire purpose is to isolate ONE variable, introduced in the final model where cross-model consistency matters most for the synthesis. Option A achieves the same defensive goal at literally zero cost, so there was no need to spend comparison purity on it.",
+      "recommendation": "validated and available. Use it for any FUTURE run where avoiding spill matters more than matching this family's microbatch config."
+    }
+  },
+  "checkpointing_decision": {
+    "save_steps": 100,
+    "tight_from_the_start": true,
+    "rationale": "observed crash-to-crash intervals during training are 11, 14, 37 and 73 minutes. At ~4.6 s/step, 100 steps is ~7.7 minutes -- inside the SHORTEST observed interval. The default 250 (~19 min) is what cost 11 minutes and produced no usable checkpoint at ministral's step-128 crash. Cost is ~19 checkpoints; save_steps provably does not alter training math.",
+    "override_test_note": "if this run crashes, the resume will pass --save-steps 100 while the checkpoint also records 100, so the SaveIntervalEnforcer override path would AGAIN be a no-op. A genuine override test requires CLI and restored state to disagree, which has not occurred in any crash so far."
+  },
+  "watch_item_specific_to_smollm3": "SmolLM3 epoch-1 already sits at 12/0/0 on robustness -- the floor, like ministral. Ministral showed that 'already at the floor' does NOT mean nothing happens: its robustness barely moved (12/0/0 -> 12/1/0) while edge-holdout clean-10 fell 80% -> 60%, the largest edge drop of the five. Damage that cannot show on a saturated axis surfaces elsewhere. Watch for the same displacement rather than assuming a flat non-result.",
+  "expected": {
+    "steps": 1902,
+    "steps_per_epoch": 951,
+    "est_runtime_min": 146,
+    "est_s_per_step": 4.61
+  },
+  "decision": "LAUNCH smollm3 epoch-2 at 8x2 with expandable_segments and save_steps 100",
+  "output_dir": "models/epoch-2/production/smollm3-bidding-lora-v2"
+}

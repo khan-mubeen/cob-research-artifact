@@ -1,0 +1,50 @@
+{
+  "source": "Tabb Textile Company, 2024 Product Catalog",
+  "source_url": "https://www.tabbtextileinc.com/wp-content/uploads/2024/11/Tabb-Textile-Fabric-Catalog-Final-Version-1.pdf",
+  "page_or_section": "denim section of the fabric catalog",
+  "role": "finished-fabric price level for denim",
+  "observation_kind": "catalog list prices, one catalog edition, not a series",
+  "catalog_edition": "2024",
+  "currency": "USD",
+  "unit": "USD per yard",
+  "observations": [
+    {
+      "sku": "DEHI",
+      "description": "Imported 14.5oz denim",
+      "composition": "100% Cotton",
+      "width_inches": 60,
+      "value": 4.85,
+      "unit": "USD/yard"
+    },
+    {
+      "sku": "DELI",
+      "description": "Imported 10oz denim",
+      "composition": "100% Cotton",
+      "width_inches": 60,
+      "value": 3.85,
+      "unit": "USD/yard"
+    },
+    {
+      "sku": "DEHBLD",
+      "description": "Domestic 14.5oz denim",
+      "composition": "100% Cotton",
+      "width_inches": 68,
+      "value": 7.5,
+      "unit": "USD/yard"
+    },
+    {
+      "sku": "DEHBD",
+      "description": "Domestic 13.3oz denim",
+      "composition": "100% Cotton",
+      "width_inches": 68,
+      "value": 7.5,
+      "unit": "USD/yard"
+    }
+  ],
+  "verification_note": "catalog list prices; catalog states bulk/repeat-purchase discounts are available but does not quantify them",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-11",
+  "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+}

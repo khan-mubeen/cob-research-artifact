@@ -1,0 +1,767 @@
+{
+  "schema": {
+    "material_train.jsonl": {
+      "rows": 169855,
+      "problems": {}
+    },
+    "tailoring_train.jsonl": {
+      "rows": 196876,
+      "problems": {}
+    },
+    "logistics_train.jsonl": {
+      "rows": 174814,
+      "problems": {}
+    },
+    "reverse_auction/material_train.jsonl": {
+      "rows": 189745,
+      "problems": {}
+    },
+    "reverse_auction/tailoring_train.jsonl": {
+      "rows": 216751,
+      "problems": {}
+    },
+    "reverse_auction/logistics_train.jsonl": {
+      "rows": 194665,
+      "problems": {}
+    },
+    "supervisor/selection_train.jsonl": {
+      "rows": 35552,
+      "problems": {}
+    },
+    "material_validation.jsonl": {
+      "rows": 21174,
+      "problems": {}
+    },
+    "tailoring_validation.jsonl": {
+      "rows": 24631,
+      "problems": {}
+    },
+    "logistics_validation.jsonl": {
+      "rows": 21924,
+      "problems": {}
+    },
+    "reverse_auction/material_validation.jsonl": {
+      "rows": 23691,
+      "problems": {}
+    },
+    "reverse_auction/tailoring_validation.jsonl": {
+      "rows": 27157,
+      "problems": {}
+    },
+    "reverse_auction/logistics_validation.jsonl": {
+      "rows": 24462,
+      "problems": {}
+    },
+    "supervisor/selection_validation.jsonl": {
+      "rows": 4455,
+      "problems": {}
+    },
+    "material_test.jsonl": {
+      "rows": 21207,
+      "problems": {}
+    },
+    "tailoring_test.jsonl": {
+      "rows": 24518,
+      "problems": {}
+    },
+    "logistics_test.jsonl": {
+      "rows": 21872,
+      "problems": {}
+    },
+    "reverse_auction/material_test.jsonl": {
+      "rows": 23799,
+      "problems": {}
+    },
+    "reverse_auction/tailoring_test.jsonl": {
+      "rows": 27116,
+      "problems": {}
+    },
+    "reverse_auction/logistics_test.jsonl": {
+      "rows": 24482,
+      "problems": {}
+    },
+    "supervisor/selection_test.jsonl": {
+      "rows": 4435,
+      "problems": {}
+    },
+    "edge/material_edge.jsonl": {
+      "rows": 108,
+      "problems": {}
+    },
+    "edge/tailoring_edge.jsonl": {
+      "rows": 60,
+      "problems": {}
+    },
+    "edge/logistics_edge.jsonl": {
+      "rows": 25,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/material_below_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/material_at_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/material_above_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/tailoring_below_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/tailoring_at_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/tailoring_above_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/logistics_below_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/logistics_at_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    },
+    "reverse_auction/floor_boundary/logistics_above_floor.jsonl": {
+      "rows": 132,
+      "problems": {}
+    }
+  },
+  "golden": {
+    "material_train.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "tailoring_train.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "logistics_train.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/material_train.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/tailoring_train.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/logistics_train.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "supervisor/selection_train.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "material_validation.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "tailoring_validation.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "logistics_validation.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/material_validation.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/tailoring_validation.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/logistics_validation.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "supervisor/selection_validation.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "material_test.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "tailoring_test.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "logistics_test.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/material_test.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/tailoring_test.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/logistics_test.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "supervisor/selection_test.jsonl": {
+      "rows_re_derived": 300,
+      "disagreements": 0,
+      "examples": []
+    },
+    "edge/material_edge.jsonl": {
+      "rows_re_derived": 108,
+      "disagreements": 0,
+      "examples": []
+    },
+    "edge/tailoring_edge.jsonl": {
+      "rows_re_derived": 60,
+      "disagreements": 0,
+      "examples": []
+    },
+    "edge/logistics_edge.jsonl": {
+      "rows_re_derived": 25,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/material_below_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/material_at_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/material_above_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/tailoring_below_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/tailoring_at_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/tailoring_above_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/logistics_below_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/logistics_at_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    },
+    "reverse_auction/floor_boundary/logistics_above_floor.jsonl": {
+      "rows_re_derived": 132,
+      "disagreements": 0,
+      "examples": []
+    }
+  },
+  "balance": {
+    "material_train.jsonl": {
+      "rows": 169855,
+      "BID": 156534,
+      "NO_BID": 13321,
+      "bid_pct": 92.157
+    },
+    "tailoring_train.jsonl": {
+      "rows": 196876,
+      "BID": 196876,
+      "bid_pct": 100.0
+    },
+    "logistics_train.jsonl": {
+      "rows": 174814,
+      "BID": 174814,
+      "bid_pct": 100.0
+    },
+    "reverse_auction/material_train.jsonl": {
+      "rows": 189745,
+      "NO_BID": 74605,
+      "BID": 115140,
+      "bid_pct": 60.681
+    },
+    "reverse_auction/tailoring_train.jsonl": {
+      "rows": 216751,
+      "BID": 154342,
+      "NO_BID": 62409,
+      "bid_pct": 71.207
+    },
+    "reverse_auction/logistics_train.jsonl": {
+      "rows": 194665,
+      "NO_BID": 94086,
+      "BID": 100579,
+      "bid_pct": 51.668
+    },
+    "supervisor/selection_train.jsonl": {
+      "rows": 35552,
+      "normal": 21338,
+      "flexible": 5225,
+      "urgent": 8989
+    },
+    "material_validation.jsonl": {
+      "rows": 21174,
+      "BID": 19706,
+      "NO_BID": 1468,
+      "bid_pct": 93.067
+    },
+    "tailoring_validation.jsonl": {
+      "rows": 24631,
+      "BID": 24631,
+      "bid_pct": 100.0
+    },
+    "logistics_validation.jsonl": {
+      "rows": 21924,
+      "BID": 21924,
+      "bid_pct": 100.0
+    },
+    "reverse_auction/material_validation.jsonl": {
+      "rows": 23691,
+      "NO_BID": 9219,
+      "BID": 14472,
+      "bid_pct": 61.086
+    },
+    "reverse_auction/tailoring_validation.jsonl": {
+      "rows": 27157,
+      "BID": 19337,
+      "NO_BID": 7820,
+      "bid_pct": 71.204
+    },
+    "reverse_auction/logistics_validation.jsonl": {
+      "rows": 24462,
+      "NO_BID": 11802,
+      "BID": 12660,
+      "bid_pct": 51.754
+    },
+    "supervisor/selection_validation.jsonl": {
+      "rows": 4455,
+      "normal": 2670,
+      "flexible": 654,
+      "urgent": 1131
+    },
+    "material_test.jsonl": {
+      "rows": 21207,
+      "BID": 19664,
+      "NO_BID": 1543,
+      "bid_pct": 92.724
+    },
+    "tailoring_test.jsonl": {
+      "rows": 24518,
+      "BID": 24518,
+      "bid_pct": 100.0
+    },
+    "logistics_test.jsonl": {
+      "rows": 21872,
+      "BID": 21872,
+      "bid_pct": 100.0
+    },
+    "reverse_auction/material_test.jsonl": {
+      "rows": 23799,
+      "BID": 14554,
+      "NO_BID": 9245,
+      "bid_pct": 61.154
+    },
+    "reverse_auction/tailoring_test.jsonl": {
+      "rows": 27116,
+      "BID": 19278,
+      "NO_BID": 7838,
+      "bid_pct": 71.095
+    },
+    "reverse_auction/logistics_test.jsonl": {
+      "rows": 24482,
+      "BID": 12732,
+      "NO_BID": 11750,
+      "bid_pct": 52.006
+    },
+    "supervisor/selection_test.jsonl": {
+      "rows": 4435,
+      "urgent": 1132,
+      "flexible": 646,
+      "normal": 2657
+    },
+    "edge/material_edge.jsonl": {
+      "rows": 108,
+      "NO_BID": 54,
+      "BID": 54
+    },
+    "edge/tailoring_edge.jsonl": {
+      "rows": 60,
+      "NO_BID": 36,
+      "BID": 24
+    },
+    "edge/logistics_edge.jsonl": {
+      "rows": 25,
+      "NO_BID": 14,
+      "BID": 11
+    },
+    "reverse_auction/floor_boundary/material_below_floor.jsonl": {
+      "rows": 132,
+      "NO_BID": 132
+    },
+    "reverse_auction/floor_boundary/material_at_floor.jsonl": {
+      "rows": 132,
+      "BID": 132
+    },
+    "reverse_auction/floor_boundary/material_above_floor.jsonl": {
+      "rows": 132,
+      "BID": 132
+    },
+    "reverse_auction/floor_boundary/tailoring_below_floor.jsonl": {
+      "rows": 132,
+      "NO_BID": 132
+    },
+    "reverse_auction/floor_boundary/tailoring_at_floor.jsonl": {
+      "rows": 132,
+      "BID": 132
+    },
+    "reverse_auction/floor_boundary/tailoring_above_floor.jsonl": {
+      "rows": 132,
+      "BID": 132
+    },
+    "reverse_auction/floor_boundary/logistics_below_floor.jsonl": {
+      "rows": 132,
+      "NO_BID": 132
+    },
+    "reverse_auction/floor_boundary/logistics_at_floor.jsonl": {
+      "rows": 132,
+      "BID": 132
+    },
+    "reverse_auction/floor_boundary/logistics_above_floor.jsonl": {
+      "rows": 132,
+      "BID": 132
+    }
+  },
+  "sanity": {
+    "material_train.jsonl": {
+      "values": 156534,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 133.58,
+      "median": 4545.54,
+      "p99": 56892.89340000004,
+      "max": 154369.58
+    },
+    "tailoring_train.jsonl": {
+      "values": 196876,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 429.3,
+      "median": 4964.48,
+      "p99": 30696.2075,
+      "max": 46545.94
+    },
+    "logistics_train.jsonl": {
+      "values": 174814,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 11.58,
+      "median": 128.75,
+      "p99": 507.8495999999996,
+      "max": 1026.46
+    },
+    "reverse_auction/material_train.jsonl": {
+      "values": 115140,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 133.58,
+      "median": 4458.865,
+      "p99": 61137.44,
+      "max": 146651.1
+    },
+    "reverse_auction/tailoring_train.jsonl": {
+      "values": 154342,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 429.3,
+      "median": 4800.51,
+      "p99": 28473.699999999983,
+      "max": 46476.08
+    },
+    "reverse_auction/logistics_train.jsonl": {
+      "values": 100579,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 11.58,
+      "median": 128.17,
+      "p99": 515.0752000000002,
+      "max": 925.79
+    },
+    "supervisor/selection_train.jsonl": {
+      "values": 35552,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 634.11,
+      "median": 10691.595000000001,
+      "p99": 95414.29389999982,
+      "max": 164187.25
+    },
+    "material_validation.jsonl": {
+      "values": 19706,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 138.87,
+      "median": 4678.36,
+      "p99": 53872.59750000004,
+      "max": 119170.61
+    },
+    "tailoring_validation.jsonl": {
+      "values": 24631,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 429.3,
+      "median": 4951.24,
+      "p99": 28909.77900000001,
+      "max": 46452.8
+    },
+    "logistics_validation.jsonl": {
+      "values": 21924,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 11.4,
+      "median": 128.19,
+      "p99": 468.42080000000004,
+      "max": 826.02
+    },
+    "reverse_auction/material_validation.jsonl": {
+      "values": 14472,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 142.43,
+      "median": 4600.450000000001,
+      "p99": 57741.46,
+      "max": 113243.48
+    },
+    "reverse_auction/tailoring_validation.jsonl": {
+      "values": 19337,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 437.88,
+      "median": 4735.68,
+      "p99": 27211.017599999985,
+      "max": 46382.95
+    },
+    "reverse_auction/logistics_validation.jsonl": {
+      "values": 12660,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 11.4,
+      "median": 127.305,
+      "p99": 479.18859999999995,
+      "max": 826.02
+    },
+    "supervisor/selection_validation.jsonl": {
+      "values": 4455,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 657.66,
+      "median": 10703.58,
+      "p99": 87587.6082,
+      "max": 131776.69
+    },
+    "material_test.jsonl": {
+      "values": 19664,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 147.17,
+      "median": 4498.514999999999,
+      "p99": 54888.29509999988,
+      "max": 110728.71
+    },
+    "tailoring_test.jsonl": {
+      "values": 24518,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 497.98,
+      "median": 4975.360000000001,
+      "p99": 29474.304399999994,
+      "max": 45288.57
+    },
+    "logistics_test.jsonl": {
+      "values": 21872,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 12.47,
+      "median": 127.84,
+      "p99": 480.6234000000004,
+      "max": 764.09
+    },
+    "reverse_auction/material_test.jsonl": {
+      "values": 14554,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 142.17,
+      "median": 4388.975,
+      "p99": 59757.82,
+      "max": 110728.71
+    },
+    "reverse_auction/tailoring_test.jsonl": {
+      "values": 19278,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 505.05,
+      "median": 4761.265,
+      "p99": 27461.341399999998,
+      "max": 44403.75
+    },
+    "reverse_auction/logistics_test.jsonl": {
+      "values": 12732,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 12.57,
+      "median": 126.775,
+      "p99": 481.17210000000006,
+      "max": 764.09
+    },
+    "supervisor/selection_test.jsonl": {
+      "values": 4435,
+      "non_finite": 0,
+      "non_positive": 0,
+      "min": 700.08,
+      "median": 10535.98,
+      "p99": 93392.64979999997,
+      "max": 142540.15
+    }
+  },
+  "leakage": {
+    "order_ids_by_split": {
+      "train": 40000,
+      "validation": 5000,
+      "test": 5000
+    },
+    "overlaps": {
+      "train_validation": 0,
+      "train_test": 0,
+      "validation_test": 0
+    },
+    "rows_in_a_split_other_than_their_orders": {},
+    "passed": true
+  },
+  "implausible_offers": {
+    "rule": "a stage offer above 10x its order's budget_usd, or a supervisor chain total above budget",
+    "count": 0,
+    "examples": []
+  },
+  "manifest": {
+    "files_checked": 40,
+    "problems": []
+  },
+  "v4_reference_ratios": {
+    "sealed:material_train": {
+      "rows": 11396,
+      "BID": 10537,
+      "bid_pct": 92.462
+    },
+    "sealed:material_holdout": {
+      "rows": 1272,
+      "BID": 1173,
+      "bid_pct": 92.217
+    },
+    "sealed:tailoring_train": {
+      "rows": 13182,
+      "BID": 13182,
+      "bid_pct": 100.0
+    },
+    "sealed:tailoring_holdout": {
+      "rows": 1499,
+      "BID": 1499,
+      "bid_pct": 100.0
+    },
+    "sealed:logistics_train": {
+      "rows": 19764,
+      "BID": 19764,
+      "bid_pct": 100.0
+    },
+    "sealed:logistics_holdout": {
+      "rows": 2145,
+      "BID": 2145,
+      "bid_pct": 100.0
+    },
+    "reverse_auction:material_train": {
+      "rows": 12770,
+      "BID": 7744,
+      "bid_pct": 60.642
+    },
+    "reverse_auction:material_holdout": {
+      "rows": 1398,
+      "BID": 838,
+      "bid_pct": 59.943
+    },
+    "reverse_auction:tailoring_train": {
+      "rows": 14547,
+      "BID": 10418,
+      "bid_pct": 71.616
+    },
+    "reverse_auction:tailoring_holdout": {
+      "rows": 1634,
+      "BID": 1180,
+      "bid_pct": 72.215
+    },
+    "reverse_auction:logistics_train": {
+      "rows": 21129,
+      "BID": 14872,
+      "bid_pct": 70.387
+    },
+    "reverse_auction:logistics_holdout": {
+      "rows": 2280,
+      "BID": 1590,
+      "bid_pct": 69.737
+    },
+    "supervisor:strategy_mix": {
+      "urgent": 27.263,
+      "normal": 58.463,
+      "flexible": 14.274
+    }
+  },
+  "checks": {
+    "schema": true,
+    "golden_style_re_derivation": true,
+    "no_non_finite_or_non_positive_offers": true,
+    "no_implausible_offers": true,
+    "manifest_hashes_match_disk": true,
+    "no_order_id_in_two_splits": true
+  },
+  "passed": true,
+  "golden_rows_re_derived_total": 7681
+}

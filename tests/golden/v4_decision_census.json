@@ -1,0 +1,21 @@
+{
+  "orders_covered": 50000,
+  "orders_skipped_no_product_row": 0,
+  "decision_counts": {
+    "sealed_bid": 809219,
+    "sealed_no_bid": 1140781,
+    "auction_bid": 1059046,
+    "auction_no_bid": 2631029
+  },
+  "reason_counts": {
+    "completion_exceeds_deadline": 2969,
+    "damage_probability_too_high": 55176,
+    "defect_probability_too_high": 327058,
+    "insufficient_stock_and_restock": 38622,
+    "material_not_supplied": 1350900,
+    "next_bid_below_minimum_bid": 475444,
+    "product_not_made": 902692,
+    "region_not_serviced": 618949
+  },
+  "digest_sha256": "c129ebe901adcc021a68ead5462bc1a768da8aada56f13ca2c3ecd9101e4316b"
+}

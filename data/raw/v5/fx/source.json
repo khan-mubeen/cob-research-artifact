@@ -1,0 +1,95 @@
+{
+  "group": "fx",
+  "hash_algorithm": "sha256",
+  "hash_purpose_means": {
+    "source_artifact_integrity": "sha-256 of the downloaded artifact itself. it proves the pinned file stored in this repository has not changed since it was retrieved from the source url on the recorded retrieval date. it says nothing about whether the source has since revised or withdrawn the series",
+    "record_integrity": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+  },
+  "sources": [
+    {
+      "artifact": "fx/ecb_eurofxref_hist.csv",
+      "acquisition_mode": "downloaded",
+      "sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae",
+      "hash_purpose": "source_artifact_integrity",
+      "bytes": 1920668,
+      "source": "European Central Bank, euro foreign exchange reference rates",
+      "source_url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip",
+      "source_page": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "series_id": "EXR",
+      "retrieval_date": "2026-09-12",
+      "unit": "units of currency per 1 EUR",
+      "unit_confirmed_from": "the ECB reference-rates page, which states the rates are quoted as units of currency per euro and are based on the daily concertation procedure at around 14:10 CET",
+      "frequency": "every TARGET working day",
+      "role": "the readable form of the pinned download: the single member of the stored zip, extracted byte for byte. this is the file the fx layer reads",
+      "licence_note": "ECB, reuse permitted with acknowledgement of the source",
+      "derived_from": "fx/eurofxref-hist.zip",
+      "derivation": "zip member 'eurofxref-hist.csv' extracted unmodified; no parsing, filtering or reformatting",
+      "cross_check": {
+        "purpose": "cross-confirmed against three independent secondary sources during methodology development; use these only to sanity-check the real downloaded ECB series, never as the fx layer's actual source of truth",
+        "values": [
+          {
+            "period": "2024 annual average",
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0824
+          },
+          {
+            "period": "2024 annual average",
+            "base": "EUR",
+            "quote": "ZAR",
+            "rate": 19.8297
+          },
+          {
+            "period": "2026-08 monthly average",
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1593
+          }
+        ],
+        "verification_note": "cross-confirmed against three independent secondary sources during methodology development; use these only to sanity-check the real downloaded ECB series in Part 6, never as the FX layer's actual source of truth"
+      }
+    },
+    {
+      "artifact": "fx/eurofxref-hist.zip",
+      "acquisition_mode": "downloaded",
+      "sha256": "49a652f480d2182e4c5f5908710f00c5b82ce33153a2086b5b98ff716d3d8f6e",
+      "hash_purpose": "source_artifact_integrity",
+      "bytes": 639032,
+      "source": "European Central Bank, euro foreign exchange reference rates",
+      "source_url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip",
+      "source_page": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
+      "series_id": "EXR",
+      "retrieval_date": "2026-09-12",
+      "unit": "units of currency per 1 EUR",
+      "unit_confirmed_from": "the ECB reference-rates page, which states the rates are quoted as units of currency per euro and are based on the daily concertation procedure at around 14:10 CET",
+      "frequency": "every TARGET working day",
+      "role": "the only fx source; every non-USD price is converted through it",
+      "licence_note": "ECB, reuse permitted with acknowledgement of the source",
+      "dataset_page": "https://data.ecb.europa.eu/data/datasets/EXR",
+      "cross_check": {
+        "purpose": "cross-confirmed against three independent secondary sources during methodology development; use these only to sanity-check the real downloaded ECB series, never as the fx layer's actual source of truth",
+        "values": [
+          {
+            "period": "2024 annual average",
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.0824
+          },
+          {
+            "period": "2024 annual average",
+            "base": "EUR",
+            "quote": "ZAR",
+            "rate": 19.8297
+          },
+          {
+            "period": "2026-08 monthly average",
+            "base": "EUR",
+            "quote": "USD",
+            "rate": 1.1593
+          }
+        ],
+        "verification_note": "cross-confirmed against three independent secondary sources during methodology development; use these only to sanity-check the real downloaded ECB series in Part 6, never as the FX layer's actual source of truth"
+      }
+    }
+  ]
+}

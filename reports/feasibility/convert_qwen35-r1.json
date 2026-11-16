@@ -1,0 +1,15 @@
+{
+  "tag": "qwen35-r1",
+  "merged_dir": "models/feasibility/qwen35-r1-merged",
+  "quant": "Q8_0",
+  "convert_script": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121",
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_stderr_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 8.14G/8.41G [00:34<00:01, 221Mbyte/s]\nWriting:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 8.19G/8.41G [00:34<00:00, 232Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 8.23G/8.41G [00:34<00:00, 238Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 8.27G/8.41G [00:34<00:00, 247Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 8.32G/8.41G [00:35<00:00, 198Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 8.37G/8.41G [00:35<00:00, 218Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 8.41G/8.41G [00:35<00:00, 230Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 8.41G/8.41G [00:35<00:00, 236Mbyte/s]\nINFO:hf-to-gguf:Model successfully exported to .\\models\\feasibility\\qwen35-r1-bf16.gguf\n",
+  "bf16_gib": 7.85,
+  "quantize_rc": 0,
+  "quant_gib": 4.17,
+  "quant_sha256": "aa80547eff812c87d6596d99093f96c0a6345a4f1b0814173253f64ef9691b4d",
+  "runtime_load_rc": 1,
+  "runtime_stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 12, in <module>\n  File \".\\.venv\\Lib\\site-packages\\llama_cpp\\llama.py\", line 381, in __init__\n    internals.LlamaModel(\n  File \".\\.venv\\Lib\\site-packages\\llama_cpp\\_internals.py\", line 62, in __init__\n    raise ValueError(f\"Failed to load model from file: {path_model}\")\nValueError: Failed to load model from file: .\\models\\feasibility\\qwen35-r1-Q8_0.gguf\n"
+}

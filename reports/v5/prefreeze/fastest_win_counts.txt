@@ -1,0 +1,49 @@
+COB_DATASET_VERSION = v5
+
+=== material: eligible / lowest-cost wins / fastest wins ===
+  M01   eligible  24303  lowest     46  fastest   1231   wins under at least one criterion
+  M02   eligible  11955  lowest   1194  fastest   7772   wins under at least one criterion
+  M03   eligible   6831  lowest   6801  fastest    655   wins under at least one criterion
+  M04   eligible   3748  lowest   3748  fastest    823   wins under at least one criterion
+  M05   eligible  15966  lowest    235  fastest    235   wins under at least one criterion
+  M06   eligible  24303  lowest  11229  fastest   3464   wins under at least one criterion
+  M07   eligible   8876  lowest   2756  fastest    793   wins under at least one criterion
+  M08   eligible   9060  lowest    634  fastest   1889   wins under at least one criterion
+  M09   eligible  12742  lowest    132  fastest    132   wins under at least one criterion
+  M10   eligible  20855  lowest  10146  fastest   3063   wins under at least one criterion
+  M11   eligible  27276  lowest   2379  fastest  18086   wins under at least one criterion
+  M12   eligible  14723  lowest    162  fastest   2478   wins under at least one criterion
+  M13   eligible   5984  lowest     53  fastest    463   wins under at least one criterion
+  M14   eligible   7812  lowest   3673  fastest   3324   wins under at least one criterion
+  M15   eligible   1470  lowest   1429  fastest    209   wins under at least one criterion
+  agents with zero wins under BOTH criteria: none
+
+=== manufacturer: eligible / lowest-cost wins / fastest wins ===
+  T1    eligible  32589  lowest    173  fastest   1889   wins under at least one criterion
+  T10   eligible  29927  lowest     42  fastest   9434   wins under at least one criterion
+  T11   eligible  32107  lowest     59  fastest  17507   wins under at least one criterion
+  T12   eligible  16662  lowest   7475  fastest    553   wins under at least one criterion
+  T2    eligible  19891  lowest   3021  fastest    257   wins under at least one criterion
+  T3    eligible  17355  lowest   8284  fastest   1053   wins under at least one criterion
+  T4    eligible  29416  lowest   2312  fastest   3286   wins under at least one criterion
+  T5    eligible  12096  lowest   3045  fastest    618   wins under at least one criterion
+  T6    eligible  19080  lowest   4318  fastest    367   wins under at least one criterion
+  T7    eligible  10710  lowest  10026  fastest   2401   wins under at least one criterion
+  T8    eligible   6608  lowest   5651  fastest   1786   wins under at least one criterion
+  T9    eligible  19584  lowest    211  fastest   5466   wins under at least one criterion
+  agents with zero wins under BOTH criteria: none
+
+=== logistics: eligible / lowest-cost wins / fastest wins ===
+  L01   eligible  46436  lowest   3887  fastest   5638   wins under at least one criterion
+  L02   eligible  41855  lowest   5388  fastest   7555   wins under at least one criterion
+  L03   eligible    906  lowest    889  fastest    225   wins under at least one criterion
+  L04   eligible  34146  lowest  20252  fastest  10783   wins under at least one criterion
+  L05   eligible  14219  lowest   4249  fastest   6069   wins under at least one criterion
+  L06   eligible    722  lowest      0  fastest    181   wins under at least one criterion
+  L07   eligible   2174  lowest   1668  fastest    747   wins under at least one criterion
+  L08   eligible  25292  lowest   3239  fastest   5818   wins under at least one criterion
+  L09   eligible  28664  lowest   4851  fastest   6361   wins under at least one criterion
+  L10   eligible   2514  lowest    176  fastest    422   wins under at least one criterion
+  L11   eligible  19930  lowest     18  fastest    370   wins under at least one criterion
+  L12   eligible   1752  lowest      0  fastest    448   wins under at least one criterion
+  agents with zero wins under BOTH criteria: none

@@ -1,0 +1,145 @@
+mode,split,model,arm,mean |days deviation| (days),mean days deviation (%)
+sealed,validation,gemma,base,0.7651,60.6365
+sealed,validation,gemma,epoch 1,0.0004,0.0274
+sealed,validation,gemma,epoch 2 (selected),0.0001,0.0054
+sealed,validation,gemma,epoch 3,0.0,0.0009
+sealed,validation,granite,base,3.1753,373.9391
+sealed,validation,granite,epoch 1,0.0004,0.0258
+sealed,validation,granite,epoch 2 (selected),0.0001,0.0028
+sealed,validation,granite,epoch 3,0.0001,0.0013
+sealed,validation,ministral,base,0.828,79.1149
+sealed,validation,ministral,epoch 1,0.0003,0.0262
+sealed,validation,ministral,epoch 2,0.0001,0.005
+sealed,validation,ministral,epoch 3 (selected),0.0,0.0006
+sealed,validation,phi,base,0.1628,3.3574
+sealed,validation,phi,epoch 1,0.0003,0.0116
+sealed,validation,phi,epoch 2 (selected),0.0,0.0015
+sealed,validation,phi,epoch 3,0.0001,0.0011
+sealed,validation,qwen,base,0.5649,62.5119
+sealed,validation,qwen,epoch 1,0.0002,0.013
+sealed,validation,qwen,epoch 2,0.0,0.0019
+sealed,validation,qwen,epoch 3 (selected),0.0,0.0002
+sealed,validation,smollm3,base,3.5421,316.3403
+sealed,validation,smollm3,epoch 1 (selected),0.0001,0.0075
+sealed,validation,smollm3,epoch 2,0.0,0.0007
+sealed,validation,smollm3,epoch 3,0.0001,0.002
+sealed,test,gemma,base,0.7657,60.5398
+sealed,test,gemma,epoch 1 (descriptive),0.0006,0.0298
+sealed,test,gemma,epoch 2 (selected),0.0001,0.006
+sealed,test,gemma,epoch 3 (descriptive),0.0,0.0011
+sealed,test,granite,base,3.1607,368.3369
+sealed,test,granite,epoch 1 (descriptive),0.0003,0.0222
+sealed,test,granite,epoch 2 (selected),0.0001,0.0031
+sealed,test,granite,epoch 3 (descriptive),0.0,0.0004
+sealed,test,ministral,base,0.8129,76.5881
+sealed,test,ministral,epoch 1 (descriptive),0.0003,0.025
+sealed,test,ministral,epoch 2 (descriptive),0.0001,0.0045
+sealed,test,ministral,epoch 3 (selected),0.0,0.0006
+sealed,test,phi,base,0.1545,3.1558
+sealed,test,phi,epoch 1 (descriptive),0.0004,0.0154
+sealed,test,phi,epoch 2 (selected),0.0001,0.0024
+sealed,test,phi,epoch 3 (descriptive),0.0002,0.0038
+sealed,test,qwen,base,0.5641,61.6201
+sealed,test,qwen,epoch 1 (descriptive),0.0001,0.009
+sealed,test,qwen,epoch 2 (descriptive),0.0,0.0021
+sealed,test,qwen,epoch 3 (selected),0.0,0.0003
+sealed,test,smollm3,base,3.6313,322.4715
+sealed,test,smollm3,epoch 1 (selected),0.0002,0.0083
+sealed,test,smollm3,epoch 2 (descriptive),0.0,0.0008
+sealed,test,smollm3,epoch 3 (descriptive),0.0,0.0003
+reverse_auction,validation,gemma,base,0.6156,46.1811
+reverse_auction,validation,gemma,epoch 1,0.0008,0.0453
+reverse_auction,validation,gemma,epoch 2,0.0002,0.0096
+reverse_auction,validation,gemma,epoch 3 (selected),0.0,0.001
+reverse_auction,validation,granite,base,3.5258,397.7589
+reverse_auction,validation,granite,epoch 1,0.0003,0.0253
+reverse_auction,validation,granite,epoch 2,0.0001,0.0076
+reverse_auction,validation,granite,epoch 3 (selected),0.0,0.0005
+reverse_auction,validation,ministral,base,1.0269,96.5792
+reverse_auction,validation,ministral,epoch 1,0.0009,0.0515
+reverse_auction,validation,ministral,epoch 2,0.0019,0.0374
+reverse_auction,validation,ministral,epoch 3 (selected),0.0,0.0008
+reverse_auction,validation,phi,base,2.0127,279.2752
+reverse_auction,validation,phi,epoch 1,0.0004,0.0188
+reverse_auction,validation,phi,epoch 2,0.0,0.0021
+reverse_auction,validation,phi,epoch 3 (selected),0.0,0.0006
+reverse_auction,validation,qwen,base,0.5061,51.7148
+reverse_auction,validation,qwen,epoch 1,0.0002,0.0134
+reverse_auction,validation,qwen,epoch 2,0.0,0.0027
+reverse_auction,validation,qwen,epoch 3 (selected),0.0,0.0004
+reverse_auction,validation,smollm3,base,4.8773,406.4616
+reverse_auction,validation,smollm3,epoch 1,0.0016,0.0392
+reverse_auction,validation,smollm3,epoch 2,0.0,0.0018
+reverse_auction,validation,smollm3,epoch 3 (selected),0.0,0.0005
+reverse_auction,test,gemma,base,0.5945,44.9647
+reverse_auction,test,gemma,epoch 1 (descriptive),0.0009,0.0508
+reverse_auction,test,gemma,epoch 2 (descriptive),0.0002,0.0083
+reverse_auction,test,gemma,epoch 3 (selected),0.0,0.0011
+reverse_auction,test,granite,base,3.5121,396.7199
+reverse_auction,test,granite,epoch 1 (descriptive),0.0004,0.029
+reverse_auction,test,granite,epoch 2 (descriptive),0.0332,1.74
+reverse_auction,test,granite,epoch 3 (selected),0.0,0.0006
+reverse_auction,test,ministral,base,1.0094,94.3933
+reverse_auction,test,ministral,epoch 1 (descriptive),0.0005,0.0349
+reverse_auction,test,ministral,epoch 2 (descriptive),0.0023,0.0425
+reverse_auction,test,ministral,epoch 3 (selected),0.0,0.001
+reverse_auction,test,phi,base,0.438,42.8764
+reverse_auction,test,phi,epoch 1 (descriptive),0.0003,0.0153
+reverse_auction,test,phi,epoch 2 (descriptive),0.0001,0.0026
+reverse_auction,test,phi,epoch 3 (selected),0.0,0.0006
+reverse_auction,test,qwen,base,0.4975,51.1295
+reverse_auction,test,qwen,epoch 1 (descriptive),0.0002,0.0137
+reverse_auction,test,qwen,epoch 2 (descriptive),0.0,0.0028
+reverse_auction,test,qwen,epoch 3 (selected),0.0,0.0003
+reverse_auction,test,smollm3,base,4.8818,405.1128
+reverse_auction,test,smollm3,epoch 1 (descriptive),0.002,0.046
+reverse_auction,test,smollm3,epoch 2 (descriptive),0.0,0.0019
+reverse_auction,test,smollm3,epoch 3 (selected),0.0,0.0005
+supervisor,validation,gemma,base,,19.9449
+supervisor,validation,gemma,epoch 1,,0.5519
+supervisor,validation,gemma,epoch 2,,0.452
+supervisor,validation,gemma,epoch 3 (selected),,0.3699
+supervisor,validation,granite,base,,30.3702
+supervisor,validation,granite,epoch 1,,0.8906
+supervisor,validation,granite,epoch 2,,0.3837
+supervisor,validation,granite,epoch 3 (selected),,0.2912
+supervisor,validation,ministral,base,,22.182
+supervisor,validation,ministral,epoch 1,,0.7539
+supervisor,validation,ministral,epoch 2,,0.4089
+supervisor,validation,ministral,epoch 3 (selected),,0.3902
+supervisor,validation,phi,base,,22.9802
+supervisor,validation,phi,epoch 1,,0.6422
+supervisor,validation,phi,epoch 2,,0.4724
+supervisor,validation,phi,epoch 3 (selected),,0.3504
+supervisor,validation,qwen,base,,16.7187
+supervisor,validation,qwen,epoch 1,,0.6386
+supervisor,validation,qwen,epoch 2,,0.2835
+supervisor,validation,qwen,epoch 3 (selected),,0.2299
+supervisor,validation,smollm3,base,,24.5337
+supervisor,validation,smollm3,epoch 1,,0.7867
+supervisor,validation,smollm3,epoch 2,,0.4788
+supervisor,validation,smollm3,epoch 3 (selected),,0.3764
+supervisor,test,gemma,base,,20.1292
+supervisor,test,gemma,epoch 1 (descriptive),,0.6266
+supervisor,test,gemma,epoch 2 (descriptive),,0.4009
+supervisor,test,gemma,epoch 3 (selected),,0.384
+supervisor,test,granite,base,,30.2904
+supervisor,test,granite,epoch 1 (descriptive),,0.7784
+supervisor,test,granite,epoch 2 (descriptive),,0.41
+supervisor,test,granite,epoch 3 (selected),,0.2973
+supervisor,test,ministral,base,,21.5331
+supervisor,test,ministral,epoch 1 (descriptive),,0.7381
+supervisor,test,ministral,epoch 2 (descriptive),,0.4707
+supervisor,test,ministral,epoch 3 (selected),,0.3543
+supervisor,test,phi,base,,21.8863
+supervisor,test,phi,epoch 1 (descriptive),,0.6401
+supervisor,test,phi,epoch 2 (descriptive),,0.4508
+supervisor,test,phi,epoch 3 (selected),,0.3783
+supervisor,test,qwen,base,,16.5662
+supervisor,test,qwen,epoch 1 (descriptive),,0.6292
+supervisor,test,qwen,epoch 2 (descriptive),,0.2496
+supervisor,test,qwen,epoch 3 (selected),,0.2057
+supervisor,test,smollm3,base,,24.7246
+supervisor,test,smollm3,epoch 1 (descriptive),,0.6515
+supervisor,test,smollm3,epoch 2 (descriptive),,0.4329
+supervisor,test,smollm3,epoch 3 (selected),,0.3552

@@ -1,0 +1,324 @@
+  ok   tests.test_auction_rounds           11 passed     0.1s
+[supervisor] order 'ORD-JUNK' has unreadable order_created 'not-a-timestamp', falling back to the real clock
+  ok   tests.test_deadline_anchor          11 passed     0.4s
+  ok   tests.test_v4_golden                 9 passed    24.4s
+  ok   tests.test_dataset_context          19 passed     0.0s
+  ok   tests.test_dataset_schemas          18 passed     0.9s
+  ok   tests.test_source_manifest          30 passed     0.5s
+  ok   tests.test_history_lookup           27 passed     0.0s
+  ok   tests.test_fx                       30 passed     4.7s
+  ok   tests.test_logistics_sources        19 passed     0.3s
+  ok   tests.test_logistics_calibration    16 passed     0.1s
+  ok   tests.test_material_pricing         17 passed     3.0s
+  ok   tests.test_route_distance           10 passed     1.1s
+  ok   tests.test_v5_synthesis             29 passed     7.6s
+  ok   tests.test_freight_assignment       12 passed     0.2s
+  ok   tests.test_calibration_proposal_v3  14 passed     2.4s
+  ok   tests.test_l09_counterfactual        8 passed     0.0s
+  ok   tests.test_v5_wiring                21 passed     3.9s
+  ok   tests.test_v5_floor_boundary         4 passed     3.1s
+  ok   tests.test_v5_finetune_corpus        6 passed     8.4s
+W0917 18:06:07.443000 22112 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+
+gate FAILED, nothing may be submitted until every check above is ok
+
+gate FAILED, nothing may be submitted until every check above is ok
+
+gate FAILED, nothing may be submitted until every check above is ok
+
+gate FAILED, nothing may be submitted until every check above is ok
+
+gate FAILED, nothing may be submitted until every check above is ok
+REFUSED: /anonymous/home\AppData\Local\Temp\tmplnznkr_f\freeze_check_local.json is not marked authoritative, it looks like a candidate copy
+REFUSED: only a candidate record is present (/anonymous/home\AppData\Local\Temp\tmptq0g2kxr\freeze_check_candidate.json).
+a candidate is non-authoritative and disposable, and is never a launch gate.
+run 'freeze_check.py --mode freeze' on the local machine once bid_check, slm_check
+and any resulting fix are committed, then transfer freeze_check_local.json here.
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+  ok   tests.test_v5_supervisor_selection  13 passed     8.9s
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmp_c7zp01f
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmpn_oxi1i0
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmp3lqkn4dr
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmp4uazdjov
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend cuda, profile roihu, optimizer adamw_8bit
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmpbxyh41ah
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+  ok   tests.test_v5_execution             18 passed     0.4s
+freeze check PASSED, 13 checks ok, commit withheld
+  ok   git_commit_known
+  ok   worktree_clean
+  ok   corpus_manifest_present
+  ok   corpus_files_match_manifest
+  ok   generated_scripts_present
+  ok   cuda-roihu:pins_match_registry
+  ok   cuda-roihu:scripts_are_freshly_rendered
+  ok   cuda-roihu:train_files_exist
+  ok   cuda-roihu:caches_resolve_under_the_profile_root
+  ok   rocm-lumi:pins_match_registry
+  ok   rocm-lumi:scripts_are_freshly_rendered
+  ok   rocm-lumi:train_files_exist
+  ok   rocm-lumi:caches_resolve_under_the_profile_root
+
+written to /anonymous/home\AppData\Local\Temp\tmpdiad4j00\freeze_check_local.json
+worktree after writing: 0 new entr(y/ies) []
+the freeze report is the only new item, as intended; do not commit it
+candidate freeze check, 13/13 checks ok
+  ok   git_commit_known
+  ok   worktree_state_recorded
+  ok   corpus_manifest_present
+  ok   corpus_files_match_manifest
+  ok   generated_scripts_present
+  ok   cuda-roihu:pins_match_registry
+  ok   cuda-roihu:scripts_are_freshly_rendered
+  ok   cuda-roihu:train_files_exist
+  ok   cuda-roihu:caches_resolve_under_the_profile_root
+  ok   rocm-lumi:pins_match_registry
+  ok   rocm-lumi:scripts_are_freshly_rendered
+  ok   rocm-lumi:train_files_exist
+  ok   rocm-lumi:caches_resolve_under_the_profile_root
+
+non-authoritative and disposable, written to /anonymous/home\AppData\Local\Temp\tmpkrk4gu2n\candidate.json
+LUMI will not read this file; run --mode freeze once bid_check, slm_check and any fix are committed
+candidate freeze check, 13/13 checks ok
+  ok   git_commit_known
+  ok   worktree_state_recorded
+  ok   corpus_manifest_present
+  ok   corpus_files_match_manifest
+  ok   generated_scripts_present
+  ok   cuda-roihu:pins_match_registry
+  ok   cuda-roihu:scripts_are_freshly_rendered
+  ok   cuda-roihu:train_files_exist
+  ok   cuda-roihu:caches_resolve_under_the_profile_root
+  ok   rocm-lumi:pins_match_registry
+  ok   rocm-lumi:scripts_are_freshly_rendered
+  ok   rocm-lumi:train_files_exist
+  ok   rocm-lumi:caches_resolve_under_the_profile_root
+
+non-authoritative and disposable, written to /anonymous/home\AppData\Local\Temp\tmp8fpynnil\freeze_check_candidate.json
+LUMI will not read this file; run --mode freeze once bid_check, slm_check and any fix are committed
+freeze REFUSED before any work, the worktree is not in a freezable state
+  ok   git_commit_known
+  FAIL worktree_clean
+       expected: no uncommitted or untracked entries
+       actual:   1 entr(y/ies): ['M src/experiments/v5/freeze_check.py']
+
+commit or stash the listed entries first: a freeze record pins a commit, and a dirty
+tree means the pinned commit does not describe what is on disk
+freeze REFUSED before any work, the worktree is not in a freezable state
+  ok   git_commit_known
+  FAIL worktree_clean
+       expected: no uncommitted or untracked entries
+       actual:   git could not report the worktree state
+
+commit or stash the listed entries first: a freeze record pins a commit, and a dirty
+tree means the pinned commit does not describe what is on disk
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmpgvzh_i2r
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+remote freeze gate against /anonymous/home\AppData\Local\Temp\tmpqrsamdr_\freeze_check_local.json
+frozen commit unknown, 3 corpus file(s) checked
+  ok   git_head_matches_frozen_commit
+  FAIL corpus_files_match_frozen_manifest
+       expected: every file present and identical
+       actual:   {'missing': [], 'sha256_differs': ['edge/logistics_edge.jsonl']}
+  ok   base_model_artifacts_match_frozen_provenance
+  ok   results_store_live_commit_matches
+  ok   results_store_live_manifest_matches
+remote freeze gate against /anonymous/home\AppData\Local\Temp\tmpyz1r3tu2\freeze_check_local.json
+frozen commit unknown, 1 corpus file(s) checked
+  ok   git_head_matches_frozen_commit
+  FAIL corpus_files_match_frozen_manifest
+       expected: every file present and identical
+       actual:   {'missing': ['supervisor/not_transferred.jsonl'], 'sha256_differs': []}
+  ok   base_model_artifacts_match_frozen_provenance
+  ok   results_store_live_commit_matches
+  ok   results_store_live_manifest_matches
+remote freeze gate against /anonymous/home\AppData\Local\Temp\tmpscd_7msd\freeze_check_local.json
+frozen commit withheld, 0 corpus file(s) checked
+  FAIL git_head_matches_frozen_commit
+       expected: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+       actual:   unknown
+  ok   corpus_files_match_frozen_manifest
+  ok   base_model_artifacts_match_frozen_provenance
+  FAIL results_store_live_commit_matches
+       expected: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+       actual:   unknown
+  ok   results_store_live_manifest_matches
+remote freeze gate against /anonymous/home\AppData\Local\Temp\tmp0uuya_2a\freeze_check_local.json
+frozen commit unknown, 0 corpus file(s) checked
+  ok   git_head_matches_frozen_commit
+  ok   corpus_files_match_frozen_manifest
+  ok   base_model_artifacts_match_frozen_provenance
+  ok   results_store_live_commit_matches
+  ok   results_store_live_manifest_matches
+
+gate PASSED, this machine matches the frozen state
+remote freeze gate against /anonymous/home\AppData\Local\Temp\tmp0uuya_2a\freeze_check_local.json
+frozen commit unknown, 0 corpus file(s) checked
+  ok   git_head_matches_frozen_commit
+  ok   corpus_files_match_frozen_manifest
+  FAIL base_model_artifacts_match_frozen_provenance
+       expected: no problems
+       actual:   [{'model': 'phi', 'file': 'added_tokens.json', 'expected': '0000000000000000', 'actual': 'd4f2aceb0f20b71dd1f4bcc7e052e4412946bf281840b8f83d39f259571af486'}]
+  ok   results_store_live_commit_matches
+  ok   results_store_live_manifest_matches
+remote freeze gate against /anonymous/home\AppData\Local\Temp\tmpf7389zsh\freeze_check_local.json
+frozen commit unknown, 0 corpus file(s) checked
+  ok   git_head_matches_frozen_commit
+  ok   corpus_files_match_frozen_manifest
+  ok   base_model_artifacts_match_frozen_provenance
+  ok   results_store_live_commit_matches
+  FAIL results_store_live_manifest_matches
+       expected: 0000000000000000000000000000000000000000000000000000000000000000
+       actual:   8cefb2396939c3889cade4b0f47c52cf9f7627c3fbc7b23e940fbb2c0e791a3b
+  ok   tests.test_v5_freeze_check          17 passed    16.6s
+
+== a (1 examples) ==
+  material   n=   1  decisions 100.00%  json 100.00%  offer dev mean 0.0%  days exact 0.0%  days dev 1.0d
+  macro      decision agreement 100.0% over 1 stage(s)
+
+== b (1 examples) ==
+  material   n=   1  decisions 100.00%  json 100.00%  offer dev mean 0.0%  days exact 0.0%  days dev 30.0d
+  macro      decision agreement 100.0% over 1 stage(s)
+
+== probe (30 examples) ==
+  logistics  n=  10  decisions 100.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  material   n=  10  decisions 100.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  tailoring  n=  10  decisions 100.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  macro      decision agreement 100.0% over 3 stage(s)
+
+== probe (3 examples) ==
+  logistics  n=   1  decisions 100.00%  json 100.00%  offer dev mean 0.0%  days exact 0.0%  days dev 1.0d
+  material   n=   2  decisions 100.00%  json 100.00%  offer dev mean 0.0%  days exact 50.0%  days dev 1.5d
+  macro      decision agreement 100.0% over 2 stage(s)
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmpzbx31eao
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+
+== probe (30 examples) ==
+  logistics  n=  10  decisions 100.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  material   n=  10  decisions  90.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  tailoring  n=  10  decisions  80.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  macro      decision agreement 90.0% over 3 stage(s)
+
+== probe (30 examples) ==
+  logistics  n=  10  decisions 100.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  material   n=  10  decisions  90.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  tailoring  n=  10  decisions  80.00%  json 100.00%  offer dev mean None%  days exact None%  days dev Noned
+  macro      decision agreement 90.0% over 3 stage(s)
+  ok   tests.test_v5_evaluator_gaps        17 passed     0.1s
+  ok   tests.test_v5_base_test_arm         10 passed     0.5s
+  ok   tests.test_v5_pinned_test_digest     9 passed     2.8s
+  ok   tests.test_v5_prompt_wording         7 passed     2.7s
+  ok   tests.test_v5_epoch_selection       12 passed     0.2s
+  ok   tests.test_v5_training_subsample     8 passed     3.3s
+
+422 passed, 0 failed in 96.7s
+exit 0

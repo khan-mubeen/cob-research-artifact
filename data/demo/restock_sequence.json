@@ -1,0 +1,54 @@
+{
+  "name": "restock sequence",
+  "notes": [
+    "three real holdout orders, in this order, against a freshly reset stack",
+    "M02 starts with 800.0 kg of cotton, so its restock threshold is 160.0 kg",
+    "ORD-33452 takes 489.0 kg (1630 skirts x 0.30), leaving 311.0 kg, still above",
+    "ORD-24907 takes 171.6 kg (1716 shirts x 0.10), leaving 139.4 kg, under the line",
+    "  -> threshold restock triggered, 1500.0 kg, lead time 2 days, eta 2026-09-01T15:00",
+    "ORD-02758 is created 2026-09-02T15:00, past that eta, so the restock lands first",
+    "  -> M02 goes 139.4 -> 1639.4 kg before the stage is priced",
+    "nothing is seeded or faked: every number here is the agent's own csv row"
+  ],
+  "orders": [
+    {
+      "order_id": "ORD-33452",
+      "order_created": "2026-08-27T09:00:00",
+      "product_id": "skirt",
+      "quantity": 1630,
+      "material_type": "cotton",
+      "budget": 14693.33,
+      "deadline": "2026-09-05",
+      "deliver_to": "Oulu",
+      "max_defect_rate": 0.034,
+      "min_reputation_score": 0.45,
+      "priority": "urgent"
+    },
+    {
+      "order_id": "ORD-24907",
+      "order_created": "2026-08-30T15:00:00",
+      "product_id": "shirt",
+      "quantity": 1716,
+      "material_type": "cotton",
+      "budget": 17301.57,
+      "deadline": "2026-09-13",
+      "deliver_to": "Oulu",
+      "max_defect_rate": 0.037,
+      "min_reputation_score": 0.48,
+      "priority": "urgent"
+    },
+    {
+      "order_id": "ORD-02758",
+      "order_created": "2026-09-02T15:00:00",
+      "product_id": "skirt",
+      "quantity": 778,
+      "material_type": "cotton",
+      "budget": 5764.45,
+      "deadline": "2026-09-23",
+      "deliver_to": "Tampere",
+      "max_defect_rate": 0.046,
+      "min_reputation_score": 0.5,
+      "priority": "normal"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+agent_id,source_team_id,stage,specialty,scale,product_types,daily_capacity_units,current_workload_units,available_workers,unit_cost_shirt,unit_cost_hoodie,unit_cost_jacket,unit_cost_jeans,unit_cost_skirt,min_profit_margin,initial_markup,defect_probability,reputation_score,location
+T1,1,tailoring,"premium multi-product, low defect, free capacity after large order",large,hoodie|jacket|shirt,883,177,67,4.99,8.4,12.08,,,0.1,0.28,0.02,0.821,Oulu
+T2,2,tailoring,"budget shirt and hoodie with great quality, often cheapest good option",large,hoodie|shirt,837,460,67,4.18,7.04,,,,0.1,0.29,0.02,0.771,Helsinki
+T3,3,tailoring,"cheapest jacket and jeans producer, compensates busy backlog with price",large,jacket|jeans,830,706,69,,,9.43,5.74,,0.1,0.31,0.02,0.804,Tampere
+T4,4,tailoring,"very free capacity, affordable, best choice for urgent mid-quality orders",large,jeans|shirt|skirt,752,113,71,4.37,,,6.44,3.91,0.1,0.3,0.02,0.77,Turku
+T5,5,tailoring,"hoodie and jacket specialist, very cheap but higher defect risk",large,hoodie|jacket,660,462,67,,6.24,9.0,,,0.1,0.33,0.053,0.698,Jyvaskyla
+T6,6,tailoring,"budget shirt and skirt, light workload, wins for flexible orders",medium,shirt|skirt,696,244,44,4.13,,,,3.7,0.1,0.32,0.045,0.685,Lahti
+T7,7,tailoring,"absolute lowest cost across products, near capacity, high defect only option",large,hoodie|jacket|jeans|shirt,645,258,67,3.5,6.0,9.0,5.0,,0.1,0.3,0.067,0.668,Espoo
+T8,8,tailoring,"mid-range jeans and skirt, normal workload, reliable choice",large,jeans|skirt,658,329,66,,,,5.11,3.1,0.1,0.32,0.062,0.674,Oulu
+T9,9,tailoring,"almost empty capacity, urgent large order specialist, competitive pricing",large,hoodie|shirt,803,64,65,4.28,7.2,,,,0.1,0.29,0.026,0.734,Helsinki
+T10,10,tailoring,"premium jacket and jeans, busy but worth it for quality-critical orders",large,jacket|jeans|skirt,806,64,64,,,12.88,7.84,4.76,0.1,0.31,0.023,0.72,Tampere
+T11,11,tailoring,most expensive but best quality and service across all product types,large,hoodie|jacket|shirt,857,43,63,5.23,8.8,12.65,,,0.1,0.3,0.026,0.682,Turku
+T12,12,tailoring,"budget shirt and jeans, moderately busy, competitive for price-sensitive",medium,jeans|shirt,804,603,43,4.04,,,5.95,,0.1,0.34,0.02,0.779,Jyvaskyla

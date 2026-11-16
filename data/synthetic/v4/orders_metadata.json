@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-07-11T13:12:48",
+  "seed": 42,
+  "total_orders": 50000,
+  "base_date": "2026-07-11",
+  "creation_window_days": 180,
+  "scenario_mix": {
+    "random_realistic": 0.71,
+    "tight_deadline": 0.06,
+    "low_budget": 0.06,
+    "large_quantity": 0.05,
+    "high_quality": 0.05,
+    "rare_combo": 0.04,
+    "tight_low_budget": 0.03
+  },
+  "priority_weights": {
+    "urgent": 0.2,
+    "normal": 0.6,
+    "flexible": 0.2
+  },
+  "budget_anchor": "expected market price, stage factors from agent csvs plus priority markup",
+  "stage_factors": {
+    "material": 1.3206,
+    "manufacturer": 1.3839,
+    "logistics": 1.3
+  },
+  "input_sha256": {
+    "products": "75c306523459eecaab2978fa067e31668e5e20e1ab08dd08b50dc5786c499554",
+    "manufacturers": "faf86a339aee3e7d827b680653e1a932bff360066a19d143fd557ac5ac792220",
+    "materials": "15bfc6881d149bbaeacea1c72d11dc64ea5763ff84cf0c90d2f9f2a6e550a3b6",
+    "logistics": "56b6145189e746007184bcf983b16bc7e39b6e2988f8f4f10969cd764a7444cf"
+  }
+}

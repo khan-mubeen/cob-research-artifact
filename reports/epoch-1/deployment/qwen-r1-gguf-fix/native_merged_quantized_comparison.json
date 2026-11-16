@@ -1,0 +1,484 @@
+{
+  "generated_at": "2026-07-19T18:01:12",
+  "inputs": {
+    "native": "reports/slm_comparison/v4/eval_finetuned-r1-audit_20260719_001029.json",
+    "merged": "reports/slm_comparison/v4/eval_r1-merged-hf_20260719_173449.json",
+    "quantized": "reports/gguf_fix/eval_gguf_r1-q8-matched_20260719_180047.json"
+  },
+  "contaminated_edge_ids_excluded_variant": [
+    "SYNEDGE-T-INF-T11/T11",
+    "SYNEDGE-T-INF-T2/T2"
+  ],
+  "sets": {
+    "baseline_six": {
+      "native": {
+        "overall": {
+          "n": 6,
+          "decision_agreement_pct": 66.67,
+          "json_valid_pct": 100.0,
+          "false_bid": 2,
+          "false_nobid": 0,
+          "mean_abs_offer_dev_pct": null,
+          "days_exact_match_pct": null
+        },
+        "no_bid_correct": 4
+      },
+      "merged": {
+        "overall": {
+          "n": 6,
+          "decision_agreement_pct": 66.67,
+          "json_valid_pct": 100.0,
+          "false_bid": 2,
+          "false_nobid": 0,
+          "mean_abs_offer_dev_pct": null,
+          "days_exact_match_pct": null
+        },
+        "no_bid_correct": 4
+      },
+      "quantized": {
+        "overall": {
+          "n": 6,
+          "decision_agreement_pct": 66.67,
+          "json_valid_pct": 100.0,
+          "false_bid": 2,
+          "false_nobid": 0,
+          "mean_abs_offer_dev_pct": null,
+          "days_exact_match_pct": null
+        },
+        "no_bid_correct": 4
+      }
+    },
+    "edge_holdout": {
+      "native": {
+        "overall": {
+          "n": 12,
+          "decision_agreement_pct": 91.67,
+          "json_valid_pct": 100.0,
+          "false_bid": 1,
+          "false_nobid": 0,
+          "mean_abs_offer_dev_pct": 5.3,
+          "days_exact_match_pct": 33.33
+        },
+        "clean_10": {
+          "n": 10,
+          "decision_agreement_pct": 90.0,
+          "json_valid_pct": 100.0,
+          "false_bid": 1,
+          "false_nobid": 0,
+          "mean_abs_offer_dev_pct": 5.3,
+          "days_exact_match_pct": 33.33
+        }
+      },
+      "merged": {
+        "overall": {
+          "n": 12,
+          "decision_agreement_pct": 83.33,
+          "json_valid_pct": 100.0,
+          "false_bid": 1,
+          "false_nobid": 1,
+          "mean_abs_offer_dev_pct": 4.106,
+          "days_exact_match_pct": 40.0
+        },
+        "clean_10": {
+          "n": 10,
+          "decision_agreement_pct": 80.0,
+          "json_valid_pct": 100.0,
+          "false_bid": 1,
+          "false_nobid": 1,
+          "mean_abs_offer_dev_pct": 4.106,
+          "days_exact_match_pct": 40.0
+        }
+      },
+      "quantized": {
+        "overall": {
+          "n": 12,
+          "decision_agreement_pct": 83.33,
+          "json_valid_pct": 100.0,
+          "false_bid": 1,
+          "false_nobid": 1,
+          "mean_abs_offer_dev_pct": 4.003,
+          "days_exact_match_pct": 40.0
+        },
+        "clean_10": {
+          "n": 10,
+          "decision_agreement_pct": 80.0,
+          "json_valid_pct": 100.0,
+          "false_bid": 1,
+          "false_nobid": 1,
+          "mean_abs_offer_dev_pct": 4.003,
+          "days_exact_match_pct": 40.0
+        }
+      }
+    },
+    "main_holdout": {
+      "native": {
+        "overall": {
+          "n": 1500,
+          "decision_agreement_pct": 99.67,
+          "json_valid_pct": 100.0,
+          "false_bid": 4,
+          "false_nobid": 1,
+          "mean_abs_offer_dev_pct": 0.653,
+          "days_exact_match_pct": 95.0
+        }
+      },
+      "merged": {
+        "overall": {
+          "n": 1500,
+          "decision_agreement_pct": 99.67,
+          "json_valid_pct": 100.0,
+          "false_bid": 4,
+          "false_nobid": 1,
+          "mean_abs_offer_dev_pct": 0.66,
+          "days_exact_match_pct": 95.14
+        }
+      },
+      "quantized": {
+        "overall": {
+          "n": 1500,
+          "decision_agreement_pct": 99.67,
+          "json_valid_pct": 100.0,
+          "false_bid": 4,
+          "false_nobid": 1,
+          "mean_abs_offer_dev_pct": 0.663,
+          "days_exact_match_pct": 95.0
+        }
+      }
+    },
+    "boundary_stress": {
+      "native": {
+        "overall": {
+          "n": 36,
+          "decision_agreement_pct": 50.0,
+          "json_valid_pct": 100.0,
+          "false_bid": 5,
+          "false_nobid": 13,
+          "mean_abs_offer_dev_pct": 9.761,
+          "days_exact_match_pct": 9.09
+        },
+        "per_class": {
+          "stress_ratio_0.98": {
+            "n": 12,
+            "decision_agreement_pct": 50.0,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 6,
+            "mean_abs_offer_dev_pct": 9.949,
+            "days_exact_match_pct": 16.67
+          },
+          "stress_ratio_1.0": {
+            "n": 12,
+            "decision_agreement_pct": 41.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 7,
+            "mean_abs_offer_dev_pct": 9.536,
+            "days_exact_match_pct": 0.0
+          },
+          "stress_ratio_1.02": {
+            "n": 12,
+            "decision_agreement_pct": 58.33,
+            "json_valid_pct": 100.0,
+            "false_bid": 5,
+            "false_nobid": 0,
+            "mean_abs_offer_dev_pct": null,
+            "days_exact_match_pct": null
+          }
+        },
+        "per_class_correct": {
+          "stress_ratio_0.98": "6/12",
+          "stress_ratio_1.0": "5/12",
+          "stress_ratio_1.02": "7/12"
+        }
+      },
+      "merged": {
+        "overall": {
+          "n": 36,
+          "decision_agreement_pct": 52.78,
+          "json_valid_pct": 100.0,
+          "false_bid": 4,
+          "false_nobid": 13,
+          "mean_abs_offer_dev_pct": 9.747,
+          "days_exact_match_pct": 9.09
+        },
+        "per_class": {
+          "stress_ratio_0.98": {
+            "n": 12,
+            "decision_agreement_pct": 50.0,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 6,
+            "mean_abs_offer_dev_pct": 9.939,
+            "days_exact_match_pct": 16.67
+          },
+          "stress_ratio_1.0": {
+            "n": 12,
+            "decision_agreement_pct": 41.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 7,
+            "mean_abs_offer_dev_pct": 9.516,
+            "days_exact_match_pct": 0.0
+          },
+          "stress_ratio_1.02": {
+            "n": 12,
+            "decision_agreement_pct": 66.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 4,
+            "false_nobid": 0,
+            "mean_abs_offer_dev_pct": null,
+            "days_exact_match_pct": null
+          }
+        },
+        "per_class_correct": {
+          "stress_ratio_0.98": "6/12",
+          "stress_ratio_1.0": "5/12",
+          "stress_ratio_1.02": "8/12"
+        }
+      },
+      "quantized": {
+        "overall": {
+          "n": 36,
+          "decision_agreement_pct": 44.44,
+          "json_valid_pct": 100.0,
+          "false_bid": 5,
+          "false_nobid": 15,
+          "mean_abs_offer_dev_pct": 9.226,
+          "days_exact_match_pct": 0.0
+        },
+        "per_class": {
+          "stress_ratio_0.98": {
+            "n": 12,
+            "decision_agreement_pct": 41.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 7,
+            "mean_abs_offer_dev_pct": 9.514,
+            "days_exact_match_pct": 0.0
+          },
+          "stress_ratio_1.0": {
+            "n": 12,
+            "decision_agreement_pct": 33.33,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 8,
+            "mean_abs_offer_dev_pct": 8.866,
+            "days_exact_match_pct": 0.0
+          },
+          "stress_ratio_1.02": {
+            "n": 12,
+            "decision_agreement_pct": 58.33,
+            "json_valid_pct": 100.0,
+            "false_bid": 5,
+            "false_nobid": 0,
+            "mean_abs_offer_dev_pct": null,
+            "days_exact_match_pct": null
+          }
+        },
+        "per_class_correct": {
+          "stress_ratio_0.98": "5/12",
+          "stress_ratio_1.0": "4/12",
+          "stress_ratio_1.02": "7/12"
+        }
+      }
+    },
+    "final_boundary_holdout": {
+      "native": {
+        "overall": {
+          "n": 36,
+          "decision_agreement_pct": 58.33,
+          "json_valid_pct": 100.0,
+          "false_bid": 4,
+          "false_nobid": 11,
+          "mean_abs_offer_dev_pct": 9.366,
+          "days_exact_match_pct": 15.38
+        },
+        "per_class": {
+          "above_infeasible": {
+            "n": 12,
+            "decision_agreement_pct": 66.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 4,
+            "false_nobid": 0,
+            "mean_abs_offer_dev_pct": null,
+            "days_exact_match_pct": null
+          },
+          "below_feasible": {
+            "n": 12,
+            "decision_agreement_pct": 41.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 7,
+            "mean_abs_offer_dev_pct": 8.82,
+            "days_exact_match_pct": 40.0
+          },
+          "exact_feasible": {
+            "n": 12,
+            "decision_agreement_pct": 66.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 4,
+            "mean_abs_offer_dev_pct": 9.707,
+            "days_exact_match_pct": 0.0
+          }
+        },
+        "per_class_correct": {
+          "above_infeasible": "8/12",
+          "below_feasible": "5/12",
+          "exact_feasible": "8/12"
+        }
+      },
+      "merged": {
+        "overall": {
+          "n": 36,
+          "decision_agreement_pct": 47.22,
+          "json_valid_pct": 100.0,
+          "false_bid": 6,
+          "false_nobid": 13,
+          "mean_abs_offer_dev_pct": 9.083,
+          "days_exact_match_pct": 9.09
+        },
+        "per_class": {
+          "above_infeasible": {
+            "n": 12,
+            "decision_agreement_pct": 50.0,
+            "json_valid_pct": 100.0,
+            "false_bid": 6,
+            "false_nobid": 0,
+            "mean_abs_offer_dev_pct": null,
+            "days_exact_match_pct": null
+          },
+          "below_feasible": {
+            "n": 12,
+            "decision_agreement_pct": 33.33,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 8,
+            "mean_abs_offer_dev_pct": 8.322,
+            "days_exact_match_pct": 25.0
+          },
+          "exact_feasible": {
+            "n": 12,
+            "decision_agreement_pct": 58.33,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 5,
+            "mean_abs_offer_dev_pct": 9.519,
+            "days_exact_match_pct": 0.0
+          }
+        },
+        "per_class_correct": {
+          "above_infeasible": "6/12",
+          "below_feasible": "4/12",
+          "exact_feasible": "7/12"
+        }
+      },
+      "quantized": {
+        "overall": {
+          "n": 36,
+          "decision_agreement_pct": 52.78,
+          "json_valid_pct": 100.0,
+          "false_bid": 4,
+          "false_nobid": 13,
+          "mean_abs_offer_dev_pct": 9.617,
+          "days_exact_match_pct": 9.09
+        },
+        "per_class": {
+          "above_infeasible": {
+            "n": 12,
+            "decision_agreement_pct": 66.67,
+            "json_valid_pct": 100.0,
+            "false_bid": 4,
+            "false_nobid": 0,
+            "mean_abs_offer_dev_pct": null,
+            "days_exact_match_pct": null
+          },
+          "below_feasible": {
+            "n": 12,
+            "decision_agreement_pct": 33.33,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 8,
+            "mean_abs_offer_dev_pct": 10.417,
+            "days_exact_match_pct": 25.0
+          },
+          "exact_feasible": {
+            "n": 12,
+            "decision_agreement_pct": 58.33,
+            "json_valid_pct": 100.0,
+            "false_bid": 0,
+            "false_nobid": 5,
+            "mean_abs_offer_dev_pct": 9.16,
+            "days_exact_match_pct": 0.0
+          }
+        },
+        "per_class_correct": {
+          "above_infeasible": "8/12",
+          "below_feasible": "4/12",
+          "exact_feasible": "7/12"
+        }
+      }
+    }
+  },
+  "decision_flips": {
+    "baseline_six": {
+      "native_vs_merged": [],
+      "merged_vs_quantized": [],
+      "native_vs_quantized": []
+    },
+    "edge_holdout": {
+      "native_vs_merged": [
+        "SYNEDGE-T-NEA-T9/T9"
+      ],
+      "merged_vs_quantized": [],
+      "native_vs_quantized": [
+        "SYNEDGE-T-NEA-T9/T9"
+      ]
+    },
+    "main_holdout": {
+      "native_vs_merged": [],
+      "merged_vs_quantized": [],
+      "native_vs_quantized": []
+    },
+    "boundary_stress": {
+      "native_vs_merged": [
+        "STRESS-T-1P02-T8"
+      ],
+      "merged_vs_quantized": [
+        "STRESS-T-0P98-T10",
+        "STRESS-T-1P0-T10",
+        "STRESS-T-1P02-T8"
+      ],
+      "native_vs_quantized": [
+        "STRESS-T-0P98-T10",
+        "STRESS-T-1P0-T10"
+      ]
+    },
+    "final_boundary_holdout": {
+      "native_vs_merged": [
+        "FINALB-T-ABOVE-T10",
+        "FINALB-T-ABOVE-T12",
+        "FINALB-T-BELOW-T12",
+        "FINALB-T-EXACT-T9"
+      ],
+      "merged_vs_quantized": [
+        "FINALB-T-ABOVE-T10",
+        "FINALB-T-ABOVE-T12",
+        "FINALB-T-BELOW-T12",
+        "FINALB-T-BELOW-T8"
+      ],
+      "native_vs_quantized": [
+        "FINALB-T-BELOW-T8",
+        "FINALB-T-EXACT-T9"
+      ]
+    }
+  },
+  "latency": {
+    "quantized": {
+      "n": 1590,
+      "median_s": 0.939,
+      "total_completion_tokens": 133824,
+      "tokens_per_s_overall": 89.3
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "generated_from": "rule-based decide_round_bid() labels through the v5 dispatch, no model involved",
+  "data_version": "v5",
+  "currency": "USD",
+  "mode": "reverse_auction",
+  "scale_decision": "deliberate v5 scaling decision: every one of the 50,000 v5 orders is used, not v4's ~3,000-order experimental sample",
+  "source_order_count": 50000,
+  "orders_with_rows": {
+    "train": 40000,
+    "validation": 5000,
+    "test": 5000
+  },
+  "split_file": "data/finetune/v5/split/order_split.csv",
+  "split_file_sha256": "c068ed116da214a822df4e30b72c313cda309de48c76a3dd154396f292fcdd5f",
+  "split_rule": "order-id disjoint, the global v5 split shared by every stage, mode and the supervisor",
+  "rounds_covered": [
+    1,
+    2,
+    3
+  ],
+  "round_mix": {
+    "round_1": 284701,
+    "round_2": 316096,
+    "round_3": 151071
+  },
+  "replay_lengths_by_stage": {
+    "material": {
+      "1": 1564,
+      "2": 13229,
+      "3": 35207
+    },
+    "tailoring": {
+      "2": 8461,
+      "3": 41539
+    },
+    "logistics": {
+      "2": 49691
+    }
+  },
+  "stop_rule": "an auction closes when a round brings no valid improvement, or at the round cap",
+  "tie_break": "earliest arrival wins an identical offer, roster order offline",
+  "minimum_bid_in_prompt": true,
+  "worded_formulas": true,
+  "minimum_bid_rounding": "ceil_to_cents via reverse_auction.agent_minimum_bid, shared by prompt and floor block",
+  "label_rule": "src.common.reverse_auction.decide_round_bid, unmodified, v5 prices by dispatch",
+  "prompt_builder": "src.common.slm.build_{material,manufacturer,logistics}_prompt with auction fields, v5 dispatch",
+  "auction_replay": "src.experiments.generate_reverse_auction_data.replay_auction, imported and unmodified",
+  "examples_per_pair": "one, rounds rotating over the rounds the replay ran",
+  "round_1_label": "asserted equal to the sealed decision at build time",
+  "platform_minimum_decrement": {
+    "default": 5.0,
+    "currency": "USD",
+    "schedule": "every second order at the default, the rest at 5/10/20% of that stage's opening best bid",
+    "note": "bidding_modes documents the default as a EUR amount; it is a platform rule rather than a sourced price, so v5 applies the same number in the order's currency, USD"
+  },
+  "categories": {
+    "auction_round": "the replayed round at the price the auction produced",
+    "floor_boundary": "constructed current_best_bid putting the next offer one percent above, exactly at, and one cent below the agent's minimum_bid, inside the main corpus as in v4"
+  },
+  "floor_pairs_per_stage": 8333,
+  "floor_pairs_used": {
+    "material": 8333,
+    "tailoring": 8333,
+    "logistics": 8333
+  },
+  "floor_pairs_basis": "v4's committed set used --floor-pairs 500 over 3,000 orders, one pair per six orders; v5 keeps that rate over its pool",
+  "logistics_floor": "a v5 logistics price carries no margin, so minimum_bid is the opening offer and every logistics auction closes after round 2 with all round-2 rows NO_BID",
+  "decrement_mix": {
+    "logistics:10%_of_opening": 8287,
+    "logistics:20%_of_opening": 8271,
+    "logistics:5%_of_opening": 8257,
+    "logistics:default": 24876,
+    "material:10%_of_opening": 8050,
+    "material:20%_of_opening": 8074,
+    "material:5%_of_opening": 8087,
+    "material:default": 25789,
+    "tailoring:10%_of_opening": 8333,
+    "tailoring:20%_of_opening": 8333,
+    "tailoring:5%_of_opening": 8334,
+    "tailoring:default": 25000
+  },
+  "skipped": {},
+  "counts": {
+    "material_train": 189745,
+    "material_validation": 23691,
+    "material_test": 23799,
+    "tailoring_train": 216751,
+    "tailoring_validation": 27157,
+    "tailoring_test": 27116,
+    "logistics_train": 194665,
+    "logistics_validation": 24462,
+    "logistics_test": 24482
+  },
+  "class_balance": {
+    "material_train": {
+      "rows": 189745,
+      "BID": 115140,
+      "NO_BID": 74605,
+      "withdrawn": 17694,
+      "floor_boundary": 19890,
+      "bid_pct": 60.681
+    },
+    "material_validation": {
+      "rows": 23691,
+      "BID": 14472,
+      "NO_BID": 9219,
+      "withdrawn": 2170,
+      "floor_boundary": 2517,
+      "bid_pct": 61.086
+    },
+    "material_test": {
+      "rows": 23799,
+      "BID": 14554,
+      "NO_BID": 9245,
+      "withdrawn": 2163,
+      "floor_boundary": 2592,
+      "bid_pct": 61.154
+    },
+    "tailoring_train": {
+      "rows": 216751,
+      "BID": 154342,
+      "NO_BID": 62409,
+      "withdrawn": 15495,
+      "floor_boundary": 19875,
+      "bid_pct": 71.207
+    },
+    "tailoring_validation": {
+      "rows": 27157,
+      "BID": 19337,
+      "NO_BID": 7820,
+      "withdrawn": 1982,
+      "floor_boundary": 2526,
+      "bid_pct": 71.204
+    },
+    "tailoring_test": {
+      "rows": 27116,
+      "BID": 19278,
+      "NO_BID": 7838,
+      "withdrawn": 1941,
+      "floor_boundary": 2598,
+      "bid_pct": 71.095
+    },
+    "logistics_train": {
+      "rows": 194665,
+      "BID": 100579,
+      "NO_BID": 94086,
+      "withdrawn": 0,
+      "floor_boundary": 19851,
+      "bid_pct": 51.668
+    },
+    "logistics_validation": {
+      "rows": 24462,
+      "BID": 12660,
+      "NO_BID": 11802,
+      "withdrawn": 0,
+      "floor_boundary": 2538,
+      "bid_pct": 51.754
+    },
+    "logistics_test": {
+      "rows": 24482,
+      "BID": 12732,
+      "NO_BID": 11750,
+      "withdrawn": 0,
+      "floor_boundary": 2610,
+      "bid_pct": 52.006
+    }
+  }
+}

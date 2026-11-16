@@ -1,0 +1,125 @@
+{
+  "started_at": "2026-09-20T16:35:35",
+  "arguments": {
+    "probe_only": false,
+    "path": "plain",
+    "mode": "sealed",
+    "steps": 10,
+    "batch_size": 1,
+    "grad_accum": 2,
+    "optim": "adamw_8bit",
+    "base_model": "./models/base/granite",
+    "revision": ""
+  },
+  "probe": {
+    "ok": true,
+    "result": {
+      "python": "3.12.11",
+      "platform": "Linux-6.4.0-150600.23.73_15.0.14-cray_shasta_c-x86_64-with-glibc2.31",
+      "torch": "2.7.1+rocm6.2.4",
+      "torch_cuda": null,
+      "torch_hip": "6.2.41134-65d174c3e",
+      "backend": "rocm",
+      "accelerator_available": true,
+      "environment": {
+        "HSA_OVERRIDE_GFX_VERSION": null,
+        "ROCR_VISIBLE_DEVICES": "0",
+        "HIP_VISIBLE_DEVICES": null,
+        "CUDA_VISIBLE_DEVICES": null,
+        "PYTORCH_ROCM_ARCH": "gfx90a",
+        "PYTORCH_CUDA_ALLOC_CONF": null
+      },
+      "device_count": 1,
+      "device_name": "AMD Instinct MI250X",
+      "architecture": "gfx90a:sramecc+:xnack-",
+      "capability": [
+        9,
+        0
+      ],
+      "memory_gib": 63.98,
+      "bf16_supported": true,
+      "packages": {
+        "torch": "2.7.1+rocm6.2.4",
+        "unsloth": "2026.9.7",
+        "unsloth_zoo": "2026.9.6",
+        "bitsandbytes": "0.43.3.dev",
+        "xformers": "0.0.32+09d42ac5.d20250822",
+        "flash_attn": "2.7.3",
+        "triton": "3.3.0",
+        "cut_cross_entropy": "25.1.1",
+        "peft": "0.21.0",
+        "trl": "1.13.0",
+        "transformers": "5.17.0",
+        "accelerate": "1.15.0",
+        "datasets": "5.0.1"
+      }
+    },
+    "seconds": 28.16
+  },
+  "kernels": {
+    "ok": true,
+    "result": {
+      "bf16_matmul": {
+        "ok": true,
+        "result": 12.706405639648438,
+        "seconds": 8.87
+      },
+      "sdpa_attention": {
+        "ok": true,
+        "result": [
+          1,
+          8,
+          128,
+          64
+        ],
+        "seconds": 0.01
+      },
+      "triton_kernel": {
+        "ok": true,
+        "result": 2000.0,
+        "seconds": 2.75
+      },
+      "xformers_attention": {
+        "ok": true,
+        "result": [
+          1,
+          128,
+          8,
+          64
+        ],
+        "seconds": 0.01
+      },
+      "bitsandbytes_adamw8bit_step": {
+        "ok": true,
+        "result": 0.7968646287918091,
+        "seconds": 0.01
+      }
+    },
+    "seconds": 11.66
+  },
+  "plain": {
+    "ok": true,
+    "result": {
+      "model": "./models/base/granite",
+      "revision": null,
+      "steps": 10,
+      "batch_size": 1,
+      "final_loss": 1.3434,
+      "step_seconds": [
+        2.668,
+        0.492,
+        0.445,
+        0.773,
+        0.488,
+        0.461,
+        0.476,
+        0.465,
+        0.462,
+        0.444
+      ],
+      "median_step_seconds_excluding_first": 0.465,
+      "peak_memory_reserved_gib": 8.59
+    },
+    "seconds": 12.77
+  }
+}

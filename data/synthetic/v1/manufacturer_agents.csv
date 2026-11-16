@@ -1,0 +1,13 @@
+agent_id,source_team_id,stage,scale,product_types,daily_capacity_units,current_workload_units,available_workers,unit_cost_shirt,unit_cost_hoodie,unit_cost_jacket,unit_cost_jeans,unit_cost_skirt,min_profit_margin,initial_markup,defect_probability,reputation_score,location
+T1,1,tailoring,large,hoodie|jacket|shirt,883,1609,67,4.75,8.0,11.5,,,0.1,0.35,0.02,0.821,Factory_A
+T2,2,tailoring,large,hoodie|shirt,837,1326,67,4.75,8.0,,,,0.1,0.35,0.02,0.771,Factory_C
+T3,3,tailoring,large,jacket|jeans,830,1409,69,,,11.5,7.0,,0.1,0.35,0.02,0.804,Factory_C
+T4,4,tailoring,large,jeans|shirt|skirt,752,1219,71,4.75,,,7.0,4.25,0.1,0.35,0.02,0.77,Factory_C
+T5,5,tailoring,large,hoodie|jacket,660,774,67,,8.0,11.5,,,0.1,0.35,0.04,0.698,Factory_B
+T6,6,tailoring,medium,shirt|skirt,696,937,44,4.75,,,,4.25,0.1,0.35,0.077,0.685,Factory_B
+T7,7,tailoring,large,hoodie|jacket|jeans|shirt,645,1000,67,4.75,8.0,11.5,7.0,,0.1,0.35,0.064,0.668,Factory_A
+T8,8,tailoring,large,jeans|skirt,658,984,66,,,,7.0,4.25,0.1,0.35,0.048,0.674,Factory_C
+T9,9,tailoring,large,hoodie|shirt,803,1284,65,4.75,8.0,,,,0.1,0.35,0.043,0.734,Factory_B
+T10,10,tailoring,large,jacket|jeans|skirt,806,1528,64,,,11.5,7.0,4.25,0.1,0.35,0.03,0.72,Factory_B
+T11,11,tailoring,large,hoodie|jacket|shirt,857,968,63,4.75,8.0,11.5,,,0.1,0.35,0.039,0.682,Factory_C
+T12,12,tailoring,medium,jeans|shirt,804,1260,43,4.75,,,7.0,,0.1,0.35,0.02,0.779,Factory_B

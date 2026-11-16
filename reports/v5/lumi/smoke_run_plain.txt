@@ -1,0 +1,135 @@
+W0914 16:23:52.075000 13416 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+
+Loading weights:   0%|          | 0/362 [00:00<?, ?it/s]
+Loading weights:  45%|████▍     | 162/362 [00:00<00:00, 1604.31it/s]
+Loading weights:  89%|████████▉ | 323/362 [00:00<00:00, 1522.04it/s]
+Loading weights: 100%|██████████| 362/362 [00:00<00:00, 1593.06it/s]
+.\src\experiments\v5\backend_smoke.py:188: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\autograd\generated\python_variable_methods.cpp:837.)
+  "final_loss": round(float(loss), 4), "step_seconds": step_seconds,
+{
+  "started_at": "2026-09-14T16:23:44",
+  "arguments": {
+    "probe_only": false,
+    "path": "plain",
+    "mode": "sealed",
+    "steps": 4,
+    "batch_size": 1,
+    "grad_accum": 2,
+    "optim": "adamw_8bit",
+    "base_model": "",
+    "revision": ""
+  },
+  "probe": {
+    "ok": true,
+    "result": {
+      "python": "3.11.9",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "torch": "2.10.0+cu130",
+      "torch_cuda": "13.0",
+      "torch_hip": null,
+      "backend": "cuda",
+      "accelerator_available": true,
+      "environment": {
+        "HSA_OVERRIDE_GFX_VERSION": null,
+        "ROCR_VISIBLE_DEVICES": null,
+        "HIP_VISIBLE_DEVICES": null,
+        "CUDA_VISIBLE_DEVICES": null,
+        "PYTORCH_ROCM_ARCH": null,
+        "PYTORCH_CUDA_ALLOC_CONF": null
+      },
+      "device_count": 1,
+      "device_name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "architecture": "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "capability": [
+        12,
+        0
+      ],
+      "memory_gib": 23.86,
+      "bf16_supported": true,
+      "packages": {
+        "torch": "2.10.0+cu130",
+        "unsloth": "2026.7.2",
+        "unsloth_zoo": "2026.7.3",
+        "bitsandbytes": "0.49.2",
+        "xformers": "0.0.35",
+        "flash_attn": "import failed: ModuleNotFoundError: No module named 'flash_attn'",
+        "triton": "3.7.1",
+        "cut_cross_entropy": "25.1.1",
+        "peft": "0.19.1",
+        "trl": "0.24.0",
+        "transformers": "5.5.0",
+        "accelerate": "1.14.0",
+        "datasets": "4.3.0"
+      }
+    },
+    "seconds": 20.52
+  },
+  "kernels": {
+    "ok": true,
+    "result": {
+      "bf16_matmul": {
+        "ok": true,
+        "result": 12.693355560302734,
+        "seconds": 0.21
+      },
+      "sdpa_attention": {
+        "ok": true,
+        "result": [
+          1,
+          8,
+          128,
+          64
+        ],
+        "seconds": 0.0
+      },
+      "triton_kernel": {
+        "ok": true,
+        "result": 2000.0,
+        "seconds": 0.36
+      },
+      "xformers_attention": {
+        "ok": false,
+        "error": "NotImplementedError: No operator found for `memory_efficient_attention_forward` with inputs:\n     query       : shape=(1, 128, 8, 64) (torch.bfloat16)\n     key         : shape=(1, 128, 8, 64) (torch.bfloat16)\n     value       : shape=(1, 128, 8, 64) (torch.bfloat16)\n     attn_bias   : <class 'NoneType'>\n     p           : 0.0\n`fa3F@0.0.0` is not supported because:\n    xFormers wasn't build with CUDA support\n    requires device with capability <= (9, 0) but your GPU has capability (12, 0) (too new)\n    operator wasn't built - see `python -m xformers.info` for more info\n`fa2F@0.0.0` is not suppo",
+        "trace_tail": [
+          "`fa2F@0.0.0` is not supported because:",
+          "    xFormers wasn't build with CUDA support",
+          "    operator wasn't built - see `python -m xformers.info` for more info",
+          "`cutlassF-pt` is not supported because:",
+          "    xFormers wasn't build with CUDA support",
+          "    requires device with capability <= (9, 0) but your GPU has capability (12, 0) (too new)"
+        ]
+      },
+      "bitsandbytes_adamw8bit_step": {
+        "ok": true,
+        "result": 0.7987222671508789,
+        "seconds": 0.02
+      }
+    },
+    "seconds": 0.6
+  },
+  "plain": {
+    "ok": true,
+    "result": {
+      "model": "ibm-granite/granite-4.1-3b",
+      "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+      "steps": 4,
+      "batch_size": 1,
+      "final_loss": 2.5736,
+      "step_seconds": [
+        5.848,
+        1.205,
+        1.162,
+        1.106
+      ],
+      "median_step_seconds_excluding_first": 1.162,
+      "peak_memory_reserved_gib": 8.62
+    },
+    "seconds": 26.94
+  }
+}
+
+written to .\reports\v5\lumi\backend_smoke_cuda_plain_20260914_162432.json
+exit 0

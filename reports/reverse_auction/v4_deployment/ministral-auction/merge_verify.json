@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-27T21:49:35",
+  "base_model": "/anonymous/anonymous/anonymous/anonymous/home/models--mistralai--Ministral-3-3B-Instruct-2512-BF16/snapshots/b6d637bef2393152b3da2b2fde72eecdee30557e",
+  "base_revision": null,
+  "adapter": "models\\reverse_auction\\epoch-1\\v4\\ministral-reverse-auction-lora\\final",
+  "out": "models\\reverse_auction\\epoch-1\\v4\\deployment\\ministral-auction\\merged",
+  "loaded_architecture": "Mistral3ForConditionalGeneration",
+  "probe_weight_max_abs_delta": {
+    "model.language_model.layers.0.self_attn.q_proj.weight": 0.0013427734375,
+    "model.language_model.layers.0.self_attn.o_proj.weight": 0.00030517578125,
+    "model.language_model.layers.0.mlp.down_proj.weight": 0.00026702880859375,
+    "model.language_model.layers.0.mlp.up_proj.weight": 0.000244140625
+  },
+  "merged_safetensors_gib": 7.17,
+  "merged_safetensors_sha256": "461a90b6a24a4bf691218294ac4410a9c78bd5c90f82883a2d2a8c695e2f5638"
+}

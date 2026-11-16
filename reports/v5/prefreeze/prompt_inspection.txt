@@ -1,0 +1,325 @@
+COB_DATASET_VERSION = v5
+corpus root: .\data\finetune\v5
+
+==============================================================================
+SEALED / material / BID / urgent
+==============================================================================
+order ORD-35558  agent M02  stage material  split validation
+--- SYSTEM ---
+You are a material provider agent in a multi-agent supply chain bidding system.
+Decide whether to bid on the incoming material request.
+Check all constraints carefully. Return valid JSON only, nothing outside the JSON.
+--- USER ---
+AGENT PROFILE
+agent_id: M02
+location: Espoo
+materials supplied: cotton
+available stock for requested material (kg): 800.0
+price ratio to reference for requested material: 1.15
+restock amount (kg): 1500.0
+restock time (days): 2.0
+default completion days: 1
+defect probability: 0.01
+reputation score: 0.5
+min profit margin: 0.1
+initial markup: 0.35
+
+RFQ
+order_id: ORD-35558
+pricing date: 2026-01-11
+material needed: cotton
+reference price on the pricing date (USD per kg): 14.6993
+required quantity (kg): 605.5
+max allowed defect rate: 0.032
+min required reputation: 0.49
+days until deadline: 4
+priority: urgent
+
+TASK
+1. Check if you supply this material. If not, return NO_BID.
+2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.
+3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.
+4. Check stock:
+   if available_kg greater than or equal to (>=) required_kg: completion = default_completion_days
+   else if available_kg plus (+) restock_amount_kg greater than or equal to (>=) required_kg: completion = default_completion_days plus (+) restock_time_days
+   else: return NO_BID
+5. Check completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.
+6. Calculate, in USD:
+   material_cost  = required_kg multiplied by (x) price_ratio_to_reference multiplied by (x) reference_price_usd_per_kg
+   internal_cost  = material_cost multiplied by (x) (1 plus (+) defect_probability)
+   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) priority_markup)
+   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)
+7. Return BID with calculated values.
+
+Return this JSON only:
+{
+  "order_id": "ORD-35558",
+  "stage": "material",
+  "agent_id": "M02",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.01
+}
+--- LABEL ---
+{
+ "order_id": "ORD-35558",
+ "stage": "material",
+ "agent_id": "M02",
+ "decision": "BID",
+ "offer_amount": 18142.92,
+ "estimated_completion_days": 1,
+ "defect_probability": 0.01
+}
+--- INDEPENDENT RE-DERIVATION (validate.py rules, from the csv files) ---
+expected: {'decision': 'BID', 'offer': 18142.92, 'days': 1, 'minimum': 11371.6294705475}
+label agrees with the independent re-derivation: True
+
+==============================================================================
+SEALED / material / NO_BID
+==============================================================================
+order ORD-04145  agent M08  stage material  split validation
+--- SYSTEM ---
+You are a material provider agent in a multi-agent supply chain bidding system.
+Decide whether to bid on the incoming material request.
+Check all constraints carefully. Return valid JSON only, nothing outside the JSON.
+--- USER ---
+AGENT PROFILE
+agent_id: M08
+location: Lahti
+materials supplied: leather|linen
+available stock for requested material (kg): 80.0
+price ratio to reference for requested material: 1.0
+restock amount (kg): 150.0
+restock time (days): 7.0
+default completion days: 2
+defect probability: 0.05
+reputation score: 0.5
+min profit margin: 0.1
+initial markup: 0.25
+
+RFQ
+order_id: ORD-04145
+pricing date: 2026-01-07
+material needed: leather
+reference price on the pricing date (USD per kg): 64.275
+required quantity (kg): 1503.6
+max allowed defect rate: 0.05
+min required reputation: 0.49
+days until deadline: 19
+priority: normal
+
+TASK
+1. Check if you supply this material. If not, return NO_BID.
+2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.
+3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.
+4. Check stock:
+   if available_kg greater than or equal to (>=) required_kg: completion = default_completion_days
+   else if available_kg plus (+) restock_amount_kg greater than or equal to (>=) required_kg: completion = default_completion_days plus (+) restock_time_days
+   else: return NO_BID
+5. Check completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.
+6. Calculate, in USD:
+   material_cost  = required_kg multiplied by (x) price_ratio_to_reference multiplied by (x) reference_price_usd_per_kg
+   internal_cost  = material_cost multiplied by (x) (1 plus (+) defect_probability)
+   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) priority_markup)
+   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)
+7. Return BID with calculated values.
+
+Return this JSON only:
+{
+  "order_id": "ORD-04145",
+  "stage": "material",
+  "agent_id": "M08",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.05
+}
+--- LABEL ---
+{
+ "order_id": "ORD-04145",
+ "stage": "material",
+ "agent_id": "M08",
+ "decision": "NO_BID",
+ "offer_amount": null,
+ "estimated_completion_days": null,
+ "defect_probability": 0.05
+}
+--- INDEPENDENT RE-DERIVATION (validate.py rules, from the csv files) ---
+expected: {'decision': 'NO_BID', 'reason': 'insufficient_stock_and_restock'}
+label agrees with the independent re-derivation: True
+
+==============================================================================
+SEALED / tailoring / BID / flexible
+==============================================================================
+order ORD-11733  agent T1  stage tailoring  split validation
+--- SYSTEM ---
+You are a manufacturer agent in a multi-agent garment supply chain bidding system.
+Decide whether to bid on the manufacturing request.
+Check all constraints carefully. Return valid JSON only, nothing outside the JSON.
+--- USER ---
+AGENT PROFILE
+agent_id: T1
+location: Oulu
+products you make: hoodie|jacket|shirt
+daily capacity (units): 883
+current workload (units): 177
+unit cost for requested product (USD): 5.0788
+defect probability: 0.02
+reputation score: 0.821
+min profit margin: 0.1
+initial markup: 0.28
+
+RFQ
+order_id: ORD-11733
+product: shirt
+quantity: 1883
+max allowed defect rate: 0.068
+min required reputation: 0.42
+days until deadline: 36
+priority: flexible
+
+TASK
+1. Check if you make this product. If not, return NO_BID.
+2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.
+3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.
+4. Calculate:
+   backlog_days         = current_workload_units divided by (/) daily_capacity_units
+   production_days      = quantity divided by (/) daily_capacity_units
+   estimated_completion = backlog_days plus (+) production_days
+5. Check estimated_completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.
+6. Calculate workload ratio and markup:
+   workload_ratio = (current_workload_units plus (+) quantity) divided by (/) (daily_capacity_units multiplied by (x) days_until_deadline)
+   if workload_ratio less than (<) 0.50:    workload_markup = 0.00
+   else if ratio less than (<) 0.75:        workload_markup = 0.05
+   else if ratio less than (<) 0.90:        workload_markup = 0.10
+   else if ratio less than or equal to (<=) 1.00:       workload_markup = 0.15
+   else:                        return NO_BID
+7. Calculate, in USD:
+   base_cost      = quantity multiplied by (x) unit_cost_for_product
+   internal_cost  = base_cost multiplied by (x) (1 plus (+) defect_probability)
+   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) workload_markup) multiplied by (x) (1 plus (+) priority_markup)
+   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)
+8. Return BID with calculated values.
+
+Return this JSON only:
+{
+  "order_id": "ORD-11733",
+  "stage": "tailoring",
+  "agent_id": "T1",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.02
+}
+--- LABEL ---
+{
+ "order_id": "ORD-11733",
+ "stage": "tailoring",
+ "agent_id": "T1",
+ "decision": "BID",
+ "offer_amount": 10730.11,
+ "estimated_completion_days": 2.33,
+ "defect_probability": 0.02
+}
+--- INDEPENDENT RE-DERIVATION (validate.py rules, from the csv files) ---
+expected: {'decision': 'BID', 'offer': 10730.11, 'days': 2.33, 'minimum': 10730.1128088}
+label agrees with the independent re-derivation: True
+
+!! no row found for SEALED / tailoring / NO_BID
+
+==============================================================================
+SEALED / logistics / BID / normal
+==============================================================================
+order ORD-12448  agent L01  stage logistics  split validation
+--- SYSTEM ---
+You are a logistics agent in a multi-agent supply chain bidding system.
+Decide whether to bid on the delivery request.
+Check all constraints carefully. Return valid JSON only, nothing outside the JSON.
+--- USER ---
+AGENT PROFILE
+agent_id: L01
+location: Helsinki
+service regions: Espoo|Helsinki|Jyvaskyla|Lahti|Oulu|Tampere|Turku
+fixed charge (EUR per shipment): 42.3967
+alpha (EUR per kg): 0.12692
+beta (EUR per tonne-km): 0.07163
+shipment weight limit (kg): none
+oversized fee (EUR): none
+same-city delivery days: 1
+intercity delivery days: 3.0
+damage probability: 0.035
+reputation score: 0.5
+
+RFQ
+order_id: ORD-12448
+pricing date: 2026-01-31
+pickup from: Lahti
+deliver to: Lahti
+route distance from pickup (km): 0.0
+shipment weight (kg): 162.75
+fuel surcharge on the pricing date (%): 19.67
+EUR to USD on the pricing date: 1.1919
+max allowed damage rate: 0.052
+min required reputation: 0.49
+days until deadline: 22
+priority: normal
+
+TASK
+1. Check if deliver_to is in your service_regions. If not, return NO_BID.
+2. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.
+3. Check damage_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.
+4. Check shipment_weight_kg is inside your shipment weight limit. If not, return NO_BID.
+5. Calculate route days:
+   if deliver_to == your location: route_days = default_completion_same_city_days
+   else: route_days = default_completion_intercity_days
+6. Check route_days less than or equal to (<=) days_until_deadline. If not, return NO_BID.
+7. Calculate, in EUR:
+   freight_eur    = fixed_charge plus (+) alpha multiplied by (x) shipment_weight_kg plus (+) beta multiplied by (x) shipment_weight_kg divided by (/) 1000 multiplied by (x) route_distance_km
+   with_fuel_eur  = freight_eur multiplied by (x) (1 plus (+) fuel_surcharge_percent divided by (/) 100)
+   oversized_eur  = the oversized fee if it applies to this shipment, else 0
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   price_eur      = (with_fuel_eur plus (+) oversized_eur) multiplied by (x) (1 plus (+) damage_probability) multiplied by (x) (1 plus (+) priority_markup)
+8. Convert to USD, the currency of every offer:
+   offer_amount   = price_eur multiplied by (x) eur_to_usd
+   minimum_bid    = offer_amount, a market price with no markup on top and no margin below
+9. Return BID with calculated values.
+
+Return this JSON only:
+{
+  "order_id": "ORD-12448",
+  "stage": "logistics",
+  "agent_id": "L01",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.035
+}
+--- LABEL ---
+{
+ "order_id": "ORD-12448",
+ "stage": "logistics",
+ "agent_id": "L01",
+ "decision": "BID",
+ "offer_amount": 93.08,
+ "estimated_completion_days": 3,
+ "defect_probability": 0.035
+}
+--- INDEPENDENT RE-DERIVATION (validate.py rules, from the csv files) ---
+expected: {'decision': 'BID', 'offer': 93.08, 'days': 3.0, 'minimum': 93.08307744070356}
+label agrees with the independent re-derivation: True
+
+!! no row found for SEALED / logistics / NO_BID
+
+
+SUMMARY of independent re-derivations
+  AGREES  SEALED / material / BID / urgent
+  AGREES  SEALED / material / NO_BID
+  AGREES  SEALED / tailoring / BID / flexible
+  AGREES  SEALED / logistics / BID / normal

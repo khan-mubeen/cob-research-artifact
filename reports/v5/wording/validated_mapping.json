@@ -1,0 +1,20 @@
+{
+  "source": "src/common/slm.py _OPERATOR_WORDS and _OPERATOR_RE, the rewrite the reverse-auction prompts use",
+  "mapping": {
+    "<=": "less than or equal to (<=)",
+    ">=": "greater than or equal to (>=)",
+    "<": "less than (<)",
+    ">": "greater than (>)",
+    "x": "multiplied by (x)",
+    "+": "plus (+)",
+    "-": "minus (-)",
+    "/": "divided by (/)",
+    "max(": "the larger of the two values max("
+  },
+  "rule_as_written": "max\\(|(?<= )(?:<=|>=|<|>|x|\\+|-|/)(?= )",
+  "rule_in_words": "max( is reworded wherever it stands; every other operator only as a token with a space on each side; only the TASK block is reworded, the profile, rfq and output schema are not",
+  "not_in_the_mapping": {
+    "=": "an assignment in a formula line, rendered symbolically by the reverse-auction prompts too",
+    "==": "the logistics route-days comparison, rendered symbolically by the reverse-auction prompts too"
+  }
+}

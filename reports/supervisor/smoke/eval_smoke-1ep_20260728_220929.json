@@ -1,0 +1,1535 @@
+{
+  "summary": {
+    "tag": "smoke-1ep",
+    "model": "models/supervisor/smoke/qwen-sup-smoke-1ep/final",
+    "n": 150,
+    "json_valid_pct": 100.0,
+    "selection_accuracy_pct": 82.0,
+    "mean_regret_pct": 0.443,
+    "median_regret_pct": 0.0,
+    "zero_regret_pct": 86.67,
+    "p90_regret_pct": 0.612,
+    "by_strategy": {
+      "flexible": {
+        "n": 22,
+        "accuracy_pct": 86.36,
+        "json_valid_pct": 100.0,
+        "mean_regret_pct": 0.137
+      },
+      "normal": {
+        "n": 91,
+        "accuracy_pct": 83.52,
+        "json_valid_pct": 100.0,
+        "mean_regret_pct": 0.475
+      },
+      "urgent": {
+        "n": 37,
+        "accuracy_pct": 75.68,
+        "json_valid_pct": 100.0,
+        "mean_regret_pct": 0.545
+      }
+    }
+  },
+  "rows": [
+    {
+      "order_id": "ORD-22086",
+      "strategy": "urgent",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-43714",
+      "strategy": "normal",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-09265",
+      "strategy": "normal",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-03212",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-04645",
+      "strategy": "flexible",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-18499",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0014111508121659206,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-07226",
+      "strategy": "normal",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-15648",
+      "strategy": "urgent",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-47537",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0046702104154086885,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-35038",
+      "strategy": "flexible",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-08685",
+      "strategy": "normal",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-04982",
+      "strategy": "flexible",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-49793",
+      "strategy": "urgent",
+      "truth": 11,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-31258",
+      "strategy": "flexible",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-04242",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-06926",
+      "strategy": "normal",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-14488",
+      "strategy": "normal",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-45148",
+      "strategy": "urgent",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-09596",
+      "strategy": "flexible",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-16160",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-24966",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-19686",
+      "strategy": "normal",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-33062",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.007778882414985923,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-36074",
+      "strategy": "urgent",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-32958",
+      "strategy": "normal",
+      "truth": 5,
+      "predicted": 5,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 5, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-33433",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-46123",
+      "strategy": "urgent",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-21256",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-48324",
+      "strategy": "normal",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-42884",
+      "strategy": "normal",
+      "truth": 0,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-42616",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-04551",
+      "strategy": "normal",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-07950",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-30647",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-42633",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-18811",
+      "strategy": "flexible",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-03699",
+      "strategy": "flexible",
+      "truth": 2,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.002297122139552485,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-03201",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.003805109758389258,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-18045",
+      "strategy": "urgent",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-46420",
+      "strategy": "urgent",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-10017",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-46087",
+      "strategy": "urgent",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-35407",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-39239",
+      "strategy": "normal",
+      "truth": 5,
+      "predicted": 5,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 5, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-35433",
+      "strategy": "normal",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-21241",
+      "strategy": "normal",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-14760",
+      "strategy": "urgent",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-33198",
+      "strategy": "urgent",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-19139",
+      "strategy": "urgent",
+      "truth": 5,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-10445",
+      "strategy": "flexible",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-27373",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.07489900104311917,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-26770",
+      "strategy": "urgent",
+      "truth": 0,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-40065",
+      "strategy": "normal",
+      "truth": 0,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-22848",
+      "strategy": "normal",
+      "truth": 7,
+      "predicted": 7,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 7, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-33613",
+      "strategy": "flexible",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-13243",
+      "strategy": "flexible",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-45531",
+      "strategy": "urgent",
+      "truth": 5,
+      "predicted": 5,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 5, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-29207",
+      "strategy": "normal",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-37190",
+      "strategy": "urgent",
+      "truth": 8,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-47617",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.05756526108039872,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-28823",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-43768",
+      "strategy": "normal",
+      "truth": 0,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.04619637596075562,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-07386",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-38595",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-46379",
+      "strategy": "urgent",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-26334",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-22955",
+      "strategy": "normal",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-33284",
+      "strategy": "urgent",
+      "truth": 0,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-27293",
+      "strategy": "urgent",
+      "truth": 4,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-44880",
+      "strategy": "urgent",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-10830",
+      "strategy": "urgent",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-26968",
+      "strategy": "normal",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-28074",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-43024",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-24811",
+      "strategy": "normal",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-02849",
+      "strategy": "flexible",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-32344",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-07653",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-41444",
+      "strategy": "normal",
+      "truth": 0,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-04507",
+      "strategy": "normal",
+      "truth": 0,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-16343",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.006118145130688131,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-44195",
+      "strategy": "urgent",
+      "truth": 2,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-15080",
+      "strategy": "normal",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-31885",
+      "strategy": "flexible",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-16257",
+      "strategy": "flexible",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-01189",
+      "strategy": "normal",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-41515",
+      "strategy": "normal",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-25156",
+      "strategy": "urgent",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-47508",
+      "strategy": "normal",
+      "truth": 7,
+      "predicted": 7,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 7, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-32634",
+      "strategy": "normal",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-44000",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0025394994036914633,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-48546",
+      "strategy": "urgent",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-48422",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 7,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.009740415712420326,
+      "raw": "{\"selected_candidate\": 7, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-29470",
+      "strategy": "urgent",
+      "truth": 8,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-40908",
+      "strategy": "normal",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-12147",
+      "strategy": "flexible",
+      "truth": 3,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.016347865510137397,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-13427",
+      "strategy": "normal",
+      "truth": 1,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.006712558883336804,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-02361",
+      "strategy": "flexible",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-42922",
+      "strategy": "normal",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-20496",
+      "strategy": "urgent",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-01535",
+      "strategy": "urgent",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-46260",
+      "strategy": "urgent",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-31462",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0063351678861880934,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-34624",
+      "strategy": "normal",
+      "truth": 8,
+      "predicted": 5,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.17858283284255733,
+      "raw": "{\"selected_candidate\": 5, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-30951",
+      "strategy": "urgent",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-17363",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-01013",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-33139",
+      "strategy": "normal",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-28981",
+      "strategy": "normal",
+      "truth": 7,
+      "predicted": 7,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 7, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-43314",
+      "strategy": "normal",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-31307",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-29463",
+      "strategy": "flexible",
+      "truth": 3,
+      "predicted": 3,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 3, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-04120",
+      "strategy": "normal",
+      "truth": 11,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-00344",
+      "strategy": "normal",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-31389",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.00959890191101522,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-19105",
+      "strategy": "normal",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-40414",
+      "strategy": "normal",
+      "truth": 7,
+      "predicted": 7,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 7, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-25067",
+      "strategy": "flexible",
+      "truth": 7,
+      "predicted": 7,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 7, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-28067",
+      "strategy": "normal",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-34260",
+      "strategy": "normal",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-43119",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-37655",
+      "strategy": "urgent",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-09271",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-10238",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-26375",
+      "strategy": "flexible",
+      "truth": 10,
+      "predicted": 10,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 10, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-46499",
+      "strategy": "urgent",
+      "truth": 5,
+      "predicted": 5,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 5, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-05397",
+      "strategy": "urgent",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-04247",
+      "strategy": "normal",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-35537",
+      "strategy": "urgent",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-09982",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-35540",
+      "strategy": "urgent",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-13684",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-36551",
+      "strategy": "urgent",
+      "truth": 3,
+      "predicted": 0,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.006329113924050638,
+      "raw": "{\"selected_candidate\": 0, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-11710",
+      "strategy": "flexible",
+      "truth": 2,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.011589025119396518,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-44484",
+      "strategy": "urgent",
+      "truth": 0,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-09087",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.016094803383538324,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-12359",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-34622",
+      "strategy": "normal",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-10631",
+      "strategy": "flexible",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-09668",
+      "strategy": "flexible",
+      "truth": 5,
+      "predicted": 5,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 5, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-13264",
+      "strategy": "flexible",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"lowest total cost for a flexible order\"}\n"
+    },
+    {
+      "order_id": "ORD-10491",
+      "strategy": "normal",
+      "truth": 5,
+      "predicted": 5,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 5, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-28119",
+      "strategy": "urgent",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-22307",
+      "strategy": "normal",
+      "truth": 8,
+      "predicted": 8,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 8, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-47375",
+      "strategy": "normal",
+      "truth": 6,
+      "predicted": 6,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 6, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-32478",
+      "strategy": "normal",
+      "truth": 1,
+      "predicted": 1,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 1, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-42390",
+      "strategy": "normal",
+      "truth": 4,
+      "predicted": 4,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 4, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-27520",
+      "strategy": "urgent",
+      "truth": 2,
+      "predicted": 11,
+      "valid_json": true,
+      "correct": false,
+      "regret": 0.19540229885057486,
+      "raw": "{\"selected_candidate\": 11, \"reason\": \"fewest total completion days for an urgent order\"}\n"
+    },
+    {
+      "order_id": "ORD-43225",
+      "strategy": "normal",
+      "truth": 9,
+      "predicted": 9,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 9, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    },
+    {
+      "order_id": "ORD-42704",
+      "strategy": "normal",
+      "truth": 2,
+      "predicted": 2,
+      "valid_json": true,
+      "correct": true,
+      "regret": 0.0,
+      "raw": "{\"selected_candidate\": 2, \"reason\": \"best equal-weight balance of cost, days and compound risk\"}\n"
+    }
+  ]
+}

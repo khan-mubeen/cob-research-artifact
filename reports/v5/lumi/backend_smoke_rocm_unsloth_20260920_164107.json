@@ -1,0 +1,143 @@
+{
+  "started_at": "2026-09-20T16:36:50",
+  "arguments": {
+    "probe_only": false,
+    "path": "unsloth",
+    "mode": "sealed",
+    "steps": 10,
+    "batch_size": 8,
+    "grad_accum": 2,
+    "optim": "adamw_torch",
+    "base_model": "./models/base/qwen",
+    "revision": ""
+  },
+  "probe": {
+    "ok": true,
+    "result": {
+      "python": "3.12.11",
+      "platform": "Linux-6.4.0-150600.23.73_15.0.14-cray_shasta_c-x86_64-with-glibc2.31",
+      "torch": "2.7.1+rocm6.2.4",
+      "torch_cuda": null,
+      "torch_hip": "6.2.41134-65d174c3e",
+      "backend": "rocm",
+      "accelerator_available": true,
+      "environment": {
+        "HSA_OVERRIDE_GFX_VERSION": null,
+        "ROCR_VISIBLE_DEVICES": "0",
+        "HIP_VISIBLE_DEVICES": null,
+        "CUDA_VISIBLE_DEVICES": null,
+        "PYTORCH_ROCM_ARCH": "gfx90a",
+        "PYTORCH_CUDA_ALLOC_CONF": null
+      },
+      "device_count": 1,
+      "device_name": "AMD Instinct MI250X",
+      "architecture": "gfx90a:sramecc+:xnack-",
+      "capability": [
+        9,
+        0
+      ],
+      "memory_gib": 63.98,
+      "bf16_supported": true,
+      "packages": {
+        "torch": "2.7.1+rocm6.2.4",
+        "unsloth": "2026.9.7",
+        "unsloth_zoo": "2026.9.6",
+        "bitsandbytes": "0.43.3.dev",
+        "xformers": "0.0.32+09d42ac5.d20250822",
+        "flash_attn": "2.7.3",
+        "triton": "3.3.0",
+        "cut_cross_entropy": "25.1.1",
+        "peft": "0.21.0",
+        "trl": "1.13.0",
+        "transformers": "5.17.0",
+        "accelerate": "1.15.0",
+        "datasets": "5.0.1"
+      }
+    },
+    "seconds": 27.55
+  },
+  "kernels": {
+    "ok": true,
+    "result": {
+      "bf16_matmul": {
+        "ok": true,
+        "result": 12.81439208984375,
+        "seconds": 8.72
+      },
+      "sdpa_attention": {
+        "ok": true,
+        "result": [
+          1,
+          8,
+          128,
+          64
+        ],
+        "seconds": 0.01
+      },
+      "triton_kernel": {
+        "ok": true,
+        "result": 2000.0,
+        "seconds": 2.63
+      },
+      "xformers_attention": {
+        "ok": true,
+        "result": [
+          1,
+          128,
+          8,
+          64
+        ],
+        "seconds": 0.01
+      },
+      "bitsandbytes_adamw8bit_step": {
+        "ok": true,
+        "result": 0.7964780926704407,
+        "seconds": 0.01
+      }
+    },
+    "seconds": 11.39
+  },
+  "unsloth": {
+    "ok": true,
+    "result": {
+      "command": "./unsloth-env/bin/python src/experiments/finetune_lora.py --train-jsonl ./data/finetune/.v5_smoke/sealed_smoke.jsonl --base-model ./models/base/qwen --max-steps 10 --batch-size 8 --grad-accum 2 --max-seq-length 1024 --optim adamw_torch --output-dir ./data/finetune/.v5_smoke/out_backend_smoke_sealed",
+      "exit": 0,
+      "seconds": 217.7,
+      "key_lines": [
+        "\ud83e\udda5 Unsloth: Will patch your computer to enable 2x faster free finetuning.",
+        "Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!",
+        "Unsloth: QLoRA and full finetuning all not selected. Switching to 16bit LoRA.",
+        "Unsloth: Explicit target_modules are constrained by the finetune_(vision|language|attention|mlp) filters; adapters attach only where both select.",
+        "Unsloth: Will smartly offload gradients to save VRAM!",
+        "Unsloth: Double buffering enabled (parallel H2D + compute) for backward pass.",
+        "{'train_runtime': '151.5', 'train_samples_per_second': '1.056', 'train_steps_per_second': '0.066', 'train_loss': '0.1708', 'epoch': '0.3333'}",
+        "train_runtime: 151.5s for 10 steps",
+        "peak vram: 10.2 GiB allocated, 12.3 GiB reserved (reserved > 24 GiB means windows sysmem spill, not a native fit)",
+        "per-step wall time: median 5.14s, min 4.98s, max 5.21s (over 9 measured steps, first step excluded)",
+        "[unsloth.import_fixes|WARNING]Unsloth: Ignoring an unusable torchao so LoRA can still be built (Found an incompatible version of torchao. Found version 0.9.0+rocm6.2.4, but only versions above 0.16.0 are supported). Run `pip install --upgrade torchao` if you need torchao quantization.",
+        "Unsloth: Tokenizing [\"text\"]:   0%|          | 0/480 [00:00<?, ? examples/s]",
+        "Unsloth: Tokenizing [\"text\"]: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 480/480 [00:00<00:00, 781.17 examples/s]",
+        "Unsloth: Tokenizing [\"text\"]: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 480/480 [00:00<00:00, 774.17 examples/s]",
+        "100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 10/10 [02:29<00:00,  6.38s/it]Unsloth: Restored added_tokens_decoder metadata in ./data/finetune/.v5_smoke/out_backend_smoke_sealed/checkpoint-10/tokenizer_config.json."
+      ],
+      "tail": [
+        "",
+        " 80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 8/10 [02:19<00:15,  7.71s/it]",
+        " 90%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 | 9/10 [02:24<00:06,  6.90s/it]",
+        "                                              ",
+        "",
+        " 90%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 | 9/10 [02:24<00:06,  6.90s/it]",
+        "100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 10/10 [02:29<00:00,  6.38s/it]",
+        "                                               ",
+        "",
+        "100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 10/10 [02:29<00:00,  6.38s/it]Unsloth: Restored added_tokens_decoder metadata in ./data/finetune/.v5_smoke/out_backend_smoke_sealed/checkpoint-10/tokenizer_config.json.",
+        "",
+        "                                               ",
+        "",
+        "100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 10/10 [02:31<00:00,  6.38s/it]",
+        "100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 10/10 [02:31<00:00, 15.15s/it]"
+      ]
+    },
+    "seconds": 217.73
+  }
+}

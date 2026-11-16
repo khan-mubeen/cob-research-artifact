@@ -1,0 +1,77 @@
+{
+  "protocol": "cross-model bidding fine-tune protocol v2",
+  "frozen_at": "2026-07-19T19:05:00",
+  "frozen_before_any_v2_training": true,
+  "supersedes": "protocol_v1 (v1 results preserved as secondary ablation family)",
+  "result_families": {
+    "primary": "fresh v2 runs, equal budget, per architecture: qwen3.5-4b, granite-4.1-3b, phi-4-mini, gemma-4-e2b (phi/gemma pending separate authorization)",
+    "secondary_ablations": "qwen r1/r2/r3, granite v1 - preserved, never determine the primary ranking"
+  },
+
+  "data": {
+    "real_subsample": {
+      "files": {
+        "data/finetune/v4/material_train.jsonl": "66e591c6e2d8557c0657ca0cdc7444bbbdac68e7ecee6d057ffee64999485908",
+        "data/finetune/v4/tailoring_train.jsonl": "0571fb511caf0242654f9e8067ccc35e458ca02be070914830b12ed0f5a5f29b",
+        "data/finetune/v4/logistics_train.jsonl": "195574aab84e52dfc1de372aece5f06a934d41e266439b44788f295dad7a3c3a",
+        "data/synthetic/v4/orders.csv": "b6acf05bbf44d427aeb546a6b7f0a96d02508a4b6b801cb87b7808285f5ab187"
+      },
+      "n": 15000, "method": "stratified_subsample scenario shares, seed 42 (identical to v1)"
+    },
+    "edge_v2": {
+      "files": {
+        "data/finetune/v4/protocol_v2/edge_tailoring_train.jsonl": "c952f02bb0d3556c05005905ae621f023d1b503a415c94eebe6426732d836da2",
+        "data/finetune/v4/protocol_v2/edge_logistics_train.jsonl": "47a1dcdf67b4b4c91374478e033fdd2a4acf459b9a2d88cfe68e37c2554dbdc2"
+      },
+      "tailoring_unique": 180, "logistics_unique": 23, "edge_repeat": 1,
+      "feasible_ratios": [0.70, 0.80, 0.88, 0.94, 0.97, 0.99, 1.00],
+      "infeasible_ratios": [1.01, 1.03, 1.07, 1.12, 1.20, 1.35, 1.60, 1.85],
+      "train_deadline_days": [7, 8, 9, 10],
+      "label_verification": "all records asserted through production decide functions, serialized via completion_json",
+      "leakage": "0 overlaps at param-tuple and exact-prompt level vs real data, all eval sets, baseline six (protocol_v2_data_report.json)"
+    },
+    "planned_train_rows": 15203,
+    "expected_optimizer_steps": 951
+  },
+
+  "training_frozen": {
+    "stack": "unsloth 2026.7.2 + transformers 5.5.0 + trl 0.24.0 + peft 0.19.1 + torch 2.10.0+cu130, main .venv",
+    "seed": 42, "epochs": 1, "max_seq_length": 1024,
+    "lora": {"rank": 16, "alpha": 16, "dropout": 0, "targets": "functional q/k/v/o/gate/up/down equivalents, trainable counts published"},
+    "batch": {"per_device": 8, "grad_accum": 2, "effective": 16,
+              "rule": "native-fit rule from v1: reduce per-device only if reserved memory exceeds physical, keep effective 16, disclose"},
+    "optimizer": "adamw_8bit lr 2e-4 warmup 5 linear, weight_decay 0.01",
+    "precision": "bf16, unsloth gradient checkpointing",
+    "loss_masking": "train_on_responses_only, model-specific markers, template gate required pre-launch",
+    "base_checkpoints": {
+      "qwen": "Qwen/Qwen3.5-4B @ 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "granite": "ibm-granite/granite-4.1-3b @ c0650403e44e78ec0262dab1c90914c65b196c4e"
+    },
+    "output_dirs": {
+      "qwen": "models/finetune/qwen3.5-4b-bidding-lora-v2",
+      "granite": "models/finetune/granite-4.1-3b-bidding-lora-v2"
+    },
+    "no_per_model_tuning": true,
+    "seed_plan": "seed 42 primary; seeds 43,44 pre-registered as confirmation budget for the top model(s) only"
+  },
+
+  "evaluation_frozen": {
+    "tier1_gated": "main_holdout (1500, seeded 500/stage)",
+    "tier2_regression_context_not_gates": ["baseline_six", "edge_holdout (all-12 AND clean-10)", "boundary_stress", "final_boundary_holdout"],
+    "tier3_gated": {
+      "set": "data/finetune/v4/protocol_v2/robustness_holdout.jsonl",
+      "sha256": "cc65b091cc10887f785b365b6d94ee052d79cbd68bbf8a2f7c6f6dfe441ce5ba",
+      "n": 36, "classes": {"below_feasible": 12, "exact_feasible": 12, "above_infeasible": 12},
+      "construction": "band-drawn ratios (0.90-0.995 / exact 1.00 / 1.005-1.08), days 11-12, disjoint from everything by tuple and prompt",
+      "locked": "generated and hashed before any v2 training; will not be revised after results"
+    },
+    "decoding": "greedy, 200 max new tokens; hf runtime for primary numbers; gguf latency separately",
+    "criteria_pre_registered": {
+      "1_json_validity": "100% on every set",
+      "2_no_decision_regression": "main_holdout per-stage decisions >= own base",
+      "3_offer_improvement": "per-stage mean abs offer dev < own base",
+      "4_robustness_holdout": ">= 9/12 in EACH of the three classes, never aggregated"
+    },
+    "official_metrics_reported": ["json validity", "decision agreement", "false BID / false NO_BID per set", "offer deviation by stage", "completion-days agreement", "latency and throughput"]
+  }
+}

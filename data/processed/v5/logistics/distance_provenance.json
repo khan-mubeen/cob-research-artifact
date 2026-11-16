@@ -1,0 +1,213 @@
+{
+  "generation_date": "2026-09-13",
+  "matrix": {
+    "artifact": "data/processed/v5/logistics/manufacturer_to_city_distance_matrix.csv",
+    "sha256": "88716e6baa12deee04d26068b46d32e3ada0cf69b8a93ff333e2dc846e1dcba7",
+    "rows": 49,
+    "columns": [
+      "origin_manufacturer_location",
+      "destination_deliver_to",
+      "road_distance_m",
+      "road_distance_km"
+    ]
+  },
+  "osm_extract": {
+    "file": "finland-260101.osm.pbf",
+    "source_url": "https://download.geofabrik.de/europe/finland-260101.osm.pbf",
+    "published_md5": "349396cf757484f3f1f9fad60a7f0630",
+    "sha256": "fbd7881ea05656b667404a2ca7d058289666a16efc4275890cbd799e85e050c2",
+    "bytes": 700378696,
+    "osm_data_timestamp": "2026-01-01T21:21:30Z",
+    "provider": "Geofabrik GmbH, extract of OpenStreetMap data",
+    "licence_note": "© OpenStreetMap contributors, Open Database License (ODbL) 1.0",
+    "retrieval_date": "2026-09-13",
+    "retrieval_date_basis": "the modification date of a copy already on disk whose sha-256 matched the pin when this sidecar was written"
+  },
+  "osrm": {
+    "version": "v26.9.0",
+    "reported_version": "v26.9.0",
+    "engine_asset": "node_osrm-v26.9.0-8-win32-x64-Release.tar.gz",
+    "engine_asset_sha256": "6a6ad04a12b741414b7f3892f1e7c20b5e8bc89a8b4ff7347f2f6104c3e0bc64",
+    "preparation": "osrm-extract with the profile below, then osrm-contract",
+    "algorithm": "ch",
+    "service": "table/v1/driving with annotations=distance, on 127.0.0.1 only",
+    "query_path": "/table/v1/driving/24.6559808,60.2049651;24.9435408,60.1666204;25.7495806,62.2416720;25.6613418,60.9826280;25.4701983,65.0117869;23.7616372,61.4977929;22.2669983,60.4515944?sources=0;1;2;3;4;5;6&destinations=0;1;2;3;4;5;6&annotations=distance"
+  },
+  "routing_profile": {
+    "profile": "car.lua",
+    "git_tag": "v26.9.0",
+    "source": "https://raw.githubusercontent.com/Project-OSRM/osrm-backend/v26.9.0/profiles/",
+    "sha256_by_file": {
+      "car.lua": "1b03f79784b94cb7d71b89c2eb62410a17e96d92a8e5f407f3b2dd244a179818",
+      "lib/access.lua": "ca4d1e49df9edbcab19a1fbda9d49f9caae1318469fa46130765f19076f7a4d0",
+      "lib/destination.lua": "3f28e1a7e6d06352146d6bc213bb6f0536f65dec57a1794f3f34285bbc90057b",
+      "lib/guidance.lua": "e9ba9926d6bb687c10377d500cb957a45a534606924ea0ac3248e2ee1c78c0dc",
+      "lib/maxspeed.lua": "1a0503cbd4c748d47eef5c606cc13d216aac7363232f7aad8bd76559c8e9e5c8",
+      "lib/measure.lua": "b7035a033bc36c65bbeda100e3832b1160cbfdee82f01d8548e5e6d396d7213f",
+      "lib/obstacles.lua": "2b6ba1489e1ea86838a7fb4ae69e793708dce602843ba7f255abd9a0b50b3238",
+      "lib/pprint.lua": "c00090d5c89bde6647e93a5c79f67546bea67d0d5d9c105b838dcabf88ec8aba",
+      "lib/profile_debugger.lua": "8e2e9f4769a7a3d0ad939ca3781860dfafc0bfb492a7cfbd486f62a056d1f23b",
+      "lib/relations.lua": "9a099167d9d988f8873e0852f7ff101170f06ca6e43acc5f0d4fb117ca5b2a24",
+      "lib/sequence.lua": "ac44c891d08f372339033d76d18e2b4a007108d046eb1b8f99d591ffbc8a8e24",
+      "lib/set.lua": "b15c73127b0e1866ccde4c6a7790793b0b48fc8a9aa692cf924514f50caf4bc3",
+      "lib/tags.lua": "b381372b9922657c4db41cc84cee73fb8e195afb6e9eaf1fcd8fcdb8f53d22fa",
+      "lib/traffic_signal.lua": "dcb87352dbb9354b3bcc4c5705a589395090a42da720c7a4b892c22d02d91447",
+      "lib/utils.lua": "1be04b57840cf3fb40944842c2a77cd186c4d2bdf290f7b0f190d44f15fb4a08",
+      "lib/way_handlers.lua": "3b8cffbd4c38672403547914cb7cd5aff5967129eea216f4bae428a13b0cbe65"
+    }
+  },
+  "coordinates": {
+    "artifact": "data/raw/v5/logistics/distance/location_coordinates.json",
+    "sha256": "6140c9103c82e1af8d037f275990c8490e47b9f8a21dd595b7053b9160d8edd9"
+  },
+  "route_semantics": "road_distance_m is the length of the fastest route under the car profile between the snapped coordinates, as the OSRM table service returns it; it is not a shortest-distance route",
+  "direction": "origin is a manufacturer location and destination an order deliver_to city; the matrix is not assumed symmetric and both directions are stored as routed",
+  "largest_direction_difference": {
+    "pair": [
+      "Espoo",
+      "Helsinki"
+    ],
+    "a_to_b_m": 19418.1,
+    "b_to_a_m": 21046.0,
+    "abs_difference_m": 1627.9
+  },
+  "snapped_waypoints": {
+    "sources": [
+      {
+        "location": "Espoo",
+        "snapped_lon_lat": [
+          24.655802,
+          60.205196
+        ],
+        "snap_distance_m": 27.58281484,
+        "road_name": ""
+      },
+      {
+        "location": "Helsinki",
+        "snapped_lon_lat": [
+          24.943533,
+          60.166647
+        ],
+        "snap_distance_m": 3.040807586,
+        "road_name": ""
+      },
+      {
+        "location": "Jyvaskyla",
+        "snapped_lon_lat": [
+          25.74958,
+          62.241672
+        ],
+        "snap_distance_m": 0.052011418,
+        "road_name": "Asemakatu"
+      },
+      {
+        "location": "Lahti",
+        "snapped_lon_lat": [
+          25.661342,
+          60.982638
+        ],
+        "snap_distance_m": 1.114286939,
+        "road_name": "Aleksanterinkatu"
+      },
+      {
+        "location": "Oulu",
+        "snapped_lon_lat": [
+          25.470145,
+          65.011751
+        ],
+        "snap_distance_m": 4.727579093,
+        "road_name": ""
+      },
+      {
+        "location": "Tampere",
+        "snapped_lon_lat": [
+          23.761637,
+          61.497792
+        ],
+        "snap_distance_m": 0.111436977,
+        "road_name": "Hämeenkatu"
+      },
+      {
+        "location": "Turku",
+        "snapped_lon_lat": [
+          22.267737,
+          60.451076
+        ],
+        "snap_distance_m": 70.5904466,
+        "road_name": "Eerikinkatu"
+      }
+    ],
+    "destinations": [
+      {
+        "location": "Espoo",
+        "snapped_lon_lat": [
+          24.655802,
+          60.205196
+        ],
+        "snap_distance_m": 27.58281484,
+        "road_name": ""
+      },
+      {
+        "location": "Helsinki",
+        "snapped_lon_lat": [
+          24.943533,
+          60.166647
+        ],
+        "snap_distance_m": 3.040807586,
+        "road_name": ""
+      },
+      {
+        "location": "Jyvaskyla",
+        "snapped_lon_lat": [
+          25.74958,
+          62.241672
+        ],
+        "snap_distance_m": 0.052011418,
+        "road_name": "Asemakatu"
+      },
+      {
+        "location": "Lahti",
+        "snapped_lon_lat": [
+          25.661342,
+          60.982638
+        ],
+        "snap_distance_m": 1.114286939,
+        "road_name": "Aleksanterinkatu"
+      },
+      {
+        "location": "Oulu",
+        "snapped_lon_lat": [
+          25.470145,
+          65.011751
+        ],
+        "snap_distance_m": 4.727579093,
+        "road_name": ""
+      },
+      {
+        "location": "Tampere",
+        "snapped_lon_lat": [
+          23.761637,
+          61.497792
+        ],
+        "snap_distance_m": 0.111436977,
+        "road_name": "Hämeenkatu"
+      },
+      {
+        "location": "Turku",
+        "snapped_lon_lat": [
+          22.267737,
+          60.451076
+        ],
+        "snap_distance_m": 70.5904466,
+        "road_name": "Eerikinkatu"
+      }
+    ]
+  },
+  "determinism_check": {
+    "method": "a second graph was built from nothing by osrm-extract and osrm-contract in tools/osrm/data_rebuild from the same pinned extract, profile and engine, queried with the same pinned coordinates, and its matrix bytes compared with the stored matrix",
+    "check_date": "2026-09-13",
+    "identical": true,
+    "matrix_sha256": "88716e6baa12deee04d26068b46d32e3ada0cf69b8a93ff333e2dc846e1dcba7",
+    "rebuilt_matrix_sha256": "88716e6baa12deee04d26068b46d32e3ada0cf69b8a93ff333e2dc846e1dcba7"
+  }
+}

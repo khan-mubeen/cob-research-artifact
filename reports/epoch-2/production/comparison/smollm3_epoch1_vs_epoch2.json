@@ -1,0 +1,338 @@
+{
+  "generated_at": "2026-07-28T19:14:06",
+  "architecture": "smollm3",
+  "single_variable": "num_train_epochs 1 -> 2",
+  "inputs": {
+    "epoch_1": "reports/epoch-1/production/evaluation/raw/eval_smollm3-v2_20260722_005904.json",
+    "epoch_2": "reports/epoch-2/production/evaluation/raw/eval_smollm3-e2_20260728_191351.json",
+    "base": "reports/reference/base-evaluations/raw/eval_smollm3-base_20260722_004118.json"
+  },
+  "note": "epoch-2 is a fresh run from the base checkpoint, not a continuation of the epoch-1 adapter; the linear LR schedule spans the whole run in each case",
+  "arms": {
+    "base": {
+      "sets_present": [
+        "baseline_six",
+        "boundary_stress",
+        "edge_holdout",
+        "final_boundary_holdout",
+        "main_holdout",
+        "robustness_holdout_v2"
+      ],
+      "json": {
+        "rows_scored": 1626,
+        "malformed": 591,
+        "valid_pct": 63.65,
+        "per_set_malformed": {
+          "baseline_six": 0,
+          "edge_holdout": 1,
+          "main_holdout": 574,
+          "boundary_stress": 2,
+          "final_boundary_holdout": 10,
+          "robustness_holdout_v2": 4
+        }
+      },
+      "main_holdout_decisions": {
+        "material": 29.0,
+        "tailoring": 58.0,
+        "logistics": 97.8
+      },
+      "main_holdout_offer_dev": {
+        "material": 91.218,
+        "tailoring": 70.195,
+        "logistics": 51.212
+      },
+      "baseline_six": "0/6",
+      "baseline_six_guarded": "6/6",
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_holdout_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "7/12",
+        "exact_feasible": "10/12"
+      },
+      "final_boundary_holdout_per_class_guarded": {
+        "above_infeasible": "9/12",
+        "below_feasible": "7/12",
+        "exact_feasible": "10/12"
+      },
+      "robustness_holdout_v2_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "11/12",
+        "exact_feasible": "9/12"
+      },
+      "robustness_holdout_v2_per_class_guarded": {
+        "above_infeasible": "12/12",
+        "below_feasible": "11/12",
+        "exact_feasible": "9/12"
+      },
+      "boundary_stress_per_class": {
+        "stress_ratio_0.98": "10/12",
+        "stress_ratio_1.0": "12/12",
+        "stress_ratio_1.02": "0/12"
+      },
+      "boundary_stress_per_class_guarded": {
+        "stress_ratio_0.98": "10/12",
+        "stress_ratio_1.0": "12/12",
+        "stress_ratio_1.02": "12/12"
+      },
+      "guard_b": {
+        "baseline_six": {
+          "false_bids_corrected": 6,
+          "false_nobids_remaining": 0,
+          "new_errors_introduced": 0
+        },
+        "edge_holdout": {
+          "false_bids_corrected": 5,
+          "false_nobids_remaining": 0,
+          "new_errors_introduced": 0
+        },
+        "main_holdout": {
+          "false_bids_corrected": 2,
+          "false_nobids_remaining": 537,
+          "new_errors_introduced": 0
+        },
+        "boundary_stress": {
+          "false_bids_corrected": 12,
+          "false_nobids_remaining": 2,
+          "new_errors_introduced": 0
+        },
+        "final_boundary_holdout": {
+          "false_bids_corrected": 9,
+          "false_nobids_remaining": 7,
+          "new_errors_introduced": 0
+        },
+        "robustness_holdout_v2": {
+          "false_bids_corrected": 12,
+          "false_nobids_remaining": 4,
+          "new_errors_introduced": 0
+        }
+      }
+    },
+    "epoch_1": {
+      "sets_present": [
+        "baseline_six",
+        "boundary_stress",
+        "edge_holdout",
+        "final_boundary_holdout",
+        "main_holdout",
+        "robustness_holdout_v2"
+      ],
+      "json": {
+        "rows_scored": 1626,
+        "malformed": 0,
+        "valid_pct": 100.0,
+        "per_set_malformed": {
+          "baseline_six": 0,
+          "edge_holdout": 0,
+          "main_holdout": 0,
+          "boundary_stress": 0,
+          "final_boundary_holdout": 0,
+          "robustness_holdout_v2": 0
+        }
+      },
+      "main_holdout_decisions": {
+        "material": 98.4,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 1.175,
+        "tailoring": 1.096,
+        "logistics": 1.439
+      },
+      "baseline_six": "1/6",
+      "baseline_six_guarded": "6/6",
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_holdout_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "11/12"
+      },
+      "final_boundary_holdout_per_class_guarded": {
+        "above_infeasible": "12/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "11/12"
+      },
+      "robustness_holdout_v2_per_class": {
+        "above_infeasible": "12/12",
+        "below_feasible": "0/12",
+        "exact_feasible": "0/12"
+      },
+      "robustness_holdout_v2_per_class_guarded": {
+        "above_infeasible": "12/12",
+        "below_feasible": "0/12",
+        "exact_feasible": "0/12"
+      },
+      "boundary_stress_per_class": {
+        "stress_ratio_0.98": "12/12",
+        "stress_ratio_1.0": "12/12",
+        "stress_ratio_1.02": "0/12"
+      },
+      "boundary_stress_per_class_guarded": {
+        "stress_ratio_0.98": "12/12",
+        "stress_ratio_1.0": "12/12",
+        "stress_ratio_1.02": "12/12"
+      },
+      "guard_b": {
+        "baseline_six": {
+          "false_bids_corrected": 5,
+          "false_nobids_remaining": 0,
+          "new_errors_introduced": 0
+        },
+        "edge_holdout": {
+          "false_bids_corrected": 5,
+          "false_nobids_remaining": 1,
+          "new_errors_introduced": 0
+        },
+        "main_holdout": {
+          "false_bids_corrected": 5,
+          "false_nobids_remaining": 3,
+          "new_errors_introduced": 0
+        },
+        "boundary_stress": {
+          "false_bids_corrected": 12,
+          "false_nobids_remaining": 0,
+          "new_errors_introduced": 0
+        },
+        "final_boundary_holdout": {
+          "false_bids_corrected": 12,
+          "false_nobids_remaining": 1,
+          "new_errors_introduced": 0
+        },
+        "robustness_holdout_v2": {
+          "false_bids_corrected": 0,
+          "false_nobids_remaining": 24,
+          "new_errors_introduced": 0
+        }
+      }
+    },
+    "epoch_2": {
+      "sets_present": [
+        "baseline_six",
+        "boundary_stress",
+        "edge_holdout",
+        "final_boundary_holdout",
+        "main_holdout",
+        "robustness_holdout_v2"
+      ],
+      "json": {
+        "rows_scored": 1626,
+        "malformed": 0,
+        "valid_pct": 100.0,
+        "per_set_malformed": {
+          "baseline_six": 0,
+          "edge_holdout": 0,
+          "main_holdout": 0,
+          "boundary_stress": 0,
+          "final_boundary_holdout": 0,
+          "robustness_holdout_v2": 0
+        }
+      },
+      "main_holdout_decisions": {
+        "material": 98.8,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 0.582,
+        "tailoring": 0.371,
+        "logistics": 0.927
+      },
+      "baseline_six": "1/6",
+      "baseline_six_guarded": "6/6",
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 50.0,
+      "final_boundary_holdout_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "final_boundary_holdout_per_class_guarded": {
+        "above_infeasible": "12/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "robustness_holdout_v2_per_class": {
+        "above_infeasible": "12/12",
+        "below_feasible": "0/12",
+        "exact_feasible": "0/12"
+      },
+      "robustness_holdout_v2_per_class_guarded": {
+        "above_infeasible": "12/12",
+        "below_feasible": "0/12",
+        "exact_feasible": "0/12"
+      },
+      "boundary_stress_per_class": {
+        "stress_ratio_0.98": "12/12",
+        "stress_ratio_1.0": "12/12",
+        "stress_ratio_1.02": "0/12"
+      },
+      "boundary_stress_per_class_guarded": {
+        "stress_ratio_0.98": "12/12",
+        "stress_ratio_1.0": "12/12",
+        "stress_ratio_1.02": "12/12"
+      },
+      "guard_b": {
+        "baseline_six": {
+          "false_bids_corrected": 5,
+          "false_nobids_remaining": 0,
+          "new_errors_introduced": 0
+        },
+        "edge_holdout": {
+          "false_bids_corrected": 1,
+          "false_nobids_remaining": 5,
+          "new_errors_introduced": 0
+        },
+        "main_holdout": {
+          "false_bids_corrected": 4,
+          "false_nobids_remaining": 2,
+          "new_errors_introduced": 0
+        },
+        "boundary_stress": {
+          "false_bids_corrected": 12,
+          "false_nobids_remaining": 0,
+          "new_errors_introduced": 0
+        },
+        "final_boundary_holdout": {
+          "false_bids_corrected": 12,
+          "false_nobids_remaining": 0,
+          "new_errors_introduced": 0
+        },
+        "robustness_holdout_v2": {
+          "false_bids_corrected": 0,
+          "false_nobids_remaining": 24,
+          "new_errors_introduced": 0
+        }
+      }
+    }
+  },
+  "criteria": {
+    "epoch_1": {
+      "1_json_100": "PASS",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "PASS",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 4_robustness_9of12"
+    },
+    "epoch_2": {
+      "1_json_100": "PASS",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "PASS",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 4_robustness_9of12"
+    }
+  },
+  "epoch_2_minus_epoch_1": {
+    "json_valid_pct": 0.0,
+    "malformed": 0,
+    "main_holdout_decisions.material": 0.4,
+    "main_holdout_offer_dev.material": -0.593,
+    "main_holdout_decisions.tailoring": 0.0,
+    "main_holdout_offer_dev.tailoring": -0.725,
+    "main_holdout_decisions.logistics": 0.0,
+    "main_holdout_offer_dev.logistics": -0.512,
+    "edge_holdout_all12": 0.0,
+    "edge_holdout_clean10": -10.0
+  }
+}

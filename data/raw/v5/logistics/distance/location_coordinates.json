@@ -1,0 +1,205 @@
+{
+  "provenance": {
+    "source": "OpenStreetMap place nodes read from the Geofabrik Finland extract finland-260101.osm.pbf",
+    "source_url": "https://download.geofabrik.de/europe/finland-260101.osm.pbf",
+    "retrieval_date": "2026-09-13",
+    "retrieval_date_basis": "the modification date of a copy already on disk whose sha-256 matched the pin when this sidecar was written",
+    "unit": "WGS84 decimal degrees (EPSG:4326), rounded to 7 decimal places",
+    "unit_confirmed_from": "the OpenStreetMap data model stores node coordinates as WGS84 latitude and longitude at a precision of 7 decimal places",
+    "frequency": "single snapshot, OSM data up to 2026-01-01T21:21:30Z",
+    "role": "pinned coordinates for every manufacturer location and delivery city, the inputs to the road-distance matrix",
+    "licence_note": "© OpenStreetMap contributors, Open Database License (ODbL) 1.0",
+    "derived_from": {
+      "file": "finland-260101.osm.pbf",
+      "source_url": "https://download.geofabrik.de/europe/finland-260101.osm.pbf",
+      "published_md5": "349396cf757484f3f1f9fad60a7f0630",
+      "sha256": "fbd7881ea05656b667404a2ca7d058289666a16efc4275890cbd799e85e050c2",
+      "bytes": 700378696,
+      "osm_data_timestamp": "2026-01-01T21:21:30Z",
+      "stored_at": "tools/osrm/data, gitignored, fetched by src/dataset/osrm_engine.py"
+    },
+    "derivation": "node id, name, place tag and coordinate copied from the matched place node of the pinned extract; no coordinate is computed, averaged or snapped here",
+    "lookup_method": "every node carrying a place tag is scanned with pyosmium osmium==4.3.1; no geocoding service is queried",
+    "name_matching": "a v4 name matches an OSM name when both agree after unicode NFKD accent removal and case folding; the exact OSM name is recorded",
+    "selection_rule": "exactly one place=city node, or exactly one place=town node when no city node exists; otherwise unresolved",
+    "generated_by": "src/dataset/route_distance.py geocode"
+  },
+  "location_sets_from_v4": {
+    "manufacturer_locations": [
+      "Espoo",
+      "Helsinki",
+      "Jyvaskyla",
+      "Lahti",
+      "Oulu",
+      "Tampere",
+      "Turku"
+    ],
+    "order_deliver_to": [
+      "Espoo",
+      "Helsinki",
+      "Jyvaskyla",
+      "Lahti",
+      "Oulu",
+      "Tampere",
+      "Turku"
+    ],
+    "logistics_service_regions": [
+      "Espoo",
+      "Helsinki",
+      "Jyvaskyla",
+      "Lahti",
+      "Oulu",
+      "Tampere",
+      "Turku"
+    ],
+    "delivery_cities": [
+      "Espoo",
+      "Helsinki",
+      "Jyvaskyla",
+      "Lahti",
+      "Oulu",
+      "Tampere",
+      "Turku"
+    ],
+    "all_locations": [
+      "Espoo",
+      "Helsinki",
+      "Jyvaskyla",
+      "Lahti",
+      "Oulu",
+      "Tampere",
+      "Turku"
+    ],
+    "read_from": [
+      "data/synthetic/v4/manufacturer_agents.csv",
+      "data/synthetic/v4/orders.csv",
+      "data/synthetic/v4/logistics_agents.csv"
+    ]
+  },
+  "locations": [
+    {
+      "location": "Espoo",
+      "osm_node_id": 25963545,
+      "osm_name": "Espoo",
+      "place": "city",
+      "population_tag": "321 031",
+      "wikidata": "Q47034",
+      "lat": 60.2049651,
+      "lon": 24.6559808,
+      "match_rule": "the only place=city node whose name matches 'Espoo' after removing accents and folding case",
+      "other_candidates": []
+    },
+    {
+      "location": "Helsinki",
+      "osm_node_id": 1372477580,
+      "osm_name": "Helsinki",
+      "place": "city",
+      "population_tag": "684589",
+      "wikidata": "Q1757",
+      "lat": 60.1666204,
+      "lon": 24.9435408,
+      "match_rule": "the only place=city node whose name matches 'Helsinki' after removing accents and folding case",
+      "other_candidates": [
+        {
+          "osm_node_id": 6286581297,
+          "osm_name": "Helsinki",
+          "place": "hamlet",
+          "population_tag": null,
+          "wikidata": "Q94699533",
+          "lat": 60.6070376,
+          "lon": 21.4392489
+        }
+      ]
+    },
+    {
+      "location": "Jyvaskyla",
+      "osm_node_id": 82989938,
+      "osm_name": "Jyväskylä",
+      "place": "city",
+      "population_tag": "149269",
+      "wikidata": "Q134620",
+      "lat": 62.241672,
+      "lon": 25.7495806,
+      "match_rule": "the only place=city node whose name matches 'Jyvaskyla' after removing accents and folding case",
+      "other_candidates": []
+    },
+    {
+      "location": "Lahti",
+      "osm_node_id": 30969494,
+      "osm_name": "Lahti",
+      "place": "city",
+      "population_tag": "121383",
+      "wikidata": "Q28911",
+      "lat": 60.982628,
+      "lon": 25.6613418,
+      "match_rule": "the only place=city node whose name matches 'Lahti' after removing accents and folding case",
+      "other_candidates": [
+        {
+          "osm_node_id": 274685027,
+          "osm_name": "Lahti",
+          "place": "hamlet",
+          "population_tag": null,
+          "wikidata": null,
+          "lat": 60.7666541,
+          "lon": 21.5410398
+        },
+        {
+          "osm_node_id": 1754825560,
+          "osm_name": "Lahti",
+          "place": "hamlet",
+          "population_tag": null,
+          "wikidata": null,
+          "lat": 64.8674531,
+          "lon": 26.6675735
+        }
+      ]
+    },
+    {
+      "location": "Oulu",
+      "osm_node_id": 29064107,
+      "osm_name": "Oulu",
+      "place": "city",
+      "population_tag": "216194",
+      "wikidata": "Q47048",
+      "lat": 65.0117869,
+      "lon": 25.4701983,
+      "match_rule": "the only place=city node whose name matches 'Oulu' after removing accents and folding case",
+      "other_candidates": []
+    },
+    {
+      "location": "Tampere",
+      "osm_node_id": 30969480,
+      "osm_name": "Tampere",
+      "place": "city",
+      "population_tag": "260358",
+      "wikidata": "Q40840",
+      "lat": 61.4977929,
+      "lon": 23.7616372,
+      "match_rule": "the only place=city node whose name matches 'Tampere' after removing accents and folding case",
+      "other_candidates": []
+    },
+    {
+      "location": "Turku",
+      "osm_node_id": 21847490,
+      "osm_name": "Turku",
+      "place": "city",
+      "population_tag": "206035",
+      "wikidata": "Q38511",
+      "lat": 60.4515944,
+      "lon": 22.2669983,
+      "match_rule": "the only place=city node whose name matches 'Turku' after removing accents and folding case",
+      "other_candidates": [
+        {
+          "osm_node_id": 9735324358,
+          "osm_name": "Turku",
+          "place": "hamlet",
+          "population_tag": null,
+          "wikidata": null,
+          "lat": 61.1210074,
+          "lon": 27.8379383
+        }
+      ]
+    }
+  ],
+  "unresolved": []
+}

@@ -1,0 +1,17 @@
+[backend_exec] files hashed
+[backend_exec] census live equals fixture: True
+[backend_exec] regenerated 22 v4 files
+wrote reports\v5\wiring\v4_regression_backend_exec.json
+{
+  "compared": [
+    "supervisor_enum",
+    "backend_exec"
+  ],
+  "differences": [],
+  "allowed_to_change": [
+    "files/files/src/experiments/finetune_lora.py"
+  ],
+  "unexpected_differences": [],
+  "identical_apart_from_allowed": true
+}
+exit 0

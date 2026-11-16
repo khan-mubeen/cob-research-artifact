@@ -1,0 +1,65 @@
+W0914 16:21:01.409000 17436 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+{
+  "started_at": "2026-09-14T16:20:52",
+  "arguments": {
+    "probe_only": true,
+    "path": "unsloth",
+    "mode": "sealed",
+    "steps": 10,
+    "batch_size": 8,
+    "grad_accum": 2,
+    "optim": "adamw_8bit",
+    "base_model": "",
+    "revision": ""
+  },
+  "probe": {
+    "ok": true,
+    "result": {
+      "python": "3.11.9",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "torch": "2.10.0+cu130",
+      "torch_cuda": "13.0",
+      "torch_hip": null,
+      "backend": "cuda",
+      "accelerator_available": true,
+      "environment": {
+        "HSA_OVERRIDE_GFX_VERSION": null,
+        "ROCR_VISIBLE_DEVICES": null,
+        "HIP_VISIBLE_DEVICES": null,
+        "CUDA_VISIBLE_DEVICES": null,
+        "PYTORCH_ROCM_ARCH": null,
+        "PYTORCH_CUDA_ALLOC_CONF": null
+      },
+      "device_count": 1,
+      "device_name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "architecture": "NVIDIA GeForce RTX 5090 Laptop GPU",
+      "capability": [
+        12,
+        0
+      ],
+      "memory_gib": 23.86,
+      "bf16_supported": true,
+      "packages": {
+        "torch": "2.10.0+cu130",
+        "unsloth": "2026.7.2",
+        "unsloth_zoo": "2026.7.3",
+        "bitsandbytes": "0.49.2",
+        "xformers": "0.0.35",
+        "flash_attn": "import failed: ModuleNotFoundError: No module named 'flash_attn'",
+        "triton": "3.7.1",
+        "cut_cross_entropy": "25.1.1",
+        "peft": "0.19.1",
+        "trl": "0.24.0",
+        "transformers": "5.5.0",
+        "accelerate": "1.14.0",
+        "datasets": "4.3.0"
+      }
+    },
+    "seconds": 22.74
+  }
+}
+
+written to .\reports\v5\lumi\backend_smoke_cuda_probe_20260914_162115.json
+exit 0

@@ -1,0 +1,7 @@
+model,revision,license,gated,trust_remote_code,params_total,params_active,loads,json_smoke,lora_attach,gradient_smoke,exact_qwen_config,median_step_s,merge,gguf_convert,runtime_load,runtime_json,steady_latency_s
+Qwen/Qwen3.5-4B,851bf6e8,Apache-2.0,False,False,4560499200,,executed,"3/3 equivalent (829/829 distinct real generations, slm_check)",executed,executed,True,6.6,executed,pass,fail,,
+microsoft/Phi-4-mini-instruct,cfbefacb,MIT,False,False,3836021760,,pass,3/3,pass,pass,True,16.8,pass,pass,pass,6/6,0.82
+ibm-granite/granite-4.1-3b,c0650403,Apache-2.0,False,False,3400000000,,pass,3/3,pass,pass,True,11.43,pass,pass,pass,6/6,0.84
+nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16,dfaf35de,NVIDIA Open Model License (repo LICENSE file is 0 bytes; terms on nvidia.com),False,required but still fails (mamba-ssm),3973556832,,fail,/3,fail,,,,,not_run,not_run,,
+google/gemma-4-E2B-it,179516f0,"Apache-2.0 (gemma 4 dropped the gemma terms gate, verified by ungated download)",False,False,5123178051,2300000000,pass,3/3,pass(unsloth-only),pass(unsloth),True,4.52,pass,pass,pass,6/6,0.67
+LiquidAI/LFM2.5-8B-A1B,5673e0de,LFM Open License v1.0 ($10M revenue threshold on commercial use; research permitted),False,False,8467856832,1500000000,pass,0/3,pass,pass,True,12.04,pass,not_run,not_run,,

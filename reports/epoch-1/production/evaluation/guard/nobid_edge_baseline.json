@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-07-16T01:21:20",
+  "model_path": "models/Qwen3.5-4B-Q8_0.gguf",
+  "model_state": "base, un-fine-tuned",
+  "correct": 0,
+  "total": 6,
+  "cases": [
+    {
+      "case_id": "EDGE-T-DEADLINE-01",
+      "description": "completion barely exceeds deadline (3.19 vs 3 days)",
+      "stage": "tailoring",
+      "agent_id": "T9",
+      "rule_reason": "completion_exceeds_deadline",
+      "slm_decision": "BID",
+      "slm_offer_amount": 6876.0,
+      "correct_no_bid": false,
+      "seconds": 1.09,
+      "raw_response": "{\n  \"order_id\": \"EDGE-T-DEADLINE-01\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T9\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6876.0,\n  \"estimated_completion_days\": 3.0,\n  \"defect_probability\": 0.026\n}"
+    },
+    {
+      "case_id": "EDGE-T-DEADLINE-02",
+      "description": "large backlog pushes completion past deadline (4.48 vs 4 days)",
+      "stage": "tailoring",
+      "agent_id": "T12",
+      "rule_reason": "completion_exceeds_deadline",
+      "slm_decision": "BID",
+      "slm_offer_amount": 20520.0,
+      "correct_no_bid": false,
+      "seconds": 1.11,
+      "raw_response": "{\n  \"order_id\": \"EDGE-T-DEADLINE-02\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T12\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 20520.0,\n  \"estimated_completion_days\": 4.0,\n  \"defect_probability\": 0.02\n}"
+    },
+    {
+      "case_id": "EDGE-T-WORKLOAD-01",
+      "description": "workload ratio 2.10, far above the 1.00 no-bid line",
+      "stage": "tailoring",
+      "agent_id": "T3",
+      "rule_reason": "completion_exceeds_deadline",
+      "slm_decision": "BID",
+      "slm_offer_amount": 72640.0,
+      "correct_no_bid": false,
+      "seconds": 1.02,
+      "raw_response": "{\n  \"order_id\": \"EDGE-T-WORKLOAD-01\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 72640.0,\n  \"estimated_completion_days\": 11.5,\n  \"defect_probability\": 0.02\n}"
+    },
+    {
+      "case_id": "EDGE-T-WORKLOAD-02",
+      "description": "workload ratio 1.17, just above the 1.00 no-bid line",
+      "stage": "tailoring",
+      "agent_id": "T1",
+      "rule_reason": "completion_exceeds_deadline",
+      "slm_decision": "BID",
+      "slm_offer_amount": 37250.0,
+      "correct_no_bid": false,
+      "seconds": 0.99,
+      "raw_response": "{\n  \"order_id\": \"EDGE-T-WORKLOAD-02\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 37250.0,\n  \"estimated_completion_days\": 5.0,\n  \"defect_probability\": 0.02\n}"
+    },
+    {
+      "case_id": "EDGE-L-ROUTE-01",
+      "description": "intercity route 4.0 days vs 2 day deadline",
+      "stage": "logistics",
+      "agent_id": "L06",
+      "rule_reason": "completion_exceeds_deadline",
+      "slm_decision": "BID",
+      "slm_offer_amount": 1080.0,
+      "correct_no_bid": false,
+      "seconds": 0.98,
+      "raw_response": "{\n  \"order_id\": \"EDGE-L-ROUTE-01\",\n  \"stage\": \"logistics\",\n  \"agent_id\": \"L06\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1080.0,\n  \"estimated_completion_days\": 4.0,\n  \"defect_probability\": 0.045\n}"
+    },
+    {
+      "case_id": "EDGE-L-ROUTE-02",
+      "description": "intercity route 1.5 days vs 1 day deadline",
+      "stage": "logistics",
+      "agent_id": "L07",
+      "rule_reason": "completion_exceeds_deadline",
+      "slm_decision": "BID",
+      "slm_offer_amount": 426.6,
+      "correct_no_bid": false,
+      "seconds": 0.98,
+      "raw_response": "{\n  \"order_id\": \"EDGE-L-ROUTE-02\",\n  \"stage\": \"logistics\",\n  \"agent_id\": \"L07\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 426.6,\n  \"estimated_completion_days\": 1.5,\n  \"defect_probability\": 0.018\n}"
+    }
+  ]
+}

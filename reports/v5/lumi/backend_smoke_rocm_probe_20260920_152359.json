@@ -1,0 +1,59 @@
+{
+  "started_at": "2026-09-20T15:23:41",
+  "arguments": {
+    "probe_only": true,
+    "path": "unsloth",
+    "mode": "sealed",
+    "steps": 10,
+    "batch_size": 8,
+    "grad_accum": 2,
+    "optim": "adamw_8bit",
+    "base_model": "",
+    "revision": ""
+  },
+  "probe": {
+    "ok": true,
+    "result": {
+      "python": "3.12.11",
+      "platform": "Linux-6.4.0-150600.23.73_15.0.14-cray_shasta_c-x86_64-with-glibc2.31",
+      "torch": "2.7.1+rocm6.2.4",
+      "torch_cuda": null,
+      "torch_hip": "6.2.41134-65d174c3e",
+      "backend": "rocm",
+      "accelerator_available": true,
+      "environment": {
+        "HSA_OVERRIDE_GFX_VERSION": null,
+        "ROCR_VISIBLE_DEVICES": "0",
+        "HIP_VISIBLE_DEVICES": null,
+        "CUDA_VISIBLE_DEVICES": null,
+        "PYTORCH_ROCM_ARCH": "gfx90a",
+        "PYTORCH_CUDA_ALLOC_CONF": null
+      },
+      "device_count": 1,
+      "device_name": "AMD Instinct MI250X",
+      "architecture": "gfx90a:sramecc+:xnack-",
+      "capability": [
+        9,
+        0
+      ],
+      "memory_gib": 63.98,
+      "bf16_supported": true,
+      "packages": {
+        "torch": "2.7.1+rocm6.2.4",
+        "unsloth": "import failed: ModuleNotFoundError: No module named 'unsloth'",
+        "unsloth_zoo": "import failed: ModuleNotFoundError: No module named 'unsloth_zoo'",
+        "bitsandbytes": "0.43.3.dev",
+        "xformers": "0.0.32+09d42ac5.d20250822",
+        "flash_attn": "2.7.3",
+        "triton": "3.3.0",
+        "cut_cross_entropy": "import failed: ModuleNotFoundError: No module named 'cut_cross_entropy'",
+        "peft": "0.17.1",
+        "trl": "import failed: ModuleNotFoundError: No module named 'trl'",
+        "transformers": "4.55.3",
+        "accelerate": "0.34.2",
+        "datasets": "4.0.0"
+      }
+    },
+    "seconds": 17.42
+  }
+}

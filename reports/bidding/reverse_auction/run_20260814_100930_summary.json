@@ -1,0 +1,16 @@
+{
+  "mode": "reverse_auction",
+  "data_version": "v4",
+  "checkpoint": ".\\reports\\bidding\\reverse_auction\\run_20260814_100930.jsonl",
+  "generated_at": "2026-08-14T11:37:34",
+  "totals": {
+    "orders_recorded": 300,
+    "by_status": {
+      "completed": 285,
+      "infeasible": 15
+    },
+    "stage_auctions": 885,
+    "mean_stage_reduction_eur": 9.27,
+    "max_stage_reduction_eur": 10.0
+  }
+}

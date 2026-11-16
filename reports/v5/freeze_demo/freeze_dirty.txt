@@ -1,0 +1,9 @@
+freeze REFUSED before any work, the worktree is not in a freezable state
+  ok   git_commit_known
+  FAIL worktree_clean
+       expected: no uncommitted or untracked entries
+       actual:   54 entr(y/ies): ['A  reports/v5/base_model_check/wording_sensitivity.json', 'A  reports/v5/base_model_check/wording_sensitivity.txt', 'A  reports/v5/pipeline/pipeline_regression_post_backend.json', 'A  reports/v5/pipeline/pipeline_regression_pre_backend.json', 'A  reports/v5/pipeline/pipeline_regression_pre_backend_vs_post_backend.json']
+
+commit or stash the listed entries first: a freeze record pins a commit, and a dirty
+tree means the pinned commit does not describe what is on disk
+freeze exit 1

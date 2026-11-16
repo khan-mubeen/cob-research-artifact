@@ -1,0 +1,105 @@
+W0917 02:48:35.234000 38944 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+48 v5 sealed validation rows, 16 per stage
+operator phrases reversed to symbols across the set: 976
+==((====))==  Unsloth 2026.7.2: Fast Qwen3_5 patching. Transformers: 5.5.0.
+   \\   /|    NVIDIA GeForce RTX 5090 Laptop GPU. Num GPUs = 1. Max memory: 23.863 GB. Platform: Windows.
+O^O/ \_/ \    Torch: 2.10.0+cu130. CUDA: 12.0. CUDA Toolkit: 13.0. Triton: 3.7.1
+\        /    Bfloat16 = TRUE. FA [Xformers = None. FA2 = False]
+ "-____-"     Free license: http://github.com/unslothai/unsloth
+Unsloth: Fast downloading is enabled - ignore downloading bars which are red colored!
+Unsloth: QLoRA and full finetuning all not selected. Switching to 16bit LoRA.
+
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/723 [00:02<26:16,  2.18s/it]
+Loading weights:   1%|          | 9/723 [00:02<02:13,  5.34it/s]
+Loading weights:   2%|▏         | 14/723 [00:02<01:28,  8.03it/s]
+Loading weights:   3%|▎         | 23/723 [00:02<00:45, 15.42it/s]
+Loading weights:   4%|▍         | 29/723 [00:02<00:40, 17.02it/s]
+Loading weights:   5%|▍         | 36/723 [00:03<00:29, 23.22it/s]
+Loading weights:   6%|▌         | 41/723 [00:03<00:31, 21.71it/s]
+Loading weights:   6%|▋         | 46/723 [00:03<00:28, 23.68it/s]
+Loading weights:   7%|▋         | 50/723 [00:03<00:26, 25.07it/s]
+Loading weights:   8%|▊         | 58/723 [00:03<00:20, 32.99it/s]
+Loading weights:   9%|▉         | 65/723 [00:03<00:17, 37.20it/s]
+Loading weights:  10%|▉         | 70/723 [00:04<00:17, 37.05it/s]
+Loading weights:  11%|█         | 76/723 [00:04<00:16, 38.40it/s]
+Loading weights:  11%|█         | 81/723 [00:04<00:20, 30.93it/s]
+Loading weights:  12%|█▏        | 90/723 [00:04<00:15, 40.41it/s]
+Loading weights:  13%|█▎        | 95/723 [00:04<00:20, 31.24it/s]
+Loading weights:  14%|█▎        | 99/723 [00:04<00:21, 29.11it/s]
+Loading weights:  14%|█▍        | 104/723 [00:05<00:19, 31.18it/s]
+Loading weights:  16%|█▌        | 113/723 [00:05<00:15, 38.43it/s]
+Loading weights:  16%|█▋        | 118/723 [00:05<00:15, 38.28it/s]
+Loading weights:  17%|█▋        | 123/723 [00:05<00:16, 36.75it/s]
+Loading weights:  18%|█▊        | 129/723 [00:05<00:14, 40.87it/s]
+Loading weights:  19%|█▊        | 134/723 [00:05<00:19, 29.99it/s]
+Loading weights:  20%|█▉        | 143/723 [00:06<00:15, 36.91it/s]
+Loading weights:  20%|██        | 148/723 [00:06<00:17, 32.82it/s]
+Loading weights:  21%|██        | 152/723 [00:06<00:18, 30.99it/s]
+Loading weights:  22%|██▏       | 157/723 [00:06<00:16, 33.35it/s]
+Loading weights:  23%|██▎       | 166/723 [00:06<00:13, 41.77it/s]
+Loading weights:  24%|██▎       | 171/723 [00:06<00:13, 39.92it/s]
+Loading weights:  24%|██▍       | 176/723 [00:07<00:14, 37.06it/s]
+Loading weights:  25%|██▌       | 182/723 [00:07<00:13, 41.32it/s]
+Loading weights:  26%|██▌       | 187/723 [00:07<00:16, 31.97it/s]
+Loading weights:  27%|██▋       | 196/723 [00:07<00:13, 39.78it/s]
+Loading weights:  28%|██▊       | 201/723 [00:07<00:15, 33.97it/s]
+Loading weights:  28%|██▊       | 205/723 [00:07<00:16, 31.84it/s]
+Loading weights:  29%|██▉       | 210/723 [00:08<00:14, 34.40it/s]
+Loading weights:  30%|███       | 220/723 [00:08<00:12, 41.81it/s]
+Loading weights:  31%|███       | 225/723 [00:08<00:13, 37.17it/s]
+Loading weights:  32%|███▏      | 234/723 [00:08<00:11, 44.38it/s]
+Loading weights:  33%|███▎      | 239/723 [00:08<00:13, 36.72it/s]
+Loading weights:  34%|███▍      | 248/723 [00:08<00:10, 43.31it/s]
+Loading weights:  35%|███▍      | 253/723 [00:09<00:12, 36.34it/s]
+Loading weights:  36%|███▌      | 257/723 [00:09<00:15, 29.93it/s]
+Loading weights:  36%|███▋      | 263/723 [00:09<00:14, 31.12it/s]
+Loading weights:  38%|███▊      | 274/723 [00:09<00:10, 44.67it/s]
+Loading weights:  39%|███▊      | 280/723 [00:09<00:12, 35.81it/s]
+Loading weights:  40%|███▉      | 288/723 [00:09<00:09, 43.56it/s]
+Loading weights:  41%|████      | 294/723 [00:10<00:11, 36.18it/s]
+Loading weights:  42%|████▏     | 304/723 [00:10<00:09, 45.31it/s]
+Loading weights:  43%|████▎     | 310/723 [00:10<00:11, 34.80it/s]
+Loading weights:  44%|████▎     | 315/723 [00:10<00:11, 34.15it/s]
+Loading weights:  44%|████▍     | 320/723 [00:10<00:11, 35.93it/s]
+Loading weights:  45%|████▌     | 327/723 [00:11<00:09, 42.42it/s]
+Loading weights:  46%|████▌     | 332/723 [00:11<00:11, 32.68it/s]
+Loading weights:  47%|████▋     | 341/723 [00:11<00:09, 40.21it/s]
+Loading weights:  48%|████▊     | 346/723 [00:11<00:11, 33.77it/s]
+Loading weights:  49%|████▉     | 355/723 [00:11<00:08, 43.15it/s]
+Loading weights:  50%|████▉     | 361/723 [00:12<00:10, 34.89it/s]
+Loading weights:  51%|█████     | 366/723 [00:12<00:11, 31.31it/s]
+Loading weights:  51%|█████▏    | 371/723 [00:12<00:10, 34.05it/s]
+Loading weights:  53%|█████▎    | 380/723 [00:12<00:07, 45.12it/s]
+Loading weights:  53%|█████▎    | 386/723 [00:12<00:09, 35.84it/s]
+Loading weights:  54%|█████▍    | 393/723 [00:12<00:07, 41.99it/s]
+Loading weights:  55%|█████▌    | 399/723 [00:13<00:09, 34.74it/s]
+Loading weights:  57%|█████▋    | 410/723 [00:13<00:06, 46.05it/s]
+Loading weights:  58%|█████▊    | 416/723 [00:13<00:08, 35.26it/s]
+Loading weights:  58%|█████▊    | 421/723 [00:13<00:08, 34.54it/s]
+Loading weights:  59%|█████▉    | 426/723 [00:13<00:07, 37.34it/s]
+Loading weights:  62%|██████▏   | 446/723 [00:13<00:03, 70.12it/s]
+Loading weights:  66%|██████▌   | 474/723 [00:13<00:02, 115.15it/s]
+Loading weights:  69%|██████▉   | 500/723 [00:14<00:01, 149.05it/s]
+Loading weights:  73%|███████▎  | 530/723 [00:14<00:01, 183.41it/s]
+Loading weights:  78%|███████▊  | 562/723 [00:14<00:00, 217.05it/s]
+Loading weights:  81%|████████▏ | 588/723 [00:14<00:00, 221.02it/s]
+Loading weights:  85%|████████▍ | 613/723 [00:14<00:00, 228.01it/s]
+Loading weights:  88%|████████▊ | 638/723 [00:14<00:00, 226.44it/s]
+Loading weights:  92%|█████████▏| 668/723 [00:14<00:00, 236.10it/s]
+Loading weights:  96%|█████████▌| 694/723 [00:14<00:00, 240.25it/s]
+Loading weights:  99%|█████████▉| 719/723 [00:14<00:00, 206.81it/s]
+Loading weights: 100%|██████████| 723/723 [00:14<00:00, 48.28it/s]
+  generated 16/48 (0.6 ex/s)
+  generated 32/48 (0.9 ex/s)
+  generated 48/48 (1.1 ex/s)
+worded_as_stored: json 100.0% decision 91.67%
+  generated 16/48 (1.7 ex/s)
+  generated 32/48 (1.7 ex/s)
+  generated 48/48 (1.7 ex/s)
+symbolic_reversed: json 100.0% decision 91.67%
+written to .\reports\v5\base_model_check\wording_sensitivity.json
+exit 0

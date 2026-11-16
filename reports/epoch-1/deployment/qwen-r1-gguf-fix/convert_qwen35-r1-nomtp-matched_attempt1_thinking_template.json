@@ -1,0 +1,43 @@
+{
+  "tag": "qwen35-r1-nomtp-matched",
+  "merged_dir": ".\\models\\gguf_fix\\qwen35-r1-merged",
+  "converter": "e3546c7948e3af463d0b401e6421d5a4c2faf565 (vendored by llama-cpp-python 0.3.34)",
+  "flags": [
+    "--no-mtp"
+  ],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_seconds": 42.9,
+  "bf16_gib": 7.85,
+  "bf16_meta": {
+    "block_count": 32,
+    "tensor_count": 426,
+    "has_blk32": false
+  },
+  "quantize_rc": 0,
+  "quant_gib": 4.17,
+  "quant_sha256": "8cf305d0e416ebc9b4b7fbdca7d2b93b64d765160cf0743191ee5186dfe6ca56",
+  "quant_meta": {
+    "block_count": 32,
+    "tensor_count": 426,
+    "has_blk32": false
+  },
+  "runtime_load_rc": 0,
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 4.1,
+    "latencies_s": [
+      3.58,
+      3.04,
+      3.09,
+      2.99,
+      2.96,
+      3.0
+    ],
+    "first_infer_s": 3.58,
+    "median_steady_s": 3.0,
+    "total_completion_tokens": 1800,
+    "json_ok": "0/6",
+    "raw_head": "The user wants me to act as a material provider agent (M01) in a supply chain bidding system. I need to evaluate an incoming material request (RFQ) and decide whether to bid or not.\n\nLet me check all the constraints:\n\n1. **Material check**: Agent M01 supplies cotton|polyester. The RFQ is for cotton. \u2713\n\n2. **Defect probability check**: \n   - defect_probability: 0.04\n   - max allowed defect rate: 0."
+  }
+}

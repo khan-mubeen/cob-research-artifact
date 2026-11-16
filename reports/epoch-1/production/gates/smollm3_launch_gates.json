@@ -1,0 +1,47 @@
+{
+  "recorded_at": "unknown",
+  "model": "HuggingFaceTB/SmolLM3-3B",
+  "revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+  "base_path_used": "models/base-checkpoints/hf/smollm3-v2-base (local copy of pinned snapshot, pad token patched)",
+  "gates": {
+    "1_identity_license_gated": {
+      "status": "PASS",
+      "evidence": "HF API: apache-2.0, NOT gated, rev a07cc9a0 pinned; downloaded 5.8 GB complete"
+    },
+    "2_standard_architecture_no_custom_code": {
+      "status": "PASS",
+      "evidence": "SmolLM3ForCausalLM (model_type smollm3), no auto_map, zero .py files in repo; 36 layers, hidden 2048, dense"
+    },
+    "3_lora_targets_identified_directly": {
+      "status": "PASS",
+      "evidence": "q/k/v/o/gate/up/down_proj all present via named-module inventory; 30,228,480 trainable (0.973% of 3,105,327,104) at r16/a16 under unsloth"
+    },
+    "4_template_train_gguf_alignment": {
+      "status": "PASS",
+      "evidence": "smollm3_template_alignment.json 7/7 with --template-kwargs enable_thinking=false and --allow-think-suffix: gguf template string-identical, gen prompt exact prefix of train text incl. the pre-closed empty <think> block, markers exactly once"
+    },
+    "5_non_thinking_mode_verified": {
+      "status": "PASS",
+      "evidence": "documented toggle, not a workaround: enable_thinking=False injects '/no_think' into the system header AND renders assistant prefix <think>\\n\\n</think>\\n; VERIFIED BY GENERATION on 3 real bidding prompts: 0/3 think leakage, JSON produced (one fenced, normal base behavior); causal control run included"
+    },
+    "6_native_vram_fit": {
+      "status": "PASS",
+      "evidence": "smoke batch 8 x accum 2 seq 1024: 9.0 GiB allocated / 15.3 GiB reserved of 23.9 physical - native fit, no spill; 4.59 s/step, est 73 min full run"
+    },
+    "7_meaningful_trainable_fraction": {
+      "status": "PASS",
+      "evidence": "0.973% - the largest fraction of any model in the comparison (qwen 0.47%, phi 0.60%, granite 0.91%, gemma 0.49%)"
+    }
+  },
+  "controlled_adaptations_disclosed": [
+    "pad_token set to reserved existing vocab token <|reserved_special_token_2|> (id 128005) in the local copy because SmolLM3 ships pad==eos==<|im_end|> (same trap and same fix as Phi); no embedding resize, no weight change",
+    "training render uses --template-kwargs {enable_thinking:false} so the train render (/no_think header + empty think prefix) matches the eval/deployment render exactly; verified mismatch existed under the default render; additive CLI arg, all four completed model pipelines unchanged",
+    "template auto-injects 'Today Date' into the system header (dated renders are self-consistent per run; disclosed as template property)"
+  ],
+  "recovery": "--save-steps 200; monitor_sys.ps1 telemetry during the run",
+  "decision": "LAUNCH full SmolLM3 Protocol v2 training after Ministral download completes (strictly sequential GPU/disk work given crash history)",
+  "base_path_used_at_launch_time": "models/smollm3-v2-base (local copy of pinned snapshot, pad token patched)",
+  "post_reorganization_locations": {
+    "note": "path updated 2026-07-25 during the repository reorganization; *_at_launch_time keys preserve the string recorded when the record was written"
+  }
+}

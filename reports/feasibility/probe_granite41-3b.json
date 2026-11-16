@@ -1,0 +1,150 @@
+{
+  "tag": "granite41-3b",
+  "steps": {
+    "B1_tokenizer_and_template": {
+      "status": "pass",
+      "loader": "AutoProcessor",
+      "thinking_controls": {
+        "enable_thinking=False": "accepted_but_ignored",
+        "thinking=False": "accepted_but_ignored",
+        "reasoning_effort=none": "accepted_but_ignored",
+        "add_reasoning_prompt=False": "accepted_but_ignored"
+      },
+      "gen_prefix_is_training_prefix": true,
+      "default_gen_tail": "'stimated_completion_days\": null,\\n  \"defect_probability\": 0.04\\n}<|end_of_text|>\\n<|start_of_role|>assistant<|end_of_role|>'",
+      "templates_file": ".\\reports\\feasibility\\templates_granite41-3b.txt",
+      "seconds": 1.9
+    },
+    "B2_model_load": {
+      "status": "pass",
+      "trust_remote_code": false,
+      "load_seconds": 7.8,
+      "load_vram_gib": 6.34,
+      "param_count": 3402836480,
+      "config_architectures": [
+        "GraniteForCausalLM"
+      ],
+      "seconds": 7.8
+    },
+    "B3_module_inventory": {
+      "status": "pass",
+      "linear_suffix_counts": {
+        "q_proj": 40,
+        "k_proj": 40,
+        "v_proj": 40,
+        "o_proj": 40,
+        "gate_proj": 40,
+        "up_proj": 40,
+        "down_proj": 40,
+        "lm_head": 1
+      },
+      "qwen_targets_present": {
+        "q_proj": 40,
+        "k_proj": 40,
+        "v_proj": 40,
+        "o_proj": 40,
+        "gate_proj": 40,
+        "up_proj": 40,
+        "down_proj": 40
+      },
+      "non_qwen_linears": {},
+      "seconds": 0.0
+    },
+    "B4_json_inference": {
+      "status": "pass",
+      "generations": [
+        {
+          "stage": "material",
+          "latency_s": 3.87,
+          "parseable_json": true,
+          "new_tokens": 74,
+          "raw": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 247.548756,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+        },
+        {
+          "stage": "material",
+          "latency_s": 3.31,
+          "parseable_json": true,
+          "new_tokens": 75,
+          "raw": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M02\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 31.0863847,\n  \"estimated_completion_days\": 1,\n  \"defect_probability\": 0.01\n}"
+        },
+        {
+          "stage": "tailoring",
+          "latency_s": 3.37,
+          "parseable_json": true,
+          "new_tokens": 75,
+          "raw": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1245.57,\n  \"estimated_completion_days\": 12,\n  \"defect_probability\": 0.02\n}"
+        }
+      ],
+      "json_ok_count": 3,
+      "seconds": 10.6
+    },
+    "C1_lora_attach": {
+      "status": "pass",
+      "strict_qwen_targets_present": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "strict_qwen_targets_missing": [],
+      "functional_targets": [
+        "down_proj",
+        "gate_proj",
+        "k_proj",
+        "o_proj",
+        "q_proj",
+        "up_proj",
+        "v_proj"
+      ],
+      "functional_categories": {
+        "attention": [
+          "k_proj",
+          "o_proj",
+          "q_proj",
+          "v_proj"
+        ],
+        "mlp": [
+          "down_proj",
+          "gate_proj",
+          "up_proj"
+        ]
+      },
+      "strict_trainable_params": 31129600,
+      "trainable_params": 31129600,
+      "trainable_pct_of_total": 0.907,
+      "seconds": 2.0
+    },
+    "C2_gradient_smoke": {
+      "status": "pass",
+      "losses": [
+        5.411263942718506,
+        5.358987808227539,
+        4.69485330581665,
+        3.281445026397705,
+        2.8175506591796875,
+        2.4714391231536865,
+        2.1746890544891357,
+        2.033965587615967
+      ],
+      "median_step_s": 11.43,
+      "peak_train_vram_gib": 37.88,
+      "loss_changed": true,
+      "runtime_s": 88.0,
+      "batch_size_used": 8,
+      "exact_qwen_config": true,
+      "seconds": 89.8
+    },
+    "C3_adapter_save_reload_merge": {
+      "status": "pass",
+      "adapter_dir": ".\\reports\\feasibility\\adapter_granite41-3b",
+      "merge_ok": true,
+      "seconds": 5.6
+    }
+  },
+  "model": "ibm-granite/granite-4.1-3b",
+  "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+  "thinking_off_kwargs": {}
+}

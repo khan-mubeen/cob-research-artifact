@@ -1,0 +1,40 @@
+{
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+  "revision": "dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f",
+  "pid": 5032,
+  "stages": [
+    {
+      "stage": "start",
+      "time": "2026-07-21 16:01:56.245",
+      "python": "3.11.9"
+    },
+    {
+      "stage": "cuda_init",
+      "time": "2026-07-21 16:01:57.786",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 5090 Laptop GPU"
+    },
+    {
+      "stage": "tokenizer_load_begin",
+      "time": "2026-07-21 16:01:59.770"
+    },
+    {
+      "stage": "tokenizer_load_done",
+      "time": "2026-07-21 16:02:00.778"
+    },
+    {
+      "stage": "model_load_begin",
+      "time": "2026-07-21 16:02:00.797",
+      "note": "device_map=cuda, bfloat16 (same as pre-BSOD run)"
+    },
+    {
+      "stage": "fatal",
+      "time": "2026-07-21 16:02:01.580"
+    }
+  ],
+  "torch": "2.10.0+cu130",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+  "fatal_error": "ImportError: mamba-ssm is required by the Mamba model but cannot be imported",
+  "trace": "\\.cache\\huggingface\\modules\\transformers_modules\\nvidia\\NVIDIA_hyphen_Nemotron_hyphen_3_hyphen_Nano_hyphen_4B_hyphen_BF16\\dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f\\modeling_nemotron_h.py\", line 63, in <module>\n    from mamba_ssm.ops.triton.layernorm_gated import rmsnorm_fn\nModuleNotFoundError: No module named 'mamba_ssm'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \".\\src\\experiments\\feasibility\\lfm_load_infer_probe.py\", line 121, in <module>\n    main()\n  File \".\\src\\experiments\\feasibility\\lfm_load_infer_probe.py\", line 79, in main\n    model = AutoModelForCausalLM.from_pretrained(\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \".\\.venv-feas\\Lib\\site-packages\\transformers\\models\\auto\\auto_factory.py\", line 369, in from_pretrained\n    model_class = get_class_from_dynamic_module(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \".\\.venv-feas\\Lib\\site-packages\\transformers\\dynamic_module_utils.py\", line 583, in get_class_from_dynamic_module\n    return get_class_in_module(class_name, final_module, force_reload=force_download)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \".\\.venv-feas\\Lib\\site-packages\\transformers\\dynamic_module_utils.py\", line 309, in get_class_in_module\n    module_spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 940, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed\n  File \"/anonymous/home\\.cache\\huggingface\\modules\\transformers_modules\\nvidia\\NVIDIA_hyphen_Nemotron_hyphen_3_hyphen_Nano_hyphen_4B_hyphen_BF16\\dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f\\modeling_nemotron_h.py\", line 65, in <module>\n    raise ImportError(\"mamba-ssm is required by the Mamba model but cannot be imported\")\nImportError: mamba-ssm is required by the Mamba model but cannot be imported\n"
+}

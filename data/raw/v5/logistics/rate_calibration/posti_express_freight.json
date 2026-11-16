@@ -1,0 +1,405 @@
+{
+  "source": "Posti Express Freight, domestic goods transport services contract price list 16.11.2025",
+  "source_url": "https://assets.ctfassets.net/dvxpcmq06s7e/2KEbIynQDBmrCouchzrJ2Q/453d09672354ec0a4a5d2eb7bf618766/posti-paketti-ja-express-rahti-sopimushinnasto-kotimaan-kuljetuspalvelut-20251116.pdf",
+  "source_url_given_in_task": "https://www.posti.fi/en/for-businesses/parcels-and-logistics/freight",
+  "source_location_note": "the url given in the task returned HTTP 404 on the access date. its successor page, https://www.posti.fi/en/for-businesses/parcels-and-logistics/all-services/express-freight (linked from page 12 of the Posti parcel price list), states no prices. the zone and transport-unit prices below were therefore read from Posti's current domestic contract price list. Posti's english contract price list of 30.9.2024, https://www.posti.fi/mzj3zpe8qb7p/7s9AsOwmnECySlx35uEAFO/2554fda2bfcab7eb8d7ac9a0ee51dcae/posti-parcel-services-and-express-freight-contract-prices-20240930.pdf, prints identical Express Freight figures on its page 3 and supplies the english wording and the transport-unit dimensions",
+  "page_or_section": "page 4 'Rahtipalvelut' Express-rahti tables, page 5 Express-rahti Samana päivänä 00 and Illaksi 21 tables and delivery charge, page 6 separate pick-up; VAT and fuel wording page 1; transport-unit limits from the 30.9.2024 english list pages 9-10",
+  "role": "upper-bound calibration evidence for F_i and alpha_i",
+  "calibration_bound": "upper",
+  "currency": "EUR",
+  "unit": "EUR per transport unit by delivery zone",
+  "access_date_basis": "no price values were supplied with the task for this source; the prices were read on this date from the price list named in source_url and checked against the 30.9.2024 english list",
+  "reverification_status": "read from the current price list; given url returned 404",
+  "tariff_metadata": {
+    "vat_status": {
+      "value": "exclusive",
+      "source_wording": "Hinnat on esitetty ilman arvonlisäveroa, ellei toisin mainita. Hintoihin lisätään laskutuksessa kulloinkin voimassa oleva arvonlisävero.",
+      "note": "page 1. english list wording: 'The tariffs and rates are quoted excluding VAT, unless otherwise stated. VAT valid at the time will be added to prices during invoicing.'"
+    },
+    "effective_date": {
+      "value": "2025-11-16",
+      "source_wording": "Kotimaan tavarankuljetuspalvelut - Sopimushinnasto 16.11.2025",
+      "note": "page 1 title"
+    },
+    "currency_as_published": {
+      "value": "EUR",
+      "source_wording": "€ column headings"
+    },
+    "unit_basis": {
+      "value": "per transport unit (loose package, rolltainer or half pallet, pallet, furniture pallet), first unit and each next unit to the same address, by delivery zone 0-5; not weight-based within a unit's capacity",
+      "source_wording": "Express-rahdin hinnoittelu perustuu kappaleisiin, kuljetusyksikön tyyppiin, vyöhykkeisiin sekä käytettyihin lisäpalveluihin.",
+      "note": "page 1. english list wording: 'The pricing of Express Freight is based on the transport unit type, the size of the shipment lot, transport distance, and the additional service used.'"
+    },
+    "service_category": {
+      "value": "express freight (transport-unit road freight)",
+      "source_wording": "Rahtipalvelut, Express-rahti"
+    },
+    "fuel_surcharge_treatment": {
+      "value": "charged separately",
+      "source_wording": "Kulloinkin voimassaoleva polttoainelisä veloitetaan erikseen. Voimassa oleva polttoainelisä löytyy osoitteesta posti.fi/polttoainelisa.",
+      "note": "page 1. english list wording: 'An applicable fuel surcharge will be charged separately.'"
+    },
+    "pickup_treatment": {
+      "value": "not included: prices run from a Posti outlet; a pick-up is a separate charge",
+      "source_wording": "Ellei toisin mainita, hinnat sisältävät kuljetuksen postista vastaanottajalle tai luovutuspisteeseen. Lähetyksille voi tilata erillismaksusta noudon",
+      "note": "page 1. separate pick-up of one transport unit is printed as 40,33 on page 6 of this list and as 40.35 in both the 30.9.2024 english list and the digital parcel price list; recorded as printed in each"
+    },
+    "delivery_zone_definition": {
+      "value": "not stated in source",
+      "source_wording": "Katso vyöhykkeet täältä.",
+      "note": "the zone list is a link; zones 0-5 are not defined in the document"
+    }
+  },
+  "transport_unit_limits_as_printed_en_20240930": {
+    "Pallet": "Maximum width 120 cm, Maximum length 100 cm, Maximum gross weight 1000 kg",
+    "Half pallet": "Maximum width 60 cm, Maximum length 80 cm, Maximum gross weight 500 kg",
+    "Rolltainer": "Maximum width 63 cm, Maximum length 81 cm, Maximum gross weight 250 kg",
+    "Furniture pallet": "Maximum width 80 cm, Maximum length 200 cm, Maximum gross weight 1200 kg",
+    "Loose colli": "Maximum gross weight 35 kg"
+  },
+  "columns": [
+    {
+      "key": "loose_package",
+      "printed_fi": "Irtokolli",
+      "printed_en": "Loose package"
+    },
+    {
+      "key": "half_pallet_first_unit",
+      "printed_fi": "Teholava/Rullakko 1.yksikkö",
+      "printed_en": "Rolltainer/Half pallet 1. unit €"
+    },
+    {
+      "key": "half_pallet_next_units",
+      "printed_fi": "Teholava/Rullakko seuraavat yksiköt*€",
+      "printed_en": "Rolltainer/Half pallet next units* €"
+    },
+    {
+      "key": "pallet_first_unit",
+      "printed_fi": "Lava 1. yksikkö €",
+      "printed_en": "Pallet 1. unit €"
+    },
+    {
+      "key": "pallet_next_units",
+      "printed_fi": "Lava seuraavat yksiköt* €",
+      "printed_en": "Pallet next units* €"
+    },
+    {
+      "key": "furniture_pallet_first_unit",
+      "printed_fi": "Huonekalulava 1. yksikkö €",
+      "printed_en": "Furniture pallet 1. unit €"
+    },
+    {
+      "key": "furniture_pallet_next_units",
+      "printed_fi": "Huonekalulava seuraavat yksiköt* €",
+      "printed_en": "Furniture pallet next units* €"
+    }
+  ],
+  "column_footnote_as_printed": {
+    "fi": "*Samalle vastaanottajalle",
+    "en": "*To the same address"
+  },
+  "observations": [
+    {
+      "service_printed_fi": "Express-rahti 14",
+      "service_printed_en": "Express Freight",
+      "page": 4,
+      "rows": [
+        {
+          "zone": 0,
+          "eur": {
+            "loose_package": 40.0,
+            "half_pallet_first_unit": 62.32,
+            "half_pallet_next_units": 53.25,
+            "pallet_first_unit": 89.59,
+            "pallet_next_units": 75.04,
+            "furniture_pallet_first_unit": 129.91,
+            "furniture_pallet_next_units": 108.8
+          }
+        },
+        {
+          "zone": 1,
+          "eur": {
+            "loose_package": 50.0,
+            "half_pallet_first_unit": 77.91,
+            "half_pallet_next_units": 68.84,
+            "pallet_first_unit": 120.77,
+            "pallet_next_units": 106.22,
+            "furniture_pallet_first_unit": 175.12,
+            "furniture_pallet_next_units": 154.02
+          }
+        },
+        {
+          "zone": 2,
+          "eur": {
+            "loose_package": 60.0,
+            "half_pallet_first_unit": 97.38,
+            "half_pallet_next_units": 88.31,
+            "pallet_first_unit": 155.83,
+            "pallet_next_units": 141.28,
+            "furniture_pallet_first_unit": 225.97,
+            "furniture_pallet_next_units": 204.86
+          }
+        },
+        {
+          "zone": 3,
+          "eur": {
+            "loose_package": 70.0,
+            "half_pallet_first_unit": 116.86,
+            "half_pallet_next_units": 107.79,
+            "pallet_first_unit": 194.76,
+            "pallet_next_units": 180.21,
+            "furniture_pallet_first_unit": 282.4,
+            "furniture_pallet_next_units": 261.29
+          }
+        },
+        {
+          "zone": 4,
+          "eur": {
+            "loose_package": 80.0,
+            "half_pallet_first_unit": 136.34,
+            "half_pallet_next_units": 127.27,
+            "pallet_first_unit": 233.7,
+            "pallet_next_units": 219.15,
+            "furniture_pallet_first_unit": 338.86,
+            "furniture_pallet_next_units": 317.76
+          }
+        },
+        {
+          "zone": 5,
+          "eur": {
+            "loose_package": 90.0,
+            "half_pallet_first_unit": 155.8,
+            "half_pallet_next_units": 146.73,
+            "pallet_first_unit": 272.65,
+            "pallet_next_units": 258.1,
+            "furniture_pallet_first_unit": 395.36,
+            "furniture_pallet_next_units": 374.26
+          }
+        }
+      ]
+    },
+    {
+      "service_printed_fi": "Express-rahti Aamuksi 09",
+      "service_printed_en": "Express Freight Morning 09",
+      "page": 4,
+      "rows": [
+        {
+          "zone": 0,
+          "eur": {
+            "loose_package": 50.0,
+            "half_pallet_first_unit": 87.26,
+            "half_pallet_next_units": 78.19,
+            "pallet_first_unit": 125.39,
+            "pallet_next_units": 110.86,
+            "furniture_pallet_first_unit": 181.81,
+            "furniture_pallet_next_units": 160.75
+          }
+        },
+        {
+          "zone": 1,
+          "eur": {
+            "loose_package": 60.0,
+            "half_pallet_first_unit": 109.09,
+            "half_pallet_next_units": 100.01,
+            "pallet_first_unit": 169.02,
+            "pallet_next_units": 154.5,
+            "furniture_pallet_first_unit": 245.1,
+            "furniture_pallet_next_units": 224.04
+          }
+        },
+        {
+          "zone": 2,
+          "eur": {
+            "loose_package": 70.0,
+            "half_pallet_first_unit": 136.34,
+            "half_pallet_next_units": 127.27,
+            "pallet_first_unit": 218.16,
+            "pallet_next_units": 203.63,
+            "furniture_pallet_first_unit": 316.32,
+            "furniture_pallet_next_units": 295.26
+          }
+        },
+        {
+          "zone": 3,
+          "eur": {
+            "loose_package": 80.0,
+            "half_pallet_first_unit": 163.6,
+            "half_pallet_next_units": 154.53,
+            "pallet_first_unit": 272.63,
+            "pallet_next_units": 258.1,
+            "furniture_pallet_first_unit": 395.32,
+            "furniture_pallet_next_units": 374.26
+          }
+        },
+        {
+          "zone": 4,
+          "eur": {
+            "loose_package": 90.0,
+            "half_pallet_first_unit": 190.89,
+            "half_pallet_next_units": 181.82,
+            "pallet_first_unit": 327.18,
+            "pallet_next_units": 312.65,
+            "furniture_pallet_first_unit": 474.39,
+            "furniture_pallet_next_units": 453.33
+          }
+        },
+        {
+          "zone": 5,
+          "eur": {
+            "loose_package": 100.0,
+            "half_pallet_first_unit": 218.14,
+            "half_pallet_next_units": 209.07,
+            "pallet_first_unit": 381.68,
+            "pallet_next_units": 367.16,
+            "furniture_pallet_first_unit": 553.44,
+            "furniture_pallet_next_units": 532.38
+          }
+        }
+      ]
+    },
+    {
+      "service_printed_fi": "Express-rahti Samana päivänä 00",
+      "service_printed_en": "Express Freight same-day 00",
+      "page": 5,
+      "rows": [
+        {
+          "zone": 0,
+          "eur": {
+            "loose_package": 40.0,
+            "half_pallet_first_unit": 43.39,
+            "half_pallet_next_units": 36.86,
+            "pallet_first_unit": 63.78,
+            "pallet_next_units": 54.46,
+            "furniture_pallet_first_unit": 92.47,
+            "furniture_pallet_next_units": 78.95
+          }
+        },
+        {
+          "zone": 1,
+          "eur": {
+            "loose_package": 50.0,
+            "half_pallet_first_unit": 68.04,
+            "half_pallet_next_units": 61.52,
+            "pallet_first_unit": 103.41,
+            "pallet_next_units": 94.09,
+            "furniture_pallet_first_unit": 149.96,
+            "furniture_pallet_next_units": 136.44
+          }
+        }
+      ]
+    },
+    {
+      "service_printed_fi": "Express-rahti Illaksi 21",
+      "service_printed_en": "Express Freight Evening 21",
+      "page": 5,
+      "rows": [
+        {
+          "zone": 0,
+          "eur": {
+            "loose_package": 50.0,
+            "half_pallet_first_unit": 74.79,
+            "half_pallet_next_units": 63.91,
+            "pallet_first_unit": 107.5,
+            "pallet_next_units": 90.06,
+            "furniture_pallet_first_unit": 214.99,
+            "furniture_pallet_next_units": 197.56
+          }
+        },
+        {
+          "zone": 1,
+          "eur": {
+            "loose_package": 60.0,
+            "half_pallet_first_unit": 93.47,
+            "half_pallet_next_units": 82.59,
+            "pallet_first_unit": 144.89,
+            "pallet_next_units": 127.46,
+            "furniture_pallet_first_unit": 289.82,
+            "furniture_pallet_next_units": 272.38
+          }
+        },
+        {
+          "zone": 2,
+          "eur": {
+            "loose_package": 70.0,
+            "half_pallet_first_unit": 116.86,
+            "half_pallet_next_units": 105.98,
+            "pallet_first_unit": 186.96,
+            "pallet_next_units": 169.52,
+            "furniture_pallet_first_unit": 373.95,
+            "furniture_pallet_next_units": 356.52
+          }
+        },
+        {
+          "zone": 3,
+          "eur": {
+            "loose_package": 80.0,
+            "half_pallet_first_unit": 140.25,
+            "half_pallet_next_units": 129.37,
+            "pallet_first_unit": 233.7,
+            "pallet_next_units": 216.26,
+            "furniture_pallet_first_unit": 467.39,
+            "furniture_pallet_next_units": 449.95
+          }
+        },
+        {
+          "zone": 4,
+          "eur": {
+            "loose_package": 90.0,
+            "half_pallet_first_unit": 163.6,
+            "half_pallet_next_units": 152.72,
+            "pallet_first_unit": 280.44,
+            "pallet_next_units": 263.0,
+            "furniture_pallet_first_unit": 560.87,
+            "furniture_pallet_next_units": 543.43
+          }
+        },
+        {
+          "zone": 5,
+          "eur": {
+            "loose_package": 100.0,
+            "half_pallet_first_unit": 186.98,
+            "half_pallet_next_units": 176.1,
+            "pallet_first_unit": 327.16,
+            "pallet_next_units": 309.72,
+            "furniture_pallet_first_unit": 654.35,
+            "furniture_pallet_next_units": 636.91
+          }
+        }
+      ]
+    }
+  ],
+  "delivery_charge_as_printed": {
+    "service_printed_fi": "Express-rahdin jakelumaksu",
+    "page": 5,
+    "eur_by_zone": {
+      "1": 30.17,
+      "2": 60.33
+    }
+  },
+  "separate_pickup_as_printed": {
+    "page": 6,
+    "eur_by_transport_unit_count": {
+      "1": 40.33,
+      "2": 30.4,
+      "3": 24.63,
+      "4": 20.13,
+      "5": 17.13,
+      "6": 15.06,
+      "7": 13.46,
+      "8": 12.25,
+      "9": 11.55,
+      "10 tai enemmän": 10.76
+    }
+  },
+  "verification_note": "upper-bound calibration evidence; prices by transport-unit type and delivery zone (0-5), not by a constant per-kg rate; record whatever specific zone/unit prices are stated on this page with their exact wording, do not force them into an F+alpha shape here, that translation happens in Part 3",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-13",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record",
+  "calibration_feeds": "F_i and alpha_i",
+  "metadata_convention": {
+    "not_stated": "not stated in source",
+    "unreadable": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+    "meaning": "a field reading 'not stated in source' was read and is absent from the source; a field reading 'not verified' could not be read at all"
+  }
+}

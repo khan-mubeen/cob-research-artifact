@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-07-21T03:21:24",
+  "purpose": "explanatory magnitude/decomposition diagnostic; NOT training, NOT a gate",
+  "n": 128,
+  "sha256": "617c1f32183f69bef4dce6cb8551c7450935682b85eea9fa93c25937e44408f8",
+  "family_counts": {
+    "A_absolute_scale": 48,
+    "B_qty_workload_split": 80
+  },
+  "familyA_quantity_span": [
+    966,
+    1980
+  ],
+  "familyA_capacity_span": [
+    560,
+    1120
+  ],
+  "familyA_capacity_note": "capacity 500-1600 spans <=1.8x the real max 883 (under one order of magnitude); quantity kept within real [100,2000]",
+  "invariant_by_construction": "within each (family,group) completion and ratio are fixed so the rule decision is constant; the model's decision constancy is what the diagnostic measures",
+  "groups_with_nonconstant_rule_label": {},
+  "label_verification": "every row via decide_manufacturer_bid"
+}

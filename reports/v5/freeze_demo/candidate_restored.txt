@@ -1,0 +1,18 @@
+candidate freeze check, 13/13 checks ok
+  ok   git_commit_known
+  ok   worktree_state_recorded
+  ok   corpus_manifest_present
+  ok   corpus_files_match_manifest
+  ok   generated_scripts_present
+  ok   cuda-roihu:pins_match_registry
+  ok   cuda-roihu:scripts_are_freshly_rendered
+  ok   cuda-roihu:train_files_exist
+  ok   cuda-roihu:caches_resolve_under_the_profile_root
+  ok   rocm-lumi:pins_match_registry
+  ok   rocm-lumi:scripts_are_freshly_rendered
+  ok   rocm-lumi:train_files_exist
+  ok   rocm-lumi:caches_resolve_under_the_profile_root
+
+non-authoritative and disposable, written to .\reports\v5\freeze_check_candidate.json
+LUMI will not read this file; run --mode freeze once bid_check, slm_check and any fix are committed
+candidate exit after restore 0

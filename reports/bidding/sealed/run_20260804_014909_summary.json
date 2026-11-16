@@ -1,0 +1,12 @@
+{
+  "mode": "sealed",
+  "data_version": "v4",
+  "checkpoint": ".\\reports\\bidding\\sealed\\run_20260804_014909.jsonl",
+  "generated_at": "2026-08-04T01:49:39",
+  "totals": {
+    "orders_recorded": 1,
+    "by_status": {
+      "completed": 1
+    }
+  }
+}

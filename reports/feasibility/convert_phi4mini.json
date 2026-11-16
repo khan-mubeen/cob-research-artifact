@@ -1,0 +1,31 @@
+{
+  "tag": "phi4mini",
+  "merged_dir": "models/feasibility/phi4mini-merged",
+  "quant": "Q8_0",
+  "convert_script": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121",
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_stderr_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 7.27G/7.67G [00:31<00:01, 244Mbyte/s]\nWriting:  95%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 7.32G/7.67G [00:32<00:01, 214Mbyte/s]\nWriting:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 7.42G/7.67G [00:32<00:01, 232Mbyte/s]\nWriting:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 7.47G/7.67G [00:32<00:00, 246Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 7.52G/7.67G [00:32<00:00, 217Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 7.62G/7.67G [00:33<00:00, 233Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 7.67G/7.67G [00:33<00:00, 244Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 7.67G/7.67G [00:33<00:00, 229Mbyte/s]\nINFO:hf-to-gguf:Model successfully exported to .\\models\\feasibility\\phi4mini-bf16.gguf\n",
+  "bf16_gib": 7.15,
+  "quantize_rc": 0,
+  "quant_gib": 3.8,
+  "quant_sha256": "db403dd73907c7e67c5f7e5b7396a0a76eabeb4e608c141b110711f5607bdc93",
+  "runtime_load_rc": 0,
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 2.2,
+    "latencies_s": [
+      0.88,
+      0.82,
+      0.85,
+      0.76,
+      2.34,
+      0.74
+    ],
+    "first_infer_s": 0.88,
+    "median_steady_s": 0.82,
+    "total_completion_tokens": 414,
+    "json_ok": "6/6",
+    "raw_head": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 302.5,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+  }
+}

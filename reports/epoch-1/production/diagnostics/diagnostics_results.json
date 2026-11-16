@@ -1,0 +1,502 @@
+{
+  "checkpoints": {
+    "qwen-base-diag": {
+      "scale_family_decision_acc": {
+        "ratio_fixed_deadline_varies": 50.0,
+        "quantity_fixed_deadline_varies": 60.0,
+        "capacity_varies_dl_qty_fixed": 60.0,
+        "crossed_ratio_deadline": 50.0
+      },
+      "scale_family_json": {},
+      "F2_bid_rate_by_deadline": {
+        "2": {
+          "model_bid": 12,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "4": {
+          "model_bid": 12,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "7": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "10": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "14": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        }
+      },
+      "F2_deadline_sensitive": 0,
+      "F3_bid_rate_by_capacity_ratio": {
+        "r077": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r091": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r100": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r111": {
+          "model_bid": 12,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "r125": {
+          "model_bid": 12,
+          "rule_bid": 0,
+          "n": 12
+        }
+      },
+      "F3_profile_sensitive": 0,
+      "json_valid_by_band": {
+        "10k_to_100k": 100.0,
+        "1k_to_10k": 100.0,
+        "over_100k": 100.0,
+        "under_1k": 100.0
+      },
+      "json_valid_by_stage": {
+        "logistics": 100.0,
+        "tailoring": 100.0
+      },
+      "json_malformed_examples": []
+    },
+    "qwen-v2-diag": {
+      "scale_family_decision_acc": {
+        "ratio_fixed_deadline_varies": 52.5,
+        "quantity_fixed_deadline_varies": 83.3,
+        "capacity_varies_dl_qty_fixed": 71.7,
+        "crossed_ratio_deadline": 59.9
+      },
+      "scale_family_json": {},
+      "F2_bid_rate_by_deadline": {
+        "2": {
+          "model_bid": 0,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "4": {
+          "model_bid": 2,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "7": {
+          "model_bid": 7,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "10": {
+          "model_bid": 11,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "14": {
+          "model_bid": 10,
+          "rule_bid": 12,
+          "n": 12
+        }
+      },
+      "F2_deadline_sensitive": 11,
+      "F3_bid_rate_by_capacity_ratio": {
+        "r077": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r091": {
+          "model_bid": 11,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r100": {
+          "model_bid": 9,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r111": {
+          "model_bid": 8,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "r125": {
+          "model_bid": 5,
+          "rule_bid": 0,
+          "n": 12
+        }
+      },
+      "F3_profile_sensitive": 7,
+      "json_valid_by_band": {
+        "10k_to_100k": 100.0,
+        "1k_to_10k": 100.0,
+        "over_100k": 100.0,
+        "under_1k": 100.0
+      },
+      "json_valid_by_stage": {
+        "logistics": 100.0,
+        "tailoring": 100.0
+      },
+      "json_malformed_examples": []
+    },
+    "granite-base-diag": {
+      "scale_family_decision_acc": {
+        "ratio_fixed_deadline_varies": 40.0,
+        "quantity_fixed_deadline_varies": 60.0,
+        "capacity_varies_dl_qty_fixed": 60.0,
+        "crossed_ratio_deadline": 50.0
+      },
+      "scale_family_json": {},
+      "F2_bid_rate_by_deadline": {
+        "2": {
+          "model_bid": 12,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "4": {
+          "model_bid": 12,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "7": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "10": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "14": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        }
+      },
+      "F2_deadline_sensitive": 0,
+      "F3_bid_rate_by_capacity_ratio": {
+        "r077": {
+          "model_bid": 11,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r091": {
+          "model_bid": 11,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r100": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r111": {
+          "model_bid": 11,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "r125": {
+          "model_bid": 11,
+          "rule_bid": 0,
+          "n": 12
+        }
+      },
+      "F3_profile_sensitive": 1,
+      "json_valid_by_band": {
+        "10k_to_100k": 100.0,
+        "1k_to_10k": 100.0,
+        "over_100k": 100.0,
+        "under_1k": 100.0
+      },
+      "json_valid_by_stage": {
+        "logistics": 100.0,
+        "tailoring": 100.0
+      },
+      "json_malformed_examples": []
+    },
+    "granite-v2-diag": {
+      "scale_family_decision_acc": {
+        "ratio_fixed_deadline_varies": 47.5,
+        "quantity_fixed_deadline_varies": 45.0,
+        "capacity_varies_dl_qty_fixed": 61.7,
+        "crossed_ratio_deadline": 46.9
+      },
+      "scale_family_json": {},
+      "F2_bid_rate_by_deadline": {
+        "2": {
+          "model_bid": 9,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "4": {
+          "model_bid": 9,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "7": {
+          "model_bid": 9,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "10": {
+          "model_bid": 9,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "14": {
+          "model_bid": 9,
+          "rule_bid": 12,
+          "n": 12
+        }
+      },
+      "F2_deadline_sensitive": 0,
+      "F3_bid_rate_by_capacity_ratio": {
+        "r077": {
+          "model_bid": 10,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r091": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r100": {
+          "model_bid": 10,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r111": {
+          "model_bid": 10,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "r125": {
+          "model_bid": 9,
+          "rule_bid": 0,
+          "n": 12
+        }
+      },
+      "F3_profile_sensitive": 3,
+      "json_valid_by_band": {
+        "10k_to_100k": 89.6,
+        "1k_to_10k": 100.0,
+        "over_100k": 91.7,
+        "under_1k": 100.0
+      },
+      "json_valid_by_stage": {
+        "logistics": 91.7,
+        "tailoring": 98.6
+      },
+      "json_malformed_examples": [
+        [
+          "JSONF-T-T7-25000",
+          "{   \"order_id\": \"JSONF-T-T7-25000\",   \"stage\": \"tailoring\",   \"agent_id\": \"T7\",   \"decisio"
+        ],
+        [
+          "JSONF-L-L01-25000",
+          "{   \"order_id\": \"JSONF-L-L01-25000\",   \"stage\": \"logistics\",   \"agent_id\": \"L01\",   \"decis"
+        ],
+        [
+          "JSONF-L-L01-250000",
+          "{   \"order_id\": \"JSONF-L-L01-250000\",   \"stage\": \"logistics\",   \"agent_id\": \"L01\",   \"deci"
+        ],
+        [
+          "JSONF-L-L04-25000",
+          "{   \"order_id\": \"JSONF-L-L04-25000\",   \"stage\": \"logistics\",   \"agent_id\": \"L04\",   \"decis"
+        ],
+        [
+          "JSONF-L-L04-90000",
+          "{   \"order_id\": \"JSONF-L-L04-90000\",   \"stage\": \"logistics\",   \"agent_id\": \"L04\",   \"decis"
+        ]
+      ]
+    },
+    "phi-base": {
+      "scale_family_decision_acc": {
+        "ratio_fixed_deadline_varies": 45.8,
+        "quantity_fixed_deadline_varies": 51.7,
+        "capacity_varies_dl_qty_fixed": 43.3,
+        "crossed_ratio_deadline": 54.7
+      },
+      "scale_family_json": {},
+      "F2_bid_rate_by_deadline": {
+        "2": {
+          "model_bid": 1,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "4": {
+          "model_bid": 2,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "7": {
+          "model_bid": 4,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "10": {
+          "model_bid": 2,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "14": {
+          "model_bid": 4,
+          "rule_bid": 12,
+          "n": 12
+        }
+      },
+      "F2_deadline_sensitive": 3,
+      "F3_bid_rate_by_capacity_ratio": {
+        "r077": {
+          "model_bid": 2,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r091": {
+          "model_bid": 3,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r100": {
+          "model_bid": 5,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r111": {
+          "model_bid": 5,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "r125": {
+          "model_bid": 3,
+          "rule_bid": 0,
+          "n": 12
+        }
+      },
+      "F3_profile_sensitive": 3,
+      "json_valid_by_band": {
+        "10k_to_100k": 100.0,
+        "1k_to_10k": 100.0,
+        "over_100k": 100.0,
+        "under_1k": 100.0
+      },
+      "json_valid_by_stage": {
+        "logistics": 100.0,
+        "tailoring": 100.0
+      },
+      "json_malformed_examples": []
+    },
+    "phi-v2": {
+      "scale_family_decision_acc": {
+        "ratio_fixed_deadline_varies": 51.7,
+        "quantity_fixed_deadline_varies": 65.0,
+        "capacity_varies_dl_qty_fixed": 63.3,
+        "crossed_ratio_deadline": 50.5
+      },
+      "scale_family_json": {},
+      "F2_bid_rate_by_deadline": {
+        "2": {
+          "model_bid": 9,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "4": {
+          "model_bid": 12,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "7": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "10": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "14": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        }
+      },
+      "F2_deadline_sensitive": 3,
+      "F3_bid_rate_by_capacity_ratio": {
+        "r077": {
+          "model_bid": 10,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r091": {
+          "model_bid": 11,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r100": {
+          "model_bid": 12,
+          "rule_bid": 12,
+          "n": 12
+        },
+        "r111": {
+          "model_bid": 10,
+          "rule_bid": 0,
+          "n": 12
+        },
+        "r125": {
+          "model_bid": 9,
+          "rule_bid": 0,
+          "n": 12
+        }
+      },
+      "F3_profile_sensitive": 3,
+      "json_valid_by_band": {
+        "10k_to_100k": 95.8,
+        "1k_to_10k": 100.0,
+        "over_100k": 37.5,
+        "under_1k": 100.0
+      },
+      "json_valid_by_stage": {
+        "logistics": 86.1,
+        "tailoring": 90.3
+      },
+      "json_malformed_examples": [
+        [
+          "JSONF-T-T1-250000",
+          "{   \"order_id\": \"JSONF-T-T1-250000\",   \"stage\": \"tailoring\",   \"agent_id\": \"T1\",   \"decisi"
+        ],
+        [
+          "JSONF-T-T2-250000",
+          "{   \"order_id\": \"JSONF-T-T2-250000\",   \"stage\": \"tailoring\",   \"agent_id\": \"T2\",   \"decisi"
+        ],
+        [
+          "JSONF-T-T3-250000",
+          "{   \"order_id\": \"JSONF-T-T3-250000\",   \"stage\": \"tailoring\",   \"agent_id\": \"T3\",   \"decisi"
+        ],
+        [
+          "JSONF-T-T4-250000",
+          "{   \"order_id\": \"JSONF-T-T4-250000\",   \"stage\": \"tailoring\",   \"agent_id\": \"T4\",   \"decisi"
+        ],
+        [
+          "JSONF-T-T7-90000",
+          "{   \"order_id\": \"JSONF-T-T7-90000\",   \"stage\": \"tailoring\",   \"agent_id\": \"T7\",   \"decisio"
+        ]
+      ]
+    }
+  }
+}

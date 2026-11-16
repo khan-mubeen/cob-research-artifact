@@ -1,0 +1,224 @@
+{
+  "basis": "phase 6: end-to-end training-time estimates for the six architectures and both modes\n\n  PYTHONPATH=. python -m src.experiments.v5.training_estimate\n\nthe primary basis is tonight's measurement: qwen3.5-4b trained for a handful of real steps on\nreal v5 train rows of each mode (src/experiments/v5/smoke_sample.py), at the protocol's batch\n8 x 2 and the sequence window the v5 token lengths require. its median seconds per step are read\nfrom the smoke logs in reports/v5/phase6/\n\nthe other five models are scaled from qwen by their own measured v4 step times, mode by mode:\n  s_per_step(model, mode) = qwen_v5_measured(mode) x v4_history(model, mode) / v4_history(qwen, mode)\nthe v4 history is read from disk, not typed in: the median interval between consecutive\ncheckpoints' trainer_state.json files of each model's committed run, divided by the steps between\nthem, which is the real wall time the run spent per step. sealed uses the epoch-2 production runs\n(protocol v2, 8 x 2, window 1024) and reverse auction the epoch-1 v4 runs (the worded set that\ndata/finetune/v5/reverse_auction mirrors). qwen's v4 console log is quoted as a cross-check of the\ncheckpoint arithmetic\n\n  steps per epoch = ceil(train rows / 16)\n  hours           = steps x s_per_step / 3600, for one epoch and for the epoch-2 family's two\n\ntrain rows come from data/finetune/v5/manifest.json. validation and test rows are never trained on\n\nwrites reports/v5/phase6_training_estimate.json",
+  "effective_batch": 16,
+  "train_rows": {
+    "sealed": 541545,
+    "reverse_auction": 601161,
+    "supervisor": 35552
+  },
+  "measured_tonight": {
+    "sealed": {
+      "qwen_s_per_step": 7.48,
+      "log": "reports/v5/phase6/smoke_qwen_sealed.log"
+    },
+    "reverse_auction": {
+      "qwen_s_per_step": 8.91,
+      "log": "reports/v5/phase6/smoke_qwen_reverse_auction.log"
+    }
+  },
+  "v4_history_checkpoint_intervals": {
+    "sealed": {
+      "qwen": {
+        "run": "models/epoch-2/production/qwen3.5-4b-bidding-lora-v2",
+        "checkpoints": 8,
+        "median_s_per_step": 6.599,
+        "intervals": 7
+      },
+      "granite": {
+        "run": "models/epoch-2/production/granite-4.1-3b-bidding-lora-v2",
+        "checkpoints": 8,
+        "median_s_per_step": 5.62,
+        "intervals": 7
+      },
+      "phi": {
+        "run": "models/epoch-2/production/phi4mini-bidding-lora-v2",
+        "checkpoints": 8,
+        "median_s_per_step": 5.159,
+        "intervals": 7
+      },
+      "ministral": {
+        "run": "models/epoch-2/production/ministral3-bidding-lora-v2",
+        "checkpoints": 20,
+        "median_s_per_step": 5.42,
+        "intervals": 19
+      },
+      "gemma": {
+        "run": "models/epoch-2/production/gemma4-e2b-bidding-lora-v2",
+        "checkpoints": 8,
+        "median_s_per_step": 4.519,
+        "intervals": 7
+      },
+      "smollm3": {
+        "run": "models/epoch-2/production/smollm3-bidding-lora-v2",
+        "checkpoints": 20,
+        "median_s_per_step": 4.571,
+        "intervals": 19
+      }
+    },
+    "reverse_auction": {
+      "qwen": {
+        "run": "models/reverse_auction/epoch-1/v4/qwen3.5-4b-reverse-auction-lora",
+        "checkpoints": 31,
+        "median_s_per_step": 8.799,
+        "intervals": 30
+      },
+      "granite": {
+        "run": "models/reverse_auction/epoch-1/v4/granite-4.1-3b-reverse-auction-lora",
+        "checkpoints": 31,
+        "median_s_per_step": 7.291,
+        "intervals": 30
+      },
+      "phi": {
+        "run": "models/reverse_auction/epoch-1/v4/phi-reverse-auction-lora",
+        "checkpoints": 31,
+        "median_s_per_step": 7.089,
+        "intervals": 30
+      },
+      "ministral": {
+        "run": "models/reverse_auction/epoch-1/v4/ministral-reverse-auction-lora",
+        "checkpoints": 31,
+        "median_s_per_step": 7.902,
+        "intervals": 30
+      },
+      "gemma": {
+        "run": "models/reverse_auction/epoch-1/v4/gemma-reverse-auction-lora",
+        "checkpoints": 31,
+        "median_s_per_step": 6.156,
+        "intervals": 30
+      },
+      "smollm3": {
+        "run": "models/reverse_auction/epoch-1/v4/smollm3-reverse-auction-lora",
+        "checkpoints": 31,
+        "median_s_per_step": 6.01,
+        "intervals": 30
+      }
+    }
+  },
+  "qwen_v4_console_log_cross_check": {
+    "log": "reports/epoch-1/production/training-logs/qwen_v2_train_console.log",
+    "median_s_per_step": 6.58
+  },
+  "estimates": {
+    "qwen:sealed": {
+      "train_rows": 541545,
+      "steps_per_epoch": 33847,
+      "v4_ratio_to_qwen": 1.0,
+      "s_per_step": 7.48,
+      "hours_one_epoch": 70.3,
+      "hours_two_epochs": 140.7,
+      "arithmetic": "ceil(541545 / 16) = 33847 steps; 7.48 s x 6.599 / 6.599 = 7.480 s/step; 33847 x 7.480 / 3600 = 70.3 h"
+    },
+    "granite:sealed": {
+      "train_rows": 541545,
+      "steps_per_epoch": 33847,
+      "v4_ratio_to_qwen": 0.8516,
+      "s_per_step": 6.37,
+      "hours_one_epoch": 59.9,
+      "hours_two_epochs": 119.8,
+      "arithmetic": "ceil(541545 / 16) = 33847 steps; 7.48 s x 5.62 / 6.599 = 6.370 s/step; 33847 x 6.370 / 3600 = 59.9 h"
+    },
+    "phi:sealed": {
+      "train_rows": 541545,
+      "steps_per_epoch": 33847,
+      "v4_ratio_to_qwen": 0.7818,
+      "s_per_step": 5.848,
+      "hours_one_epoch": 55.0,
+      "hours_two_epochs": 110.0,
+      "arithmetic": "ceil(541545 / 16) = 33847 steps; 7.48 s x 5.159 / 6.599 = 5.848 s/step; 33847 x 5.848 / 3600 = 55.0 h"
+    },
+    "ministral:sealed": {
+      "train_rows": 541545,
+      "steps_per_epoch": 33847,
+      "v4_ratio_to_qwen": 0.8213,
+      "s_per_step": 6.144,
+      "hours_one_epoch": 57.8,
+      "hours_two_epochs": 115.5,
+      "arithmetic": "ceil(541545 / 16) = 33847 steps; 7.48 s x 5.42 / 6.599 = 6.144 s/step; 33847 x 6.144 / 3600 = 57.8 h"
+    },
+    "gemma:sealed": {
+      "train_rows": 541545,
+      "steps_per_epoch": 33847,
+      "v4_ratio_to_qwen": 0.6848,
+      "s_per_step": 5.122,
+      "hours_one_epoch": 48.2,
+      "hours_two_epochs": 96.3,
+      "arithmetic": "ceil(541545 / 16) = 33847 steps; 7.48 s x 4.519 / 6.599 = 5.122 s/step; 33847 x 5.122 / 3600 = 48.2 h"
+    },
+    "smollm3:sealed": {
+      "train_rows": 541545,
+      "steps_per_epoch": 33847,
+      "v4_ratio_to_qwen": 0.6927,
+      "s_per_step": 5.181,
+      "hours_one_epoch": 48.7,
+      "hours_two_epochs": 97.4,
+      "arithmetic": "ceil(541545 / 16) = 33847 steps; 7.48 s x 4.571 / 6.599 = 5.181 s/step; 33847 x 5.181 / 3600 = 48.7 h"
+    },
+    "qwen:reverse_auction": {
+      "train_rows": 601161,
+      "steps_per_epoch": 37573,
+      "v4_ratio_to_qwen": 1.0,
+      "s_per_step": 8.91,
+      "hours_one_epoch": 93.0,
+      "hours_two_epochs": 186.0,
+      "arithmetic": "ceil(601161 / 16) = 37573 steps; 8.91 s x 8.799 / 8.799 = 8.910 s/step; 37573 x 8.910 / 3600 = 93.0 h"
+    },
+    "granite:reverse_auction": {
+      "train_rows": 601161,
+      "steps_per_epoch": 37573,
+      "v4_ratio_to_qwen": 0.8286,
+      "s_per_step": 7.383,
+      "hours_one_epoch": 77.1,
+      "hours_two_epochs": 154.1,
+      "arithmetic": "ceil(601161 / 16) = 37573 steps; 8.91 s x 7.291 / 8.799 = 7.383 s/step; 37573 x 7.383 / 3600 = 77.1 h"
+    },
+    "phi:reverse_auction": {
+      "train_rows": 601161,
+      "steps_per_epoch": 37573,
+      "v4_ratio_to_qwen": 0.8057,
+      "s_per_step": 7.178,
+      "hours_one_epoch": 74.9,
+      "hours_two_epochs": 149.8,
+      "arithmetic": "ceil(601161 / 16) = 37573 steps; 8.91 s x 7.089 / 8.799 = 7.178 s/step; 37573 x 7.178 / 3600 = 74.9 h"
+    },
+    "ministral:reverse_auction": {
+      "train_rows": 601161,
+      "steps_per_epoch": 37573,
+      "v4_ratio_to_qwen": 0.8981,
+      "s_per_step": 8.002,
+      "hours_one_epoch": 83.5,
+      "hours_two_epochs": 167.0,
+      "arithmetic": "ceil(601161 / 16) = 37573 steps; 8.91 s x 7.902 / 8.799 = 8.002 s/step; 37573 x 8.002 / 3600 = 83.5 h"
+    },
+    "gemma:reverse_auction": {
+      "train_rows": 601161,
+      "steps_per_epoch": 37573,
+      "v4_ratio_to_qwen": 0.6996,
+      "s_per_step": 6.234,
+      "hours_one_epoch": 65.1,
+      "hours_two_epochs": 130.1,
+      "arithmetic": "ceil(601161 / 16) = 37573 steps; 8.91 s x 6.156 / 8.799 = 6.234 s/step; 37573 x 6.234 / 3600 = 65.1 h"
+    },
+    "smollm3:reverse_auction": {
+      "train_rows": 601161,
+      "steps_per_epoch": 37573,
+      "v4_ratio_to_qwen": 0.683,
+      "s_per_step": 6.086,
+      "hours_one_epoch": 63.5,
+      "hours_two_epochs": 127.0,
+      "arithmetic": "ceil(601161 / 16) = 37573 steps; 8.91 s x 6.01 / 8.799 = 6.086 s/step; 37573 x 6.086 / 3600 = 63.5 h"
+    }
+  },
+  "supervisor": {
+    "model": "qwen",
+    "train_rows": 35552,
+    "s_per_step": 15.37,
+    "log": "reports/v5/phase6/smoke_qwen_supervisor.log",
+    "steps_per_epoch": 2222,
+    "hours_one_epoch": 9.5,
+    "hours_two_epochs": 19.0
+  },
+  "totals": {
+    "one_epoch_hours_all_six_both_modes": 797.0,
+    "two_epoch_hours_all_six_both_modes": 1593.7
+  }
+}

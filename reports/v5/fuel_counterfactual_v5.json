@@ -1,0 +1,125 @@
+{
+  "variants": {
+    "shared postnord_parcels": {
+      "lowest_cost_logistics_win_share": {
+        "L04": 45.4,
+        "L02": 12.1,
+        "L09": 10.9,
+        "L05": 9.5,
+        "L01": 8.7,
+        "L08": 7.3,
+        "L07": 3.7,
+        "L03": 2.0,
+        "L10": 0.4,
+        "L11": 0.0
+      },
+      "feasible_orders": 44753
+    },
+    "shared pakettipiste_domestic": {
+      "lowest_cost_logistics_win_share": {
+        "L04": 45.4,
+        "L02": 12.1,
+        "L09": 10.9,
+        "L05": 9.5,
+        "L01": 8.7,
+        "L08": 7.3,
+        "L07": 3.7,
+        "L03": 2.0,
+        "L10": 0.4,
+        "L11": 0.0
+      },
+      "feasible_orders": 44685
+    },
+    "shared matkahuolto_parcel_and_transport": {
+      "lowest_cost_logistics_win_share": {
+        "L04": 45.4,
+        "L02": 12.1,
+        "L09": 10.9,
+        "L05": 9.5,
+        "L01": 8.7,
+        "L08": 7.3,
+        "L07": 3.7,
+        "L03": 2.0,
+        "L10": 0.4,
+        "L11": 0.0
+      },
+      "feasible_orders": 44671
+    },
+    "shared postnord_pallets_and_groupage": {
+      "lowest_cost_logistics_win_share": {
+        "L04": 45.4,
+        "L02": 12.1,
+        "L09": 10.9,
+        "L05": 9.5,
+        "L01": 8.7,
+        "L08": 7.3,
+        "L07": 3.7,
+        "L03": 2.0,
+        "L10": 0.4,
+        "L11": 0.0
+      },
+      "feasible_orders": 44740
+    },
+    "shared matkahuolto_lavarahti": {
+      "lowest_cost_logistics_win_share": {
+        "L04": 45.4,
+        "L02": 12.1,
+        "L09": 10.9,
+        "L05": 9.5,
+        "L01": 8.7,
+        "L08": 7.3,
+        "L07": 3.7,
+        "L03": 2.0,
+        "L10": 0.4,
+        "L11": 0.0
+      },
+      "feasible_orders": 44617
+    },
+    "prior per-agent carrier mapping": {
+      "lowest_cost_logistics_win_share": {
+        "L04": 40.0,
+        "L09": 15.4,
+        "L05": 12.4,
+        "L02": 10.4,
+        "L08": 8.5,
+        "L01": 7.1,
+        "L07": 3.5,
+        "L03": 2.0,
+        "L10": 0.6,
+        "L11": 0.0
+      },
+      "feasible_orders": 44656
+    }
+  },
+  "stored_mapping": "shared matkahuolto_lavarahti",
+  "largest_swing_across_shared_series_points": 0.0,
+  "swing_across_shared_series_points_by_agent": {
+    "L01": 0.0,
+    "L02": 0.0,
+    "L03": 0.0,
+    "L04": 0.0,
+    "L05": 0.0,
+    "L06": 0.0,
+    "L07": 0.0,
+    "L08": 0.0,
+    "L09": 0.0,
+    "L10": 0.0,
+    "L11": 0.0,
+    "L12": 0.0
+  },
+  "swing_stored_vs_prior_mapping_points_by_agent": {
+    "L01": 1.6,
+    "L02": 1.7,
+    "L03": 0.0,
+    "L04": 5.4,
+    "L05": 2.9,
+    "L06": 0.0,
+    "L07": 0.2,
+    "L08": 1.2,
+    "L09": 4.5,
+    "L10": 0.2,
+    "L11": 0.0,
+    "L12": 0.0
+  },
+  "largest_swing_stored_vs_prior_mapping_points": 5.4
+}

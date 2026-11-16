@@ -1,0 +1,72 @@
+{
+  "dataset_version": "v5",
+  "run": "phi-sealed-v5-r01",
+  "mode": "sealed",
+  "split_used": "validation",
+  "validation_rows": 67729,
+  "validation_row_ids_sha256": "e3c5b1035473ba2ae46d27091c43b7ffdce2fa1e1bd07e262897df525c40e28c",
+  "rule": {
+    "key_order": [
+      "macro decision agreement %",
+      "macro json validity %",
+      "negated macro mean abs offer deviation %"
+    ],
+    "higher_is_better": true,
+    "tie": "the lower epoch"
+  },
+  "ranking": [
+    {
+      "epoch": 2,
+      "adapter": "./models/training/sealed/phi/phi-sealed-v5-r01/epoch-2",
+      "result": "./reports/v5/selection/sealed/phi/validation_epoch2.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_decision_agreement_pct": 99.993333,
+        "macro_json_valid_pct": 100.0,
+        "macro_mean_abs_offer_dev_pct": 0.183333
+      },
+      "key": [
+        99.993333,
+        100.0,
+        -0.183333
+      ]
+    },
+    {
+      "epoch": 3,
+      "adapter": "./models/training/sealed/phi/phi-sealed-v5-r01/epoch-3",
+      "result": "./reports/v5/selection/sealed/phi/validation_epoch3.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_decision_agreement_pct": 99.983333,
+        "macro_json_valid_pct": 99.99,
+        "macro_mean_abs_offer_dev_pct": 0.616667
+      },
+      "key": [
+        99.983333,
+        99.99,
+        -0.616667
+      ]
+    },
+    {
+      "epoch": 1,
+      "adapter": "./models/training/sealed/phi/phi-sealed-v5-r01/epoch-1",
+      "result": "./reports/v5/selection/sealed/phi/validation_epoch1.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_decision_agreement_pct": 99.976667,
+        "macro_json_valid_pct": 100.0,
+        "macro_mean_abs_offer_dev_pct": 0.36
+      },
+      "key": [
+        99.976667,
+        100.0,
+        -0.36
+      ]
+    }
+  ],
+  "chosen": {
+    "epoch": 2,
+    "adapter": "./models/training/sealed/phi/phi-sealed-v5-r01/epoch-2"
+  },
+  "test_split": "not read during selection; evaluate it once, on the chosen adapter only"
+}

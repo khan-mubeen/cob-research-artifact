@@ -1,0 +1,204 @@
+{
+  "status": "proposal awaiting one more review before it is made final and regenerated for real. production data/synthetic/v5/ and data/processed/v5/logistics/agent_calibration.csv are untouched by it",
+  "production_files_unchanged": true,
+  "variants": {
+    "proposal": "the proposal as specified: large and bulk specialists take the 1000-1500 kg segment, the first near-flat Lavarahti segment",
+    "alternative_heavy_span": "pushback, for comparison only: the same assignment, except large and bulk specialists take one secant from the 1000-1099 kg bracket to the 2900-2999 kg bracket, evidenced for 1000-3000 kg. it tests whether a single heavy segment leaves shipments of 1500 kg and over with no bidder"
+  },
+  "comparisons": {
+    "proposal": {
+      "production": {
+        "feasible_orders": 44617,
+        "feasibility_pct": 89.2,
+        "high_quality_feasibility_pct": 68.6,
+        "orders_with_no_eligible_logistics_bidder": 309,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L04",
+          "share_pct": 45.4
+        },
+        "weight_domain_violations": 0
+      },
+      "variant": {
+        "feasible_orders": 42308,
+        "feasibility_pct": 84.6,
+        "high_quality_feasibility_pct": 61.4,
+        "orders_with_no_eligible_logistics_bidder": 3661,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L09",
+          "share_pct": 48.7
+        },
+        "weight_domain_violations": 0
+      },
+      "logistics_win_share_lowest_cost_pct": {
+        "L01": {
+          "production": 8.7,
+          "variant": 0.5,
+          "change_points": -8.2
+        },
+        "L02": {
+          "production": 12.1,
+          "variant": 38.0,
+          "change_points": 25.9
+        },
+        "L03": {
+          "production": 2.0,
+          "variant": 2.1,
+          "change_points": 0.1
+        },
+        "L04": {
+          "production": 45.4,
+          "variant": 0.5,
+          "change_points": -44.9
+        },
+        "L05": {
+          "production": 9.5,
+          "variant": 1.8,
+          "change_points": -7.7
+        },
+        "L06": {
+          "production": 0.0,
+          "variant": 0.0,
+          "change_points": 0.0
+        },
+        "L07": {
+          "production": 3.7,
+          "variant": 3.9,
+          "change_points": 0.2
+        },
+        "L08": {
+          "production": 7.3,
+          "variant": 3.4,
+          "change_points": -3.9
+        },
+        "L09": {
+          "production": 10.9,
+          "variant": 48.7,
+          "change_points": 37.8
+        },
+        "L10": {
+          "production": 0.4,
+          "variant": 0.4,
+          "change_points": 0.0
+        },
+        "L11": {
+          "production": 0.0,
+          "variant": 0.7,
+          "change_points": 0.7
+        },
+        "L12": {
+          "production": 0.0,
+          "variant": 0.0,
+          "change_points": 0.0
+        }
+      },
+      "reduces_largest_share": false,
+      "reduces_zero_win_agents": false,
+      "adds_orders_with_no_logistics_bidder": 3352
+    },
+    "alternative_heavy_span": {
+      "production": {
+        "feasible_orders": 44617,
+        "feasibility_pct": 89.2,
+        "high_quality_feasibility_pct": 68.6,
+        "orders_with_no_eligible_logistics_bidder": 309,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L04",
+          "share_pct": 45.4
+        },
+        "weight_domain_violations": 0
+      },
+      "variant": {
+        "feasible_orders": 43567,
+        "feasibility_pct": 87.1,
+        "high_quality_feasibility_pct": 61.8,
+        "orders_with_no_eligible_logistics_bidder": 1541,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L09",
+          "share_pct": 47.3
+        },
+        "weight_domain_violations": 0
+      },
+      "logistics_win_share_lowest_cost_pct": {
+        "L01": {
+          "production": 8.7,
+          "variant": 0.5,
+          "change_points": -8.2
+        },
+        "L02": {
+          "production": 12.1,
+          "variant": 36.9,
+          "change_points": 24.8
+        },
+        "L03": {
+          "production": 2.0,
+          "variant": 2.0,
+          "change_points": 0.0
+        },
+        "L04": {
+          "production": 45.4,
+          "variant": 0.5,
+          "change_points": -44.9
+        },
+        "L05": {
+          "production": 9.5,
+          "variant": 2.8,
+          "change_points": -6.7
+        },
+        "L06": {
+          "production": 0.0,
+          "variant": 0.0,
+          "change_points": 0.0
+        },
+        "L07": {
+          "production": 3.7,
+          "variant": 3.8,
+          "change_points": 0.1
+        },
+        "L08": {
+          "production": 7.3,
+          "variant": 5.2,
+          "change_points": -2.1
+        },
+        "L09": {
+          "production": 10.9,
+          "variant": 47.3,
+          "change_points": 36.4
+        },
+        "L10": {
+          "production": 0.4,
+          "variant": 0.4,
+          "change_points": 0.0
+        },
+        "L11": {
+          "production": 0.0,
+          "variant": 0.7,
+          "change_points": 0.7
+        },
+        "L12": {
+          "production": 0.0,
+          "variant": 0.0,
+          "change_points": 0.0
+        }
+      },
+      "reduces_largest_share": false,
+      "reduces_zero_win_agents": false,
+      "adds_orders_with_no_logistics_bidder": 1232
+    }
+  }
+}

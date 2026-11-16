@@ -1,0 +1,71 @@
+{
+  "model": "LiquidAI/LFM2.5-8B-A1B",
+  "revision": "5673e0de372b64331504de73bbbc33b0dde71903",
+  "pid": 16136,
+  "stages": [
+    {
+      "stage": "start",
+      "time": "2026-07-21 15:59:57.733",
+      "python": "3.11.9"
+    },
+    {
+      "stage": "cuda_init",
+      "time": "2026-07-21 16:00:00.631",
+      "cuda_available": true,
+      "gpu": "NVIDIA GeForce RTX 5090 Laptop GPU"
+    },
+    {
+      "stage": "tokenizer_load_begin",
+      "time": "2026-07-21 16:00:14.659"
+    },
+    {
+      "stage": "tokenizer_load_done",
+      "time": "2026-07-21 16:00:16.152"
+    },
+    {
+      "stage": "model_load_begin",
+      "time": "2026-07-21 16:00:16.165",
+      "note": "device_map=cuda, bfloat16 (same as pre-BSOD run)"
+    },
+    {
+      "stage": "model_load_done",
+      "time": "2026-07-21 16:00:33.094",
+      "load_seconds": 16.9,
+      "vram_alloc_gib": 15.77,
+      "vram_reserved_gib": 16.87,
+      "peak_reserved_gib": 16.87
+    },
+    {
+      "stage": "inference_begin",
+      "time": "2026-07-21 16:00:33.110",
+      "input_tokens": 41
+    },
+    {
+      "stage": "inference_done",
+      "time": "2026-07-21 16:00:35.648",
+      "seconds": 2.54,
+      "peak_alloc_gib": 16.21,
+      "peak_reserved_gib": 16.88
+    },
+    {
+      "stage": "teardown_done",
+      "time": "2026-07-21 16:00:35.778",
+      "vram_alloc_after_gib": 0.008,
+      "vram_reserved_after_gib": 15.773,
+      "released": true
+    },
+    {
+      "stage": "complete",
+      "time": "2026-07-21 16:00:35.780"
+    }
+  ],
+  "torch": "2.10.0+cu130",
+  "cuda_available": true,
+  "gpu_name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+  "inference": {
+    "seconds": 2.54,
+    "new_tokens": 64,
+    "raw": "<think>\nThe user says: \"You are a bidding agent. Return valid JSON only. Return exactly: {\"decision\": \"BID\", \"offer_amount\": 100.0}\". So we must output that exact JSON, no extra text. Must be valid JSON. Provide:\n\n{\n  \"decision\":",
+    "contains_think": true
+  }
+}

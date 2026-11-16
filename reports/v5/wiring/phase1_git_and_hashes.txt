@@ -1,0 +1,20 @@
+== git HEAD
+unknown
+== status of out-of-scope and wired paths
+A  tests/golden/__init__.py
+A  tests/golden/generate_v4_golden.py
+A  tests/golden/v4_baseline.py
+A  tests/golden/v4_boundaries.py
+A  tests/golden/v4_boundary_decisions.json
+A  tests/golden/v4_decision_census.json
+A  tests/golden/v4_file_hashes.json
+A  tests/golden/v4_prompts.json
+A  tests/golden/v4_sample_decisions.json
+?? src/common/v5/
+(end)
+== sha256 of the files phase 2 may touch
+127341bd9c2a5eb825edc97a087201f53f2fe5f3444a283bf9d625c24471935f *src/common/bidding_formulas.py
+49de0cb04ea19d27d4823dabbe1b2f424870483e9f95c67cdc9378f4d28c7a11 *src/common/slm.py
+1b017ea5705d26e79a42b8b0721ed16963e92c4256d6c941a417c9c4dddb1f6d *src/common/reverse_auction.py
+24f94c2c22c27474d1438c8b972332b2cea137bd2ea98acf1f8827ca99afc983 *src/common/bidding_modes.py
+506d514e8112d245010d04d43f4b59398e7e0eb4478b7aa122b3e334ea504946 *config.py

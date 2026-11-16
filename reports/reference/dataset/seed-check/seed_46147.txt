@@ -1,0 +1,493 @@
+.venv/Scripts/python.exe src/visualization/bid_competition_diagnostics.py
+
+======================================================================
+BID COMPETITION DIAGNOSTICS - version v4
+======================================================================
+simulating rule-based bidding on 50000 orders
+no agents, no nats, no docker, pure formula calculation
+
+======================================================================
+ELIGIBILITY
+======================================================================
+orders with zero eligible material bidders:      1529 / 50000 (3.1%)
+orders with zero eligible manufacturer bidders:  0 / 50000 (0.0%)
+orders with zero eligible logistics bidders:     0 / 50000 (0.0%)
+orders with zero feasible chains:                4590 / 50000 (9.2%)
+
+orders with 2+ eligible material bidders:    44756 / 50000 (89.5%)
+orders with 2+ eligible manufacturer bidders: 49927 / 50000 (99.9%)
+orders with 2+ eligible logistics bidders:   49845 / 50000 (99.7%)
+
+======================================================================
+ELIGIBLE BIDDER COUNTS
+======================================================================
+material   - mean: 3.9  min: 0  max: 6
+manufacturer - mean: 4.9  min: 1  max: 8
+logistics  - mean: 7.3  min: 1  max: 9
+
+======================================================================
+ELIGIBILITY VS WINS PER AGENT (lowest cost)
+======================================================================
+material, eligible count -> wins -> win rate when eligible:
+  M11: eligible 27295, wins 2748, win rate 10.1%
+  M06: eligible 24397, wins 11301, win rate 46.3%
+  M01: eligible 24397, wins 57, win rate 0.2%
+  M10: eligible 20899, wins 9957, win rate 47.6%
+  M05: eligible 15961, wins 404, win rate 2.5%
+  M12: eligible 14703, wins 212, win rate 1.4%
+  M09: eligible 12788, wins 254, win rate 2.0%
+  M02: eligible 11954, wins 1431, win rate 12.0%
+  M08: eligible 8958, wins 603, win rate 6.7%
+  M07: eligible 8946, wins 2658, win rate 29.7%
+  M14: eligible 7808, wins 3689, win rate 47.2%
+  M03: eligible 6861, wins 6761, win rate 98.5%
+  M13: eligible 5952, wins 96, win rate 1.6%
+  M04: eligible 3837, wins 3825, win rate 99.7%
+  M15: eligible 1454, wins 1414, win rate 97.2%
+
+manufacturer, eligible count -> wins -> win rate when eligible:
+  T1: eligible 32634, wins 121, win rate 0.4%
+  T11: eligible 32175, wins 34, win rate 0.1%
+  T10: eligible 29746, wins 15, win rate 0.1%
+  T4: eligible 29410, wins 2500, win rate 8.5%
+  T2: eligible 20078, wins 3355, win rate 16.7%
+  T9: eligible 19783, wins 104, win rate 0.5%
+  T6: eligible 19091, wins 4289, win rate 22.5%
+  T3: eligible 17207, wins 9364, win rate 54.4%
+  T12: eligible 16695, wins 7691, win rate 46.1%
+  T5: eligible 12188, wins 2301, win rate 18.9%
+  T7: eligible 10771, wins 9033, win rate 83.9%
+  T8: eligible 6603, wins 6603, win rate 100.0%
+
+logistics, eligible count -> wins -> win rate when eligible:
+  L01: eligible 46441, wins 497, win rate 1.1%
+  L10: eligible 41902, wins 818, win rate 2.0%
+  L02: eligible 41684, wins 127, win rate 0.3%
+  L07: eligible 35541, wins 115, win rate 0.3%
+  L04: eligible 34037, wins 6693, win rate 19.7%
+  L09: eligible 28628, wins 2475, win rate 8.6%
+  L03: eligible 28416, wins 2008, win rate 7.1%
+  L12: eligible 28377, wins 258, win rate 0.9%
+  L08: eligible 25219, wins 8620, win rate 34.2%
+  L06: eligible 22189, wins 10546, win rate 47.5%
+  L11: eligible 19958, wins 8150, win rate 40.8%
+  L05: eligible 14143, wins 5103, win rate 36.1%
+
+======================================================================
+FEASIBLE CHAINS (budget and deadline constrained)
+======================================================================
+mean chains per order:   67.8
+min chains:              0
+max chains:              180
+orders with exactly 1 feasible chain:  178 / 50000 (0.4%)
+orders with 2+ feasible chains:        45232 / 50000 (90.5%)
+orders with 3+ feasible chains:        44958 / 50000 (89.9%)
+
+======================================================================
+INFEASIBILITY CASE BREAKDOWN (three cases)
+======================================================================
+total infeasible orders: 4590 / 50000 (9.2%)
+  case 1, no bidder at any stage:            0  (target ~300-500)
+  case 2, at least one stage with no bidder: 1529  (target ~1000-1500)
+  case 3, all stages bid, chain fails:       3061  (target: remainder)
+    case 3 over budget only:   2541
+    case 3 over deadline only: 444
+    case 3 mixed or both:      76
+
+======================================================================
+BID PRICE CLOSENESS (top-2 gap %)
+======================================================================
+material     - mean: 5.7%  median: 2.4%  p75: 10.5%  p90: 16.0%  p95: 18.8%  max: 22.5%
+manufacturer - mean: 5.4%  median: 1.6%  p75: 9.6%  p90: 13.0%  p95: 17.4%  max: 17.4%
+logistics    - mean: 3.7%  median: 3.3%  p75: 5.1%  p90: 7.4%  p95: 8.4%  max: 51.0%
+  max gap order: ORD-25175, agents: L03 vs L09
+
+======================================================================
+MATERIAL INFEASIBILITY REASONS (why zero bidders)
+======================================================================
+
+leather:
+  does_not_supply_material: 12186 (60.0%)
+  stock_and_restock_insufficient: 5057 (24.9%)
+  defect_too_strict: 2562 (12.6%)
+  completion_too_slow_for_deadline: 505 (2.5%)
+
+linen:
+  does_not_supply_material: 1630 (66.7%)
+  stock_and_restock_insufficient: 455 (18.6%)
+  defect_too_strict: 300 (12.3%)
+  completion_too_slow_for_deadline: 60 (2.5%)
+
+denim:
+  does_not_supply_material: 120 (66.7%)
+  defect_too_strict: 48 (26.7%)
+  stock_and_restock_insufficient: 12 (6.7%)
+
+======================================================================
+WIN SHARE - MATERIAL AGENTS (lowest cost chain)
+======================================================================
+  M06: 11301 wins (24.9%)
+  M10: 9957 wins (21.9%)
+  M03: 6761 wins (14.9%)
+  M04: 3825 wins (8.4%)
+  M14: 3689 wins (8.1%)
+  M11: 2748 wins (6.1%)
+  M07: 2658 wins (5.9%)
+  M02: 1431 wins (3.2%)
+  M15: 1414 wins (3.1%)
+  M08: 603 wins (1.3%)
+  M05: 404 wins (0.9%)
+  M09: 254 wins (0.6%)
+  M12: 212 wins (0.5%)
+  M13: 96 wins (0.2%)
+  M01: 57 wins (0.1%)
+
+======================================================================
+WIN SHARE - MANUFACTURER AGENTS (lowest cost chain)
+======================================================================
+  T3: 9364 wins (20.6%)
+  T7: 9033 wins (19.9%)
+  T12: 7691 wins (16.9%)
+  T8: 6603 wins (14.5%)
+  T6: 4289 wins (9.4%)
+  T2: 3355 wins (7.4%)
+  T4: 2500 wins (5.5%)
+  T5: 2301 wins (5.1%)
+  T1: 121 wins (0.3%)
+  T9: 104 wins (0.2%)
+  T11: 34 wins (0.1%)
+  T10: 15 wins (0.0%)
+
+======================================================================
+WIN SHARE - LOGISTICS AGENTS (lowest cost chain)
+======================================================================
+  L06: 10546 wins (23.2%)
+  L08: 8620 wins (19.0%)
+  L11: 8150 wins (17.9%)
+  L04: 6693 wins (14.7%)
+  L05: 5103 wins (11.2%)
+  L09: 2475 wins (5.5%)
+  L03: 2008 wins (4.4%)
+  L10: 818 wins (1.8%)
+  L01: 497 wins (1.1%)
+  L12: 258 wins (0.6%)
+  L02: 127 wins (0.3%)
+  L07: 115 wins (0.3%)
+
+======================================================================
+WIN SHARE - MATERIAL AGENTS (fastest chain)
+======================================================================
+  M11: 21775 wins (48.0%)
+  M02: 9783 wins (21.5%)
+  M14: 3347 wins (7.4%)
+  M12: 2587 wins (5.7%)
+  M08: 1821 wins (4.0%)
+  M10: 1351 wins (3.0%)
+  M01: 1231 wins (2.7%)
+  M06: 946 wins (2.1%)
+  M07: 553 wins (1.2%)
+  M13: 548 wins (1.2%)
+  M05: 404 wins (0.9%)
+  M03: 388 wins (0.9%)
+  M04: 257 wins (0.6%)
+  M09: 254 wins (0.6%)
+  M15: 165 wins (0.4%)
+
+======================================================================
+WIN SHARE - MANUFACTURER AGENTS (fastest chain)
+======================================================================
+  T11: 16678 wins (36.7%)
+  T10: 8124 wins (17.9%)
+  T9: 5805 wins (12.8%)
+  T4: 4606 wins (10.1%)
+  T1: 2929 wins (6.5%)
+  T7: 2360 wins (5.2%)
+  T8: 1684 wins (3.7%)
+  T3: 1029 wins (2.3%)
+  T5: 763 wins (1.7%)
+  T12: 592 wins (1.3%)
+  T6: 551 wins (1.2%)
+  T2: 289 wins (0.6%)
+
+======================================================================
+WIN SHARE - LOGISTICS AGENTS (fastest chain)
+======================================================================
+  L01: 5868 wins (12.9%)
+  L08: 5813 wins (12.8%)
+  L10: 5804 wins (12.8%)
+  L05: 5136 wins (11.3%)
+  L06: 5013 wins (11.0%)
+  L11: 4400 wins (9.7%)
+  L09: 3600 wins (7.9%)
+  L03: 3138 wins (6.9%)
+  L07: 2086 wins (4.6%)
+  L04: 1984 wins (4.4%)
+  L12: 1384 wins (3.0%)
+  L02: 1184 wins (2.6%)
+
+======================================================================
+WIN SHARE - MATERIAL AGENTS (balanced chain)
+======================================================================
+  M11: 11370 wins (25.0%)
+  M02: 8127 wins (17.9%)
+  M05: 4756 wins (10.5%)
+  M14: 4610 wins (10.2%)
+  M10: 4157 wins (9.2%)
+  M09: 2811 wins (6.2%)
+  M06: 2325 wins (5.1%)
+  M03: 1609 wins (3.5%)
+  M08: 1433 wins (3.2%)
+  M12: 1349 wins (3.0%)
+  M01: 983 wins (2.2%)
+  M07: 694 wins (1.5%)
+  M15: 448 wins (1.0%)
+  M13: 374 wins (0.8%)
+  M04: 364 wins (0.8%)
+
+======================================================================
+WIN SHARE - MANUFACTURER AGENTS (balanced chain)
+======================================================================
+  T3: 12668 wins (27.9%)
+  T9: 8959 wins (19.7%)
+  T4: 7587 wins (16.7%)
+  T8: 4078 wins (9.0%)
+  T12: 3813 wins (8.4%)
+  T2: 3010 wins (6.6%)
+  T7: 2664 wins (5.9%)
+  T5: 1020 wins (2.2%)
+  T6: 864 wins (1.9%)
+  T1: 628 wins (1.4%)
+  T11: 75 wins (0.2%)
+  T10: 44 wins (0.1%)
+
+======================================================================
+WIN SHARE - LOGISTICS AGENTS (balanced chain)
+======================================================================
+  L10: 6528 wins (14.4%)
+  L05: 6445 wins (14.2%)
+  L04: 6230 wins (13.7%)
+  L09: 5446 wins (12.0%)
+  L08: 4354 wins (9.6%)
+  L01: 4184 wins (9.2%)
+  L06: 2994 wins (6.6%)
+  L02: 2188 wins (4.8%)
+  L07: 2163 wins (4.8%)
+  L03: 1810 wins (4.0%)
+  L11: 1686 wins (3.7%)
+  L12: 1382 wins (3.0%)
+
+======================================================================
+CHAIN SELECTION DIVERSITY
+======================================================================
+orders where criteria differ (of feasible orders): 44649 / 45410 (98.3%)
+orders where criteria differ (of all orders):      44649 / 50000 (89.3%)
+urgent orders total: 14135  |  urgent with feasible chains: 12311
+urgent feasible orders where fastest differs from lowest-cost: 11943 / 12311 (97.0%)
+
+======================================================================
+FEASIBILITY BY SCENARIO AND MATERIAL
+======================================================================
+
+by scenario_type:
+                    sum  count   pct
+scenario_type                       
+high_quality       2201   2500  88.0
+large_quantity     2220   2500  88.8
+low_budget         1844   3000  61.5
+random_realistic  33752  35500  95.1
+rare_combo         1878   2000  93.9
+tight_deadline     2568   3000  85.6
+tight_low_budget    947   1500  63.1
+
+by material_type:
+                 sum  count   pct
+material_type                    
+cotton         11066  11954  92.6
+denim           4311   4651  92.7
+leather         2967   4657  63.7
+linen          11957  12777  93.6
+polyester      15109  15961  94.7
+
+======================================================================
+SCENARIO VS CASE TYPE CROSS TAB
+======================================================================
+case_type         case2  case3  feasible
+scenario_type                           
+high_quality        132    167      2201
+large_quantity      241     39      2220
+low_budget           47   1109      1844
+random_realistic    658   1090     33752
+rare_combo          100     22      1878
+tight_deadline      262    170      2568
+tight_low_budget     89    464       947
+
+======================================================================
+WIN SHARE BY SCENARIO (top 3)
+======================================================================
+
+low_mat:
+scenario          low_mat
+high_quality      M11         685
+                  M02         556
+                  M05         404
+large_quantity    M06         652
+                  M03         427
+                  M10         424
+low_budget        M10         493
+                  M03         492
+                  M06         241
+random_realistic  M06        9025
+                  M10        7830
+                  M03        5487
+rare_combo        M10         661
+                  M14         617
+                  M03         332
+tight_deadline    M06         950
+                  M11         670
+                  M10         337
+tight_low_budget  M06         401
+                  M10         192
+                  M11         144
+
+low_log:
+scenario          low_log
+high_quality      L03         423
+                  L09         403
+                  L05         309
+large_quantity    L08         960
+                  L11         521
+                  L05         429
+low_budget        L06         594
+                  L08         423
+                  L11         394
+random_realistic  L06        9012
+                  L11        6152
+                  L08        6151
+rare_combo        L08         611
+                  L11         469
+                  L06         405
+tight_deadline    L04         464
+                  L11         366
+                  L05         319
+tight_low_budget  L04         209
+                  L08         154
+                  L11         111
+
+fast_mat:
+scenario          fast_mat
+high_quality      M11           727
+                  M02           563
+                  M05           404
+large_quantity    M11           687
+                  M01           400
+                  M02           395
+low_budget        M11           636
+                  M02           256
+                  M10           239
+random_realistic  M11         17298
+                  M02          7717
+                  M14          2355
+rare_combo        M14           613
+                  M11           487
+                  M12           447
+tight_deadline    M11          1502
+                  M02           708
+                  M12           132
+tight_low_budget  M11           438
+                  M02           144
+                  M10           117
+
+fast_log:
+scenario          fast_log
+high_quality      L07          809
+                  L09          257
+                  L05          240
+large_quantity    L05          331
+                  L11          327
+                  L08          323
+low_budget        L08          276
+                  L06          252
+                  L01          252
+random_realistic  L08         4579
+                  L01         4559
+                  L10         4299
+rare_combo        L01          268
+                  L10          266
+                  L11          255
+tight_deadline    L10          382
+                  L05          315
+                  L01          302
+tight_low_budget  L10          131
+                  L08          116
+                  L01          111
+
+bal_mat:
+scenario          bal_mat
+high_quality      M05         693
+                  M02         561
+                  M09         417
+large_quantity    M11         412
+                  M02         368
+                  M01         322
+low_budget        M10         417
+                  M03         369
+                  M11         225
+random_realistic  M11        9324
+                  M02        6339
+                  M05        3290
+rare_combo        M14         812
+                  M10         389
+                  M12         174
+tight_deadline    M11         761
+                  M02         666
+                  M05         482
+tight_low_budget  M11         258
+                  M06         159
+                  M10         154
+
+bal_log:
+scenario          bal_log
+high_quality      L07         780
+                  L09         435
+                  L05         300
+large_quantity    L05         428
+                  L09         373
+                  L10         324
+low_budget        L08         287
+                  L06         242
+                  L05         240
+random_realistic  L10        4979
+                  L04        4929
+                  L05        4669
+rare_combo        L10         316
+                  L05         300
+                  L04         252
+tight_deadline    L10         392
+                  L05         388
+                  L04         380
+tight_low_budget  L10         131
+                  L05         120
+                  L04         118
+
+======================================================================
+SUMMARY
+======================================================================
+lowest-cost chain:
+  material max:      24.9%  good
+  manufacturer max:  20.6%  good
+  logistics max:     23.2%  good
+fastest chain (threshold 55%, speed specialists naturally concentrate here):
+  material max:      48.0%  good
+  manufacturer max:  36.7%  good
+  logistics max:     12.9%  good
+balanced chain (threshold 35%):
+  material max:      25.0%  good
+  manufacturer max:  27.9%  good
+  logistics max:     14.4%  good
+
+orders with 2+ material bidders:      89.5%  good
+orders with 2+ manufacturer bidders:  99.9%  good
+orders with 2+ logistics bidders:     99.7%  good
+chain diversity (feasible orders):    98.3%  good
+
+L07 eligible: 35541, lost to L12 on lowest cost: 258

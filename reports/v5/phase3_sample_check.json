@@ -1,0 +1,130 @@
+{
+  "sample_orders": 143,
+  "orders_per_stratum": {
+    "high_quality|urgent": 8,
+    "large_quantity|normal": 8,
+    "low_budget|normal": 8,
+    "random_realistic|flexible": 19,
+    "random_realistic|normal": 57,
+    "random_realistic|urgent": 19,
+    "rare_combo|normal": 8,
+    "tight_deadline|urgent": 8,
+    "tight_low_budget|urgent": 8
+  },
+  "rows": {
+    "sealed": 1889,
+    "reverse_auction": 2105,
+    "supervisor": 119
+  },
+  "rows_by_stage": {
+    "sealed": {
+      "material": 595,
+      "tailoring": 691,
+      "logistics": 603
+    },
+    "reverse_auction": {
+      "material": 667,
+      "tailoring": 763,
+      "logistics": 675
+    },
+    "supervisor": {
+      "supervisor": 119
+    }
+  },
+  "class_balance": {
+    "sealed": {
+      "BID": 1833,
+      "NO_BID": 56
+    },
+    "reverse_auction": {
+      "BID": 1275,
+      "NO_BID": 830
+    },
+    "supervisor": {
+      "SELECT": 119
+    }
+  },
+  "digest_first_run": {
+    "sealed": "aa67a76ebb73106ade4c8826040db6e4ca8c8d7d724440a30c517a1f513d5778",
+    "reverse_auction": "7d6b8294bf41ae1abb59aa242168a128208d59daba6c7e407a504786daba88a5",
+    "supervisor": "2facf31bdb66cb0d8a40e174d98b29ab64ef59989199d66a7af22f36042c8966"
+  },
+  "digest_second_run": {
+    "sealed": "aa67a76ebb73106ade4c8826040db6e4ca8c8d7d724440a30c517a1f513d5778",
+    "reverse_auction": "7d6b8294bf41ae1abb59aa242168a128208d59daba6c7e407a504786daba88a5",
+    "supervisor": "2facf31bdb66cb0d8a40e174d98b29ab64ef59989199d66a7af22f36042c8966"
+  },
+  "clock_calls_during_generation": {},
+  "v4_only_wording_found": {},
+  "v5_wording_found_in_v4_prompts": {},
+  "independent_price_checks": {
+    "bid_offers_compared": {
+      "material": 746,
+      "tailoring": 938,
+      "logistics": 905
+    },
+    "exact_mismatches": [],
+    "logistics_largest_difference_vs_full_precision_route_cost_usd": 0.01
+  },
+  "logistics_round_2_rows": {
+    "NO_BID": 301
+  },
+  "replay_lengths_by_stage": {
+    "material": {
+      "3": 100,
+      "2": 36,
+      "1": 7
+    },
+    "tailoring": {
+      "3": 122,
+      "2": 21
+    },
+    "logistics": {
+      "2": 141
+    }
+  },
+  "edge_cases_built": {
+    "logistics:boundary_infeasible:NO_BID": 2,
+    "logistics:infeasible:NO_BID": 12,
+    "logistics:near_boundary:BID": 12,
+    "material:in_stock_at_boundary:BID": 27,
+    "material:restock_at_boundary:BID": 27,
+    "material:restock_too_slow:NO_BID": 27,
+    "material:stock_and_restock_short:NO_BID": 27,
+    "tailoring:at_boundary:BID": 12,
+    "tailoring:boundary_infeasible:NO_BID": 24,
+    "tailoring:infeasible:NO_BID": 12,
+    "tailoring:near_boundary:BID": 12
+  },
+  "floor_boundary_rows_built": 45,
+  "checks": {
+    "deterministic_across_two_runs": true,
+    "no_system_clock_read_during_generation": true,
+    "every_prompt_carries_usd": true,
+    "no_v4_only_wording_in_v5_prompts": true,
+    "every_auction_field_is_usd": true,
+    "every_stage_prompt_holds_the_v5_formula": true,
+    "every_row_is_labeled_v5": true,
+    "no_v5_wording_in_v4_prompts": true,
+    "material_and_manufacturer_offers_re_derive_exactly": true,
+    "logistics_offers_within_one_cent_of_full_precision_route_cost": true,
+    "edge_cases_pass_their_label_assertions": true,
+    "floor_boundary_rows_pass_the_shared_floor_checks": true
+  },
+  "passed": true,
+  "examples": {
+    "sealed": {
+      "material": "AGENT PROFILE\nagent_id: M09\nlocation: Helsinki\nmaterials supplied: leather|linen\navailable stock for requested material (kg): 280.0\nprice ratio to reference for requested material: 1.12\nrestock amount (kg): 495.0\nrestock time (days): 4.0\ndefault completion days: 1\ndefect probability: 0.02\nreputation score: 0.5\nmin profit margin: 0.1\ninitial markup: 0.33\n\nRFQ\norder_id: ORD-33554\npricing date: 2026-02-16\nmaterial needed: linen\nreference price on the pricing date (USD per kg): 45.612\nrequired quantity (kg): 42.32\nmax allowed defect rate: 0.033\nmin required reputation: 0.48\ndays until deadline: 7\npriority: urgent\n\nTASK\n1. Check if you supply this material. If not, return NO_BID.\n2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.\n3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.\n4. Check stock:\n   if available_kg greater than or equal to (>=) required_kg: completion = default_completion_days\n   else if available_kg plus (+) restock_amount_kg greater than or equal to (>=) required_kg: completion = default_completion_days plus (+) restock_time_days\n   else: return NO_BID\n5. Check completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.\n6. Calculate, in USD:\n   material_cost  = required_kg multiplied by (x) price_ratio_to_reference multiplied by (x) reference_price_usd_per_kg\n   internal_cost  = material_cost multiplied by (x) (1 plus (+) defect_probability)\n   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)\n   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15\n   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) priority_markup)\n   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)\n7. Return BID with calculated values.\n\nReturn this JSON only:\n{\n  \"order_id\": \"ORD-33554\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M09\",\n  \"decision\": \"BID or NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}",
+      "logistics": "AGENT PROFILE\nagent_id: L02\nlocation: Tampere\nservice regions: Espoo|Helsinki|Jyvaskyla|Lahti|Tampere|Turku\nfixed charge (EUR per shipment): 42.3967\nalpha (EUR per kg): 0.12692\nbeta (EUR per tonne-km): 0.07163\nshipment weight limit (kg): none\noversized fee (EUR): none\nsame-city delivery days: 1\nintercity delivery days: 2.0\ndamage probability: 0.03\nreputation score: 0.5\n\nRFQ\norder_id: ORD-33554\npricing date: 2026-02-16\npickup from: Jyvaskyla\ndeliver to: Turku\nroute distance from pickup (km): 308.536\nshipment weight (kg): 63.48\nfuel surcharge on the pricing date (%): 20.05\nEUR to USD on the pricing date: 1.1855\nmax allowed damage rate: 0.033\nmin required reputation: 0.48\ndays until deadline: 7\npriority: urgent\n\nTASK\n1. Check if deliver_to is in your service_regions. If not, return NO_BID.\n2. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.\n3. Check damage_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.\n4. Check shipment_weight_kg is inside your shipment weight limit. If not, return NO_BID.\n5. Calculate route days:\n   if deliver_to == your location: route_days = default_completion_same_city_days\n   else: route_days = default_completion_intercity_days\n6. Check route_days less than or equal to (<=) days_until_deadline. If not, return NO_BID.\n7. Calculate, in EUR:\n   freight_eur    = fixed_charge plus (+) alpha multiplied by (x) shipment_weight_kg plus (+) beta multiplied by (x) shipment_weight_kg divided by (/) 1000 multiplied by (x) route_distance_km\n   with_fuel_eur  = freight_eur multiplied by (x) (1 plus (+) fuel_surcharge_percent divided by (/) 100)\n   oversized_eur  = the oversized fee if it applies to this shipment, else 0\n   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15\n   price_eur      = (with_fuel_eur plus (+) oversized_eur) multiplied by (x) (1 plus (+) damage_probability) multiplied by (x) (1 plus (+) priority_markup)\n8. Convert to USD, the currency of every offer:\n   offer_amount   = price_eur multiplied by (x) eur_to_usd\n   minimum_bid    = offer_amount, a market price with no markup on top and no margin below\n9. Return BID with calculated values.\n\nReturn this JSON only:\n{\n  \"order_id\": \"ORD-33554\",\n  \"stage\": \"logistics\",\n  \"agent_id\": \"L02\",\n  \"decision\": \"BID or NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.03\n}",
+      "tailoring": "AGENT PROFILE\nagent_id: T1\nlocation: Oulu\nproducts you make: hoodie|jacket|shirt\ndaily capacity (units): 883\ncurrent workload (units): 177\nunit cost for requested product (USD): 5.0788\ndefect probability: 0.02\nreputation score: 0.821\nmin profit margin: 0.1\ninitial markup: 0.28\n\nRFQ\norder_id: ORD-33554\nproduct: shirt\nquantity: 529\nmax allowed defect rate: 0.033\nmin required reputation: 0.48\ndays until deadline: 7\npriority: urgent\n\nTASK\n1. Check if you make this product. If not, return NO_BID.\n2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.\n3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.\n4. Calculate:\n   backlog_days         = current_workload_units divided by (/) daily_capacity_units\n   production_days      = quantity divided by (/) daily_capacity_units\n   estimated_completion = backlog_days plus (+) production_days\n5. Check estimated_completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.\n6. Calculate workload ratio and markup:\n   workload_ratio = (current_workload_units plus (+) quantity) divided by (/) (daily_capacity_units multiplied by (x) days_until_deadline)\n   if workload_ratio less than (<) 0.50:    workload_markup = 0.00\n   else if ratio less than (<) 0.75:        workload_markup = 0.05\n   else if ratio less than (<) 0.90:        workload_markup = 0.10\n   else if ratio less than or equal to (<=) 1.00:       workload_markup = 0.15\n   else:                        return NO_BID\n7. Calculate, in USD:\n   base_cost      = quantity multiplied by (x) unit_cost_for_product\n   internal_cost  = base_cost multiplied by (x) (1 plus (+) defect_probability)\n   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)\n   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15\n   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) workload_markup) multiplied by (x) (1 plus (+) priority_markup)\n   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)\n8. Return BID with calculated values.\n\nReturn this JSON only:\n{\n  \"order_id\": \"ORD-33554\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID or NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+    },
+    "reverse_auction": {
+      "material": "AGENT PROFILE\nagent_id: M09\nlocation: Helsinki\nmaterials supplied: leather|linen\navailable stock for requested material (kg): 280.0\nprice ratio to reference for requested material: 1.12\nrestock amount (kg): 495.0\nrestock time (days): 4.0\ndefault completion days: 1\ndefect probability: 0.02\nreputation score: 0.5\nmin profit margin: 0.1\ninitial markup: 0.33\n\nRFQ\norder_id: ORD-33554\npricing date: 2026-02-16\nmaterial needed: linen\nreference price on the pricing date (USD per kg): 45.612\nrequired quantity (kg): 42.32\nmax allowed defect rate: 0.033\nmin required reputation: 0.48\ndays until deadline: 7\npriority: urgent\ncurrent_best_bid (USD): null\nplatform_minimum_decrement (USD): 5.0\nround_number: 1\nyour minimum_bid (USD): 2425.7\n\nTASK\n1. Check if you supply this material. If not, return NO_BID.\n2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.\n3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.\n4. Check stock:\n   if available_kg greater than or equal to (>=) required_kg: completion = default_completion_days\n   else if available_kg plus (+) restock_amount_kg greater than or equal to (>=) required_kg: completion = default_completion_days plus (+) restock_time_days\n   else: return NO_BID\n5. Check completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.\n6. Calculate, in USD:\n   material_cost  = required_kg multiplied by (x) price_ratio_to_reference multiplied by (x) reference_price_usd_per_kg\n   internal_cost  = material_cost multiplied by (x) (1 plus (+) defect_probability)\n   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)\n   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15\n   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) priority_markup)\n   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)\n7. Return BID with calculated values.\nIn rounds after round 1: if current_best_bid minus (-) platform_minimum_decrement greater than or equal to (>=) minimum_bid, submit that as offer. Otherwise stay silent.\n\nReturn this JSON only:\n{\n  \"order_id\": \"ORD-33554\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M09\",\n  \"decision\": \"BID or NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}",
+      "logistics": "AGENT PROFILE\nagent_id: L02\nlocation: Tampere\nservice regions: Espoo|Helsinki|Jyvaskyla|Lahti|Tampere|Turku\nfixed charge (EUR per shipment): 42.3967\nalpha (EUR per kg): 0.12692\nbeta (EUR per tonne-km): 0.07163\nshipment weight limit (kg): none\noversized fee (EUR): none\nsame-city delivery days: 1\nintercity delivery days: 2.0\ndamage probability: 0.03\nreputation score: 0.5\n\nRFQ\norder_id: ORD-33554\npricing date: 2026-02-16\npickup from: Jyvaskyla\ndeliver to: Turku\nroute distance from pickup (km): 308.536\nshipment weight (kg): 63.48\nfuel surcharge on the pricing date (%): 20.05\nEUR to USD on the pricing date: 1.1855\nmax allowed damage rate: 0.033\nmin required reputation: 0.48\ndays until deadline: 7\npriority: urgent\ncurrent_best_bid (USD): null\nplatform_minimum_decrement (USD): 5.0\nround_number: 1\nyour minimum_bid (USD): 98.83\n\nTASK\n1. Check if deliver_to is in your service_regions. If not, return NO_BID.\n2. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.\n3. Check damage_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.\n4. Check shipment_weight_kg is inside your shipment weight limit. If not, return NO_BID.\n5. Calculate route days:\n   if deliver_to == your location: route_days = default_completion_same_city_days\n   else: route_days = default_completion_intercity_days\n6. Check route_days less than or equal to (<=) days_until_deadline. If not, return NO_BID.\n7. Calculate, in EUR:\n   freight_eur    = fixed_charge plus (+) alpha multiplied by (x) shipment_weight_kg plus (+) beta multiplied by (x) shipment_weight_kg divided by (/) 1000 multiplied by (x) route_distance_km\n   with_fuel_eur  = freight_eur multiplied by (x) (1 plus (+) fuel_surcharge_percent divided by (/) 100)\n   oversized_eur  = the oversized fee if it applies to this shipment, else 0\n   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15\n   price_eur      = (with_fuel_eur plus (+) oversized_eur) multiplied by (x) (1 plus (+) damage_probability) multiplied by (x) (1 plus (+) priority_markup)\n8. Convert to USD, the currency of every offer:\n   offer_amount   = price_eur multiplied by (x) eur_to_usd\n   minimum_bid    = offer_amount, a market price with no markup on top and no margin below\n9. Return BID with calculated values.\nIn rounds after round 1: if current_best_bid minus (-) platform_minimum_decrement greater than or equal to (>=) minimum_bid, submit that as offer. Otherwise stay silent.\n\nReturn this JSON only:\n{\n  \"order_id\": \"ORD-33554\",\n  \"stage\": \"logistics\",\n  \"agent_id\": \"L02\",\n  \"decision\": \"BID or NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.03\n}",
+      "tailoring": "AGENT PROFILE\nagent_id: T1\nlocation: Oulu\nproducts you make: hoodie|jacket|shirt\ndaily capacity (units): 883\ncurrent workload (units): 177\nunit cost for requested product (USD): 5.0788\ndefect probability: 0.02\nreputation score: 0.821\nmin profit margin: 0.1\ninitial markup: 0.28\n\nRFQ\norder_id: ORD-33554\nproduct: shirt\nquantity: 529\nmax allowed defect rate: 0.033\nmin required reputation: 0.48\ndays until deadline: 7\npriority: urgent\ncurrent_best_bid (USD): null\nplatform_minimum_decrement (USD): 5.0\nround_number: 1\nyour minimum_bid (USD): 3014.47\n\nTASK\n1. Check if you make this product. If not, return NO_BID.\n2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.\n3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.\n4. Calculate:\n   backlog_days         = current_workload_units divided by (/) daily_capacity_units\n   production_days      = quantity divided by (/) daily_capacity_units\n   estimated_completion = backlog_days plus (+) production_days\n5. Check estimated_completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.\n6. Calculate workload ratio and markup:\n   workload_ratio = (current_workload_units plus (+) quantity) divided by (/) (daily_capacity_units multiplied by (x) days_until_deadline)\n   if workload_ratio less than (<) 0.50:    workload_markup = 0.00\n   else if ratio less than (<) 0.75:        workload_markup = 0.05\n   else if ratio less than (<) 0.90:        workload_markup = 0.10\n   else if ratio less than or equal to (<=) 1.00:       workload_markup = 0.15\n   else:                        return NO_BID\n7. Calculate, in USD:\n   base_cost      = quantity multiplied by (x) unit_cost_for_product\n   internal_cost  = base_cost multiplied by (x) (1 plus (+) defect_probability)\n   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)\n   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15\n   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) workload_markup) multiplied by (x) (1 plus (+) priority_markup)\n   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)\n8. Return BID with calculated values.\nIn rounds after round 1: if current_best_bid minus (-) platform_minimum_decrement greater than or equal to (>=) minimum_bid, submit that as offer. Otherwise stay silent.\n\nReturn this JSON only:\n{\n  \"order_id\": \"ORD-33554\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID or NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+    },
+    "supervisor": {
+      "supervisor": "ORDER\norder_id: ORD-33554\npriority: urgent\nbudget (USD): 8438.06\ndays remaining until deadline: 7\nmax acceptable defect or damage probability: 0.033\n\nFEASIBLE CHAIN CANDIDATES\ncandidate 0: material(cost_usd=3628.88, days=1, defect_p=0.03), manufacturing(cost_usd=4631.31, days=0.85, defect_p=0.02), logistics(cost_usd=93.68, days=1, damage_p=0.032), total_cost_usd=8353.87, total_completion_days=2.85\ncandidate 1: material(cost_usd=3628.88, days=1, defect_p=0.03), manufacturing(cost_usd=4416.35, days=0.74, defect_p=0.026), logistics(cost_usd=97.59, days=2.0, damage_p=0.03), total_cost_usd=8142.82, total_completion_days=3.74\ncandidate 2: material(cost_usd=3628.88, days=1, defect_p=0.03), manufacturing(cost_usd=4631.31, days=0.85, defect_p=0.02), logistics(cost_usd=96.15, days=2.0, damage_p=0.03), total_cost_usd=8356.34, total_completion_days=3.85\ncandidate 3: material(cost_usd=3628.88, days=1, defect_p=0.03), manufacturing(cost_usd=4346.3, days=1.41, defect_p=0.02), logistics(cost_usd=96.36, days=1, damage_p=0.032), total_cost_usd=8071.54, total_completion_days=3.41\ncandidate 4: material(cost_usd=3628.88, days=1, defect_p=0.03), manufacturing(cost_usd=4560.06, days=0.8, defect_p=0.02), logistics(cost_usd=101.53, days=2.0, damage_p=0.03), total_cost_usd=8290.47, total_completion_days=3.8\ncandidate 5: material(cost_usd=3812.75, days=1, defect_p=0.02), manufacturing(cost_usd=4395.89, days=1.18, defect_p=0.02), logistics(cost_usd=97.59, days=2.0, damage_p=0.03), total_cost_usd=8306.23, total_completion_days=4.18\ncandidate 6: material(cost_usd=3812.75, days=1, defect_p=0.02), manufacturing(cost_usd=4346.3, days=1.41, defect_p=0.02), logistics(cost_usd=98.82, days=2.0, damage_p=0.03), total_cost_usd=8257.87, total_completion_days=4.41\ncandidate 7: material(cost_usd=3812.75, days=1, defect_p=0.02), manufacturing(cost_usd=4416.35, days=0.74, defect_p=0.026), logistics(cost_usd=95.12, days=1, damage_p=0.032), total_cost_usd=8324.22, total_completion_days=2.74\ncandidate 8: material(cost_usd=3812.75, days=1, defect_p=0.02), manufacturing(cost_usd=4346.3, days=1.41, defect_p=0.02), logistics(cost_usd=96.36, days=1, damage_p=0.032), total_cost_usd=8255.41, total_completion_days=3.41\ncandidate 9: material(cost_usd=3812.75, days=1, defect_p=0.02), manufacturing(cost_usd=4416.35, days=0.74, defect_p=0.026), logistics(cost_usd=97.59, days=2.0, damage_p=0.03), total_cost_usd=8326.69, total_completion_days=3.74\ncandidate 10: material(cost_usd=3812.75, days=1, defect_p=0.02), manufacturing(cost_usd=4395.89, days=1.18, defect_p=0.02), logistics(cost_usd=95.12, days=1, damage_p=0.032), total_cost_usd=8303.76, total_completion_days=3.18\ncandidate 11: material(cost_usd=3628.88, days=1, defect_p=0.03), manufacturing(cost_usd=4416.35, days=0.74, defect_p=0.026), logistics(cost_usd=95.12, days=1, damage_p=0.032), total_cost_usd=8140.35, total_completion_days=2.74\n\nTASK\n1. Every candidate already fits the budget and the remaining time, feasibility is settled.\n2. Chain risk is compound across the three stages:\n   risk = 1 - (1 - defect_p_material) * (1 - defect_p_manufacturing) * (1 - damage_p_logistics)\n3. Pick the single best candidate for this order given its priority:\n   urgent   -> fewest total_completion_days, lowest total_cost_usd breaks ties.\n   flexible -> lowest total_cost_usd, most days remaining after completion breaks ties.\n   normal   -> lowest equal-weighted score of the three ratios\n               total_cost_usd / budget,\n               total_completion_days / days remaining,\n               chain risk / max acceptable defect or damage probability.\n4. Return this JSON only:\n{\"selected_candidate\": <candidate index>, \"reason\": \"<one short sentence>\"}"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "dataset_version": "v5",
+  "run": "ministral-reverse_auction-v5-r01",
+  "mode": "reverse_auction",
+  "split_used": "validation",
+  "validation_rows": 75310,
+  "validation_row_ids_sha256": "7642976ac16b9486be75ab91ccd652d6d2a90aab63275907d5f3d884801e91d6",
+  "rule": {
+    "key_order": [
+      "macro decision accuracy %",
+      "mean floor-case accuracy %",
+      "offer exact-match %"
+    ],
+    "higher_is_better": true,
+    "tie": "the lower epoch"
+  },
+  "ranking": [
+    {
+      "epoch": 3,
+      "adapter": "./models/training/reverse_auction/ministral/ministral-reverse_auction-v5-r01/epoch-3",
+      "result": "./reports/v5/selection/reverse_auction/ministral/validation_epoch3.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_accuracy_pct": 99.996667,
+        "mean_floor_case_accuracy_pct": 100.0,
+        "offer_exact_match_pct": 65.64
+      },
+      "key": [
+        99.996667,
+        100.0,
+        65.64
+      ]
+    },
+    {
+      "epoch": 2,
+      "adapter": "./models/training/reverse_auction/ministral/ministral-reverse_auction-v5-r01/epoch-2",
+      "result": "./reports/v5/selection/reverse_auction/ministral/validation_epoch2.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_accuracy_pct": 99.966667,
+        "mean_floor_case_accuracy_pct": 100.0,
+        "offer_exact_match_pct": 60.2
+      },
+      "key": [
+        99.966667,
+        100.0,
+        60.2
+      ]
+    },
+    {
+      "epoch": 1,
+      "adapter": "./models/training/reverse_auction/ministral/ministral-reverse_auction-v5-r01/epoch-1",
+      "result": "./reports/v5/selection/reverse_auction/ministral/validation_epoch1.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_accuracy_pct": 99.953333,
+        "mean_floor_case_accuracy_pct": 99.96,
+        "offer_exact_match_pct": 56.22
+      },
+      "key": [
+        99.953333,
+        99.96,
+        56.22
+      ]
+    }
+  ],
+  "chosen": {
+    "epoch": 3,
+    "adapter": "./models/training/reverse_auction/ministral/ministral-reverse_auction-v5-r01/epoch-3"
+  },
+  "test_split": "not read during selection; evaluate it once, on the chosen adapter only"
+}

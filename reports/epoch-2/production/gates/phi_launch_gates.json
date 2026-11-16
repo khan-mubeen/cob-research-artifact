@@ -1,0 +1,46 @@
+{
+  "recorded_at": "unknown",
+  "family": "epoch-2 production pilot (phi, second model after granite)",
+  "model": "microsoft/Phi-4-mini-instruct via local pinned copy",
+  "base_path_used": "models/base-checkpoints/hf/phi4mini-v2-base",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "single_variable_under_test": "num_train_epochs 1 -> 2; every other protocol v2 variable held",
+  "gates": {
+    "1_frozen_data_hashes": {
+      "status": "PASS (same disclosed orders.csv exception, re-proven inert FOR PHI)",
+      "evidence": "5 of 6 pinned files match protocol_v2.json exactly. orders.csv still shows the dated drift found in the granite pilot (frozen b6acf05b..., actual 4754f623..., every row's order_created/deadline shifted ~+16 days).",
+      "why_re_proven_not_inherited": "granite's proof covered record SELECTION, which is model-agnostic. What differs per model is the RENDER: to_text() applies the model's own chat template to every record. So the check was redone at that layer with Phi's tokenizer. Rendering all 15,203 rows through Phi's template against both orders.csv versions gives the identical fingerprint 38fc4698aea34548d45bcc8888ff751b5f3a15f5c0236dc191b1d52119cc803e, with an identical order_id sequence. This differs from granite's cb762cc6... precisely because it is Phi's template, which is the point of re-running it rather than inheriting the result.",
+      "action_taken": "none. orders.csv untouched, protocol hash not re-pinned."
+    },
+    "2_adapter_targets_match_validated_set": {
+      "status": "PASS",
+      "evidence": "fused qkv_proj,o_proj,gate_up_proj,down_proj -> 23,068,672 trainable of 3,859,090,432 (0.60%), identical to epoch-1 Phi. Phi3 fuses q/k/v and gate/up, so these are the functional equivalents of the direct set the other architectures use. pad_token_id 200018 (<|endofprompt|>) applied as in epoch-1."
+    },
+    "3_template_alignment_train_vs_gguf": {
+      "status": "PASS",
+      "evidence": "reports/epoch-2/production/gates/phi_template_alignment.json: 7/7 checks pass. Checked against the LOCAL pinned copy that actually trains rather than the upstream repo epoch-1 used; the two differ only in pad_token and their chat templates are byte-identical, so this is the stricter of the two checks."
+    },
+    "4_native_fit_no_sysmem_spill": {
+      "status": "FAIL as literally stated -- Phi does NOT natively fit. Disclosed, unchanged from epoch-1.",
+      "evidence": "epoch-1 Phi measured 11.2 GiB allocated / 26.3 GiB reserved against a 23.889 GiB physical ceiling -- 2.4 GiB over. That is a real measurement at the identical configuration, not an estimate.",
+      "why_not_probe_based": "the 12-step probe reports 8.6/10.8 GiB. Granite's pilot showed such probes underpredict badly (probe 16.9 GiB vs 24.6 GiB actual). So the probe was used ONLY to confirm the trainable count and step time, and the memory gate is judged against epoch-1's real measured value instead. Peak memory is a per-step property that epoch count does not change, so ~26.3 GiB is expected again and the full training log is the authoritative record.",
+      "consequence": "Phi is the worst-fitting of the six architectures on this host. Epoch-1 accepted this with the disclosure that step times were unaffected, indicating transient allocator caching rather than sustained thrashing. This run inherits that acceptance; it does not re-litigate it, and it does not claim a pass."
+    }
+  },
+  "checkpoint_resume_fix": {
+    "status": "FIXED AND VERIFIED UNDER A REAL RESUME before this run started",
+    "root_cause": "transformers trainer.py:1543 replaces the entire TrainerState from the checkpoint on resume, save_steps included; trainer_callback.py:585-587 makes the save decision from state.save_steps, not args.save_steps; trainer_utils.py:1155 only warns about the mismatch and never reconciles it. on_train_begin (line 1499) fires BEFORE the restore, so that hook cannot fix it.",
+    "fix": "SaveIntervalEnforcer callback in finetune_lora.py re-asserts args.save_steps onto state.save_steps in on_epoch_begin, the first hook after the restore and before any on_step_end.",
+    "verification": "phase A fresh run at --save-steps 3 produced checkpoints 3,6,9,12. Truncated to checkpoint-6, resumed with --save-steps 2. transformers warned 'save_steps: 2 (from args) != 3 (from trainer_state.json)', the enforcer logged the override, and new checkpoints landed at 8,10,12,14. checkpoint-8 is the decisive evidence: a multiple of 2 and not of 3, so the CLI interval held after the resume. checkpoint-9 does not exist. The unfixed control is the granite pilot, where --save-steps 100 was silently ignored on resume and no checkpoint-300 or -400 was ever written.",
+    "self_healing": "post-fix checkpoints serialize the corrected interval (checkpoint-6 records 3, checkpoint-8 and -14 record 2), so later resumes inherit it."
+  },
+  "expected": {
+    "steps": 1902,
+    "steps_per_epoch": 951,
+    "est_runtime_min": 164,
+    "est_s_per_step": 5.16
+  },
+  "decision": "LAUNCH phi epoch-2 from the local pinned base checkpoint",
+  "output_dir": "models/epoch-2/production/phi4mini-bidding-lora-v2",
+  "save_steps": 250
+}

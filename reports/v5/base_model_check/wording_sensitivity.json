@@ -1,0 +1,19 @@
+{
+  "rows": 48,
+  "base_model": "Qwen/Qwen3.5-4B@851bf6e8",
+  "phrases_reversed": 976,
+  "variants": {
+    "worded_as_stored": {
+      "json_valid_pct": 100.0,
+      "decision_agreement_pct": 91.67,
+      "seconds": 45.3,
+      "sample_output": "{\n  \"order_id\": \"ORD-12448\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M08\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 62.84,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.05\n}\n"
+    },
+    "symbolic_reversed": {
+      "json_valid_pct": 100.0,
+      "decision_agreement_pct": 91.67,
+      "seconds": 28.8,
+      "sample_output": "{\n  \"order_id\": \"ORD-12448\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M08\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 62.84,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.05\n}\n"
+    }
+  }
+}

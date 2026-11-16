@@ -1,0 +1,13 @@
+agent_id,source_team_id,stage,scale,product_types,daily_capacity_units,current_workload_units,available_workers,unit_cost_shirt,unit_cost_hoodie,unit_cost_jacket,unit_cost_jeans,unit_cost_skirt,min_profit_margin,initial_markup,defect_probability,reputation_score,location
+T1,1,tailoring,large,hoodie|jacket|shirt,883,1609,67,4.75,8.0,11.5,,,0.1,0.28,0.02,0.821,Oulu
+T2,2,tailoring,large,hoodie|shirt,837,1326,67,4.75,8.0,,,,0.1,0.29,0.02,0.771,Helsinki
+T3,3,tailoring,large,jacket|jeans,830,1409,69,,,11.5,7.0,,0.1,0.31,0.02,0.804,Tampere
+T4,4,tailoring,large,jeans|shirt|skirt,752,1219,71,4.75,,,7.0,4.25,0.1,0.3,0.02,0.77,Turku
+T5,5,tailoring,large,hoodie|jacket,660,774,67,,8.0,11.5,,,0.1,0.33,0.053,0.698,Jyvaskyla
+T6,6,tailoring,medium,shirt|skirt,696,937,44,4.75,,,,4.25,0.1,0.32,0.045,0.685,Lahti
+T7,7,tailoring,large,hoodie|jacket|jeans|shirt,645,1000,67,4.75,8.0,11.5,7.0,,0.1,0.3,0.067,0.668,Espoo
+T8,8,tailoring,large,jeans|skirt,658,984,66,,,,7.0,4.25,0.1,0.32,0.062,0.674,Oulu
+T9,9,tailoring,large,hoodie|shirt,803,1284,65,4.75,8.0,,,,0.1,0.29,0.026,0.734,Helsinki
+T10,10,tailoring,large,jacket|jeans|skirt,806,1528,64,,,11.5,7.0,4.25,0.1,0.31,0.023,0.72,Tampere
+T11,11,tailoring,large,hoodie|jacket|shirt,857,968,63,4.75,8.0,11.5,,,0.1,0.3,0.026,0.682,Turku
+T12,12,tailoring,medium,jeans|shirt,804,1260,43,4.75,,,7.0,,0.1,0.34,0.02,0.779,Jyvaskyla

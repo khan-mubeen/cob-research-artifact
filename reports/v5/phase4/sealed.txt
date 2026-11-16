@@ -1,0 +1,18 @@
+
+stage      split           rows      BID   NO_BID  bid %
+material   train         169855   156534    13321  92.16
+material   validation     21174    19706     1468  93.07
+material   test           21207    19664     1543  92.72
+tailoring  train         196876   196876        0 100.00
+tailoring  validation     24631    24631        0 100.00
+tailoring  test           24518    24518        0 100.00
+logistics  train         174814   174814        0 100.00
+logistics  validation     21924    21924        0 100.00
+logistics  test           21872    21872        0 100.00
+total rows 676871, skipped {}
+written to data/finetune/v5
+
+real	0m47.116s
+user	0m0.046s
+sys	0m0.000s
+exit 0

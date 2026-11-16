@@ -1,0 +1,43 @@
+{
+  "tag": "qwen35-r1-nomtp-master",
+  "merged_dir": ".\\models\\gguf_fix\\qwen35-r1-merged",
+  "converter": "571d0d540df04f25298d0e159e520d9fc62ed121 (feasibility-era master)",
+  "flags": [
+    "--no-mtp"
+  ],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_seconds": 42.6,
+  "bf16_gib": 7.85,
+  "bf16_meta": {
+    "block_count": 32,
+    "tensor_count": 426,
+    "has_blk32": false
+  },
+  "quantize_rc": 0,
+  "quant_gib": 4.17,
+  "quant_sha256": "4461e48a777c358dad3a2e538510409c5fd23385b5cef0c70e252cbab871fbba",
+  "quant_meta": {
+    "block_count": 32,
+    "tensor_count": 426,
+    "has_blk32": false
+  },
+  "runtime_load_rc": 0,
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 3.1,
+    "latencies_s": [
+      1.11,
+      0.94,
+      1.0,
+      1.01,
+      0.95,
+      0.89
+    ],
+    "first_infer_s": 1.11,
+    "median_steady_s": 0.95,
+    "total_completion_tokens": 499,
+    "json_ok": "6/6",
+    "raw_head": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 303.8,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+  }
+}

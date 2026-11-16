@@ -1,0 +1,134 @@
+{
+  "source": "IRU / Upply / Ti, The European Road Freight Rate Benchmark, Q2 2026 - August 2026",
+  "source_url": "https://www.upply.com/en/ti-upply-iru-benchmarks-reports",
+  "source_url_note": "the publisher's report page as listed in docs/data_synthesis_methodology.md section 4; the pdf's own download url was not recorded when it was obtained",
+  "local_copy": {
+    "file_name_given_in_task": "upplyirutiq22026europeanroadfreightratesbenchmark.pdf (project root)",
+    "file_read": "upply-iru-ti-q2-2026-european-road-freight-rates-benchmark.pdf",
+    "location_at_access": "the user's Downloads folder; no copy exists at the project root",
+    "sha256": "281076fa8d6b37c8abbfc3ef485876f0103517294c2227d11dce9456a1a316f9",
+    "bytes": 7335305,
+    "pages": 38,
+    "pdf_creation_date": "2026-08-11T15:10:14Z",
+    "not_committed_because": "page 38 states 'No part of this publication may be reproduced in any material form including photocopying or storing it by electronic means without the permission of the copyright owners, Transport Intelligence Limited / Upply / IRU.' the hash above identifies the exact copy read"
+  },
+  "page_or_section": "page 22 'City pairs - Contract, Headhaul Contract Rates, Data on Rates'; page 25 'City pairs - Spot, Headhaul Spot Rates, Data on Rates'; methodology page 36",
+  "role": "source values for the beta_i candidate derivation",
+  "currency": "EUR",
+  "unit": "EUR per km",
+  "access_date_basis": "read on this date from the local pdf copy identified in local_copy. the euro sign was confirmed on rendered images of pages 22 and 25, because the pdf text layer does not map that glyph",
+  "reverification_status": "reverified from the local copy",
+  "tariff_metadata": {
+    "vat_status": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source",
+      "note": "the 38 pages were searched for VAT wording; none applies to the rates"
+    },
+    "effective_date": {
+      "value": "Q2 2026, quarterly average of weekly median rates",
+      "source_wording": "Ti then used the median rates provided by Upply on each corridor, averaging weekly rates over each quarter.",
+      "note": "page 36, methodology"
+    },
+    "currency_as_published": {
+      "value": "EUR",
+      "source_wording": "€1.45/km"
+    },
+    "unit_basis": {
+      "value": "EUR per km on an international headhaul lane, printed beside an index with Q1-2017 = 100; not per tonne and not per tonne-km",
+      "source_wording": "166.8 index points, or €1.45/km",
+      "note": "page 22; the chart axis reads 'Index,Q1-2017=100'"
+    },
+    "service_category": {
+      "value": "international road freight line-haul, truck load (LTL and FTL)",
+      "source_wording": "Upply provides Truck Load (LTL & FTL) weekly rates estimations based on observed transactions for each major European trade lanes, associated with a confidence index.",
+      "note": "page 36"
+    },
+    "fuel_surcharge_treatment": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source",
+      "note": "the report attributes rate increases to diesel costs being passed on ('Fuel has been the dominant driver in pushing rates upwards QoQ and YoY, with operators unable to absorb the scale of diesel increases without passing them through to customers', page 4) but never states whether the per-km rates include or exclude a separate fuel surcharge"
+    },
+    "payload_or_load_factor": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source",
+      "note": "no payload, load factor or tonnage behind the per-km rates is stated in the 38 pages; the document was searched for payload, tonne, capacity and load factor"
+    }
+  },
+  "observations": [
+    {
+      "page": 22,
+      "rate_type": "contract",
+      "corridor": "Warsaw to Duisburg",
+      "index_points": 166.8,
+      "eur_per_km": 1.45,
+      "printed_as": "The Warsaw to Duisburg route closed Q2 2026 at 166.8 index points, or €1.45/km, up 6.1 points QoQ and 14.9 points compared with the same quarter last year."
+    },
+    {
+      "page": 22,
+      "rate_type": "contract",
+      "corridor": "Duisburg to Lille",
+      "index_points": 159.4,
+      "eur_per_km": 2.58,
+      "printed_as": "Contract rates on the Duisburg to Lille lane reached 159.4 index points (€2.58/km) in Q2 2026, up 13.1 points QoQ and 22.2 points YoY."
+    },
+    {
+      "page": 22,
+      "rate_type": "contract",
+      "corridor": "Duisburg to Prague",
+      "index_points": 149.2,
+      "eur_per_km": 1.73,
+      "printed_as": "Duisburg to Prague contract rates reached 149.2 index points in Q2 2026, equivalent to €1.73/km. The index rose by 11.6 points QoQ and by 19.7 points YoY."
+    },
+    {
+      "page": 22,
+      "rate_type": "contract",
+      "corridor": "Antwerp to Duisburg",
+      "index_points": 181.8,
+      "eur_per_km": 3.05,
+      "printed_as": "Antwerp to Duisburg closed Q2 2026 at 181.8 index points, or €3.05/km, up 17.1 points QoQ and 25.1 points compared with the same quarter last year."
+    },
+    {
+      "page": 25,
+      "rate_type": "spot",
+      "corridor": "Warsaw to Duisburg",
+      "index_points": 170.4,
+      "eur_per_km": 1.51,
+      "printed_as": "The Warsaw to Duisburg route closed Q2 2026 at 170.4 index points, or €1.51/km, up 10.9 points QoQ and 17.3 points compared with the same quarter last year."
+    },
+    {
+      "page": 25,
+      "rate_type": "spot",
+      "corridor": "Duisburg to Lille",
+      "index_points": 168.2,
+      "eur_per_km": 2.89,
+      "printed_as": "Spot rates on the Duisburg to Lille lane reached 168.2 index points (€2.89/km) in Q2 2026, up 20.0 points QoQ and 23.2 points YoY."
+    },
+    {
+      "page": 25,
+      "rate_type": "spot",
+      "corridor": "Duisburg to Prague",
+      "index_points": 156.4,
+      "eur_per_km": 2.0,
+      "printed_as": "Duisburg to Prague spot rates reached 156.4 index points in Q2 2026, equivalent to €2.00/km. The index rose by 13.8 points QoQ and by 19.5 points YoY."
+    },
+    {
+      "page": 25,
+      "rate_type": "spot",
+      "corridor": "Antwerp to Duisburg",
+      "index_points": 167.6,
+      "eur_per_km": 3.19,
+      "printed_as": "Antwerp to Duisburg spot rates stood at 167.6 index points (€3.19/km), up 13.9 points QoQ and 17.9 points YoY."
+    }
+  ],
+  "verification_note": "corridor rates and page references only, as printed on pages 22 and 25; no payload division, derivation arithmetic or comparison to 0.07163 is recorded here, that lives in data/processed/v5/logistics/beta_candidate_derivation.json",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-13",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record",
+  "calibration_feeds": "beta_i",
+  "metadata_convention": {
+    "not_stated": "not stated in source",
+    "unreadable": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+    "meaning": "a field reading 'not stated in source' was read and is absent from the source; a field reading 'not verified' could not be read at all"
+  }
+}

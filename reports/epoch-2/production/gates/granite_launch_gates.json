@@ -1,0 +1,44 @@
+{
+  "recorded_at": "unknown",
+  "family": "epoch-2 production pilot (granite only)",
+  "model": "ibm-granite/granite-4.1-3b",
+  "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+  "single_variable_under_test": "num_train_epochs 1 -> 2; every other protocol v2 variable held",
+  "gates": {
+    "1_frozen_data_hashes": {
+      "status": "PASS (with one disclosed exception, proven inert)",
+      "evidence": "material/tailoring/logistics_train.jsonl, protocol_v2 edge_tailoring/edge_logistics_train.jsonl and robustness_holdout.jsonl all match protocol_v2.json exactly. data/synthetic/v4/orders.csv does NOT: frozen b6acf05b..., actual 4754f623... (and e6a9206c... LF-normalized, so it is a content change, not line endings). every row's order_created and deadline is shifted ~+16 days, i.e. orders.csv was regenerated after the protocol was frozen.",
+      "why_inert": "stratified_subsample reads only order_id -> scenario_type from orders.csv, and that mapping is identical between the working-tree and HEAD versions. Proven directly: the real production functions were run against both versions and produced byte-identical training sets -- 15,203 rows, identical order, record fingerprint 6e446ccd869ab489..., rendered-prompt fingerprint cb762cc69836fcb2..., in both cases.",
+      "action_taken": "none. orders.csv was NOT modified and the protocol hash was NOT re-pinned; both are the user's decision. Flagged for follow-up."
+    },
+    "2_adapter_targets_match_validated_set": {
+      "status": "PASS",
+      "evidence": "31,129,600 trainable of 3,433,966,080 (0.91%) with direct q/k/v/o/gate/up/down targets -- identical to the epoch-1 v2 and feasibility-validated count. no architecture-specific adaptation."
+    },
+    "3_template_alignment_train_vs_gguf": {
+      "status": "PASS",
+      "evidence": "reports/epoch-2/production/gates/granite_template_alignment.json: 7/7 checks pass; gguf template string-identical to hf, generation render an exact prefix of the training render, markers once each."
+    },
+    "4_native_fit_no_sysmem_spill": {
+      "status": "PASS at gate scope; NOT SETTLED for the full run -- see caveat",
+      "evidence": "12-step probe at the exact epoch-2 config: 9.3 GiB allocated / 10.5 GiB reserved of 23.889 GiB physical; median 5.56 s/step.",
+      "caveat": "a short probe systematically under-predicts peak reserved. The epoch-1 gate probe reported 16.9 GiB and that run went on to reserve 24.6 GiB, marginally over the 23.889 GiB physical ceiling. Peak memory is a per-step property and epoch count does not change it, so ~24.6 GiB is expected again. The authoritative figure is the one printed at the end of the full training log, and it is reported there rather than claimed here."
+    }
+  },
+  "deliberate_deviations_from_epoch_1": [
+    {
+      "what": "--save-steps 500 -> 250",
+      "why": "1,902 steps over ~176 min on a host with 7 documented crash/interruption incidents. save_steps only controls checkpointing and provably does not alter training math, so tightening it is a pure recovery win: worst-case loss on a crash falls from ~46 min to ~23 min. Costs ~1.3 GB of 1.4 TB free.",
+      "affects_comparison": false
+    }
+  ],
+  "expected": {
+    "steps": 1902,
+    "steps_per_epoch": 951,
+    "est_runtime_min": 176,
+    "est_s_per_step": 5.56
+  },
+  "decision": "LAUNCH granite epoch-2 from the original base checkpoint",
+  "output_dir": "models/epoch-2/production/granite-4.1-3b-bidding-lora-v2",
+  "gpu_health_precheck": "RTX 5090 Laptop, 24463 MiB total, 0 MiB in use, 45 C idle, no active throttle reasons, no WHEA/nvlddmkm events in the preceding 24 h"
+}

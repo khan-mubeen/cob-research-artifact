@@ -1,0 +1,446 @@
+{
+  "generated_at": "2026-07-19T18:04:54",
+  "inputs": {
+    "granite_base": ".\\reports\\slm_comparison\\v4\\eval_granite-base_20260719_170737.json",
+    "granite_ft": ".\\reports\\slm_comparison\\v4\\eval_granite-ft_20260719_172254.json",
+    "qwen_base": ".\\reports\\slm_comparison\\v4\\eval_base-audit_20260718_235632.json",
+    "qwen_r1": ".\\reports\\slm_comparison\\v4\\eval_finetuned-r1-audit_20260719_001029.json"
+  },
+  "models": {
+    "granite_base": {
+      "baseline_six_no_bid": 1,
+      "baseline_six_rows": {
+        "EDGE-T-DEADLINE-01": "BID",
+        "EDGE-T-DEADLINE-02": "BID",
+        "EDGE-T-WORKLOAD-01": "NO_BID",
+        "EDGE-T-WORKLOAD-02": null,
+        "EDGE-L-ROUTE-01": "BID",
+        "EDGE-L-ROUTE-02": "BID"
+      },
+      "main_holdout_per_stage": {
+        "logistics": {
+          "n": 500,
+          "decision_agreement_pct": 54.8,
+          "json_valid_pct": 99.2,
+          "mean_abs_offer_dev_pct": 46.27,
+          "median_abs_offer_dev_pct": 34.26,
+          "days_exact_match_pct": 62.04
+        },
+        "material": {
+          "n": 500,
+          "decision_agreement_pct": 88.8,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 60.33,
+          "median_abs_offer_dev_pct": 41.96,
+          "days_exact_match_pct": 69.04
+        },
+        "tailoring": {
+          "n": 500,
+          "decision_agreement_pct": 95.4,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 79.78,
+          "median_abs_offer_dev_pct": 87.61,
+          "days_exact_match_pct": 0.0
+        }
+      },
+      "edge_holdout_all12": {
+        "n": 12,
+        "decisions_pct": 50.0,
+        "json_pct": 100.0,
+        "false_bid": 6,
+        "false_nobid": 0,
+        "mean_offer_dev_pct": 166.331
+      },
+      "edge_holdout_clean10": {
+        "n": 10,
+        "decisions_pct": 60.0,
+        "json_pct": 100.0,
+        "false_bid": 4,
+        "false_nobid": 0,
+        "mean_offer_dev_pct": 166.331
+      },
+      "boundary_stress_context_only": {
+        "stress_ratio_0.98": {
+          "n": 12,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 93.1,
+          "median_abs_offer_dev_pct": 93.72,
+          "days_exact_match_pct": 0.0
+        },
+        "stress_ratio_1.0": {
+          "n": 12,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 70.35,
+          "median_abs_offer_dev_pct": 92.6,
+          "days_exact_match_pct": 0.0
+        },
+        "stress_ratio_1.02": {
+          "n": 12,
+          "decision_agreement_pct": 0.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": null,
+          "median_abs_offer_dev_pct": null,
+          "days_exact_match_pct": null
+        }
+      },
+      "final_boundary_per_class": {
+        "above_infeasible": {
+          "correct": 1,
+          "of": 12
+        },
+        "below_feasible": {
+          "correct": 11,
+          "of": 12
+        },
+        "exact_feasible": {
+          "correct": 6,
+          "of": 12
+        }
+      },
+      "json_100_all_sets": false
+    },
+    "granite_ft": {
+      "baseline_six_no_bid": 2,
+      "baseline_six_rows": {
+        "EDGE-T-DEADLINE-01": "BID",
+        "EDGE-T-DEADLINE-02": "BID",
+        "EDGE-T-WORKLOAD-01": "BID",
+        "EDGE-T-WORKLOAD-02": "BID",
+        "EDGE-L-ROUTE-01": "NO_BID",
+        "EDGE-L-ROUTE-02": "NO_BID"
+      },
+      "main_holdout_per_stage": {
+        "logistics": {
+          "n": 500,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 1.05,
+          "median_abs_offer_dev_pct": 0.67,
+          "days_exact_match_pct": 100.0
+        },
+        "material": {
+          "n": 500,
+          "decision_agreement_pct": 99.2,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 1.59,
+          "median_abs_offer_dev_pct": 1.28,
+          "days_exact_match_pct": 99.56
+        },
+        "tailoring": {
+          "n": 500,
+          "decision_agreement_pct": 99.8,
+          "json_valid_pct": 99.8,
+          "mean_abs_offer_dev_pct": 1.6,
+          "median_abs_offer_dev_pct": 1.34,
+          "days_exact_match_pct": 39.88
+        }
+      },
+      "edge_holdout_all12": {
+        "n": 12,
+        "decisions_pct": 75.0,
+        "json_pct": 100.0,
+        "false_bid": 0,
+        "false_nobid": 3,
+        "mean_offer_dev_pct": 4.194
+      },
+      "edge_holdout_clean10": {
+        "n": 10,
+        "decisions_pct": 70.0,
+        "json_pct": 100.0,
+        "false_bid": 0,
+        "false_nobid": 3,
+        "mean_offer_dev_pct": 4.194
+      },
+      "boundary_stress_context_only": {
+        "stress_ratio_0.98": {
+          "n": 12,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 17.04,
+          "median_abs_offer_dev_pct": 10.91,
+          "days_exact_match_pct": 8.33
+        },
+        "stress_ratio_1.0": {
+          "n": 12,
+          "decision_agreement_pct": 91.67,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 17.27,
+          "median_abs_offer_dev_pct": 10.17,
+          "days_exact_match_pct": 0.0
+        },
+        "stress_ratio_1.02": {
+          "n": 12,
+          "decision_agreement_pct": 16.67,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": null,
+          "median_abs_offer_dev_pct": null,
+          "days_exact_match_pct": null
+        }
+      },
+      "final_boundary_per_class": {
+        "above_infeasible": {
+          "correct": 1,
+          "of": 12
+        },
+        "below_feasible": {
+          "correct": 8,
+          "of": 12
+        },
+        "exact_feasible": {
+          "correct": 10,
+          "of": 12
+        }
+      },
+      "json_100_all_sets": false
+    },
+    "qwen_base": {
+      "baseline_six_no_bid": 0,
+      "baseline_six_rows": {
+        "EDGE-T-DEADLINE-01": "BID",
+        "EDGE-T-DEADLINE-02": "BID",
+        "EDGE-T-WORKLOAD-01": "BID",
+        "EDGE-T-WORKLOAD-02": "BID",
+        "EDGE-L-ROUTE-01": "BID",
+        "EDGE-L-ROUTE-02": "BID"
+      },
+      "main_holdout_per_stage": {
+        "logistics": {
+          "n": 500,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 24.59,
+          "median_abs_offer_dev_pct": 21.43,
+          "days_exact_match_pct": 99.8
+        },
+        "material": {
+          "n": 500,
+          "decision_agreement_pct": 92.2,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 53.88,
+          "median_abs_offer_dev_pct": 41.46,
+          "days_exact_match_pct": 97.18
+        },
+        "tailoring": {
+          "n": 500,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 36.28,
+          "median_abs_offer_dev_pct": 19.3,
+          "days_exact_match_pct": 0.2
+        }
+      },
+      "edge_holdout_all12": {
+        "n": 12,
+        "decisions_pct": 50.0,
+        "json_pct": 100.0,
+        "false_bid": 6,
+        "false_nobid": 0,
+        "mean_offer_dev_pct": 44.855
+      },
+      "edge_holdout_clean10": {
+        "n": 10,
+        "decisions_pct": 60.0,
+        "json_pct": 100.0,
+        "false_bid": 4,
+        "false_nobid": 0,
+        "mean_offer_dev_pct": 44.855
+      },
+      "boundary_stress_context_only": {
+        "stress_ratio_0.98": {
+          "n": 12,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 57.29,
+          "median_abs_offer_dev_pct": 52.23,
+          "days_exact_match_pct": 0.0
+        },
+        "stress_ratio_1.0": {
+          "n": 12,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 69.42,
+          "median_abs_offer_dev_pct": 89.64,
+          "days_exact_match_pct": 50.0
+        },
+        "stress_ratio_1.02": {
+          "n": 12,
+          "decision_agreement_pct": 0.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": null,
+          "median_abs_offer_dev_pct": null,
+          "days_exact_match_pct": null
+        }
+      },
+      "final_boundary_per_class": {
+        "above_infeasible": {
+          "correct": 0,
+          "of": 12
+        },
+        "below_feasible": {
+          "correct": 12,
+          "of": 12
+        },
+        "exact_feasible": {
+          "correct": 12,
+          "of": 12
+        }
+      },
+      "json_100_all_sets": true
+    },
+    "qwen_r1": {
+      "baseline_six_no_bid": 4,
+      "baseline_six_rows": {
+        "EDGE-T-DEADLINE-01": "BID",
+        "EDGE-T-DEADLINE-02": "BID",
+        "EDGE-T-WORKLOAD-01": "NO_BID",
+        "EDGE-T-WORKLOAD-02": "NO_BID",
+        "EDGE-L-ROUTE-01": "NO_BID",
+        "EDGE-L-ROUTE-02": "NO_BID"
+      },
+      "main_holdout_per_stage": {
+        "logistics": {
+          "n": 500,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 0.76,
+          "median_abs_offer_dev_pct": 0.56,
+          "days_exact_match_pct": 100.0
+        },
+        "material": {
+          "n": 500,
+          "decision_agreement_pct": 99.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 0.55,
+          "median_abs_offer_dev_pct": 0.36,
+          "days_exact_match_pct": 99.57
+        },
+        "tailoring": {
+          "n": 500,
+          "decision_agreement_pct": 100.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 0.65,
+          "median_abs_offer_dev_pct": 0.49,
+          "days_exact_match_pct": 85.8
+        }
+      },
+      "edge_holdout_all12": {
+        "n": 12,
+        "decisions_pct": 91.67,
+        "json_pct": 100.0,
+        "false_bid": 1,
+        "false_nobid": 0,
+        "mean_offer_dev_pct": 5.3
+      },
+      "edge_holdout_clean10": {
+        "n": 10,
+        "decisions_pct": 90.0,
+        "json_pct": 100.0,
+        "false_bid": 1,
+        "false_nobid": 0,
+        "mean_offer_dev_pct": 5.3
+      },
+      "boundary_stress_context_only": {
+        "stress_ratio_0.98": {
+          "n": 12,
+          "decision_agreement_pct": 50.0,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 9.95,
+          "median_abs_offer_dev_pct": 10.61,
+          "days_exact_match_pct": 16.67
+        },
+        "stress_ratio_1.0": {
+          "n": 12,
+          "decision_agreement_pct": 41.67,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": 9.54,
+          "median_abs_offer_dev_pct": 10.97,
+          "days_exact_match_pct": 0.0
+        },
+        "stress_ratio_1.02": {
+          "n": 12,
+          "decision_agreement_pct": 58.33,
+          "json_valid_pct": 100.0,
+          "mean_abs_offer_dev_pct": null,
+          "median_abs_offer_dev_pct": null,
+          "days_exact_match_pct": null
+        }
+      },
+      "final_boundary_per_class": {
+        "above_infeasible": {
+          "correct": 8,
+          "of": 12
+        },
+        "below_feasible": {
+          "correct": 5,
+          "of": 12
+        },
+        "exact_feasible": {
+          "correct": 8,
+          "of": 12
+        }
+      },
+      "json_100_all_sets": true
+    }
+  },
+  "granite_ft_pre_registered_criteria": {
+    "1_baseline_six_6of6": {
+      "value": "2/6",
+      "verdict": "FAIL"
+    },
+    "2_no_decision_regression_vs_own_base": {
+      "value": {
+        "material": {
+          "base": 88.8,
+          "ft": 99.2,
+          "ok": true
+        },
+        "tailoring": {
+          "base": 95.4,
+          "ft": 99.8,
+          "ok": true
+        },
+        "logistics": {
+          "base": 54.8,
+          "ft": 100.0,
+          "ok": true
+        }
+      },
+      "verdict": "PASS"
+    },
+    "3_offer_dev_improvement_vs_own_base": {
+      "value": {
+        "material": {
+          "base": 60.33,
+          "ft": 1.59,
+          "ok": true
+        },
+        "tailoring": {
+          "base": 79.78,
+          "ft": 1.6,
+          "ok": true
+        },
+        "logistics": {
+          "base": 46.27,
+          "ft": 1.05,
+          "ok": true
+        }
+      },
+      "verdict": "PASS"
+    },
+    "4_json_validity_100_all_sets": {
+      "value": false,
+      "verdict": "FAIL"
+    },
+    "5_final_boundary_9of12_each_class": {
+      "value": {
+        "above_infeasible": "1/12",
+        "below_feasible": "8/12",
+        "exact_feasible": "10/12"
+      },
+      "verdict": "FAIL"
+    }
+  },
+  "overall": "FAIL on: 1_baseline_six_6of6, 4_json_validity_100_all_sets, 5_final_boundary_9of12_each_class"
+}

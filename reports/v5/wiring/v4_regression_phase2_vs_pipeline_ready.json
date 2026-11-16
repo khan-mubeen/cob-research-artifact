@@ -1,0 +1,17 @@
+{
+  "compared": [
+    "phase2",
+    "pipeline_ready"
+  ],
+  "differences": [
+    "files/files/src/experiments/compare_epochs.py: '8dc49a3abd31d450cd77e7f4338170519245048defa4c390db487051553bfa03' != '921aa995d2ffee7404ef7a2a8ff99d81d1dfcc8957f85192d294979aa5341af6'",
+    "files/files/src/experiments/eval_finetune.py: '2c1cf81189bdff9bc1fe05f6ef71dfe0340ddc19ea3507d8db0a1d8542da4707' != '5e7f0bccb5a67ce7c77cf41e2dba685ba76c2535736f1b40c605574a16a6a143'"
+  ],
+  "allowed_to_change": [
+    "files/files/src/experiments/compare_epochs.py",
+    "files/files/src/experiments/eval_finetune.py",
+    "files/files/src/experiments/finetune_lora.py"
+  ],
+  "unexpected_differences": [],
+  "identical_apart_from_allowed": true
+}

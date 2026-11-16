@@ -1,0 +1,12 @@
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.10.0+cu130).
+W0917 00:33:50.262000 27820 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+This model config has set a `rope_parameters['original_max_position_embeddings']` field, to be used together with `max_position_embeddings` to determine a scaling factor. Please set the `factor` field of `rope_parameters`with this ratio instead -- we recommend the use of this field over `original_max_position_embeddings`, as it is compatible with most model architectures.
+supervisor: 60 longest and 300 sampled rows
+qwen: {'supervisor': {'max_over_longest_rows': 1724, 'sample_median': 1603.0, 'sample_mean': 1568.0, 'sample_p99': 1672}}
+granite: {'supervisor': {'max_over_longest_rows': 1611, 'sample_median': 1554.0, 'sample_mean': 1514.7, 'sample_p99': 1580}}
+phi: {'supervisor': {'max_over_longest_rows': 1387, 'sample_median': 1355.0, 'sample_mean': 1321.1, 'sample_p99': 1381}}
+ministral: {'supervisor': {'max_over_longest_rows': 1770, 'sample_median': 1649.0, 'sample_mean': 1612.4, 'sample_p99': 1718}}
+gemma: {'supervisor': {'max_over_longest_rows': 1844, 'sample_median': 1722.0, 'sample_mean': 1684.0, 'sample_p99': 1792}}
+smollm3: {'supervisor': {'max_over_longest_rows': 1433, 'sample_median': 1401.0, 'sample_mean': 1367.1, 'sample_p99': 1427}}
+max tokens {'supervisor': 1844}, windows {'supervisor': 2048}
+exit 0

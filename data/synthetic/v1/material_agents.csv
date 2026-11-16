@@ -1,0 +1,9 @@
+agent_id,stage,material_types,default_completion_days,min_profit_margin,initial_markup,defect_probability,reputation_score,location,available_kg_cotton,base_cost_per_kg_cotton,restock_amount_kg_cotton,restock_time_days_cotton,available_kg_polyester,base_cost_per_kg_polyester,restock_amount_kg_polyester,restock_time_days_polyester,available_kg_linen,base_cost_per_kg_linen,restock_amount_kg_linen,restock_time_days_linen,available_kg_leather,base_cost_per_kg_leather,restock_amount_kg_leather,restock_time_days_leather,available_kg_denim,base_cost_per_kg_denim,restock_amount_kg_denim,restock_time_days_denim
+M1,material,cotton|polyester,2,0.1,0.3,0.04,0.5,Oulu,900.0,4.5,1200.0,3.0,700.0,3.5,1000.0,2.0,,,,,,,,,,,,
+M2,material,cotton|linen,1,0.1,0.3,0.03,0.5,Helsinki,1300.0,3.8,1800.0,2.0,,,,,350.0,9.5,500.0,4.0,,,,,,,,
+M3,material,denim|polyester,2,0.1,0.3,0.05,0.5,Tampere,,,,,1100.0,2.8,1500.0,1.0,,,,,,,,,500.0,6.0,700.0,3.0
+M4,material,leather|linen,3,0.1,0.3,0.02,0.5,Turku,,,,,,,,,250.0,10.5,400.0,5.0,80.0,26.0,120.0,8.0,,,,
+M5,material,cotton|linen|polyester,1,0.1,0.3,0.03,0.5,Espoo,1600.0,3.5,2500.0,2.0,1400.0,2.5,2000.0,1.0,500.0,8.5,700.0,4.0,,,,,,,,
+M6,material,denim|leather,2,0.1,0.3,0.03,0.5,Lahti,,,,,,,,,,,,,150.0,22.0,250.0,7.0,750.0,5.5,1000.0,3.0
+M7,material,cotton,1,0.1,0.3,0.02,0.5,Jyvaskyla,1950.0,3.0,3000.0,2.0,,,,,,,,,,,,,,,,
+M8,material,denim|linen|polyester,2,0.1,0.3,0.04,0.5,Helsinki,,,,,900.0,3.2,1300.0,2.0,450.0,8.0,600.0,4.0,,,,,620.0,7.0,900.0,4.0

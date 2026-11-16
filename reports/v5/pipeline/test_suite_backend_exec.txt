@@ -1,0 +1,116 @@
+  ok   tests.test_auction_rounds           11 passed     0.1s
+[supervisor] order 'ORD-JUNK' has unreadable order_created 'not-a-timestamp', falling back to the real clock
+  ok   tests.test_deadline_anchor          11 passed     0.5s
+  ok   tests.test_v4_golden                 9 passed    53.5s
+  ok   tests.test_dataset_context          19 passed     0.0s
+  ok   tests.test_dataset_schemas          18 passed     2.1s
+  ok   tests.test_source_manifest          30 passed     0.6s
+  ok   tests.test_history_lookup           27 passed     0.0s
+  ok   tests.test_fx                       30 passed    11.0s
+  ok   tests.test_logistics_sources        19 passed     0.2s
+  ok   tests.test_logistics_calibration    16 passed     0.1s
+  ok   tests.test_material_pricing         17 passed     6.4s
+  ok   tests.test_route_distance           10 passed     1.2s
+  ok   tests.test_v5_synthesis             29 passed    16.9s
+  ok   tests.test_freight_assignment       12 passed     0.3s
+  ok   tests.test_calibration_proposal_v3  14 passed     5.8s
+  ok   tests.test_l09_counterfactual        8 passed     0.0s
+  ok   tests.test_v5_wiring                21 passed     7.8s
+  ok   tests.test_v5_floor_boundary         4 passed     7.2s
+  ok   tests.test_v5_finetune_corpus        6 passed    18.7s
+W0917 03:10:04.525000 43028 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+  ok   tests.test_v5_supervisor_selection  13 passed    21.7s
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmps9ongnul
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmp18dnzviz
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmpc3rb5y3b
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend rocm, profile lumi, optimizer adamw_torch
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmprdgs96on
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+backend cuda, profile roihu, optimizer adamw_8bit
+13 script(s) written to /anonymous/home\AppData\Local\Temp\tmp7fjq3fxv
+  train_gemma_sealed.sh
+  train_gemma_reverse_auction.sh
+  train_granite_sealed.sh
+  train_granite_reverse_auction.sh
+  train_ministral_sealed.sh
+  train_ministral_reverse_auction.sh
+  train_phi_sealed.sh
+  train_phi_reverse_auction.sh
+  train_qwen_sealed.sh
+  train_qwen_reverse_auction.sh
+  train_smollm3_sealed.sh
+  train_smollm3_reverse_auction.sh
+  submit_all.sh
+
+nothing was submitted; review the scripts, set COB_PROFILE_ROOT and the account, then run submit_all.sh on the cluster
+  ok   tests.test_v5_execution             18 passed     0.4s
+  ok   tests.test_v5_prompt_wording         7 passed     7.2s
+  ok   tests.test_v5_epoch_selection       12 passed     0.2s
+  ok   tests.test_v5_training_subsample     8 passed     8.8s
+
+369 passed, 0 failed in 170.7s
+exit 0

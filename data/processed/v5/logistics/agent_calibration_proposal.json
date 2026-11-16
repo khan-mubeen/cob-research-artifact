@@ -1,0 +1,1119 @@
+{
+  "status": "proposal awaiting one more review before it is made final and regenerated for real. production data/synthetic/v5/ and data/processed/v5/logistics/agent_calibration.csv are untouched by it",
+  "purpose": "a proposed 12-agent logistics calibration: every F and alpha recomputed from a pinned raw record, every weight domain with an explicit minimum and maximum, every assignment traced to the agent's own v4 specialty text",
+  "model": "every agent prices with the continuous F + alpha x kg + beta x (kg / 1000) x km, then the shared fuel surcharge, damage, priority and USD conversion as in production. no agent uses a discrete tariff lookup",
+  "role_of_proposal": "the proposal as specified: large and bulk specialists take the 1000-1500 kg segment, the first near-flat Lavarahti segment",
+  "inputs_sha256": {
+    "data/raw/v5/logistics/rate_calibration/posti_parcel.json": "840fa1b0fb8cf41ff48f00e87489d9aa29d2b27e113053d5ccbd50a66b0e8469",
+    "data/raw/v5/logistics/rate_calibration/posti_express_freight.json": "82ac5615fac17bae8c53b03d5dc02f6309f1f6f9051261746ded22bb7665a310",
+    "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json": "2a8c1cb41f8c64d676172e405f67d0c88812fde74480f642558712eca242d0bf",
+    "data/raw/v5/logistics/rate_calibration/postnord_parcel_zones.json": "770456458b65c17e5043a8db368e4a94da7b7ef5f9405a17ae466c45fc3073ee",
+    "data/synthetic/v4/logistics_agents.csv": "56b6145189e746007184bcf983b16bc7e39b6e2988f8f4f10969cd764a7444cf"
+  },
+  "eligibility_rule": "eligible when min_shipment_weight_kg <= weight and weight <= max_shipment_weight_kg (or < when max_weight_inclusive is false). Lavarahti segments are half-open because the next bracket starts at the maximum; the price list states no rounding rule for chargeable weight, so a fractional weight just below a bracket start stays in the lower segment",
+  "parcel_corner": {
+    "posti_evidence_search": {
+      "documents_read": [
+        {
+          "document": "Parcel services - digital contract prices",
+          "url": "https://www.posti.fi/mzj3zpe8qb7p/63bn2u74jGXSHu1IK0KTOk/8ed1177829b3ef1d403e467de8588375/posti-digital-contract-prices-202501.pdf",
+          "sha256_of_pdf_read": "f54e75423fb790765238e8cb4beb1a315b4007128b20b9a46d3c798a4da52c6b",
+          "pinned_record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+          "dating_as_printed": "no start date: 'Valid until further notice, less than 500 parcels per calendar year'; footer '© Posti June 15, 2024'; file name 202501"
+        },
+        {
+          "document": "Kotimaan tavarankuljetuspalvelut - Sopimushinnasto 16.11.2025",
+          "url": "https://assets.ctfassets.net/dvxpcmq06s7e/2KEbIynQDBmrCouchzrJ2Q/453d09672354ec0a4a5d2eb7bf618766/posti-paketti-ja-express-rahti-sopimushinnasto-kotimaan-kuljetuspalvelut-20251116.pdf",
+          "sha256_of_pdf_read": "3c8caa84441fe1dc4d28f38eb6588fba814a62d7d4eece6f1212e876eaddd69d",
+          "pinned_record": "data/raw/v5/logistics/rate_calibration/posti_express_freight.json (freight tables only)"
+        },
+        {
+          "document": "Parcel Services and Express Freight - Contract Prices, September 30, 2024",
+          "url": "https://www.posti.fi/mzj3zpe8qb7p/7s9AsOwmnECySlx35uEAFO/2554fda2bfcab7eb8d7ac9a0ee51dcae/posti-parcel-services-and-express-freight-contract-prices-20240930.pdf",
+          "sha256_of_pdf_read": "922d3dd10b44f8aa0b81bda85132a492b06f1e38b13df40b12e216d5cf1a9a04",
+          "pinned_record": "none; english wording and unit limits for posti_express_freight.json"
+        }
+      ],
+      "domestic_products_considered": [
+        {
+          "product": "Postal Parcel, Express Parcel, Home Parcel (digital, price level 1)",
+          "printed_as": [
+            "Postal Parcel (larger than 26 x 32 x 40 cm) 5.90 0.30",
+            "Express Parcel (over 26 x 32 x 40 cm) 8.90 0.30",
+            "Home Parcel (over 26 x 32 x 40 cm) 10.90 0.30"
+          ],
+          "decision": "used: the three direct F + alpha pairs, pinned in posti_parcel.json"
+        },
+        {
+          "product": "Postal, Home and Express Parcel (digital, price level 2)",
+          "printed_as": [
+            "Postal Parcel (larger than 26 x 32 x 40 cm) 5.70 0.30",
+            "Home Parcel (over 26 x 32 x 40 cm) 10.50 0.30",
+            "Express Parcel (over 26 x 32 x 40 cm) 8.50 0.30"
+          ],
+          "decision": "not used: the same three services at a volume tier, 'Price level 2 comes into force when the number of items exceeds 500 in a calendar year', not distinct services"
+        },
+        {
+          "product": "Return / Unclaimed Shipment (digital)",
+          "printed_as": [
+            "Return / Unclaimed Shipment (over 26 x 32 x 40 cm) 6.90 0.30"
+          ],
+          "decision": "not used: a return service, not an outbound delivery"
+        },
+        {
+          "product": "Postipaketti, Kotipaketti, Express-paketti 14 (contract list 16.11.2025)",
+          "printed_as": [
+            "Postipaketti 8,49 0,37",
+            "Kotipaketti 15,38 0,37",
+            "Express-paketti 14 14,31 0,35"
+          ],
+          "decision": "not used: the same three services on the contract-customer price list. assigning one would separate agents by which price list they use, not by what service they sell"
+        },
+        {
+          "product": "Express-paketti aamuksi 09 (Express Parcel Morning 09, contract list)",
+          "printed_as": [
+            "Express-paketti aamuksi 09 20,32 0,37"
+          ],
+          "decision": "a genuinely distinct service tier, timed morning delivery, but no parcel agent's specialty mentions morning or timed delivery"
+        },
+        {
+          "product": "Express-paketti samana päivänä 00 (Express Parcel Same-day 00, contract list)",
+          "printed_as": [
+            "Express-paketti samana päivänä 00 11,63 0,09"
+          ],
+          "decision": "a genuinely distinct service tier, same-day delivery, but no parcel agent's specialty mentions same-day delivery"
+        },
+        {
+          "product": "Small Parcel, Small Parcel To Door (digital)",
+          "printed_as": [
+            "Small Parcel 4.50",
+            "Small Parcel To Door 4.90"
+          ],
+          "decision": "not an F + alpha pair (no per-kg price) and limited to 'maximum weight: 2 kg for mail slot/4 kg for door', below the lightest simulated shipment"
+        },
+        {
+          "product": "Express Freight loose package, zone 0 (Irtokolli)",
+          "printed_as": [
+            "0 40,00 62,32 53,25 89,59 75,04 129,91 108,8"
+          ],
+          "decision": "not an F + alpha pair: one unit price up to 'Maximum gross weight 35 kg', so alpha would be 0. with the separate pickup it prices any shipment up to 35 kg at 80.33 EUR"
+        }
+      ],
+      "outcome": "no further directly printed Posti product matches L06's or L12's specialty text. Posti's additional products exist but fit no parcel agent's documented service"
+    },
+    "postnord": {
+      "pinned_source": "https://www.postnord.fi/siteassets/pdf/hinnastot/online_prices_2026-02-01_en.pdf",
+      "pinned_source_status": "still unreadable on 2026-09-13: HTTP 403 again, and the Internet Archive holds no capture of this url",
+      "archived_edition_read": {
+        "url": "https://web.archive.org/web/20250518165646id_/https://www.postnord.fi/siteassets/pdf/hinnastot/online_prices_2025-01-01_en.pdf",
+        "title_as_printed": "PostNord Oy service price list 1.1.2025",
+        "sha256_of_pdf_read": "f63e38d89a9fb5ec8c4a967d45a4347398cb10f3c481ca74bf3b03c2b2ad09ca",
+        "relation_to_pinned_record": "a different, older edition. its domestic tables have no zone A/B/C 15.01-20 kg bracket, so it cannot stand in for the pinned record"
+      },
+      "safeguard_findings": [
+        "the bracket tables do not end at a service maximum. Service Point and Parcel Locker brackets stop at '30,01 - 35 kg', followed by '€/1 kg 0,27' and 'If the freight weight exceeds 35 kg, an extra fee for every following kilogram applies (€/1 kg).'; MyPack Home and Parcel B2B print '0-30 kg' with 'If the freight weight exceeds 30 kg, an extra fee for every following kilogram applies'",
+        "the price list states no maximum weight: 'You can find the parcel size limits and more specific shipping instructions in the special terms and conditions document that can be found on our website.' that document was not read, so no PostNord service limit is evidenced here"
+      ],
+      "decision": "not used. PostNord is only for an agent whose specialty gives a reason to differ from a Posti duplicate, and neither L06 nor L12 does, see parcel_duplicates"
+    },
+    "parcel_duplicates": {
+      "L06": "names the same budget tier as L03 ('lowest base cost' against L03's 'cheapest base cost'); its 'central and northern' wording is its service_regions, not a different service. no reason to leave Posti: honest duplication of L03's Postal Parcel reading",
+      "L12": "'careful' and 'second lowest damage' are handling risk, which its damage_probability already carries, and 'light loads' is the parcel corner itself. it names no service tier, so it takes the standard doorstep product, Home Parcel: honest duplication of L10's reading"
+    },
+    "db_schenker_dsv": "dropped from consideration by the supervisor: its only published Finland domestic table caps at 99 kg across several packages of under 30 kg each, a multi-package limit a single shipment_weight_kg cannot represent"
+  },
+  "freight_corner": {
+    "rule": "size language in the agent's own v4 specialty text: large or bulk words take the heavy segment, small words the sub-1000 kg segment, medium words alone a mid-weight Posti Express Freight reading, no size words the sub-1000 kg segment. agents with no documented size specialization share a reading; that duplication is the intended, honest outcome",
+    "size_words": {
+      "small": [
+        "small",
+        "light",
+        "low-load"
+      ],
+      "medium": [
+        "medium"
+      ],
+      "large": [
+        "large",
+        "bulk",
+        "high capacity"
+      ]
+    },
+    "lavarahti_weight_segments": [
+      {
+        "segment_kg": [
+          0,
+          1000
+        ],
+        "brackets": 20,
+        "first_and_last_bracket_eur_1_49_km": [
+          29.71,
+          119.62
+        ],
+        "largest_step_between_brackets_inside_eur": 6.37,
+        "jump_from_previous_bracket_eur": null,
+        "secant": {
+          "reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+          "corner": "freight",
+          "carrier": "Matkahuolto",
+          "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+          "fixed_charge_eur": 42.396668449197854,
+          "alpha_eur_per_kg": 0.1269197860962567,
+          "arithmetic": "(29.71 + pickup 17.70) at 39.5 kg and (119.62 + pickup 46.46) at 974.5 kg: alpha = (166.08 - 47.41) / (974.5 - 39.5) = 0.126920 EUR/kg; F = 47.41 - 0.126920 x 39.5 = 42.3967 EUR",
+          "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+          "points": [
+            {
+              "bracket_kg": "0-79",
+              "midpoint_kg": 39.5,
+              "freight_eur": 29.71,
+              "pickup_row_up_to_kg": 79,
+              "pickup_eur": 17.7,
+              "total_eur": 47.41
+            },
+            {
+              "bracket_kg": "950-999",
+              "midpoint_kg": 974.5,
+              "freight_eur": 119.62,
+              "pickup_row_up_to_kg": 1999,
+              "pickup_eur": 46.46,
+              "total_eur": 166.08
+            }
+          ],
+          "brackets_inside": 20,
+          "min_shipment_weight_kg": 0.0,
+          "max_shipment_weight_kg": 1000.0,
+          "max_weight_inclusive": false,
+          "oversized_above_kg": null,
+          "oversized_fee_eur": null,
+          "domain_basis": "the secant runs from the 0-79 kg bracket to the 950-999 kg bracket, so it is evidenced from 0 kg up to the next bracket's start at 1000 kg, even though the tariff continues on both sides"
+        }
+      },
+      {
+        "segment_kg": [
+          1000,
+          1500
+        ],
+        "brackets": 5,
+        "first_and_last_bracket_eur_1_49_km": [
+          129.78,
+          133.12
+        ],
+        "largest_step_between_brackets_inside_eur": 0.87,
+        "jump_from_previous_bracket_eur": 10.16,
+        "secant": {
+          "reading_id": "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup",
+          "corner": "freight",
+          "carrier": "Matkahuolto",
+          "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+          "fixed_charge_eur": 167.476675,
+          "alpha_eur_per_kg": 0.008350000000000008,
+          "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (133.12 + pickup 46.46) at 1449.5 kg: alpha = (179.58 - 176.24) / (1449.5 - 1049.5) = 0.008350 EUR/kg; F = 176.24 - 0.008350 x 1049.5 = 167.4767 EUR",
+          "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+          "points": [
+            {
+              "bracket_kg": "1000-1099",
+              "midpoint_kg": 1049.5,
+              "freight_eur": 129.78,
+              "pickup_row_up_to_kg": 1999,
+              "pickup_eur": 46.46,
+              "total_eur": 176.24
+            },
+            {
+              "bracket_kg": "1400-1499",
+              "midpoint_kg": 1449.5,
+              "freight_eur": 133.12,
+              "pickup_row_up_to_kg": 1999,
+              "pickup_eur": 46.46,
+              "total_eur": 179.58
+            }
+          ],
+          "brackets_inside": 5,
+          "min_shipment_weight_kg": 1000.0,
+          "max_shipment_weight_kg": 1500.0,
+          "max_weight_inclusive": false,
+          "oversized_above_kg": null,
+          "oversized_fee_eur": null,
+          "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 1400-1499 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 1500 kg, even though the tariff continues on both sides"
+        }
+      },
+      {
+        "segment_kg": [
+          1500,
+          2000
+        ],
+        "brackets": 5,
+        "first_and_last_bracket_eur_1_49_km": [
+          144.48,
+          151.13
+        ],
+        "largest_step_between_brackets_inside_eur": 1.71,
+        "jump_from_previous_bracket_eur": 11.36,
+        "secant": {
+          "reading_id": "matkahuolto_lavarahti_1_49km_1500_to_2000kg_with_pickup",
+          "corner": "freight",
+          "carrier": "Matkahuolto",
+          "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+          "fixed_charge_eur": 165.17956249999997,
+          "alpha_eur_per_kg": 0.016625000000000015,
+          "arithmetic": "(144.48 + pickup 46.46) at 1549.5 kg and (151.13 + pickup 46.46) at 1949.5 kg: alpha = (197.59 - 190.94) / (1949.5 - 1549.5) = 0.016625 EUR/kg; F = 190.94 - 0.016625 x 1549.5 = 165.1796 EUR",
+          "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+          "points": [
+            {
+              "bracket_kg": "1500-1599",
+              "midpoint_kg": 1549.5,
+              "freight_eur": 144.48,
+              "pickup_row_up_to_kg": 1999,
+              "pickup_eur": 46.46,
+              "total_eur": 190.94
+            },
+            {
+              "bracket_kg": "1900-1999",
+              "midpoint_kg": 1949.5,
+              "freight_eur": 151.13,
+              "pickup_row_up_to_kg": 1999,
+              "pickup_eur": 46.46,
+              "total_eur": 197.59
+            }
+          ],
+          "brackets_inside": 5,
+          "min_shipment_weight_kg": 1500.0,
+          "max_shipment_weight_kg": 2000.0,
+          "max_weight_inclusive": false,
+          "oversized_above_kg": null,
+          "oversized_fee_eur": null,
+          "domain_basis": "the secant runs from the 1500-1599 kg bracket to the 1900-1999 kg bracket, so it is evidenced from 1500 kg up to the next bracket's start at 2000 kg, even though the tariff continues on both sides"
+        }
+      },
+      {
+        "segment_kg": [
+          2000,
+          2500
+        ],
+        "brackets": 5,
+        "first_and_last_bracket_eur_1_49_km": [
+          164.43,
+          171.17
+        ],
+        "largest_step_between_brackets_inside_eur": 1.73,
+        "jump_from_previous_bracket_eur": 13.3,
+        "secant": {
+          "reading_id": "matkahuolto_lavarahti_1_49km_2000_to_2500kg_with_pickup",
+          "corner": "freight",
+          "carrier": "Matkahuolto",
+          "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+          "fixed_charge_eur": 181.0259250000001,
+          "alpha_eur_per_kg": 0.016849999999999952,
+          "arithmetic": "(164.43 + pickup 51.13) at 2049.5 kg and (171.17 + pickup 51.13) at 2449.5 kg: alpha = (222.30 - 215.56) / (2449.5 - 2049.5) = 0.016850 EUR/kg; F = 215.56 - 0.016850 x 2049.5 = 181.0259 EUR",
+          "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+          "points": [
+            {
+              "bracket_kg": "2000-2099",
+              "midpoint_kg": 2049.5,
+              "freight_eur": 164.43,
+              "pickup_row_up_to_kg": 14999,
+              "pickup_eur": 51.13,
+              "total_eur": 215.56
+            },
+            {
+              "bracket_kg": "2400-2499",
+              "midpoint_kg": 2449.5,
+              "freight_eur": 171.17,
+              "pickup_row_up_to_kg": 14999,
+              "pickup_eur": 51.13,
+              "total_eur": 222.29999999999998
+            }
+          ],
+          "brackets_inside": 5,
+          "min_shipment_weight_kg": 2000.0,
+          "max_shipment_weight_kg": 2500.0,
+          "max_weight_inclusive": false,
+          "oversized_above_kg": null,
+          "oversized_fee_eur": null,
+          "domain_basis": "the secant runs from the 2000-2099 kg bracket to the 2400-2499 kg bracket, so it is evidenced from 2000 kg up to the next bracket's start at 2500 kg, even though the tariff continues on both sides"
+        }
+      },
+      {
+        "segment_kg": [
+          2500,
+          3000
+        ],
+        "brackets": 5,
+        "first_and_last_bracket_eur_1_49_km": [
+          188.07,
+          194.92
+        ],
+        "largest_step_between_brackets_inside_eur": 1.75,
+        "jump_from_previous_bracket_eur": 16.9,
+        "secant": {
+          "reading_id": "matkahuolto_lavarahti_1_49km_2500_to_3000kg_with_pickup",
+          "corner": "freight",
+          "carrier": "Matkahuolto",
+          "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+          "fixed_charge_eur": 195.5398125,
+          "alpha_eur_per_kg": 0.017124999999999987,
+          "arithmetic": "(188.07 + pickup 51.13) at 2549.5 kg and (194.92 + pickup 51.13) at 2949.5 kg: alpha = (246.05 - 239.20) / (2949.5 - 2549.5) = 0.017125 EUR/kg; F = 239.20 - 0.017125 x 2549.5 = 195.5398 EUR",
+          "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+          "points": [
+            {
+              "bracket_kg": "2500-2599",
+              "midpoint_kg": 2549.5,
+              "freight_eur": 188.07,
+              "pickup_row_up_to_kg": 14999,
+              "pickup_eur": 51.13,
+              "total_eur": 239.2
+            },
+            {
+              "bracket_kg": "2900-2999",
+              "midpoint_kg": 2949.5,
+              "freight_eur": 194.92,
+              "pickup_row_up_to_kg": 14999,
+              "pickup_eur": 51.13,
+              "total_eur": 246.04999999999998
+            }
+          ],
+          "brackets_inside": 5,
+          "min_shipment_weight_kg": 2500.0,
+          "max_shipment_weight_kg": 3000.0,
+          "max_weight_inclusive": false,
+          "oversized_above_kg": null,
+          "oversized_fee_eur": null,
+          "domain_basis": "the secant runs from the 2500-2599 kg bracket to the 2900-2999 kg bracket, so it is evidenced from 2500 kg up to the next bracket's start at 3000 kg, even though the tariff continues on both sides"
+        }
+      }
+    ],
+    "segments_note": "no earlier report names the tariff's weight regimes. the 1-49 km column shows five segments up to the 3000 kg cap, with jumps into 1000, 1500, 2000 and 2500 kg larger than any step between the brackets inside the neighbouring segments",
+    "shipment_weights_read_only": {
+      "median_kg": 244.3,
+      "share_below_1000_kg_pct": 88.3,
+      "share_35_to_500_kg_pct": 63.5,
+      "share_500_to_1000_kg_pct": 18.7,
+      "share_1500_kg_and_over_pct": 5.2,
+      "shipments_at_exactly_3000_kg": 3
+    }
+  },
+  "readings": {
+    "posti_postal_parcel": {
+      "reading_id": "posti_postal_parcel",
+      "corner": "parcel",
+      "carrier": "Posti",
+      "service": "Postal Parcel, digital contract prices, price level 1",
+      "fixed_charge_eur": 5.9,
+      "alpha_eur_per_kg": 0.3,
+      "arithmetic": "direct: F = 5.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Postal Parcel (larger than 26 x 32 x 40 cm) 5.90 0.30' (page 1)",
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 25.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "Postal Parcel carries up to 25 kg; the Oversized additional service does not raise its weight limit (25 kg), so it is capped at 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "source_wording": {
+        "base": "maximum weight 25 kg",
+        "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+        "oversized_fee": "€ 3.50",
+        "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+        "page": "weight limits page 6"
+      }
+    },
+    "posti_express_parcel": {
+      "reading_id": "posti_express_parcel",
+      "corner": "parcel",
+      "carrier": "Posti",
+      "service": "Express Parcel, digital contract prices, price level 1",
+      "fixed_charge_eur": 8.9,
+      "alpha_eur_per_kg": 0.3,
+      "arithmetic": "direct: F = 8.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Express Parcel (over 26 x 32 x 40 cm) 8.90 0.30' (page 1)",
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 35.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "domain_basis": "Express Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "source_wording": {
+        "base": "maximum weight 25 kg",
+        "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+        "oversized_fee": "€ 3.50",
+        "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+        "page": "weight limits page 6"
+      }
+    },
+    "posti_home_parcel": {
+      "reading_id": "posti_home_parcel",
+      "corner": "parcel",
+      "carrier": "Posti",
+      "service": "Home Parcel, digital contract prices, price level 1",
+      "fixed_charge_eur": 10.9,
+      "alpha_eur_per_kg": 0.3,
+      "arithmetic": "direct: F = 10.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Home Parcel (over 26 x 32 x 40 cm) 10.90 0.30' (page 1)",
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 35.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "domain_basis": "Home Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "source_wording": {
+        "base": "maximum weight 25 kg",
+        "with_oversized": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+        "oversized_fee": "€ 3.50",
+        "record": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+        "page": "weight limits page 6"
+      }
+    },
+    "posti_express_freight_zone0_loose_to_half_pallet_with_pickup": {
+      "reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+      "corner": "freight",
+      "carrier": "Posti",
+      "service": "Express-rahti 14 (Express Freight), zone 0, door to door with the separate pickup",
+      "fixed_charge_eur": 78.65,
+      "alpha_eur_per_kg": 0.048,
+      "arithmetic": "alpha = (62.32 - 40.00) / (500 - 35) = 0.048000 EUR/kg; F = 40.00 - 0.048000 x 35 + pickup 40.33 = 78.6500 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/posti_express_freight.json Express-rahti 14 zone 0 'loose_package' and 'half_pallet_first_unit', separate_pickup_as_printed 1 unit",
+      "min_shipment_weight_kg": 35.0,
+      "max_shipment_weight_kg": 500.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the two prices are placed at the units' printed gross limits, 'Loose colli: Maximum gross weight 35 kg' and 'Half pallet: Maximum width 60 cm, Maximum length 80 cm, Maximum gross weight 500 kg', so the line is evidenced from 35 to 500 kg"
+    },
+    "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup": {
+      "reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+      "corner": "freight",
+      "carrier": "Posti",
+      "service": "Express-rahti 14 (Express Freight), zone 0, door to door with the separate pickup",
+      "fixed_charge_eur": 75.38,
+      "alpha_eur_per_kg": 0.054540000000000005,
+      "arithmetic": "alpha = (89.59 - 62.32) / (1000 - 500) = 0.054540 EUR/kg; F = 62.32 - 0.054540 x 500 + pickup 40.33 = 75.3800 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/posti_express_freight.json Express-rahti 14 zone 0 'half_pallet_first_unit' and 'pallet_first_unit', separate_pickup_as_printed 1 unit",
+      "min_shipment_weight_kg": 500.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the two prices are placed at the units' printed gross limits, 'Half pallet: Maximum width 60 cm, Maximum length 80 cm, Maximum gross weight 500 kg' and 'Pallet: Maximum width 120 cm, Maximum length 100 cm, Maximum gross weight 1000 kg', so the line is evidenced from 500 to 1000 kg"
+    },
+    "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+      "corner": "freight",
+      "carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 42.396668449197854,
+      "alpha_eur_per_kg": 0.1269197860962567,
+      "arithmetic": "(29.71 + pickup 17.70) at 39.5 kg and (119.62 + pickup 46.46) at 974.5 kg: alpha = (166.08 - 47.41) / (974.5 - 39.5) = 0.126920 EUR/kg; F = 47.41 - 0.126920 x 39.5 = 42.3967 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "points": [
+        {
+          "bracket_kg": "0-79",
+          "midpoint_kg": 39.5,
+          "freight_eur": 29.71,
+          "pickup_row_up_to_kg": 79,
+          "pickup_eur": 17.7,
+          "total_eur": 47.41
+        },
+        {
+          "bracket_kg": "950-999",
+          "midpoint_kg": 974.5,
+          "freight_eur": 119.62,
+          "pickup_row_up_to_kg": 1999,
+          "pickup_eur": 46.46,
+          "total_eur": 166.08
+        }
+      ],
+      "brackets_inside": 20,
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the secant runs from the 0-79 kg bracket to the 950-999 kg bracket, so it is evidenced from 0 kg up to the next bracket's start at 1000 kg, even though the tariff continues on both sides"
+    },
+    "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup",
+      "corner": "freight",
+      "carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 167.476675,
+      "alpha_eur_per_kg": 0.008350000000000008,
+      "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (133.12 + pickup 46.46) at 1449.5 kg: alpha = (179.58 - 176.24) / (1449.5 - 1049.5) = 0.008350 EUR/kg; F = 176.24 - 0.008350 x 1049.5 = 167.4767 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "points": [
+        {
+          "bracket_kg": "1000-1099",
+          "midpoint_kg": 1049.5,
+          "freight_eur": 129.78,
+          "pickup_row_up_to_kg": 1999,
+          "pickup_eur": 46.46,
+          "total_eur": 176.24
+        },
+        {
+          "bracket_kg": "1400-1499",
+          "midpoint_kg": 1449.5,
+          "freight_eur": 133.12,
+          "pickup_row_up_to_kg": 1999,
+          "pickup_eur": 46.46,
+          "total_eur": 179.58
+        }
+      ],
+      "brackets_inside": 5,
+      "min_shipment_weight_kg": 1000.0,
+      "max_shipment_weight_kg": 1500.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 1400-1499 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 1500 kg, even though the tariff continues on both sides"
+    },
+    "matkahuolto_lavarahti_1_49km_1500_to_2000kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_1500_to_2000kg_with_pickup",
+      "corner": "freight",
+      "carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 165.17956249999997,
+      "alpha_eur_per_kg": 0.016625000000000015,
+      "arithmetic": "(144.48 + pickup 46.46) at 1549.5 kg and (151.13 + pickup 46.46) at 1949.5 kg: alpha = (197.59 - 190.94) / (1949.5 - 1549.5) = 0.016625 EUR/kg; F = 190.94 - 0.016625 x 1549.5 = 165.1796 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "points": [
+        {
+          "bracket_kg": "1500-1599",
+          "midpoint_kg": 1549.5,
+          "freight_eur": 144.48,
+          "pickup_row_up_to_kg": 1999,
+          "pickup_eur": 46.46,
+          "total_eur": 190.94
+        },
+        {
+          "bracket_kg": "1900-1999",
+          "midpoint_kg": 1949.5,
+          "freight_eur": 151.13,
+          "pickup_row_up_to_kg": 1999,
+          "pickup_eur": 46.46,
+          "total_eur": 197.59
+        }
+      ],
+      "brackets_inside": 5,
+      "min_shipment_weight_kg": 1500.0,
+      "max_shipment_weight_kg": 2000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the secant runs from the 1500-1599 kg bracket to the 1900-1999 kg bracket, so it is evidenced from 1500 kg up to the next bracket's start at 2000 kg, even though the tariff continues on both sides"
+    },
+    "matkahuolto_lavarahti_1_49km_2000_to_2500kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_2000_to_2500kg_with_pickup",
+      "corner": "freight",
+      "carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 181.0259250000001,
+      "alpha_eur_per_kg": 0.016849999999999952,
+      "arithmetic": "(164.43 + pickup 51.13) at 2049.5 kg and (171.17 + pickup 51.13) at 2449.5 kg: alpha = (222.30 - 215.56) / (2449.5 - 2049.5) = 0.016850 EUR/kg; F = 215.56 - 0.016850 x 2049.5 = 181.0259 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "points": [
+        {
+          "bracket_kg": "2000-2099",
+          "midpoint_kg": 2049.5,
+          "freight_eur": 164.43,
+          "pickup_row_up_to_kg": 14999,
+          "pickup_eur": 51.13,
+          "total_eur": 215.56
+        },
+        {
+          "bracket_kg": "2400-2499",
+          "midpoint_kg": 2449.5,
+          "freight_eur": 171.17,
+          "pickup_row_up_to_kg": 14999,
+          "pickup_eur": 51.13,
+          "total_eur": 222.29999999999998
+        }
+      ],
+      "brackets_inside": 5,
+      "min_shipment_weight_kg": 2000.0,
+      "max_shipment_weight_kg": 2500.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the secant runs from the 2000-2099 kg bracket to the 2400-2499 kg bracket, so it is evidenced from 2000 kg up to the next bracket's start at 2500 kg, even though the tariff continues on both sides"
+    },
+    "matkahuolto_lavarahti_1_49km_2500_to_3000kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_2500_to_3000kg_with_pickup",
+      "corner": "freight",
+      "carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 195.5398125,
+      "alpha_eur_per_kg": 0.017124999999999987,
+      "arithmetic": "(188.07 + pickup 51.13) at 2549.5 kg and (194.92 + pickup 51.13) at 2949.5 kg: alpha = (246.05 - 239.20) / (2949.5 - 2549.5) = 0.017125 EUR/kg; F = 239.20 - 0.017125 x 2549.5 = 195.5398 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "points": [
+        {
+          "bracket_kg": "2500-2599",
+          "midpoint_kg": 2549.5,
+          "freight_eur": 188.07,
+          "pickup_row_up_to_kg": 14999,
+          "pickup_eur": 51.13,
+          "total_eur": 239.2
+        },
+        {
+          "bracket_kg": "2900-2999",
+          "midpoint_kg": 2949.5,
+          "freight_eur": 194.92,
+          "pickup_row_up_to_kg": 14999,
+          "pickup_eur": 51.13,
+          "total_eur": 246.04999999999998
+        }
+      ],
+      "brackets_inside": 5,
+      "min_shipment_weight_kg": 2500.0,
+      "max_shipment_weight_kg": 3000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the secant runs from the 2500-2599 kg bracket to the 2900-2999 kg bracket, so it is evidenced from 2500 kg up to the next bracket's start at 3000 kg, even though the tariff continues on both sides"
+    },
+    "matkahuolto_lavarahti_1_49km_1000_to_3000kg_with_pickup": {
+      "reading_id": "matkahuolto_lavarahti_1_49km_1000_to_3000kg_with_pickup",
+      "corner": "freight",
+      "carrier": "Matkahuolto",
+      "service": "Lavarahti pallet freight, 1-49 km band, mandatory pickup included",
+      "fixed_charge_eur": 137.6791605263158,
+      "alpha_eur_per_kg": 0.03674210526315788,
+      "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (194.92 + pickup 51.13) at 2949.5 kg: alpha = (246.05 - 176.24) / (2949.5 - 1049.5) = 0.036742 EUR/kg; F = 176.24 - 0.036742 x 1049.5 = 137.6792 EUR",
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "points": [
+        {
+          "bracket_kg": "1000-1099",
+          "midpoint_kg": 1049.5,
+          "freight_eur": 129.78,
+          "pickup_row_up_to_kg": 1999,
+          "pickup_eur": 46.46,
+          "total_eur": 176.24
+        },
+        {
+          "bracket_kg": "2900-2999",
+          "midpoint_kg": 2949.5,
+          "freight_eur": 194.92,
+          "pickup_row_up_to_kg": 14999,
+          "pickup_eur": 51.13,
+          "total_eur": 246.04999999999998
+        }
+      ],
+      "brackets_inside": 20,
+      "min_shipment_weight_kg": 1000.0,
+      "max_shipment_weight_kg": 3000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 2900-2999 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 3000 kg, even though the tariff continues on both sides"
+    }
+  },
+  "agents": [
+    {
+      "agent_id": "L01",
+      "calibration_corner": "freight",
+      "corner_rule": "specialty has no shipment-size wording; freight is the default because the v5 median shipment is 257 kg, far above the 25-35 kg parcel limit",
+      "v4_specialty_quoted": "national carrier, balanced pricing across all cities",
+      "size_language_found": "no size language found",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+      "reading_rule": "no size language found: the most broadly applicable segment, below 1000 kg, where 88.3% of simulated shipments fall",
+      "fixed_charge_eur": 42.396668449197854,
+      "alpha_eur_per_kg": 0.1269197860962567,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "arithmetic": "(29.71 + pickup 17.70) at 39.5 kg and (119.62 + pickup 46.46) at 974.5 kg: alpha = (166.08 - 47.41) / (974.5 - 39.5) = 0.126920 EUR/kg; F = 47.41 - 0.126920 x 39.5 = 42.3967 EUR",
+      "domain_basis": "the secant runs from the 0-79 kg bracket to the 950-999 kg bracket, so it is evidenced from 0 kg up to the next bracket's start at 1000 kg, even though the tariff continues on both sides",
+      "shares_reading_with": [
+        "L02",
+        "L04",
+        "L09"
+      ]
+    },
+    {
+      "agent_id": "L02",
+      "calibration_corner": "freight",
+      "corner_rule": "specialty has no shipment-size wording; freight is the default because the v5 median shipment is 257 kg, far above the 25-35 kg parcel limit",
+      "v4_specialty_quoted": "central finland carrier with fast 2-day intercity service",
+      "size_language_found": "no size language found",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+      "reading_rule": "no size language found: the most broadly applicable segment, below 1000 kg, where 88.3% of simulated shipments fall",
+      "fixed_charge_eur": 42.396668449197854,
+      "alpha_eur_per_kg": 0.1269197860962567,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "arithmetic": "(29.71 + pickup 17.70) at 39.5 kg and (119.62 + pickup 46.46) at 974.5 kg: alpha = (166.08 - 47.41) / (974.5 - 39.5) = 0.126920 EUR/kg; F = 47.41 - 0.126920 x 39.5 = 42.3967 EUR",
+      "domain_basis": "the secant runs from the 0-79 kg bracket to the 950-999 kg bracket, so it is evidenced from 0 kg up to the next bracket's start at 1000 kg, even though the tariff continues on both sides",
+      "shares_reading_with": [
+        "L01",
+        "L04",
+        "L09"
+      ]
+    },
+    {
+      "agent_id": "L03",
+      "calibration_corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small']",
+      "v4_specialty_quoted": "northern budget carrier, cheapest base cost, wins small northern orders",
+      "size_language_found": {
+        "small": [
+          "small"
+        ]
+      },
+      "calibration_reading_id": "posti_postal_parcel",
+      "reading_rule": "specialty mentions budget or cheapest",
+      "fixed_charge_eur": 5.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 25.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "arithmetic": "direct: F = 5.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Postal Parcel (larger than 26 x 32 x 40 cm) 5.90 0.30' (page 1)",
+      "domain_basis": "Postal Parcel carries up to 25 kg; the Oversized additional service does not raise its weight limit (25 kg), so it is capped at 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "shares_reading_with": [
+        "L06"
+      ]
+    },
+    {
+      "agent_id": "L04",
+      "calibration_corner": "freight",
+      "corner_rule": "specialty mentions ['medium']",
+      "v4_specialty_quoted": "southwest carrier, wins small and medium orders in southern cities",
+      "size_language_found": {
+        "small": [
+          "small"
+        ],
+        "medium": [
+          "medium"
+        ]
+      },
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+      "reading_rule": "small-order language ['small']: the light segment, below 1000 kg, which also covers its other size words ['medium']",
+      "fixed_charge_eur": 42.396668449197854,
+      "alpha_eur_per_kg": 0.1269197860962567,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "arithmetic": "(29.71 + pickup 17.70) at 39.5 kg and (119.62 + pickup 46.46) at 974.5 kg: alpha = (166.08 - 47.41) / (974.5 - 39.5) = 0.126920 EUR/kg; F = 47.41 - 0.126920 x 39.5 = 42.3967 EUR",
+      "domain_basis": "the secant runs from the 0-79 kg bracket to the 950-999 kg bracket, so it is evidenced from 0 kg up to the next bracket's start at 1000 kg, even though the tariff continues on both sides",
+      "shares_reading_with": [
+        "L01",
+        "L02",
+        "L09"
+      ]
+    },
+    {
+      "agent_id": "L05",
+      "calibration_corner": "freight",
+      "corner_rule": "specialty mentions ['large']",
+      "v4_specialty_quoted": "premium carrier with lowest damage risk, wins large southern orders",
+      "size_language_found": {
+        "large": [
+          "large"
+        ]
+      },
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup",
+      "reading_rule": "large or bulk language ['large']: the heavy direction, the segment starting at 1000 kg",
+      "fixed_charge_eur": 167.476675,
+      "alpha_eur_per_kg": 0.008350000000000008,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 1000.0,
+      "max_shipment_weight_kg": 1500.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (133.12 + pickup 46.46) at 1449.5 kg: alpha = (179.58 - 176.24) / (1449.5 - 1049.5) = 0.008350 EUR/kg; F = 176.24 - 0.008350 x 1049.5 = 167.4767 EUR",
+      "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 1400-1499 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 1500 kg, even though the tariff continues on both sides",
+      "shares_reading_with": [
+        "L08"
+      ]
+    },
+    {
+      "agent_id": "L06",
+      "calibration_corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small']",
+      "v4_specialty_quoted": "northern budget carrier, lowest base cost, wins small central and northern orders",
+      "size_language_found": {
+        "small": [
+          "small"
+        ]
+      },
+      "calibration_reading_id": "posti_postal_parcel",
+      "reading_rule": "names the same budget tier as L03 ('lowest base cost' against L03's 'cheapest base cost'); its 'central and northern' wording is its service_regions, not a different service. no reason to leave Posti: honest duplication of L03's Postal Parcel reading",
+      "fixed_charge_eur": 5.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 25.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "arithmetic": "direct: F = 5.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Postal Parcel (larger than 26 x 32 x 40 cm) 5.90 0.30' (page 1)",
+      "domain_basis": "Postal Parcel carries up to 25 kg; the Oversized additional service does not raise its weight limit (25 kg), so it is capped at 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "shares_reading_with": [
+        "L03"
+      ]
+    },
+    {
+      "agent_id": "L07",
+      "calibration_corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small']",
+      "v4_specialty_quoted": "express carrier, fastest at 1.5 days intercity, wins urgent small southern orders",
+      "size_language_found": {
+        "small": [
+          "small"
+        ]
+      },
+      "calibration_reading_id": "posti_express_parcel",
+      "reading_rule": "specialty mentions express or fastest",
+      "fixed_charge_eur": 8.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 35.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "arithmetic": "direct: F = 8.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Express Parcel (over 26 x 32 x 40 cm) 8.90 0.30' (page 1)",
+      "domain_basis": "Express Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "shares_reading_with": []
+    },
+    {
+      "agent_id": "L08",
+      "calibration_corner": "freight",
+      "corner_rule": "specialty mentions ['large', 'bulk']",
+      "v4_specialty_quoted": "northern bulk carrier, high capacity, wins large central and northern orders",
+      "size_language_found": {
+        "large": [
+          "large",
+          "bulk",
+          "high capacity"
+        ]
+      },
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup",
+      "reading_rule": "large or bulk language ['large', 'bulk', 'high capacity']: the heavy direction, the segment starting at 1000 kg",
+      "fixed_charge_eur": 167.476675,
+      "alpha_eur_per_kg": 0.008350000000000008,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 1000.0,
+      "max_shipment_weight_kg": 1500.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (133.12 + pickup 46.46) at 1449.5 kg: alpha = (179.58 - 176.24) / (1449.5 - 1049.5) = 0.008350 EUR/kg; F = 176.24 - 0.008350 x 1049.5 = 167.4767 EUR",
+      "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 1400-1499 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 1500 kg, even though the tariff continues on both sides",
+      "shares_reading_with": [
+        "L05"
+      ]
+    },
+    {
+      "agent_id": "L09",
+      "calibration_corner": "freight",
+      "corner_rule": "specialty has no shipment-size wording; freight is the default because the v5 median shipment is 257 kg, far above the 25-35 kg parcel limit",
+      "v4_specialty_quoted": "reliable northern premium carrier, low damage, competes closely with L08",
+      "size_language_found": "no size language found",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+      "reading_rule": "no size language found: the most broadly applicable segment, below 1000 kg, where 88.3% of simulated shipments fall",
+      "fixed_charge_eur": 42.396668449197854,
+      "alpha_eur_per_kg": 0.1269197860962567,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+      "arithmetic": "(29.71 + pickup 17.70) at 39.5 kg and (119.62 + pickup 46.46) at 974.5 kg: alpha = (166.08 - 47.41) / (974.5 - 39.5) = 0.126920 EUR/kg; F = 47.41 - 0.126920 x 39.5 = 42.3967 EUR",
+      "domain_basis": "the secant runs from the 0-79 kg bracket to the 950-999 kg bracket, so it is evidenced from 0 kg up to the next bracket's start at 1000 kg, even though the tariff continues on both sides",
+      "shares_reading_with": [
+        "L01",
+        "L02",
+        "L04"
+      ]
+    },
+    {
+      "agent_id": "L10",
+      "calibration_corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['low-load']",
+      "v4_specialty_quoted": "flexible low-load carrier, balanced across central cities",
+      "size_language_found": {
+        "small": [
+          "low-load"
+        ]
+      },
+      "calibration_reading_id": "posti_home_parcel",
+      "reading_rule": "no budget or express wording: the standard doorstep parcel",
+      "fixed_charge_eur": 10.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 35.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "arithmetic": "direct: F = 10.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Home Parcel (over 26 x 32 x 40 cm) 10.90 0.30' (page 1)",
+      "domain_basis": "Home Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "shares_reading_with": [
+        "L12"
+      ]
+    },
+    {
+      "agent_id": "L11",
+      "calibration_corner": "freight",
+      "corner_rule": "specialty mentions ['medium']",
+      "v4_specialty_quoted": "southern specialist, wins medium orders in Turku, Helsinki, Espoo",
+      "size_language_found": {
+        "medium": [
+          "medium"
+        ]
+      },
+      "calibration_reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+      "reading_rule": "medium-order language only ['medium']: a mid-weight Posti Express Freight reading. of the two, loose package to half pallet (35-500 kg) holds the middle of the simulated shipments (median 244.3 kg, 63.5% in 35-500 kg), while half pallet to pallet (500-1000 kg) holds 18.7%",
+      "fixed_charge_eur": 78.65,
+      "alpha_eur_per_kg": 0.048,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 35.0,
+      "max_shipment_weight_kg": 500.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null,
+      "source": "data/raw/v5/logistics/rate_calibration/posti_express_freight.json Express-rahti 14 zone 0 'loose_package' and 'half_pallet_first_unit', separate_pickup_as_printed 1 unit",
+      "arithmetic": "alpha = (62.32 - 40.00) / (500 - 35) = 0.048000 EUR/kg; F = 40.00 - 0.048000 x 35 + pickup 40.33 = 78.6500 EUR",
+      "domain_basis": "the two prices are placed at the units' printed gross limits, 'Loose colli: Maximum gross weight 35 kg' and 'Half pallet: Maximum width 60 cm, Maximum length 80 cm, Maximum gross weight 500 kg', so the line is evidenced from 35 to 500 kg",
+      "shares_reading_with": []
+    },
+    {
+      "agent_id": "L12",
+      "calibration_corner": "parcel",
+      "corner_rule": "specialty mentions only small or light loads ['small', 'light']",
+      "v4_specialty_quoted": "small careful southern carrier, second lowest damage, competitive on light loads",
+      "size_language_found": {
+        "small": [
+          "small",
+          "light"
+        ]
+      },
+      "calibration_reading_id": "posti_home_parcel",
+      "reading_rule": "'careful' and 'second lowest damage' are handling risk, which its damage_probability already carries, and 'light loads' is the parcel corner itself. it names no service tier, so it takes the standard doorstep product, Home Parcel: honest duplication of L10's reading",
+      "fixed_charge_eur": 10.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 35.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "source": "data/raw/v5/logistics/rate_calibration/posti_parcel.json",
+      "arithmetic": "direct: F = 10.90 EUR/item and alpha = 0.30 EUR/kg as printed, 'Home Parcel (over 26 x 32 x 40 cm) 10.90 0.30' (page 1)",
+      "domain_basis": "Home Parcel carries up to 25 kg, and up to 35 kg with the Oversized additional service, whose EUR 3.50 fee is added to the price of any shipment above 25 kg. the record prints a 1 kg minimum charge, not a minimum weight, so eligibility starts at 0 kg",
+      "shares_reading_with": [
+        "L10"
+      ]
+    }
+  ],
+  "alternatives": {
+    "alternative_heavy_span": {
+      "role": "pushback, for comparison only: the same assignment, except large and bulk specialists take one secant from the 1000-1099 kg bracket to the 2900-2999 kg bracket, evidenced for 1000-3000 kg. it tests whether a single heavy segment leaves shipments of 1500 kg and over with no bidder",
+      "agents_that_differ": [
+        {
+          "agent_id": "L05",
+          "calibration_corner": "freight",
+          "corner_rule": "specialty mentions ['large']",
+          "v4_specialty_quoted": "premium carrier with lowest damage risk, wins large southern orders",
+          "size_language_found": {
+            "large": [
+              "large"
+            ]
+          },
+          "calibration_reading_id": "matkahuolto_lavarahti_1_49km_1000_to_3000kg_with_pickup",
+          "reading_rule": "large or bulk language ['large']: the heavy direction, the segment starting at 1000 kg",
+          "fixed_charge_eur": 137.6791605263158,
+          "alpha_eur_per_kg": 0.03674210526315788,
+          "beta_eur_per_tonne_km": 0.07163,
+          "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+          "min_shipment_weight_kg": 1000.0,
+          "max_shipment_weight_kg": 3000.0,
+          "max_weight_inclusive": false,
+          "oversized_above_kg": null,
+          "oversized_fee_eur": null,
+          "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+          "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (194.92 + pickup 51.13) at 2949.5 kg: alpha = (246.05 - 176.24) / (2949.5 - 1049.5) = 0.036742 EUR/kg; F = 176.24 - 0.036742 x 1049.5 = 137.6792 EUR",
+          "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 2900-2999 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 3000 kg, even though the tariff continues on both sides",
+          "shares_reading_with": [
+            "L08"
+          ]
+        },
+        {
+          "agent_id": "L08",
+          "calibration_corner": "freight",
+          "corner_rule": "specialty mentions ['large', 'bulk']",
+          "v4_specialty_quoted": "northern bulk carrier, high capacity, wins large central and northern orders",
+          "size_language_found": {
+            "large": [
+              "large",
+              "bulk",
+              "high capacity"
+            ]
+          },
+          "calibration_reading_id": "matkahuolto_lavarahti_1_49km_1000_to_3000kg_with_pickup",
+          "reading_rule": "large or bulk language ['large', 'bulk', 'high capacity']: the heavy direction, the segment starting at 1000 kg",
+          "fixed_charge_eur": 137.6791605263158,
+          "alpha_eur_per_kg": 0.03674210526315788,
+          "beta_eur_per_tonne_km": 0.07163,
+          "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+          "min_shipment_weight_kg": 1000.0,
+          "max_shipment_weight_kg": 3000.0,
+          "max_weight_inclusive": false,
+          "oversized_above_kg": null,
+          "oversized_fee_eur": null,
+          "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+          "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (194.92 + pickup 51.13) at 2949.5 kg: alpha = (246.05 - 176.24) / (2949.5 - 1049.5) = 0.036742 EUR/kg; F = 176.24 - 0.036742 x 1049.5 = 137.6792 EUR",
+          "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 2900-2999 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 3000 kg, even though the tariff continues on both sides",
+          "shares_reading_with": [
+            "L05"
+          ]
+        }
+      ]
+    }
+  },
+  "production_files_sha256_at_proposal_time": {
+    "data/synthetic/v5/logistics_agents.csv": "1f13e6499d39a7facd488fd97769df7745b7f90d5481777b1fe6c916fd53c86e",
+    "data/synthetic/v5/manufacturer_agents.csv": "b9d515e926429a40204361ce37391931a2e65b38ab7ad170474a405639ba9933",
+    "data/synthetic/v5/material_agents.csv": "246a77758d3b774871f87adf82c40b07de774a705960adbfb8b7b6fa2a765298",
+    "data/synthetic/v5/material_reference_prices.csv": "f819a2b7b89f4d4284bf22bafb0d2a48cae0fc4c5db36062d678b4485ab1704c",
+    "data/synthetic/v5/orders.csv": "05774f9087d50703edbc0a3827efa786d64ba1e3875ad46a29627e4f665c7a27",
+    "data/synthetic/v5/orders_metadata.json": "a197c9be149505c17089fa4269c27cf2dadabc14734d1f2b85900226952bb7da",
+    "data/synthetic/v5/products.csv": "934f9007768259ee959d5d698231f0a3aba093f527d1617cc67f3331f0d02d73",
+    "data/processed/v5/logistics/agent_calibration.csv": "4de771e5a21f89d68293c529d9d77a136852cd0d50d62b045db3a0b5deebd7d1",
+    "data/processed/v5/logistics/agent_calibration_reasoning.json": "9e31419e00675ce77caab2f4ea48a14673da28a16357a0f2d8467bdff224775a"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "recorded_at": "unknown",
+  "family": "epoch-2 production (ministral, fifth model)",
+  "model": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+  "revision": "b6d637bef2393152b3da2b2fde72eecdee30557e",
+  "base_path_used": "/anonymous/anonymous/anonymous/anonymous/home/models--mistralai--Ministral-3-3B-Instruct-2512-BF16/snapshots/b6d637bef2393152b3da2b2fde72eecdee30557e",
+  "single_variable_under_test": "num_train_epochs 1 -> 2; every other protocol v2 variable held",
+  "gates": {
+    "1_frozen_data_hashes": {
+      "status": "PASS (same disclosed orders.csv exception, re-proven inert AT MINISTRAL'S RENDER LAYER)",
+      "evidence": "5 of 6 pinned files match protocol_v2.json exactly; orders.csv carries the known dated drift. Rendering all 15,203 rows through Ministral's own chat template against both orders.csv versions gives the identical fingerprint c4a95beb9f1bac3e306d2ddc404fdc381dd98ceeca907ceb45af583c0861c02f with an identical order_id sequence. Fifth distinct per-model fingerprint (granite cb762cc6, phi 38fc4698, qwen 5f14347c, gemma 208431c8), which is why this is re-derived per model rather than inherited.",
+      "action_taken": "none. orders.csv untouched, protocol hash not re-pinned."
+    },
+    "2_adapter_targets_match_validated_set": {
+      "status": "PASS",
+      "evidence": "24,707,072 trainable of 3,873,797,120 (0.64%), identical to epoch-1 ministral-v2. unsloth logged 'Explicit target_modules are constrained by the finetune_(vision|language|attention|mlp) filters', confirming the language/vision filter is active.",
+      "why_this_gate_matters_more_here": "Ministral's VISION TOWER CARRIES IDENTICALLY-NAMED PROJECTIONS (epoch-1 gate 3). For qwen and gemma the language-only regex is a convenience; here a name-based match without the filter would silently adapt vision weights too. The exact-count match against epoch-1 is therefore the real evidence that the vision tower stayed frozen, not just that the count looks plausible."
+    },
+    "3_template_alignment_train_vs_gguf": {
+      "status": "PASS",
+      "evidence": "reports/epoch-2/production/gates/ministral_template_alignment.json: 7/7 including gguf_template_equals_hf_template TRUE (string-identical, the strictest outcome of the five models -- qwen and gemma only matched on render). [INST]/[/INST] markers occur exactly once each.",
+      "reasoning_kwarg_check_requested": "Ministral's template does NOT branch on enable_thinking (thinking_capable_template: false), so the new advisory warning correctly did NOT fire. Across five models the detector now reads: qwen TRUE, gemma TRUE, granite FALSE, phi FALSE, ministral FALSE -- it discriminates rather than warning indiscriminately."
+    },
+    "4_native_fit_no_sysmem_spill": {
+      "status": "PASS expected -- the best-fitting model of the six",
+      "evidence": "epoch-1 ministral-v2 measured 10.7 GiB allocated / 14.4 GiB reserved against a 23.889 GiB ceiling -- 9.5 GiB of headroom, the largest margin of any model. A real measurement at the identical configuration.",
+      "why_not_probe_based": "the 12-step probe reports 10.7/14.7 GiB. All four prior probes underpredicted, so it confirms only the trainable count and step time.",
+      "no_direction_assumed": "headroom has NOT reliably predicted drift. Across four completed runs: granite 24.6->24.6 (0.0, started over the ceiling), phi 26.3->28.4 (+2.1, over), qwen 18.0->18.1 (+0.1, well under), gemma 22.2->24.5 (+2.3, under and it CROSSED). Gemma falsified the hypothesis that drift only happens when already saturated. No prediction is made for ministral in either direction; the full training log is the authoritative record."
+    }
+  },
+  "watch_item_specific_to_ministral": "Ministral epoch-1 already sits at 12/0/0 on the robustness holdout -- the terminal state granite, phi and qwen converged toward. It is at the FLOOR on two of three classes, so it structurally cannot show further erosion there. Gemma showed the pattern is directionally universal but not mechanically identical (it resisted collapse at 8/4/1), so this run is not guaranteed uninformative -- but the axis on which gemma was interesting is unavailable here. The honest prior is 'stays at 12/0/0'. That prior is recorded so it can be checked against the result, NOT so it shapes how the result is read.",
+  "note_on_epoch_1_loss_comparability": "Epoch-1 ministral's run was interrupted by a host crash at step 834/951 and resumed from checkpoint-800. Its reported training loss (0.017) covers only the final 151-step tail segment and is NOT comparable to a full-run loss. Epoch-2's loss must therefore not be compared against it; only the evaluation metrics are comparable.",
+  "expected": {
+    "steps": 1902,
+    "steps_per_epoch": 951,
+    "est_runtime_min": 168,
+    "est_s_per_step": 5.3
+  },
+  "decision": "LAUNCH ministral epoch-2 from the pinned BF16 snapshot",
+  "output_dir": "models/epoch-2/production/ministral3-bidding-lora-v2",
+  "save_steps": 250,
+  "checkpoint_resume_fix": "SaveIntervalEnforcer active. Verified synthetically only; phi, qwen and gemma all completed training without crashing. Note ministral is the one model whose EPOCH-1 run did crash and resume, so if it crashes again this would be the first real production test of the fix."
+}

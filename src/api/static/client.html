@@ -1,0 +1,203 @@
+<!doctype html>
+<!-- throwaway verification client: submit an order, watch the events arrive.
+     the real frontend is a separate piece of work, this only proves the backend -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>chain-of-bid live check</title>
+  <style>
+    body { font: 13px/1.5 ui-monospace, Consolas, monospace; margin: 16px; background: #111; color: #ddd; }
+    header { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
+    .group { display: flex; gap: 6px; align-items: center; padding-right: 10px; border-right: 1px solid #333; }
+    input, select, button { font: inherit; background: #1c1c1c; color: #ddd; border: 1px solid #444; padding: 4px 6px; }
+    button { cursor: pointer; }
+    button:disabled, select:disabled, input:disabled { opacity: 0.4; cursor: not-allowed; }
+    option:disabled { color: #666; }
+    #status { margin-bottom: 8px; color: #888; }
+    #banner { display: none; margin: 8px 0; padding: 8px; border: 1px solid #fc6; color: #fc6; }
+    #banner.on { display: block; }
+    #log { white-space: pre-wrap; border-top: 1px solid #333; padding-top: 8px; }
+    .row { padding: 1px 0; }
+    .rfq { color: #6cf; } .bid { color: #7d7; } .no_bid { color: #777; }
+    .verdict { color: #fc6; } .state_change { color: #c9f; }
+    .order_outcome, .order_finished { color: #fff; font-weight: bold; }
+    .stage_opened, .stage_closed { color: #ff9; }
+    .mode_switching, .mode_switched, .mode_result { color: #fc6; font-weight: bold; }
+    .failure, .error { color: #f66; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="group">
+      <select id="model" title="architecture"></select>
+      <select id="variant" title="which agents answer">
+        <option value="rule">rule-based</option>
+        <option value="base">base, untrained</option>
+        <option value="tuned" selected>fine-tuned</option>
+      </select>
+    </span>
+    <span class="group">
+      <input id="order" placeholder="ORD-33452" size="12">
+      <button id="submit">submit order</button>
+      <input id="file" placeholder="data/demo/restock_sequence.json" size="32">
+      <button id="submitFile">submit file</button>
+    </span>
+    <span class="group">
+      <select id="mode">
+        <option value="sealed">sealed</option>
+        <option value="reverse_auction">reverse auction</option>
+      </select>
+      <button id="switchMode">switch mode</button>
+    </span>
+    <button id="reset">reset state</button>
+    <button id="clear">clear</button>
+  </header>
+  <div id="status">connecting…</div>
+  <div id="banner"></div>
+  <div id="log"></div>
+
+<script>
+const log = document.getElementById("log");
+const statusLine = document.getElementById("status");
+const banner = document.getElementById("banner");
+const modelSelect = document.getElementById("model");
+const variantSelect = document.getElementById("variant");
+const modeSelect = document.getElementById("mode");
+const controls = ["submit", "submitFile", "reset", "switchMode"].map(id => document.getElementById(id));
+let ws, current = {};
+
+function line(text, cls) {
+  const div = document.createElement("div");
+  div.className = "row " + (cls || "");
+  div.textContent = text;
+  log.prepend(div);
+  while (log.childElementCount > 600) log.lastChild.remove();
+}
+
+// the rule-based configuration runs no model, so it is one config not one per architecture
+function config() {
+  return variantSelect.value === "rule" ? "rule" : `${modelSelect.value}-${variantSelect.value}`;
+}
+
+function setStatus(d) {
+  current = d;
+  const missing = Object.keys(d.unavailable || {}).length;
+  statusLine.textContent = `mode ${d.mode} | configs ${d.configs.map(c => c.config).join(", ")}`
+    + ` | stacks ` + Object.entries(d.stacks).map(([k, v]) => `${k}:${v}`).join(" ")
+    + ` | queue ${d.queue.queued}`
+    + (missing ? ` | ${missing} unavailable: `
+        + Object.entries(d.unavailable).map(([k, v]) => `${k} (${v})`).join(", ") : "");
+  modeSelect.value = d.mode;
+
+  // rebuilt on every status: a mode switch can change which models are usable
+  const keep = modelSelect.value;
+  modelSelect.innerHTML = "";
+  for (const m of d.models) {
+    const opt = document.createElement("option");
+    opt.value = m.model;
+    opt.textContent = m.active ? m.label : `${m.label} (not loaded, ${m.reason})`;
+    opt.disabled = !m.active;
+    modelSelect.append(opt);
+  }
+  const live = d.models.filter(m => m.active);
+  modelSelect.value = live.some(m => m.model === keep) ? keep : (live[0] ? live[0].model : "");
+  modelSelect.disabled = live.length === 0;
+  setVariants();
+  switching(d.switching);
+}
+
+// rule-based needs no model, the other two need this architecture's gguf to be here
+function setVariants() {
+  const entry = (current.models || []).find(m => m.model === modelSelect.value);
+  for (const opt of variantSelect.options) {
+    if (opt.value === "rule") continue;
+    const v = entry && entry.variants ? entry.variants[opt.value] : null;
+    opt.disabled = !(v && v.available);
+    opt.textContent = opt.dataset.label || (opt.dataset.label = opt.textContent);
+    if (opt.disabled) opt.textContent += " (not loaded)";
+  }
+  if (variantSelect.selectedOptions[0] && variantSelect.selectedOptions[0].disabled) {
+    variantSelect.value = "rule";
+  }
+}
+
+function switching(on, text) {
+  banner.className = on ? "on" : "";
+  banner.textContent = text || "";
+  for (const c of controls) c.disabled = on;
+}
+
+function describe(e) {
+  const d = e.data || {};
+  switch (e.type) {
+    case "hello": return `connected, mode ${d.mode}, configs ${d.configs.map(c => c.config).join(", ")}`;
+    case "rfq": return `rfq ${e.stage} ${e.order_id} (deadline in ${d.days_until_deadline}d)`
+      + (e.round_number ? `, round ${e.round_number}/${d.auction_rounds}, announced best `
+        + `${e.current_best_bid === null ? "none" : e.current_best_bid}, `
+        + `decrement ${e.platform_minimum_decrement}` : "");
+    case "bid": return `bid ${d.agent_id} ${e.stage}${e.round_number ? " r" + e.round_number : ""} `
+      + `${d.offer_amount} EUR, ${d.estimated_completion_days}d`;
+    case "no_bid": return `no bid ${d.agent_id} ${d.stage}: ${d.reason}`;
+    case "stage_opened": return `--- ${d.stage} opened (${d.roster_size} agents, ${d.window_seconds}s)`;
+    case "stage_closed": return `--- ${d.stage} closed: ${d.bid_count} bids, best `
+      + `${d.best_agent_id} at ${d.best_offer_amount} (${d.elapsed_seconds}s)`;
+    case "verdict": return `verdict ${d.agent_id} ${d.verdict}`
+      + (d.agreed_price ? ` at ${d.agreed_price}` : ` (${d.reason})`);
+    case "state_change": return `state ${d.event} ${d.agent_id}${d.material ? " " + d.material : ""} `
+      + JSON.stringify(d).slice(0, 200);
+    case "auction_trace": return `auction ${d.stage}: ${d.rounds_run} rounds, winner ${d.winner_agent_id} `
+      + `at ${d.winning_offer_amount}, reduction ${d.total_reduction_eur}`;
+    case "order_outcome": return `OUTCOME ${e.order_id} ${d.status} `
+      + (d.chain ? `chain ${d.chain.material} > ${d.chain.tailoring} > ${d.chain.logistics}, `
+        + `${d.total_cost} EUR, ${d.total_days}d` : d.reason || "");
+    case "order_started": return `>>> started ${e.order_id} on ${e.config} (${e.source})`;
+    case "order_finished": return `<<< finished ${e.order_id}: ${d.status} in ${d.elapsed_seconds}s`
+      + (d.summary ? ` — ${d.summary}` : "");
+    case "order_queued": return `queued ${e.job_id} on ${e.config}: ${e.order_ids.join(", ")}`;
+    case "state_reset": return `state reset: ${Object.keys(d).join(", ")}`;
+    case "mode_switching": return `SWITCHING MODE ${d.from} -> ${d.to}, every stack is restarting`;
+    case "mode_switched": return `mode is now ${d.mode}, took ${d.seconds}s`;
+    case "mode_result": return d.switched ? `mode is now ${d.mode}` : `unchanged: ${d.reason}`;
+    case "failure": return `FAILURE ${e.message}`;
+    case "error": return `ERROR ${e.message}`;
+    default: return `${e.type} ${JSON.stringify(e).slice(0, 220)}`;
+  }
+}
+
+function connect() {
+  ws = new WebSocket(`ws://${location.host}/ws`);
+  ws.onopen = () => statusLine.textContent = "connected";
+  ws.onclose = () => { statusLine.textContent = "disconnected, retrying…"; setTimeout(connect, 2000); };
+  ws.onmessage = ev => {
+    const e = JSON.parse(ev.data);
+    if (e.type === "hello" || e.type === "status") setStatus(e.data);
+    if (e.type === "mode_switching")
+      switching(true, `switching ${e.data.from} -> ${e.data.to}: stacks are restarting, `
+        + `models reload. this takes a few seconds, nothing is accepted until it finishes`);
+    if (e.type === "mode_switched") { setStatus(e.data.status); switching(false); }
+    if (e.type === "mode_result" && !e.data.switched) switching(false);
+    if (e.type === "error") switching(current.switching || false);
+    line(`${e.at ? e.at.slice(11, 19) : ""} [${e.config || "-"}] ${describe(e)}`, e.type);
+  };
+}
+
+function send(payload) {
+  if (!ws || ws.readyState !== 1) return line("socket is not open", "error");
+  ws.send(JSON.stringify(payload));
+}
+
+modelSelect.onchange = setVariants;
+document.getElementById("submit").onclick = () =>
+  send({ action: "submit", config: config(), order_id: document.getElementById("order").value.trim() });
+document.getElementById("submitFile").onclick = () =>
+  send({ action: "submit", config: config(), path: document.getElementById("file").value.trim() });
+document.getElementById("switchMode").onclick = () => {
+  switching(true, `asking the backend to switch to ${modeSelect.value}…`);
+  send({ action: "mode", mode: modeSelect.value });
+};
+document.getElementById("reset").onclick = () => send({ action: "reset" });
+document.getElementById("clear").onclick = () => log.innerHTML = "";
+connect();
+</script>
+</body>
+</html>

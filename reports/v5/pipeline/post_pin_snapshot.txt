@@ -1,0 +1,18 @@
+[post_pin] comparisons reproduce published: True
+W0917 18:04:58.425000 13448 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+🦥 Unsloth Zoo will now patch everything to make training faster!
+[post_pin] evaluation sets hashed: 54a4757e9e0f3ca6
+[post_pin] training sets hashed
+wrote reports\v5\pipeline\pipeline_regression_post_pin.json
+{
+  "allowed_to_change": [],
+  "unexpected_differences": [],
+  "help_lines_removed_or_changed": {
+    "src/experiments/compare_epochs.py": [],
+    "src/experiments/eval_finetune.py": [],
+    "src/experiments/finetune_lora.py": []
+  },
+  "identical_apart_from_allowed": true
+}
+exit 0

@@ -1,0 +1,187 @@
+=== generation prefix (default kwargs) ===
+<bos><|turn>system
+You are a material provider agent in a multi-agent supply chain bidding system.
+Decide whether to bid on the incoming material request.
+Check all constraints carefully. Return valid JSON only, nothing outside the JSON.<turn|>
+<|turn>user
+AGENT PROFILE
+agent_id: M01
+location: Helsinki
+materials supplied: cotton|polyester
+available stock for requested material (kg): 2200.0
+base cost per kg (EUR): 2.942
+restock amount (kg): 3750.0
+restock time (days): 3.0
+default completion days: 2
+defect probability: 0.04
+reputation score: 0.5
+min profit margin: 0.1
+initial markup: 0.26
+
+RFQ
+order_id: ORD-09428
+material needed: cotton
+required quantity (kg): 89.7
+max allowed defect rate: 0.091
+min required reputation: 0.38
+days until deadline: 47
+priority: flexible
+
+TASK
+1. Check if you supply this material. If not, return NO_BID.
+2. Check defect_probability <= max_defect_rate. If not, return NO_BID.
+3. Check reputation_score >= min_reputation_score. If not, return NO_BID.
+4. Check stock:
+   if available_kg >= required_kg: completion = default_completion_days
+   else if available_kg + restock_amount_kg >= required_kg: completion = default_completion_days + restock_time_days
+   else: return NO_BID
+5. Check completion <= days_until_deadline. If not, return NO_BID.
+6. Calculate:
+   material_cost  = required_kg x base_cost_per_kg
+   internal_cost  = material_cost x (1 + defect_probability)
+   minimum_bid    = internal_cost x (1 + min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost x (1 + initial_markup) x (1 + priority_markup)
+   offer_amount   = max(minimum_bid, initial_bid)
+7. Return BID with calculated values.
+
+Return this JSON only:
+{
+  "order_id": "ORD-09428",
+  "stage": "material",
+  "agent_id": "M01",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.04
+}<turn|>
+<|turn>model
+
+
+=== generation prefix (thinking-off kwargs: {}) ===
+<bos><|turn>system
+You are a material provider agent in a multi-agent supply chain bidding system.
+Decide whether to bid on the incoming material request.
+Check all constraints carefully. Return valid JSON only, nothing outside the JSON.<turn|>
+<|turn>user
+AGENT PROFILE
+agent_id: M01
+location: Helsinki
+materials supplied: cotton|polyester
+available stock for requested material (kg): 2200.0
+base cost per kg (EUR): 2.942
+restock amount (kg): 3750.0
+restock time (days): 3.0
+default completion days: 2
+defect probability: 0.04
+reputation score: 0.5
+min profit margin: 0.1
+initial markup: 0.26
+
+RFQ
+order_id: ORD-09428
+material needed: cotton
+required quantity (kg): 89.7
+max allowed defect rate: 0.091
+min required reputation: 0.38
+days until deadline: 47
+priority: flexible
+
+TASK
+1. Check if you supply this material. If not, return NO_BID.
+2. Check defect_probability <= max_defect_rate. If not, return NO_BID.
+3. Check reputation_score >= min_reputation_score. If not, return NO_BID.
+4. Check stock:
+   if available_kg >= required_kg: completion = default_completion_days
+   else if available_kg + restock_amount_kg >= required_kg: completion = default_completion_days + restock_time_days
+   else: return NO_BID
+5. Check completion <= days_until_deadline. If not, return NO_BID.
+6. Calculate:
+   material_cost  = required_kg x base_cost_per_kg
+   internal_cost  = material_cost x (1 + defect_probability)
+   minimum_bid    = internal_cost x (1 + min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost x (1 + initial_markup) x (1 + priority_markup)
+   offer_amount   = max(minimum_bid, initial_bid)
+7. Return BID with calculated values.
+
+Return this JSON only:
+{
+  "order_id": "ORD-09428",
+  "stage": "material",
+  "agent_id": "M01",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.04
+}<turn|>
+<|turn>model
+
+
+=== full supervised example ===
+<bos><|turn>system
+You are a material provider agent in a multi-agent supply chain bidding system.
+Decide whether to bid on the incoming material request.
+Check all constraints carefully. Return valid JSON only, nothing outside the JSON.<turn|>
+<|turn>user
+AGENT PROFILE
+agent_id: M01
+location: Helsinki
+materials supplied: cotton|polyester
+available stock for requested material (kg): 2200.0
+base cost per kg (EUR): 2.942
+restock amount (kg): 3750.0
+restock time (days): 3.0
+default completion days: 2
+defect probability: 0.04
+reputation score: 0.5
+min profit margin: 0.1
+initial markup: 0.26
+
+RFQ
+order_id: ORD-09428
+material needed: cotton
+required quantity (kg): 89.7
+max allowed defect rate: 0.091
+min required reputation: 0.38
+days until deadline: 47
+priority: flexible
+
+TASK
+1. Check if you supply this material. If not, return NO_BID.
+2. Check defect_probability <= max_defect_rate. If not, return NO_BID.
+3. Check reputation_score >= min_reputation_score. If not, return NO_BID.
+4. Check stock:
+   if available_kg >= required_kg: completion = default_completion_days
+   else if available_kg + restock_amount_kg >= required_kg: completion = default_completion_days + restock_time_days
+   else: return NO_BID
+5. Check completion <= days_until_deadline. If not, return NO_BID.
+6. Calculate:
+   material_cost  = required_kg x base_cost_per_kg
+   internal_cost  = material_cost x (1 + defect_probability)
+   minimum_bid    = internal_cost x (1 + min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost x (1 + initial_markup) x (1 + priority_markup)
+   offer_amount   = max(minimum_bid, initial_bid)
+7. Return BID with calculated values.
+
+Return this JSON only:
+{
+  "order_id": "ORD-09428",
+  "stage": "material",
+  "agent_id": "M01",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.04
+}<turn|>
+<|turn>model
+{
+  "order_id": "ORD-09428",
+  "stage": "material",
+  "agent_id": "M01",
+  "decision": "BID",
+  "offer_amount": 301.9,
+  "estimated_completion_days": 2,
+  "defect_probability": 0.04
+}<turn|>

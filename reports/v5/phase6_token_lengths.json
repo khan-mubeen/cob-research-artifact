@@ -1,0 +1,142 @@
+{
+  "method": "phase 6: the token length of the rendered v5 training text, per model tokenizer",
+  "longest_per_file": 60,
+  "sample_per_file": 300,
+  "models": {
+    "qwen": {
+      "sealed": {
+        "max_over_longest_rows": 932,
+        "sample_median": 860.0,
+        "sample_mean": 854.9,
+        "sample_p99": 922
+      },
+      "reverse_auction": {
+        "max_over_longest_rows": 1010,
+        "sample_median": 943.0,
+        "sample_mean": 936.9,
+        "sample_p99": 1003
+      },
+      "supervisor": {
+        "max_over_longest_rows": 1722,
+        "sample_median": 1603.0,
+        "sample_mean": 1568.6,
+        "sample_p99": 1674
+      }
+    },
+    "granite": {
+      "sealed": {
+        "max_over_longest_rows": 944,
+        "sample_median": 888.0,
+        "sample_mean": 873.0,
+        "sample_p99": 932
+      },
+      "reverse_auction": {
+        "max_over_longest_rows": 1032,
+        "sample_median": 976.0,
+        "sample_mean": 961.9,
+        "sample_p99": 1018
+      },
+      "supervisor": {
+        "max_over_longest_rows": 1609,
+        "sample_median": 1554.0,
+        "sample_mean": 1515.2,
+        "sample_p99": 1580
+      }
+    },
+    "phi": {
+      "sealed": {
+        "max_over_longest_rows": 842,
+        "sample_median": 776.0,
+        "sample_mean": 770.0,
+        "sample_p99": 832
+      },
+      "reverse_auction": {
+        "max_over_longest_rows": 918,
+        "sample_median": 854.0,
+        "sample_mean": 848.6,
+        "sample_p99": 907
+      },
+      "supervisor": {
+        "max_over_longest_rows": 1387,
+        "sample_median": 1355.0,
+        "sample_mean": 1321.6,
+        "sample_p99": 1381
+      }
+    },
+    "ministral": {
+      "sealed": {
+        "max_over_longest_rows": 931,
+        "sample_median": 857.0,
+        "sample_mean": 849.1,
+        "sample_p99": 922
+      },
+      "reverse_auction": {
+        "max_over_longest_rows": 1013,
+        "sample_median": 945.0,
+        "sample_mean": 936.1,
+        "sample_p99": 1008
+      },
+      "supervisor": {
+        "max_over_longest_rows": 1768,
+        "sample_median": 1650.0,
+        "sample_mean": 1613.1,
+        "sample_p99": 1720
+      }
+    },
+    "gemma": {
+      "sealed": {
+        "max_over_longest_rows": 972,
+        "sample_median": 913.0,
+        "sample_mean": 896.9,
+        "sample_p99": 961
+      },
+      "reverse_auction": {
+        "max_over_longest_rows": 1059,
+        "sample_median": 1005.0,
+        "sample_mean": 987.3,
+        "sample_p99": 1050
+      },
+      "supervisor": {
+        "max_over_longest_rows": 1842,
+        "sample_median": 1722.5,
+        "sample_mean": 1684.7,
+        "sample_p99": 1794
+      }
+    },
+    "smollm3": {
+      "sealed": {
+        "max_over_longest_rows": 892,
+        "sample_median": 822.0,
+        "sample_mean": 817.3,
+        "sample_p99": 880
+      },
+      "reverse_auction": {
+        "max_over_longest_rows": 967,
+        "sample_median": 898.0,
+        "sample_mean": 893.8,
+        "sample_p99": 954
+      },
+      "supervisor": {
+        "max_over_longest_rows": 1433,
+        "sample_median": 1401.0,
+        "sample_mean": 1367.6,
+        "sample_p99": 1427
+      }
+    }
+  },
+  "max_tokens_any_model": {
+    "sealed": 972,
+    "reverse_auction": 1059,
+    "supervisor": 1842
+  },
+  "smallest_standard_window_that_fits": {
+    "sealed": 1024,
+    "reverse_auction": 1280,
+    "supervisor": 2048
+  },
+  "v4_windows": {
+    "stage_agents": 1024,
+    "supervisor": 2048
+  },
+  "root": ".\\data\\finetune\\v5"
+}

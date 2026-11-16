@@ -1,0 +1,305 @@
+{
+  "root": "data/finetune/v5",
+  "file_count": 40,
+  "main_corpus_rows": {
+    "all": 1473181,
+    "reverse_auction:all": 751868,
+    "reverse_auction:test": 75397,
+    "reverse_auction:train": 601161,
+    "reverse_auction:validation": 75310,
+    "sealed:all": 676871,
+    "sealed:test": 67597,
+    "sealed:train": 541545,
+    "sealed:validation": 67729,
+    "supervisor:all": 44442,
+    "supervisor:test": 4435,
+    "supervisor:train": 35552,
+    "supervisor:validation": 4455
+  },
+  "supplementary_rows_not_in_main_corpus": {
+    "diagnostic": 1188,
+    "robustness_eval": 193
+  },
+  "files": [
+    {
+      "path": "edge/logistics_edge.jsonl",
+      "role": "supplementary:robustness_eval",
+      "sha256": "c886f825b5bbe410c0d78e4fb666f25433752921c6e9b4b52c6fbfa9f426b0aa",
+      "bytes": 72270,
+      "rows": 25
+    },
+    {
+      "path": "edge/material_edge.jsonl",
+      "role": "supplementary:robustness_eval",
+      "sha256": "5385e53e3a3e6b46dc77b496584f13ff99ed8cf20d03ec81a4d949a0210c2267",
+      "bytes": 282851,
+      "rows": 108
+    },
+    {
+      "path": "edge/metadata.json",
+      "role": "metadata",
+      "sha256": "93677c00398a189467802a048e58f889c1be00fa8402c547c9efd06fbd752420",
+      "bytes": 2377,
+      "rows": null
+    },
+    {
+      "path": "edge/tailoring_edge.jsonl",
+      "role": "supplementary:robustness_eval",
+      "sha256": "7d1ffec0f3e694e5e196314781825c9012767c3260c29dd5c59fb8da08f9d672",
+      "bytes": 165417,
+      "rows": 60
+    },
+    {
+      "path": "logistics_test.jsonl",
+      "role": "main:sealed:test",
+      "sha256": "b5dfcd8e5bff60cb3f28d550d73f2608f89d35d5bd4d9503ff788671857998b5",
+      "bytes": 61612511,
+      "rows": 21872
+    },
+    {
+      "path": "logistics_train.jsonl",
+      "role": "main:sealed:train",
+      "sha256": "ec2b4319e634bbb7ea987e6635b5f973d80838f9ad138eb1f96902d5aaf38b73",
+      "bytes": 492615204,
+      "rows": 174814
+    },
+    {
+      "path": "logistics_validation.jsonl",
+      "role": "main:sealed:validation",
+      "sha256": "410b11a0e0acf8f60a14252e9f1132ac696b9eb2599a0c13d64a5dc988daf2b3",
+      "bytes": 61888728,
+      "rows": 21924
+    },
+    {
+      "path": "material_test.jsonl",
+      "role": "main:sealed:test",
+      "sha256": "17998283777dd3f7edc29a4539f4aaec8fbbf17175a69b4f3126eabe2ea00966",
+      "bytes": 52850518,
+      "rows": 21207
+    },
+    {
+      "path": "material_train.jsonl",
+      "role": "main:sealed:train",
+      "sha256": "ce999d59c8730c2ba66996fce2ed77766e252f27150b695f4b73091cd4278abf",
+      "bytes": 423487071,
+      "rows": 169855
+    },
+    {
+      "path": "material_validation.jsonl",
+      "role": "main:sealed:validation",
+      "sha256": "86b2e768ec7eac256b4e13d6639c3f5dc03c40e8a8fc7229970408da813cbe55",
+      "bytes": 52894679,
+      "rows": 21174
+    },
+    {
+      "path": "metadata.json",
+      "role": "metadata",
+      "sha256": "a189cd087ba4f27778b4281a1712b384842c4b866ac688c0688332f4c7768cc7",
+      "bytes": 2711,
+      "rows": null
+    },
+    {
+      "path": "reverse_auction/floor_boundary/logistics_above_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "9b2c0a88107e1302f4eeb517f1ff6377c7139d5b776cb4f853d2fad4ccb3a224",
+      "bytes": 479839,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/logistics_at_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "991728cd1eaffcc06d5492b72b865586537d52fdb32b482a7b157a57cf7c3948",
+      "bytes": 479033,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/logistics_below_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "04bedf9c698d29fb3e8f65166424bc254b6c646e6cb4ca30304de7f5c84349df",
+      "bytes": 480786,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/material_above_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "8813aa7e0b07b54e73176eb63edd750046650fc9446b1ccc2088ff242f30823e",
+      "bytes": 442282,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/material_at_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "04c96e09765c5bd7030873e0367a625a5995d6b575a317f031e2fde1a3269fb6",
+      "bytes": 441488,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/material_below_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "79a59d162132ec2dc39c26964849f6af8ff1c005423e0fd9a3f088c3489b9185",
+      "bytes": 443091,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/metadata.json",
+      "role": "metadata",
+      "sha256": "d9134f42ae6155e68ee3b4b2cc69fda68341c7956f0201c1cd26a28528a2c8e3",
+      "bytes": 1548,
+      "rows": null
+    },
+    {
+      "path": "reverse_auction/floor_boundary/tailoring_above_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "99c70352350877afee5340a2e139383fa7585b24f3101ff7d88a6cdb6151d61b",
+      "bytes": 476831,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/tailoring_at_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "57193c6df327503f20fb7f9e3c29148084e34ae78bab1725b1cb28845a095900",
+      "bytes": 476039,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/floor_boundary/tailoring_below_floor.jsonl",
+      "role": "supplementary:diagnostic",
+      "sha256": "2eccf15588ed93dd49e5e17589506b20843e0e769488b7d9c5712229fc4787f5",
+      "bytes": 477250,
+      "rows": 132
+    },
+    {
+      "path": "reverse_auction/logistics_test.jsonl",
+      "role": "main:reverse_auction:test",
+      "sha256": "145e650cc76556bfe9711a108f39e1685014e5a03ea9f66fcd5609c54a9950d4",
+      "bytes": 86082162,
+      "rows": 24482
+    },
+    {
+      "path": "reverse_auction/logistics_train.jsonl",
+      "role": "main:reverse_auction:train",
+      "sha256": "52c830cf6222c91eaee3fd6aa96e9f2bf3e15147cb41649d49e4c30c058de392",
+      "bytes": 684644773,
+      "rows": 194665
+    },
+    {
+      "path": "reverse_auction/logistics_validation.jsonl",
+      "role": "main:reverse_auction:validation",
+      "sha256": "2f1b99332310bccfee2040a50d3d09555153a9c5953d5642b9daff2f9068d62e",
+      "bytes": 86155392,
+      "rows": 24462
+    },
+    {
+      "path": "reverse_auction/material_test.jsonl",
+      "role": "main:reverse_auction:test",
+      "sha256": "bf94af2481607ccb1df8ae23e75858e24089ebba5730c9a6bb90e124d3cb0f15",
+      "bytes": 76967011,
+      "rows": 23799
+    },
+    {
+      "path": "reverse_auction/material_train.jsonl",
+      "role": "main:reverse_auction:train",
+      "sha256": "2f2079aa0697189909382dbf232a591c3b68a518e83ee134865d9d29db0abe10",
+      "bytes": 613833264,
+      "rows": 189745
+    },
+    {
+      "path": "reverse_auction/material_validation.jsonl",
+      "role": "main:reverse_auction:validation",
+      "sha256": "5555f7c586ae905a0b3b7aba668f9244621776ce12f5b50a16c43fd38f9ce9c1",
+      "bytes": 76760290,
+      "rows": 23691
+    },
+    {
+      "path": "reverse_auction/metadata.json",
+      "role": "metadata",
+      "sha256": "7f20e42ad1df1641458c0aab834eabc942d568933bde49413a41b2d21f337cca",
+      "bytes": 5360,
+      "rows": null
+    },
+    {
+      "path": "reverse_auction/tailoring_test.jsonl",
+      "role": "main:reverse_auction:test",
+      "sha256": "bca5739c92e83c5808a4eb738ffb75550147bda9503c49c3d241e52cd4ae042a",
+      "bytes": 94775836,
+      "rows": 27116
+    },
+    {
+      "path": "reverse_auction/tailoring_train.jsonl",
+      "role": "main:reverse_auction:train",
+      "sha256": "48554bafffbf84c09d819f0af86e3c459026379f30265568fd1bf169bc18d229",
+      "bytes": 757814520,
+      "rows": 216751
+    },
+    {
+      "path": "reverse_auction/tailoring_validation.jsonl",
+      "role": "main:reverse_auction:validation",
+      "sha256": "2ca4e0babe088a73943ea9404b40685ab08c1455a7c39eb92407e5567f5cd233",
+      "bytes": 95081029,
+      "rows": 27157
+    },
+    {
+      "path": "split/metadata.json",
+      "role": "metadata",
+      "sha256": "4b168f17830527baf55cd087fdaeae82915b2f42a891cb519e6c45ad0726a5a9",
+      "bytes": 15831,
+      "rows": null
+    },
+    {
+      "path": "split/order_split.csv",
+      "role": "split",
+      "sha256": "c068ed116da214a822df4e30b72c313cda309de48c76a3dd154396f292fcdd5f",
+      "bytes": 1983000,
+      "rows": 50000
+    },
+    {
+      "path": "supervisor/metadata.json",
+      "role": "metadata",
+      "sha256": "efb09885a335a431ee48d35d57fa7b071bd2f83369cb07f8a390dd46420f671d",
+      "bytes": 1654,
+      "rows": null
+    },
+    {
+      "path": "supervisor/selection_test.jsonl",
+      "role": "main:supervisor:test",
+      "sha256": "e9461acc92de8c407cc79ca64a1ed4920c33ae1726486f069ee33c0a8aeeaa79",
+      "bytes": 19146227,
+      "rows": 4435
+    },
+    {
+      "path": "supervisor/selection_train.jsonl",
+      "role": "main:supervisor:train",
+      "sha256": "ee10a4e9f5386aeb7a4ffddb5a7ab3fc331c7bb8eb86f35baa3d46fe52a9c7ef",
+      "bytes": 153479804,
+      "rows": 35552
+    },
+    {
+      "path": "supervisor/selection_validation.jsonl",
+      "role": "main:supervisor:validation",
+      "sha256": "496679d48653c5a3d96ddedba06872b07ff8ce38e68ff8d117e50aa5faa3339a",
+      "bytes": 19282414,
+      "rows": 4455
+    },
+    {
+      "path": "tailoring_test.jsonl",
+      "role": "main:sealed:test",
+      "sha256": "7895ddbd6294faee28b746c13d83bb7379d25055069ccce325ecbceb1f1a2974",
+      "bytes": 65864150,
+      "rows": 24518
+    },
+    {
+      "path": "tailoring_train.jsonl",
+      "role": "main:sealed:train",
+      "sha256": "1db939b85bae94dafe50bd4add31c36ed2854ad66b92d5f680381c44e31e9131",
+      "bytes": 529096417,
+      "rows": 196876
+    },
+    {
+      "path": "tailoring_validation.jsonl",
+      "role": "main:sealed:validation",
+      "sha256": "e9378bd07d04d604b1e116e6cb77d4120f04ccb5c893b7e2f49aa0a394cbf969",
+      "bytes": 66316049,
+      "rows": 24631
+    }
+  ]
+}

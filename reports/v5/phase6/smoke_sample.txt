@@ -1,0 +1,3 @@
+sealed: 480 of 541545 train rows -> data\finetune\.v5_smoke\sealed_smoke.jsonl {'logistics': 163, 'material': 147, 'tailoring': 170}
+reverse_auction: 480 of 601161 train rows -> data\finetune\.v5_smoke\reverse_auction_smoke.jsonl {'logistics': 156, 'material': 145, 'tailoring': 179}
+supervisor: 480 of 35552 train rows -> data\finetune\.v5_smoke\supervisor_smoke.jsonl {'supervisor': 480}

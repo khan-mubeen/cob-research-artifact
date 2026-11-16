@@ -1,0 +1,13 @@
+product_id,material_type,material_kg_per_unit,finished_weight_kg_per_unit
+shirt,cotton,0.1,0.15
+shirt,linen,0.08,0.12
+shirt,polyester,0.09,0.13
+hoodie,cotton,0.7,0.85
+hoodie,polyester,0.65,0.8
+jacket,leather,1.2,1.5
+jacket,polyester,0.8,1
+jacket,linen,0.75,0.95
+jeans,denim,0.85,1
+skirt,cotton,0.3,0.38
+skirt,linen,0.28,0.35
+skirt,polyester,0.25,0.32

@@ -1,0 +1,19 @@
+[supervisor_enum] files hashed
+[supervisor_enum] census live equals fixture: True
+[supervisor_enum] regenerated 22 v4 files
+wrote reports\v5\wiring\v4_regression_supervisor_enum.json
+{
+  "compared": [
+    "pipeline_ready",
+    "supervisor_enum"
+  ],
+  "differences": [
+    "files/files/src/common/bidding_formulas.py: 'a2408f3d144b4931a66d1a4f5f2febe375decd3e71e621f08575c056b4b7d4f6' != '60df882df0e9373b2d93aabb22cfdc87a76389c04114e94a783f25db733f60ee'"
+  ],
+  "allowed_to_change": [
+    "files/files/src/common/bidding_formulas.py"
+  ],
+  "unexpected_differences": [],
+  "identical_apart_from_allowed": true
+}
+exit 0

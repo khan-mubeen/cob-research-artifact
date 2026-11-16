@@ -1,0 +1,39 @@
+{
+  "group": "logistics/distance",
+  "calibration_feeds": "distance_km",
+  "hash_algorithm": "sha256",
+  "hash_purpose_means": {
+    "source_artifact_integrity": "sha-256 of the downloaded artifact itself. it proves the pinned file stored in this repository has not changed since it was retrieved from the source url on the recorded retrieval date. it says nothing about whether the source has since revised or withdrawn the series",
+    "record_integrity": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+  },
+  "sources": [
+    {
+      "artifact": "distance/location_coordinates.json",
+      "acquisition_mode": "downloaded",
+      "sha256": "6140c9103c82e1af8d037f275990c8490e47b9f8a21dd595b7053b9160d8edd9",
+      "hash_purpose": "source_artifact_integrity",
+      "bytes": 6618,
+      "source": "OpenStreetMap place nodes read from the Geofabrik Finland extract finland-260101.osm.pbf",
+      "source_url": "https://download.geofabrik.de/europe/finland-260101.osm.pbf",
+      "retrieval_date": "2026-09-13",
+      "unit": "WGS84 decimal degrees (EPSG:4326), rounded to 7 decimal places",
+      "unit_confirmed_from": "the OpenStreetMap data model stores node coordinates as WGS84 latitude and longitude at a precision of 7 decimal places",
+      "frequency": "single snapshot, OSM data up to 2026-01-01T21:21:30Z",
+      "role": "pinned coordinates for every manufacturer location and delivery city, the inputs to the road-distance matrix",
+      "licence_note": "© OpenStreetMap contributors, Open Database License (ODbL) 1.0",
+      "calibration_feeds": "distance_km",
+      "derived_from": {
+        "file": "finland-260101.osm.pbf",
+        "source_url": "https://download.geofabrik.de/europe/finland-260101.osm.pbf",
+        "published_md5": "349396cf757484f3f1f9fad60a7f0630",
+        "sha256": "fbd7881ea05656b667404a2ca7d058289666a16efc4275890cbd799e85e050c2",
+        "bytes": 700378696,
+        "osm_data_timestamp": "2026-01-01T21:21:30Z",
+        "stored_at": "tools/osrm/data, gitignored, fetched by src/dataset/osrm_engine.py"
+      },
+      "derivation": "node id, name, place tag and coordinate copied from the matched place node of the pinned extract; no coordinate is computed, averaged or snapped here",
+      "location_count": 7,
+      "unresolved_count": 0
+    }
+  ]
+}

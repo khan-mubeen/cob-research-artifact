@@ -1,0 +1,42 @@
+{
+  "recorded_at": "unknown",
+  "family": "epoch-2 production (qwen, third model)",
+  "model": "Qwen/Qwen3.5-4B",
+  "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "single_variable_under_test": "num_train_epochs 1 -> 2; every other protocol v2 variable held",
+  "gates": {
+    "1_frozen_data_hashes": {
+      "status": "PASS (same disclosed orders.csv exception, re-proven inert AT QWEN'S RENDER LAYER)",
+      "evidence": "5 of 6 pinned files match protocol_v2.json exactly. orders.csv still carries the dated drift (frozen b6acf05b..., actual 4754f623..., order_created/deadline shifted ~+16 days).",
+      "why_re_proven_not_inherited": "record selection is model-agnostic; the RENDER is not. Rendering all 15,203 rows through Qwen's own chat template against both orders.csv versions gives the identical fingerprint 5f14347c7a926bc99115fb93d435a6cb2d68d9fc36215f60633a382b18330416 with an identical order_id sequence. This differs from granite's cb762cc6... and phi's 38fc4698... precisely because it is Qwen's template, which is the point of re-deriving it per model.",
+      "action_taken": "none. orders.csv untouched, protocol hash not re-pinned."
+    },
+    "2_adapter_targets_match_validated_set": {
+      "status": "PASS",
+      "evidence": "21,233,664 trainable of 4,560,499,200 (0.47%), identical to epoch-1 qwen-v2. Qwen3.5-4B is multimodal underneath; unsloth compiles the requested q/k/v/o/gate/up/down set into a language-tower-only regex so the vision tower is never adapted. Same mechanism and same resulting count as epoch-1 -- no change and nothing model-specific to configure."
+    },
+    "3_template_alignment_train_vs_gguf": {
+      "status": "PASS",
+      "evidence": "reports/epoch-2/production/gates/qwen_template_alignment.json. gen_prompt is an exact prefix of the training text, assistant content follows it, markers occur exactly once each, and gguf_render_equals_hf_render is true.",
+      "note_on_string_inequality": "gguf_template_equals_hf_template is FALSE while gguf_render_equals_hf_render is TRUE -- the embedded template text differs but produces byte-identical output. The gate's pass condition requires render equality, not string equality (gemma had the same profile in epoch-1).",
+      "first_attempt_was_a_false_failure": "an initial run without --template-kwargs reported FAIL. That was the harness, not the model: with no kwargs the generation prompt renders in THINKING mode (open <think>) while the training text renders the closed empty block, so they cannot match. Re-run with enable_thinking=false -- the setting the eval path already uses -- it passes. Recorded because a bare FAIL in the log would otherwise look like a real alignment defect.",
+      "independent_confirmation": "verified separately without any GGUF: to_text() training render and the eval-time generation prompt (enable_thinking=False) agree exactly, gen_prompt is an exact prefix, assistant content follows. Qwen's template emits the closed <think></think> prefix in the training render by default, so training and inference agree with no --template-kwargs at training time, exactly as in epoch-1."
+    },
+    "4_native_fit_no_sysmem_spill": {
+      "status": "PASS expected -- and Qwen is the only architecture with real headroom",
+      "evidence": "epoch-1 qwen-v2 measured 10.8 GiB allocated / 18.0 GiB reserved against a 23.889 GiB ceiling -- 5.9 GiB of headroom, the only one of the six that never approached the limit. That is a real measurement at the identical configuration.",
+      "why_not_probe_based": "the 12-step probe reports 10.3/13.1 GiB. Both prior probes underpredicted badly (granite probe 16.9 vs 24.6 actual; phi probe 10.8 vs 28.4 actual), so the probe was used only to confirm the trainable count and step time. The memory judgement rests on epoch-1's measured value.",
+      "caveat_from_phi": "phi's epoch-2 reserved memory rose 26.3 -> 28.4 GiB versus epoch-1 at identical config, so reserved CAN drift upward with run length once a model is already spilling. Qwen starts 5.9 GiB under the ceiling, so even a comparable drift should stay native. Not asserted as certain -- the full training log is the authoritative record."
+    }
+  },
+  "expected": {
+    "steps": 1902,
+    "steps_per_epoch": 951,
+    "est_runtime_min": 209,
+    "est_s_per_step": 6.58
+  },
+  "decision": "LAUNCH qwen epoch-2 from the pinned base checkpoint",
+  "output_dir": "models/epoch-2/production/qwen3.5-4b-bidding-lora-v2",
+  "save_steps": 250,
+  "checkpoint_resume_fix": "SaveIntervalEnforcer active. Verified synthetically before phi's run; phi completed without crashing so it has never been exercised under a real production crash. If this run crashes, that is the first genuine test."
+}

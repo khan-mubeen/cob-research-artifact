@@ -1,0 +1,280 @@
+{
+  "purpose": "currency relabelling of the v4 manufacturer unit costs for v5. the pricing methodology is unchanged and nothing here is date-aware",
+  "rate": {
+    "base": "EUR",
+    "quote": "USD",
+    "rate": 1.1622,
+    "requested_date": "2025-10-15",
+    "rate_date": "2025-10-15",
+    "days_carried": 0,
+    "via": "ecb reference rate",
+    "source": "C:\\m4\\chain-of-bid\\data\\raw\\v5\\fx\\ecb_eurofxref_hist.csv",
+    "source_sha256": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae",
+    "basis": "the first day of the v5 order window: the earliest date any v5 order exists, and an ECB publication day, so the rate is read exactly rather than carried forward"
+  },
+  "arithmetic": "unit_cost_usd = unit_cost_eur x 1.1622 (ECB EUR/USD on 2025-10-15), rounded to 4 decimals",
+  "bands": {
+    "shirt": {
+      "eur_v4": {
+        "min": 3.5,
+        "max": 6.0
+      },
+      "usd_v5": {
+        "min": 4.0677,
+        "max": 6.9732
+      }
+    },
+    "hoodie": {
+      "eur_v4": {
+        "min": 6.0,
+        "max": 10.0
+      },
+      "usd_v5": {
+        "min": 6.9732,
+        "max": 11.622
+      }
+    },
+    "jacket": {
+      "eur_v4": {
+        "min": 9.0,
+        "max": 14.0
+      },
+      "usd_v5": {
+        "min": 10.4598,
+        "max": 16.2708
+      }
+    },
+    "jeans": {
+      "eur_v4": {
+        "min": 5.0,
+        "max": 9.0
+      },
+      "usd_v5": {
+        "min": 5.811,
+        "max": 10.4598
+      }
+    },
+    "skirt": {
+      "eur_v4": {
+        "min": 3.0,
+        "max": 5.5
+      },
+      "usd_v5": {
+        "min": 3.4866,
+        "max": 6.3921
+      }
+    }
+  },
+  "bands_source": "UNIT_COSTS in src/data_synthesis/synthesize_manufacturers.py, read, not imported",
+  "agents": [
+    {
+      "agent_id": "T1",
+      "unit_cost_eur_v4": {
+        "shirt": 4.37,
+        "hoodie": 7.36,
+        "jacket": 10.58,
+        "jeans": null,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 5.0788,
+        "hoodie": 8.5538,
+        "jacket": 12.2961,
+        "jeans": null,
+        "skirt": null
+      }
+    },
+    {
+      "agent_id": "T2",
+      "unit_cost_eur_v4": {
+        "shirt": 4.18,
+        "hoodie": 7.04,
+        "jacket": null,
+        "jeans": null,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 4.858,
+        "hoodie": 8.1819,
+        "jacket": null,
+        "jeans": null,
+        "skirt": null
+      }
+    },
+    {
+      "agent_id": "T3",
+      "unit_cost_eur_v4": {
+        "shirt": null,
+        "hoodie": null,
+        "jacket": 9.43,
+        "jeans": 5.74,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": null,
+        "hoodie": null,
+        "jacket": 10.9595,
+        "jeans": 6.671,
+        "skirt": null
+      }
+    },
+    {
+      "agent_id": "T4",
+      "unit_cost_eur_v4": {
+        "shirt": 4.37,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": 6.44,
+        "skirt": 3.91
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 5.0788,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": 7.4846,
+        "skirt": 4.5442
+      }
+    },
+    {
+      "agent_id": "T5",
+      "unit_cost_eur_v4": {
+        "shirt": null,
+        "hoodie": 6.24,
+        "jacket": 9.0,
+        "jeans": null,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": null,
+        "hoodie": 7.2521,
+        "jacket": 10.4598,
+        "jeans": null,
+        "skirt": null
+      }
+    },
+    {
+      "agent_id": "T6",
+      "unit_cost_eur_v4": {
+        "shirt": 4.13,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": null,
+        "skirt": 3.7
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 4.7999,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": null,
+        "skirt": 4.3001
+      }
+    },
+    {
+      "agent_id": "T7",
+      "unit_cost_eur_v4": {
+        "shirt": 3.52,
+        "hoodie": 6.0,
+        "jacket": 9.0,
+        "jeans": 5.18,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 4.0909,
+        "hoodie": 6.9732,
+        "jacket": 10.4598,
+        "jeans": 6.0202,
+        "skirt": null
+      }
+    },
+    {
+      "agent_id": "T8",
+      "unit_cost_eur_v4": {
+        "shirt": null,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": 5.11,
+        "skirt": 3.1
+      },
+      "unit_cost_usd_v5": {
+        "shirt": null,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": 5.9388,
+        "skirt": 3.6028
+      }
+    },
+    {
+      "agent_id": "T9",
+      "unit_cost_eur_v4": {
+        "shirt": 4.08,
+        "hoodie": 6.88,
+        "jacket": null,
+        "jeans": null,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 4.7418,
+        "hoodie": 7.9959,
+        "jacket": null,
+        "jeans": null,
+        "skirt": null
+      }
+    },
+    {
+      "agent_id": "T10",
+      "unit_cost_eur_v4": {
+        "shirt": null,
+        "hoodie": null,
+        "jacket": 11.5,
+        "jeans": 7.0,
+        "skirt": 4.25
+      },
+      "unit_cost_usd_v5": {
+        "shirt": null,
+        "hoodie": null,
+        "jacket": 13.3653,
+        "jeans": 8.1354,
+        "skirt": 4.9393
+      }
+    },
+    {
+      "agent_id": "T11",
+      "unit_cost_eur_v4": {
+        "shirt": 4.66,
+        "hoodie": 7.84,
+        "jacket": 11.27,
+        "jeans": null,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 5.4159,
+        "hoodie": 9.1116,
+        "jacket": 13.098,
+        "jeans": null,
+        "skirt": null
+      }
+    },
+    {
+      "agent_id": "T12",
+      "unit_cost_eur_v4": {
+        "shirt": 4.37,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": 6.44,
+        "skirt": null
+      },
+      "unit_cost_usd_v5": {
+        "shirt": 5.0788,
+        "hoodie": null,
+        "jacket": null,
+        "jeans": 7.4846,
+        "skirt": null
+      }
+    }
+  ],
+  "inputs": {
+    "data/synthetic/v4/manufacturer_agents.csv": "faf86a339aee3e7d827b680653e1a932bff360066a19d143fd557ac5ac792220",
+    "data/raw/v5/fx/ecb_eurofxref_hist.csv": "f1332b211bcdbe261dd3d0e5ef8c674b93f9ceeac799955e30dfa7c062e88dae"
+  },
+  "output": "data/synthetic/v5/manufacturer_agents.csv"
+}

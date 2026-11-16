@@ -1,0 +1,7 @@
+  PASS test_every_prompt_floor_is_the_shared_floor_on_the_rows_own_rfq
+  PASS test_neither_generator_computes_a_floor_except_through_agent_minimum_bid
+  PASS test_nine_files_of_132_rows_1188_in_all
+  PASS test_the_diagnostic_rows_come_from_test_orders_and_repeat_no_test_row
+
+4/4 v5 floor-boundary unit tests passed
+exit 0

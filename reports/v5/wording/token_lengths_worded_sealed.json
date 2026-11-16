@@ -1,0 +1,66 @@
+{
+  "method": "phase 6: the token length of the rendered v5 training text, per model tokenizer",
+  "longest_per_file": 60,
+  "sample_per_file": 300,
+  "models": {
+    "qwen": {
+      "sealed": {
+        "max_over_longest_rows": 932,
+        "sample_median": 860.0,
+        "sample_mean": 854.9,
+        "sample_p99": 922
+      }
+    },
+    "granite": {
+      "sealed": {
+        "max_over_longest_rows": 944,
+        "sample_median": 888.0,
+        "sample_mean": 873.0,
+        "sample_p99": 932
+      }
+    },
+    "phi": {
+      "sealed": {
+        "max_over_longest_rows": 842,
+        "sample_median": 776.0,
+        "sample_mean": 770.0,
+        "sample_p99": 832
+      }
+    },
+    "ministral": {
+      "sealed": {
+        "max_over_longest_rows": 931,
+        "sample_median": 857.0,
+        "sample_mean": 849.1,
+        "sample_p99": 922
+      }
+    },
+    "gemma": {
+      "sealed": {
+        "max_over_longest_rows": 972,
+        "sample_median": 913.0,
+        "sample_mean": 896.9,
+        "sample_p99": 961
+      }
+    },
+    "smollm3": {
+      "sealed": {
+        "max_over_longest_rows": 892,
+        "sample_median": 822.0,
+        "sample_mean": 817.3,
+        "sample_p99": 880
+      }
+    }
+  },
+  "max_tokens_any_model": {
+    "sealed": 972
+  },
+  "smallest_standard_window_that_fits": {
+    "sealed": 1024
+  },
+  "v4_windows": {
+    "stage_agents": 1024,
+    "supervisor": 2048
+  },
+  "root": ".\\data\\finetune\\.v5_wording_scratch"
+}

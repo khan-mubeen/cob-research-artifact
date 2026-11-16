@@ -1,0 +1,104 @@
+{
+  "protocol": "cross-model bidding fine-tune protocol v1",
+  "frozen_at": "2026-07-19T15:35:00",
+  "frozen_before_any_candidate_training": true,
+  "reference_run": "qwen r1 (official checkpoint, models/finetune/qwen3.5-4b-bidding-lora/final)",
+
+  "data": {
+    "recipe": "identical to the official qwen round-one run",
+    "main_train_files": {
+      "data/finetune/v4/material_train.jsonl": "66e591c6e2d8557c0657ca0cdc7444bbbdac68e7ecee6d057ffee64999485908",
+      "data/finetune/v4/tailoring_train.jsonl": "0571fb511caf0242654f9e8067ccc35e458ca02be070914830b12ed0f5a5f29b",
+      "data/finetune/v4/logistics_train.jsonl": "195574aab84e52dfc1de372aece5f06a934d41e266439b44788f295dad7a3c3a"
+    },
+    "edge_train_files_round1": {
+      "data/finetune/v4/round1_edge/edge_tailoring_train.jsonl": "5f1bb41963d4ff62b0e3bfbb280f92a17494bb341dc172f99338d821e3d0bbf7",
+      "data/finetune/v4/round1_edge/edge_logistics_train.jsonl": "c0a08cc6fb11eba50000a36e816de536bc349ec0ba46b386d82a941c501ba569"
+    },
+    "orders_csv_for_stratification": {
+      "data/synthetic/v4/orders.csv": "b6acf05bbf44d427aeb546a6b7f0a96d02508a4b6b801cb87b7808285f5ab187"
+    },
+    "available_train_examples": 44342,
+    "subsample": 15000,
+    "subsample_method": "stratified_subsample by orders.csv scenario_type population shares, seeded shuffle",
+    "edge_examples": 40,
+    "edge_repeat": 5,
+    "planned_train_rows": 15200,
+    "seed": 42,
+    "edge_mix_shuffle_seed": 43,
+    "holdout_files_never_read_in_training": [
+      "material_holdout.jsonl (c329d2ef…)", "tailoring_holdout.jsonl (628b3843…)",
+      "logistics_holdout.jsonl (3414bde7…)", "edge_*_holdout.jsonl",
+      "boundary_stress.jsonl (1d3c0a48…)", "final_boundary_holdout.jsonl (278a3264…)"
+    ],
+    "known_contamination_disclosure": "2 of 12 current edge-holdout prompts (SYNEDGE-T-INF-T2/T2, SYNEDGE-T-INF-T11/T11) are verbatim in the round1 edge TRAIN set; affects qwen r1's saved edge_holdout metric identically; edge_holdout is therefore reported both as all-12 and clean-10 for every model; final_boundary_holdout / boundary_stress / main holdouts have zero overlap (verified 2026-07-19)"
+  },
+
+  "rendering": {
+    "method": "tokenizer.apply_chat_template on {system, user, assistant} exactly as in finetune_lora.to_text",
+    "alignment_gate": "training render vs generation render vs gguf-embedded template must pass src/experiments/cross_model/template_check.py BEFORE training",
+    "loss_masking": "unsloth train_on_responses_only with model-specific instruction/response markers, markers must occur exactly once per turn (checked by the gate)",
+    "thinking_policy": "non-thinking arms only; a model that cannot disable reasoning is excluded from the primary comparison"
+  },
+
+  "lora": {
+    "rank": 16, "alpha": 16, "dropout": 0, "bias": "none",
+    "targets_policy": "functionally-equivalent attention+MLP projection set per model (q,k,v,o,gate,up,down equivalents); trainable counts must match the feasibility-validated number and be published",
+    "gradient_checkpointing": "unsloth"
+  },
+
+  "training": {
+    "stack": "unsloth 2026.7.2 + transformers 5.5.0 + trl 0.24.0 + peft 0.19.1 + torch 2.10.0+cu130 (main .venv), same as the qwen reference runs",
+    "max_seq_length": 1024,
+    "per_device_batch_size_policy": "identical to qwen (8) whenever the model fits natively under the actual unsloth training stack (max_memory_reserved < physical 24 GiB, verified by a smoke run before launch); if it does not fit, use the largest native-fit per-device batch with gradient accumulation adjusted to keep effective batch 16, and disclose the deviation; deliberate sysmem spill is never an accepted training configuration",
+    "per_device_batch_size": 8,
+    "gradient_accumulation": 2,
+    "effective_batch": 16,
+    "optimizer": "adamw_8bit", "learning_rate": 0.0002, "warmup_steps": 5,
+    "weight_decay": 0.01, "lr_scheduler": "linear",
+    "num_epochs": 1, "expected_optimizer_steps": 950,
+    "precision": "bf16", "seed": 42,
+    "no_per_model_tuning": "no hyperparameter changes per model in round one"
+  },
+
+  "decoding": {
+    "hf_runtime": "greedy, max_new_tokens 200, enable_thinking=False where the template defines it",
+    "gguf_runtime": "llama-cpp-python 0.3.34, temperature 0.0, max_tokens 200, template embedded in the gguf (deployment default must be non-thinking)"
+  },
+
+  "conversion": {
+    "converter": "llama.cpp e3546c7948e3af463d0b401e6421d5a4c2faf565 (the commit vendored by the 0.3.34 runtime)",
+    "quantize": "llama-quantize b10068, Q8_0",
+    "qwen_specific": "--no-mtp required (merged causal-lm checkpoints drop MTP tensors but keep the config key) and unsloth-style non-thinking-default chat template must be embedded"
+  },
+
+  "evaluation": {
+    "pipeline": "src/experiments/eval_finetune.py (hf) and src/experiments/gguf_fix/eval_gguf.py (quantized), sets loaded by the same code path",
+    "sets": ["baseline_six (6)", "edge_holdout (12; reported all-12 AND clean-10)",
+             "main_holdout (500/stage seeded, 1500)", "boundary_stress (36, context only)",
+             "final_boundary_holdout (36, required condition)"],
+    "acceptance_criteria_pre_registered": {
+      "1_baseline_six": "6/6 NO_BID",
+      "2_no_decision_regression": "main_holdout decision agreement per stage >= the same model's OWN base checkpoint",
+      "3_offer_improvement": "per-stage mean abs offer deviation strictly better than the same model's base",
+      "4_json_validity": "100% parseable JSON on every set",
+      "5_final_boundary_required_condition": ">= 9/12 correct in EACH class (below/at/above), never aggregated"
+    },
+    "criteria_frozen_before_results": true
+  },
+
+  "granite_instantiation": {
+    "checkpoint": "ibm-granite/granite-4.1-3b",
+    "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+    "instruction_part": "<|start_of_role|>user<|end_of_role|>",
+    "response_part": "<|start_of_role|>assistant<|end_of_role|>",
+    "trainable_params_expected": 31129600,
+    "trainable_pct": 0.91,
+    "smoke_native_fit": "peak 9.3 GiB allocated / 16.9 GiB reserved at batch 8 x accum 2 seq 1024 (native fit, no spill)",
+    "smoke_median_step_s": 5.66,
+    "estimated_full_run_minutes": 90,
+    "stack_observations_vs_qwen": "unsloth auto-enabled padding-free batching and removed a duplicated BOS for granite; both are loss-equivalent packing/tokenization corrections applied by the shared stack, disclosed for completeness",
+    "output_dir": "models/finetune/granite-4.1-3b-bidding-lora",
+    "eval_output_dir": "reports/cross_model/"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen3.5-4B",
+  "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "gguf": "models/epoch-1/deployment/qwen-r1-gguf-fix/qwen35-r1-nomtp-matched-Q8_0.gguf",
+  "instruction_part": "<|im_start|>user",
+  "response_part": "<|im_start|>assistant",
+  "template_kwargs": {
+    "enable_thinking": false
+  },
+  "thinking_capable_template": true,
+  "checks": {
+    "gen_prompt_is_prefix_of_train_text": true,
+    "assistant_content_follows_prefix": true,
+    "gguf_template_equals_hf_template": false,
+    "gguf_render_equals_hf_render": true,
+    "instruction_part_count_in_train_text": 1,
+    "response_part_count_in_train_text": 1,
+    "response_part_ends_gen_prompt": true
+  },
+  "gate": "PASS",
+  "gen_prompt_tail": "\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.04\n}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "train_text_around_boundary": ": 0.04\n}<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent"
+}

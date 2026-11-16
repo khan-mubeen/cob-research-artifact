@@ -1,0 +1,98 @@
+{
+  "source": "Posti Parcel Services, digital contract prices",
+  "source_url": "https://www.posti.fi/mzj3zpe8qb7p/63bn2u74jGXSHu1IK0KTOk/8ed1177829b3ef1d403e467de8588375/posti-digital-contract-prices-202501.pdf",
+  "page_or_section": "page 1, 'Prices level 1', shipments of goods and parcels picked up from a Posti outlet; VAT wording page 5; weight limits page 6",
+  "role": "lower-bound calibration evidence for F_i and alpha_i",
+  "calibration_bound": "lower",
+  "currency": "EUR",
+  "unit": "EUR per shipment plus EUR per kg",
+  "document": {
+    "title_as_printed": "Parcel services - digital contract prices",
+    "file_name": "posti-digital-contract-prices-202501.pdf",
+    "footer_as_printed": "© Posti June 15, 2024 All rights reserved.",
+    "pages": 12
+  },
+  "access_date_basis": "values supplied pre-verified in the task prompt; the source was opened again on this date and every value and metadata field in this record was checked against it",
+  "reverification_status": "reverified",
+  "tariff_metadata": {
+    "vat_status": {
+      "value": "exclusive",
+      "source_wording": "VAT valid at the time will be added to prices during invoicing.",
+      "note": "page 5, 'Value added tax (VAT)'"
+    },
+    "effective_date": {
+      "value": "valid until further notice; no start date is printed",
+      "source_wording": "Valid until further notice, less than 500 parcels per calendar year",
+      "note": "page 1. the file name carries 202501 and the page 12 footer reads June 15, 2024; neither is stated as an effective date"
+    },
+    "currency_as_published": {
+      "value": "EUR",
+      "source_wording": "€/item, €/kg column headings"
+    },
+    "unit_basis": {
+      "value": "per shipment (EUR/item) plus per kg (EUR/kg) on the greater of actual and volume weight; the per-kg charge applies only to parcels larger than 26 x 32 x 40 cm; minimum charge 1 kg",
+      "source_wording": "The prices are determined by the parcel’s actual weight or volume weight (width x length x height x 250 kg/m3), whichever is greater. The minimum charge of a parcel is for 1 kilogram.",
+      "note": "page 1"
+    },
+    "service_category": {
+      "value": "domestic parcel",
+      "source_wording": "Parcel services"
+    },
+    "fuel_surcharge_treatment": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source",
+      "note": "this document never mentions a fuel surcharge. Posti publishes a separate 'Parcel' fuel and energy surcharge, and its 16.11.2025 domestic contract price list says the fuel surcharge is charged separately; that suggests, but does not establish, the same treatment for this digital price list"
+    },
+    "pickup_treatment": {
+      "value": "not included: parcels are handed in at a Posti outlet or parcel locker",
+      "source_wording": "Parcels picked up from a Posti outlet or Parcel Locker",
+      "note": "page 1 section heading; separate pick-ups are priced on page 5"
+    }
+  },
+  "weight_limits_as_printed": {
+    "Postal Parcel, Home Parcel, Express Parcel and Return": "maximum weight 25 kg",
+    "with Oversized additional service": "postal parcel’s maximum weight 25 kg; Home Parcel’s, Express Parcel’s and Return’s maximum weight 35 kg",
+    "Oversized additional service price": "€ 3.50"
+  },
+  "observations": [
+    {
+      "service": "Postal Parcel",
+      "price_level": 1,
+      "size_condition": "larger than 26 x 32 x 40 cm",
+      "eur_per_item": 5.9,
+      "eur_per_kg": 0.3,
+      "page": 1,
+      "printed_as": "Postal Parcel (larger than 26 x 32 x 40 cm) 5.90 0.30"
+    },
+    {
+      "service": "Express Parcel",
+      "price_level": 1,
+      "size_condition": "over 26 x 32 x 40 cm",
+      "eur_per_item": 8.9,
+      "eur_per_kg": 0.3,
+      "page": 1,
+      "printed_as": "Express Parcel (over 26 x 32 x 40 cm) 8.90 0.30",
+      "additional_charge_as_printed": "A delivery zone fee will be added to Express Parcels in accordance with the parcel’s destination postal code: € 0.60/item for zone 1 and € 1.20/item for zone 2."
+    },
+    {
+      "service": "Home Parcel",
+      "price_level": 1,
+      "size_condition": "over 26 x 32 x 40 cm",
+      "eur_per_item": 10.9,
+      "eur_per_kg": 0.3,
+      "page": 1,
+      "printed_as": "Home Parcel (over 26 x 32 x 40 cm) 10.90 0.30"
+    }
+  ],
+  "verification_note": "lower-bound calibration evidence; these parcel services have substantially lower shipment-weight limits (25-35kg) than this simulation's typical 50-1000+ kg shipments, per docs/data_synthesis_methodology.md Section 7.1",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-13",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record",
+  "calibration_feeds": "F_i and alpha_i",
+  "metadata_convention": {
+    "not_stated": "not stated in source",
+    "unreadable": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+    "meaning": "a field reading 'not stated in source' was read and is absent from the source; a field reading 'not verified' could not be read at all"
+  }
+}

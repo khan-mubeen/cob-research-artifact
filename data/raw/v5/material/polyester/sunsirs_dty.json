@@ -1,0 +1,18 @@
+{
+  "source": "SunSirs, Polyester DTY",
+  "source_url": "https://www.sunsirs.com/uk/prodetail-1007.html",
+  "page_or_section": "the Polyester DTY product detail page",
+  "role": "temporal reference for polyester",
+  "observation_kind": "the source labels these daily spot prices",
+  "currency": null,
+  "unit": null,
+  "observations": [],
+  "observations_status": "missing",
+  "observations_status_note": "no hand-verified SunSirs date/value observations exist in this repository or in the methodology document, and this source must not be re-fetched or reconstructed. the provenance record is created here so the structure is complete and the gap is visible; the observations have to be supplied by hand before polyester can use a temporal series. treat this file as a declared blocker, not as data",
+  "verification_note": "site's own page title states 'Daily prices'; the live data table could not be independently opened for verification because the site returns an automated security-check page to non-browser requests; the daily-frequency claim rests on the source's own label only, not on an independently confirmed table",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-11",
+  "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+}

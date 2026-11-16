@@ -1,0 +1,159 @@
+{
+  "tag": "lfm25-8b-a1b",
+  "steps": {
+    "B1_tokenizer_and_template": {
+      "status": "pass",
+      "loader": "AutoProcessor",
+      "thinking_controls": {
+        "enable_thinking=False": "accepted_but_ignored",
+        "thinking=False": "accepted_but_ignored",
+        "reasoning_effort=none": "accepted_but_ignored",
+        "add_reasoning_prompt=False": "accepted_but_ignored"
+      },
+      "gen_prefix_is_training_prefix": true,
+      "default_gen_tail": "'ffer_amount\": null,\\n  \"estimated_completion_days\": null,\\n  \"defect_probability\": 0.04\\n}<|im_end|>\\n<|im_start|>assistant\\n'",
+      "templates_file": ".\\reports\\feasibility\\templates_lfm25-8b-a1b.txt",
+      "seconds": 3.5
+    },
+    "B2_model_load": {
+      "status": "pass",
+      "trust_remote_code": false,
+      "load_seconds": 16.8,
+      "load_vram_gib": 15.77,
+      "param_count": 8467856128,
+      "config_architectures": [
+        "Lfm2MoeForCausalLM"
+      ],
+      "seconds": 16.8
+    },
+    "B3_module_inventory": {
+      "status": "pass",
+      "linear_suffix_counts": {
+        "out_proj": 24,
+        "gate": 22,
+        "in_proj": 18,
+        "q_proj": 6,
+        "k_proj": 6,
+        "v_proj": 6,
+        "w1": 2,
+        "w3": 2,
+        "w2": 2,
+        "lm_head": 1
+      },
+      "qwen_targets_present": {
+        "q_proj": 6,
+        "k_proj": 6,
+        "v_proj": 6,
+        "o_proj": 0,
+        "gate_proj": 0,
+        "up_proj": 0,
+        "down_proj": 0
+      },
+      "non_qwen_linears": {
+        "in_proj": 18,
+        "out_proj": 24,
+        "gate": 22
+      },
+      "seconds": 0.0
+    },
+    "B4_json_inference": {
+      "status": "pass",
+      "generations": [
+        {
+          "stage": "material",
+          "latency_s": 9.51,
+          "parseable_json": false,
+          "new_tokens": 300,
+          "raw": "<think>\nWe need to parse the task and compute according to steps.\n\nGiven:\n\nAgent profile:\n- location: Helsinki\n- materials supplied: cotton|polyester\n- available stock for requested material (kg): 2200.0\n- base cost per kg (EUR): 2.942\n- restock amount (kg): 3750.0\n- restock time (days): 3.0\n- default completion days: 2\n- defect probability: 0.04\n- reputation score: 0.5\n- min profit margin: 0.1\n- initial markup: 0.26\n\nRFQ:\n- order_id: ORD-09428\n- material needed: cotton\n- required quantity (kg): 89.7\n- max allowed defect rate: 0.091\n- min required reputation: 0.38\n- days until deadline: 47\n- p"
+        },
+        {
+          "stage": "material",
+          "latency_s": 8.66,
+          "parseable_json": false,
+          "new_tokens": 300,
+          "raw": "<think>\nWe need to evaluate the given scenario and decide whether to bid. The steps:\n\n1. Check if we supply this material. We are agent M02, which supplies cotton. So yes, we supply cotton. So proceed.\n\n2. Check defect_probability <= max_defect_rate. defect_probability is 0.01; max allowed is 0.091. 0.01 <= 0.091 => OK.\n\n3. Check reputation_score >= min_reputation_score. Our reputation score is 0.5; min required is 0.38. 0.5 >= 0.38 => OK.\n\n4. Check stock:\n\nAvailable stock: 800.0 kg. Required quantity: 89.7 kg. Since available >= required, completion = default_completion_days (which is 1). So "
+        },
+        {
+          "stage": "tailoring",
+          "latency_s": 8.62,
+          "parseable_json": false,
+          "new_tokens": 300,
+          "raw": "<think>\nWe need to parse the given data, evaluate each step, and produce final answer as JSON per spec.\n\nGiven:\n\nAgent profile: location Turku, products: jeans|shirt|skirt. So they do skirts. The order is for skirt, so check if we make this product. Yes, they make skirts. So proceed.\n\nDefect probability: 0.02. Max allowed defect rate: 0.091. So 0.02 <= 0.091 => OK.\n\nReputation score: 0.77. Minimum required reputation: 0.38 => OK.\n\nNow compute calculations:\n\nCurrent workload units: 113. Daily capacity: 752 units. So backlog_days = current_workload_units / daily_capacity_units = 113 / 752 \u2248 let'"
+        }
+      ],
+      "json_ok_count": 0,
+      "seconds": 26.8
+    },
+    "C1_lora_attach": {
+      "status": "pass",
+      "strict_qwen_targets_present": [
+        "q_proj",
+        "k_proj",
+        "v_proj"
+      ],
+      "strict_qwen_targets_missing": [
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "functional_targets": [
+        "in_proj",
+        "k_proj",
+        "out_proj",
+        "q_proj",
+        "v_proj",
+        "w1",
+        "w2",
+        "w3"
+      ],
+      "functional_categories": {
+        "attention": [
+          "in_proj",
+          "k_proj",
+          "out_proj",
+          "q_proj",
+          "v_proj"
+        ],
+        "mlp": [
+          "w1",
+          "w2",
+          "w3"
+        ]
+      },
+      "strict_trainable_params": 884736,
+      "trainable_params": 5701632,
+      "trainable_pct_of_total": 0.067,
+      "seconds": 0.9
+    },
+    "C2_gradient_smoke": {
+      "status": "pass",
+      "losses": [
+        3.0674774646759033,
+        3.022984504699707,
+        3.0287728309631348,
+        2.8321495056152344,
+        2.668262004852295,
+        2.5170516967773438,
+        2.3807339668273926,
+        2.340970516204834
+      ],
+      "median_step_s": 12.04,
+      "peak_train_vram_gib": 56.91,
+      "loss_changed": true,
+      "runtime_s": 105.4,
+      "batch_size_used": 8,
+      "exact_qwen_config": true,
+      "seconds": 107.8
+    },
+    "C3_adapter_save_reload_merge": {
+      "status": "pass",
+      "adapter_dir": ".\\reports\\feasibility\\adapter_lfm25-8b-a1b",
+      "merge_ok": true,
+      "seconds": 24.4
+    }
+  },
+  "model": "LiquidAI/LFM2.5-8B-A1B",
+  "revision": "5673e0de372b64331504de73bbbc33b0dde71903",
+  "thinking_off_kwargs": {}
+}

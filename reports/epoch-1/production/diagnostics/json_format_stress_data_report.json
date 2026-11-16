@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-07-20T17:36:17",
+  "purpose": "numeric JSON-format stress; diagnostic only, not training, not a gate",
+  "n": 144,
+  "sha256": "b71ffac7427f10ce9fb8387237b17788e9a7c83550de0ece6706474fc1263d4a",
+  "by_band": {
+    "under_1k": 24,
+    "1k_to_10k": 48,
+    "10k_to_100k": 48,
+    "over_100k": 24
+  },
+  "by_stage": {
+    "tailoring": 72,
+    "logistics": 72
+  },
+  "offer_range": [
+    440.77,
+    262841.35
+  ],
+  "all_rule_bids": true,
+  "label_verification": "every row a rule-verified BID with numeric offer via decide_*"
+}

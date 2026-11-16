@@ -1,0 +1,151 @@
+{
+  "tag": "gemma4-e2b",
+  "steps": {
+    "B1_tokenizer_and_template": {
+      "status": "pass",
+      "loader": "AutoProcessor",
+      "thinking_controls": {
+        "enable_thinking=False": "accepted_but_ignored",
+        "thinking=False": "accepted_but_ignored",
+        "reasoning_effort=none": "accepted_but_ignored",
+        "add_reasoning_prompt=False": "accepted_but_ignored"
+      },
+      "gen_prefix_is_training_prefix": true,
+      "default_gen_tail": "'O_BID\",\\n  \"offer_amount\": null,\\n  \"estimated_completion_days\": null,\\n  \"defect_probability\": 0.04\\n}<turn|>\\n<|turn>model\\n'",
+      "templates_file": ".\\reports\\feasibility\\templates_gemma4-e2b.txt",
+      "seconds": 5.2
+    },
+    "B2_model_load": {
+      "status": "pass",
+      "trust_remote_code": false,
+      "load_seconds": 8.1,
+      "load_vram_gib": 9.57,
+      "param_count": 5123178016,
+      "config_architectures": [
+        "Gemma4ForConditionalGeneration"
+      ],
+      "seconds": 8.1
+    },
+    "B3_module_inventory": {
+      "status": "pass",
+      "linear_suffix_counts": {
+        "linear": 232,
+        "k_proj": 63,
+        "q_proj": 63,
+        "v_proj": 63,
+        "o_proj": 51,
+        "gate_proj": 51,
+        "up_proj": 51,
+        "down_proj": 51,
+        "per_layer_input_gate": 35,
+        "per_layer_projection": 35,
+        "ffw_layer_1": 24,
+        "ffw_layer_2": 24,
+        "post": 12,
+        "relative_k_proj": 12,
+        "linear_start": 12,
+        "linear_end": 12,
+        "embedding_projection": 2,
+        "per_layer_model_projection": 1,
+        "input_proj": 1,
+        "input_proj_linear": 1,
+        "output_proj": 1,
+        "lm_head": 1
+      },
+      "qwen_targets_present": {
+        "q_proj": 63,
+        "k_proj": 63,
+        "v_proj": 63,
+        "o_proj": 51,
+        "gate_proj": 51,
+        "up_proj": 51,
+        "down_proj": 51
+      },
+      "non_qwen_linears": {
+        "per_layer_input_gate": 35,
+        "per_layer_projection": 35,
+        "linear": 232,
+        "ffw_layer_1": 24,
+        "ffw_layer_2": 24,
+        "post": 12,
+        "relative_k_proj": 12,
+        "linear_start": 12,
+        "linear_end": 12
+      },
+      "seconds": 0.0
+    },
+    "B4_json_inference": {
+      "status": "pass",
+      "generations": [
+        {
+          "stage": "material",
+          "latency_s": 6.54,
+          "parseable_json": true,
+          "new_tokens": 91,
+          "raw": "```json\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 24.11,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}\n```"
+        },
+        {
+          "stage": "material",
+          "latency_s": 6.07,
+          "parseable_json": true,
+          "new_tokens": 95,
+          "raw": "```json\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M02\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 31.113115,\n  \"estimated_completion_days\": 1,\n  \"defect_probability\": 0.01\n}\n```"
+        },
+        {
+          "stage": "tailoring",
+          "latency_s": 5.75,
+          "parseable_json": true,
+          "new_tokens": 96,
+          "raw": "```json\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1131.88,\n  \"estimated_completion_days\": 2.11,\n  \"defect_probability\": 0.02\n}\n```"
+        }
+      ],
+      "json_ok_count": 3,
+      "seconds": 18.4
+    },
+    "C1_lora_attach": {
+      "status": "fail",
+      "strict_qwen_targets_present": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "strict_qwen_targets_missing": [],
+      "functional_targets": [
+        "down_proj",
+        "gate_proj",
+        "k_proj",
+        "o_proj",
+        "q_proj",
+        "up_proj",
+        "v_proj"
+      ],
+      "functional_categories": {
+        "attention": [
+          "k_proj",
+          "o_proj",
+          "q_proj",
+          "v_proj"
+        ],
+        "mlp": [
+          "down_proj",
+          "gate_proj",
+          "up_proj"
+        ]
+      },
+      "seconds": 1.1,
+      "error": "ValueError: Target module Gemma4ClippableLinear(\n  (linear): Linear(in_features=768, out_features=768, bias=False)\n) is not supported. Currently, only the following modules are supported: `torch.nn.Linear`, `torch.nn.Embedding`, `torch.nn.Conv1d`, `torch.nn.Conv2d`, `torch.nn.Conv3d`, `transformers.pytorch_utils.Conv1D`, `torch.nn.MultiheadAttention.`.",
+      "trace_tail": [
+        "ValueError: Target module Gemma4ClippableLinear(",
+        "  (linear): Linear(in_features=768, out_features=768, bias=False)",
+        ") is not supported. Currently, only the following modules are supported: `torch.nn.Linear`, `torch.nn.Embedding`, `torch.nn.Conv1d`, `torch.nn.Conv2d`, `torch.nn.Conv3d`, `transformers.pytorch_utils.Conv1D`, `torch.nn.MultiheadAttention.`."
+      ]
+    }
+  },
+  "model": "google/gemma-4-E2B-it",
+  "revision": "179516f0c449474fdc46f08f30ead5b11e178497",
+  "thinking_off_kwargs": {}
+}

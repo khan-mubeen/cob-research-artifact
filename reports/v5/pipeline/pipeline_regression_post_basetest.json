@@ -1,0 +1,157 @@
+{
+  "label": "post_basetest",
+  "files": {
+    "sources": {
+      "src/experiments/compare_epochs.py": "921aa995d2ffee7404ef7a2a8ff99d81d1dfcc8957f85192d294979aa5341af6",
+      "src/experiments/eval_finetune.py": "00d704d9fd038acd47f79f97f6399a5769abc370fde3936ddcfdc8bbad77dc45",
+      "src/experiments/finetune_lora.py": "699659dfa539574d99c326ac8b65e70de9c8b02aadba1225f698fbec8149e4d2",
+      "src/experiments/eval_reverse_auction.py": "2c19442fbb12917cd6c663414ab56a0654a6a6722a5c23d2efe1ec71dd738c84",
+      "src/experiments/eval_supervisor.py": "efd111ca839f96de2964c7fa6d295f877d84cf57e69c3a726a55cb8e657e6b55",
+      "src/experiments/report_paths.py": "682b87888c559b70893c5a3fa7c37a2ce14900625072b4d1329ce5c082de8737"
+    },
+    "published": {
+      "gemma_epoch1_vs_epoch2.json": "5a5bfaeab7349a71cc52da499e93a71e27a41e4ab1ca5071c692188417cb5600",
+      "reports/epoch-1/production/evaluation/raw/eval_gemma-v2_20260721_012125.json": "cdf5e758f4cc2717616412e028ea44b6a8b444721b6d84864a5e196d847888d1",
+      "reports/epoch-2/production/evaluation/raw/eval_gemma-e2_20260728_093025.json": "7d0a7582b78a9a67a39783bbc15fffdc0923cf625d328e37ed16d19379c54639",
+      "reports/reference/base-evaluations/raw/eval_gemma-base_20260721_010311.json": "82908afa99cf9db292f59440e57da99c5fa122ec5c8b022a2713222af6c5dc86",
+      "granite_epoch1_vs_epoch2.json": "e75dac00a40cf85c487181db0a7497e6a0858324a9b462a1d4e8552a0e82454e",
+      "reports/epoch-1/production/evaluation/raw/eval_granite-v2_20260720_031152.json": "e94f9d023d0be2014fcdbfbc1f5249bb84e6a740a725c4b4451efa5babec527e",
+      "reports/epoch-2/production/evaluation/raw/eval_granite-e2_20260727_192603.json": "1347917cceb80bcc958175bdc6153d5d8a4818394eb805029790a54fe5d1cce3",
+      "reports/reference/base-evaluations/raw/eval_granite-base_20260719_170737.json": "74536f5e975a9b9590efc0cf591075a26699e73e19a3f090b7eb4cbfed17b6af",
+      "ministral_epoch1_vs_epoch2.json": "3ec96a00fdff4c31244af89d3b5654bf7d60072e783387bd2bf222455202a9b7",
+      "reports/epoch-1/production/evaluation/raw/eval_ministral-v2_20260722_013418.json": "0055014b78a36ddb2bf57d79ebc91a8da6e43153bc2a71e10b6b1e1fe6f63a42",
+      "reports/epoch-2/production/evaluation/raw/eval_ministral-e2_20260728_160341.json": "b27524383d540e1ab3eb25acc2cc705746d9b51c4750a26b6e1b0f2f9c77d648",
+      "reports/reference/base-evaluations/raw/eval_ministral-base_20260722_011608.json": "5412d1e47535bbe47a6e095a24e5a5cb2038c0eb73998568a68ebc59dda6560c",
+      "phi_epoch1_vs_epoch2.json": "fb10a15220aeacf45e5b2f77a5aa60d6d17aa2e1169a84e818ca84d2d0eb6116",
+      "reports/epoch-1/production/evaluation/raw/eval_phi-v2_20260720_200758.json": "d6f6bd7a17d01f35e4d0f18e29cc4c123c70b95ce0fadb2ca7ac4e844beb3f0e",
+      "reports/epoch-2/production/evaluation/raw/eval_phi-e2_20260727_225122.json": "da821a7a0abe7af1e50ee323e36162136027322f507106b7df2afed9630a1680",
+      "reports/reference/base-evaluations/raw/eval_phi-base_20260720_195336.json": "a708e2c64befc8e7932558d14a8e81ff4419fa08bb8b2ee5c764a7506c6dc4a0",
+      "qwen_epoch1_vs_epoch2.json": "8cf0a22b2adad9959e938408d3f390be2e3e881155d99247da90318bae220aa2",
+      "reports/epoch-1/production/evaluation/raw/eval_qwen-v2_20260720_025436.json": "29b97352dabebc4fdf7ed11dd60566c5d45a7f9f24922c42f33593e70e687ee4",
+      "reports/epoch-2/production/evaluation/raw/eval_qwen-e2_20260728_032713.json": "b7f06621f714566eae40e249b0ec691665be9a44ce9644146ff9cf5c37223a28",
+      "reports/reference/base-evaluations/raw/eval_base-audit_20260718_235632.json": "0222ecd4c6a4f94e4cf6f929d4b6863dd7e99e677e375ffda26e6ac1427454c5",
+      "smollm3_epoch1_vs_epoch2.json": "49eebc866213744dc1936535e550990af586bf5029b1dffa20666405c8fc87e2",
+      "reports/epoch-1/production/evaluation/raw/eval_smollm3-v2_20260722_005904.json": "36d908c73f3aa1a334d5d394229c878f5af2a2481c866fd9c53bc554dc8bad7e",
+      "reports/epoch-2/production/evaluation/raw/eval_smollm3-e2_20260728_191351.json": "b1b3a31be09b8faf3bc5cb7596738d92d7255e86a104f7f1b500707ab4904b50",
+      "reports/reference/base-evaluations/raw/eval_smollm3-base_20260722_004118.json": "af133a95d9d5d0da83c77b4211245a2c8273ee3a31133a547024e41922ce6fb0"
+    }
+  },
+  "comparisons": {
+    "gemma_epoch1_vs_epoch2.json": {
+      "output_without_stamp_sha256": "50c04483a0d3584fe85bb312d45c68512eae4e8f671617b439b38fb9fd1c9d5b",
+      "stdout_sha256": "8ff60f6c1d793f86c742aa25c4b26de384697071a89a561e899dfe6b9784f1f3",
+      "reproduces_published_without_stamp": true
+    },
+    "granite_epoch1_vs_epoch2.json": {
+      "output_without_stamp_sha256": "c82be80a79f0376667768530d1f80326d854702859e02e0ef8920fea2efd3bd5",
+      "stdout_sha256": "81810beb81d8041cad9810a86b0108a2638877827cf509516a69766daee3150f",
+      "reproduces_published_without_stamp": true
+    },
+    "ministral_epoch1_vs_epoch2.json": {
+      "output_without_stamp_sha256": "5b08ab864ff9860e3288b15071476561b0bfa2e428c9f200f80c71bea4a84ae0",
+      "stdout_sha256": "e91123061d166983730c4e6cb926db68f670ea180046486cea99ecfffdae1cd9",
+      "reproduces_published_without_stamp": true
+    },
+    "phi_epoch1_vs_epoch2.json": {
+      "output_without_stamp_sha256": "a484f652b26132445f77827a15f7fda133006c61d64a55fba845fb432729c7c5",
+      "stdout_sha256": "4387c44d1a7d2abb1506f6373742b48b62f9bf36cccd9a1e0c0be4aade445d46",
+      "reproduces_published_without_stamp": true
+    },
+    "qwen_epoch1_vs_epoch2.json": {
+      "output_without_stamp_sha256": "ec1defa89932979a1a2e098efbeab2cb33fa0536e1580c3cfa0440dbd9d9e6ef",
+      "stdout_sha256": "737e73440c4ac7b6cb9aa13b168cf0afc43fd35e421c10c21cc734ec3f544b20",
+      "reproduces_published_without_stamp": true
+    },
+    "smollm3_epoch1_vs_epoch2.json": {
+      "output_without_stamp_sha256": "85290491233594995445051b0f25e3b154aeee92e0ac28a7878e5cb15a7bb736",
+      "stdout_sha256": "f523b457a2bbf282e4994ffb06868b71547540e5ee2bf918ec2d5845ae004f57",
+      "reproduces_published_without_stamp": true
+    }
+  },
+  "evaluation": {
+    "sets": {
+      "baseline_six": {
+        "rows": 6,
+        "sha256": "5fd04adb814e70ba5d604b2ce9168e6d4988926c3c2b3bba632a7b14a73bd79d"
+      },
+      "boundary_stress": {
+        "rows": 36,
+        "sha256": "1462c0d8f25e10fbbd70598e3b28b5053eb8424ee49a85f83d44a45fd1aa6c22"
+      },
+      "edge_holdout": {
+        "rows": 12,
+        "sha256": "758f2106eb1c6cb038018a0d480f1f7b497c9d518f760ea23278086b56896cea"
+      },
+      "final_boundary_holdout": {
+        "rows": 36,
+        "sha256": "a40ca7c5737ce729c6aa34e9ba80fb9f5628e03c442b6dff6afdeab306adfaf0"
+      },
+      "json_format_stress": {
+        "rows": 144,
+        "sha256": "793605e2f4452c78bd0dcf908603600655c3e5ad8631f1692f85d7537a91cd8c"
+      },
+      "magnitude_diagnostic": {
+        "rows": 128,
+        "sha256": "c3087e0aa4cea8856567a5384cf706b1c6fbff77d9ba15222446cb03a69ac52b"
+      },
+      "main_holdout": {
+        "rows": 1500,
+        "sha256": "0a0f38608d0f2c5630de24164e81e364735376a2b5ac7e99c41e5ff19c0aeb6a"
+      },
+      "robustness_holdout_v2": {
+        "rows": 36,
+        "sha256": "dcf1ffafd83be7aad73b99293c917e373dc9955d4c862cbc976e408fb6c512f4"
+      },
+      "scale_diagnostic": {
+        "rows": 432,
+        "sha256": "e8731f35705db2112dce561d88bec9b8ae50f89c8de8f5cb4f52889b158c2f80"
+      }
+    },
+    "all_sets_sha256": "54a4757e9e0f3ca661e7fee7775d0d4f9a76146c254aee475b5b9ebdd061bcd2"
+  },
+  "training": {
+    "train_set_paths": {
+      "reverse_auction": [
+        "data/finetune/v4/reverse_auction/v4/material/train.jsonl",
+        "data/finetune/v4/reverse_auction/v4/tailoring/train.jsonl",
+        "data/finetune/v4/reverse_auction/v4/logistics/train.jsonl"
+      ],
+      "sealed": [
+        "data/finetune/v4/material_train.jsonl",
+        "data/finetune/v4/tailoring_train.jsonl",
+        "data/finetune/v4/logistics_train.jsonl"
+      ]
+    },
+    "sealed_records": {
+      "rows": 44342,
+      "sha256": "317df9645ad4d13cfed710246fb1f2677f89f4886620957a83c9a5dd26670a83"
+    },
+    "sealed_stratified_subsample_15000": {
+      "rows": 15000,
+      "sha256": "e92cccaff54ae62087a5558df61c373271887ace54e00e2c5c17a547084c608a",
+      "stdout_sha256": "80a5e064cb77c689c79c370b1ed00fff0216933f0b91cf070cc9a262e74661a4"
+    },
+    "reverse_auction_records": {
+      "rows": 48446,
+      "sha256": "e9f6bfe872e8f09c2ed874124468ef4553b3d563144f2cce701f203fcba1456c"
+    },
+    "round1_edge_records": {
+      "rows": 40,
+      "sha256": "9ae80d7928606a450dc95bded3d53a2f3989e42b1ce6758499898db9558a56e9"
+    }
+  },
+  "cli": {
+    "src/experiments/compare_epochs.py": {
+      "exit": 0,
+      "help": "usage: compare_epochs.py [-h] --arch ARCH --epoch-1 EPOCH_1 --epoch-2 EPOCH_2\n                         [--epoch-3 EPOCH_3] [--base BASE]\n                         [--out-epoch OUT_EPOCH]\n\noptions:\n  -h, --help            show this help message and exit\n  --arch ARCH\n  --epoch-1 EPOCH_1     epoch-1 pure-FT eval json\n  --epoch-2 EPOCH_2     epoch-2 pure-FT eval json\n  --epoch-3 EPOCH_3     epoch-3 result, v5 validation results only\n  --base BASE           the shared base-checkpoint eval json\n  --out-epoch OUT_EPOCH\n"
+    },
+    "src/experiments/eval_finetune.py": {
+      "exit": 0,
+      "help": "usage: eval_finetune.py [-h] [--adapter ADAPTER] --tag TAG [--dry-run]\n                        [--base-model BASE_MODEL] [--revision REVISION]\n                        [--only-set ONLY_SET] [--result-epoch RESULT_EPOCH]\n\noptions:\n  -h, --help            show this help message and exit\n  --adapter ADAPTER     path to lora adapter dir, empty = base model\n  --tag TAG             label for the output json, e.g. base / finetuned\n  --dry-run             load eval sets only, no model\n  --base-model BASE_MODEL\n                        hf checkpoint to evaluate when no --adapter is given\n  --revision REVISION   exact hf revision of --base-model\n  --only-set ONLY_SET   evaluate a single named set (e.g.\n                        robustness_holdout_v2), for cheap re-evals of already-\n                        scored checkpoints on a new set\n  --result-epoch RESULT_EPOCH\n                        which epoch-N report tree to write raw results into;\n                        the evaluation sets themselves are frozen and\n                        identical across epochs\n"
+    },
+    "src/experiments/finetune_lora.py": {
+      "exit": 0,
+      "help": "usage: finetune_lora.py [-h] [--smoke] [--subsample SUBSAMPLE]\n                        [--batch-size BATCH_SIZE] [--grad-accum GRAD_ACCUM]\n                        [--max-seq-length MAX_SEQ_LENGTH]\n                        [--train-jsonl TRAIN_JSONL]\n                        [--dataset {reverse_auction,sealed,v5_reverse_auction,v5_sealed,v5_supervisor}]\n                        [--num-train-epochs NUM_TRAIN_EPOCHS]\n                        [--max-steps MAX_STEPS] [--include-edge]\n                        [--edge-repeat EDGE_REPEAT]\n                        [--edge-weights EDGE_WEIGHTS]\n                        [--output-dir OUTPUT_DIR] [--base-model BASE_MODEL]\n                        [--revision REVISION] [--edge-dir EDGE_DIR]\n                        [--instruction-part INSTRUCTION_PART]\n                        [--response-part RESPONSE_PART]\n                        [--lora-targets LORA_TARGETS]\n                        [--save-steps SAVE_STEPS] [--resume]\n                        [--template-kwargs TEMPLATE_KWARGS]\n                        [--save-epoch-adapters] [--optim OPTIM]\n\noptions:\n  -h, --help            show this help message and exit\n  --smoke               pipeline check: 48 examples, 8 steps\n  --subsample SUBSAMPLE\n                        train on the first N examples of the seeded shuffle\n                        instead of all\n  --batch-size BATCH_SIZE\n  --grad-accum GRAD_ACCUM\n  --max-seq-length MAX_SEQ_LENGTH\n                        training sequence window. protocol v2 froze this at\n                        1024 for the stage agents; the supervisor needs 2048\n                        because a 12-candidate chain-selection prompt runs\n                        ~1600 tokens\n  --train-jsonl TRAIN_JSONL\n                        train on this jsonl instead of the three stage files\n                        (used for the supervisor set); --subsample/--include-\n                        edge do not apply to it\n  --dataset {reverse_auction,sealed,v5_reverse_auction,v5_sealed,v5_supervisor}\n                        named training set: sealed is the round-1 stage data,\n                        reverse_auction is the round 2/3 data; ignored with\n                        --train-jsonl\n  --num-train-epochs NUM_TRAIN_EPOCHS\n                        passes over the training set (protocol v2 froze this\n                        at 1; the epoch-2 family raises it to 2). the linear\n                        LR schedule spans the WHOLE run, so N epochs is not\n                        N-1 epochs plus one more -- the optimization\n                        trajectory differs throughout\n  --max-steps MAX_STEPS\n                        stop after N steps for timing, extrapolate, save\n                        nothing\n  --include-edge        mix the synthetic edge training subset into the set\n  --edge-repeat EDGE_REPEAT\n                        repeat the edge training subset this many times (with\n                        --include-edge)\n  --edge-weights EDGE_WEIGHTS\n                        per-category repeat overrides, e.g.\n                        tailoring:boundary_infeasible=4, others keep --edge-\n                        repeat\n  --output-dir OUTPUT_DIR\n                        checkpoint and adapter output dir, use a fresh path\n                        per round\n  --base-model BASE_MODEL\n                        hf checkpoint to fine-tune (frozen protocol: pin with\n                        --revision)\n  --revision REVISION   exact hf revision of --base-model\n  --edge-dir EDGE_DIR   directory with edge_{stage}_train.jsonl, default data\n                        dir; the round-one files live in\n                        data/finetune/v4/round1_edge\n  --instruction-part INSTRUCTION_PART\n                        template marker before user turns (model-specific)\n  --response-part RESPONSE_PART\n                        template marker before assistant turns, loss starts\n                        after it\n  --lora-targets LORA_TARGETS\n                        comma-separated LoRA target module names; use the\n                        functionally-equivalent fused names for models like\n                        phi (qkv_proj,o_proj,gate_up_proj,down_proj)\n  --save-steps SAVE_STEPS\n                        save a recovery checkpoint every N steps (0=off); does\n                        not alter training math, only lets a crashed run\n                        resume with --resume\n  --resume              resume from the last checkpoint in --output-dir if one\n                        exists\n  --template-kwargs TEMPLATE_KWARGS\n                        JSON kwargs for apply_chat_template during training\n                        render, e.g. '{\"enable_thinking\": false}' for models\n                        whose non-thinking mode is template-controlled\n                        (smollm3); empty = prior behavior, all completed model\n                        pipelines unchanged\n  --save-epoch-adapters\n                        also save a loadable adapter at the end of each epoch\n                        into <output-dir>/epoch-<n>/, so one run yields the\n                        epoch 1/2/3 checkpoints the v5 selection compares; off\n                        by default and it alters no training math. note the LR\n                        schedule spans the whole run, so these are not\n                        equivalent to separate 1/2/3-epoch runs\n  --optim OPTIM         trainer optimizer; adamw_8bit (bitsandbytes) is every\n                        completed run's setting, adamw_torch is the fallback\n                        where bitsandbytes is unavailable\n"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-27T02:39:50",
+  "base_model": "/anonymous/home\\.cache\\huggingface\\hub\\models--google--gemma-4-E2B-it\\snapshots\\179516f0c449474fdc46f08f30ead5b11e178497",
+  "base_revision": null,
+  "adapter": ".\\models\\epoch-2\\production\\gemma4-e2b-bidding-lora-v2\\final",
+  "out": ".\\models\\epoch-2\\deployment\\gemma-sealed\\merged",
+  "loaded_architecture": "Gemma4ForConditionalGeneration",
+  "probe_weight_max_abs_delta": {
+    "model.language_model.layers.0.self_attn.q_proj.weight": 0.001129150390625,
+    "model.language_model.layers.0.self_attn.o_proj.weight": 0.000732421875,
+    "model.language_model.layers.0.mlp.down_proj.weight": 0.00048828125
+  },
+  "merged_safetensors_gib": 9.543,
+  "merged_safetensors_sha256": "1514f3975f0e2f3f348f54ea14d9a413f36296c95e705bf7f40f91bc43a03c7f"
+}

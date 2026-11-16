@@ -1,0 +1,37 @@
+{
+  "authoritative": true,
+  "mode": "freeze",
+  "commit_recorded_before_writing": "unknown",
+  "git": {
+    "commit": "unknown",
+    "dirty": false
+  },
+  "corpus": {
+    "manifest_sha256": "cbf21f69acf1ffce8df72ec7aab1cb19498cbde5dbd046835995b6f8439bda1d",
+    "files": {
+      "edge/logistics_edge.jsonl": {
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "bytes": 78645,
+        "rows": 25
+      },
+      "edge/material_edge.jsonl": {
+        "sha256": "928049db7ff83e6957be46d42109cf491896509c7ca87b23c7f4fa6187cb4a62",
+        "bytes": 314819,
+        "rows": 108
+      },
+      "edge/metadata.json": {
+        "sha256": "1fc8fda0fa157e64e6b98a0196754f8c38ac83f345874e1b0eda7f56656afcf3",
+        "bytes": 2558,
+        "rows": null
+      },
+      "edge/tailoring_edge.jsonl": {
+        "sha256": "f38e2ddcd119ab19834ae16cd199cd8077b1e22d2ceb1020f1a11ce19d34d17f",
+        "bytes": 187257,
+        "rows": 60
+      }
+    }
+  },
+  "models": {},
+  "checks": [],
+  "passed": true
+}

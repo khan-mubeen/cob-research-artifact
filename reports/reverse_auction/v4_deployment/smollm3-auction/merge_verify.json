@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-27T02:46:42",
+  "base_model": "HuggingFaceTB/SmolLM3-3B",
+  "base_revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+  "adapter": ".\\models\\reverse_auction\\epoch-1\\v4\\smollm3-reverse-auction-lora\\final",
+  "out": ".\\models\\reverse_auction\\epoch-1\\v4\\deployment\\smollm3-auction\\merged",
+  "loaded_architecture": "SmolLM3ForCausalLM",
+  "probe_weight_max_abs_delta": {
+    "model.layers.0.self_attn.q_proj.weight": 0.00341796875,
+    "model.layers.0.self_attn.o_proj.weight": 0.000518798828125,
+    "model.layers.0.mlp.down_proj.weight": 0.0006103515625
+  },
+  "merged_safetensors_gib": 5.728,
+  "merged_safetensors_sha256": "7f9c511134d5bdba49596cc44e11cd9b90c1362b533117755d7bd486ef4864fa"
+}

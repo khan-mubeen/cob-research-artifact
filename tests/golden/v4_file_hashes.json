@@ -1,0 +1,11 @@
+{
+  "recorded_at": "2026-09-12",
+  "sha256": {
+    "logistics_agents.csv": "56b6145189e746007184bcf983b16bc7e39b6e2988f8f4f10969cd764a7444cf",
+    "manufacturer_agents.csv": "faf86a339aee3e7d827b680653e1a932bff360066a19d143fd557ac5ac792220",
+    "material_agents.csv": "15bfc6881d149bbaeacea1c72d11dc64ea5763ff84cf0c90d2f9f2a6e550a3b6",
+    "orders.csv": "4bb2b57dcf08b49691a40df188071c3cac66e13c6345e4f228885153ade1129c",
+    "orders_metadata.json": "35b57e1e5f92c92fa03f95288e234a506eb81f5a8ac7b4a3b0f12f634b6894cb",
+    "products.csv": "75c306523459eecaab2978fa067e31668e5e20e1ab08dd08b50dc5786c499554"
+  }
+}

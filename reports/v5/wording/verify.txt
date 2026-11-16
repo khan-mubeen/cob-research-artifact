@@ -1,0 +1,47 @@
+PASS material_train.jsonl                                           changed                  rows 169855 reworded 169855 non-prompt mismatches 0 bare 0 phrases 3057390
+PASS material_validation.jsonl                                      changed                  rows 21174 reworded 21174 non-prompt mismatches 0 bare 0 phrases 381132
+PASS material_test.jsonl                                            changed                  rows 21207 reworded 21207 non-prompt mismatches 0 bare 0 phrases 381726
+PASS tailoring_train.jsonl                                          changed                  rows 196876 reworded 196876 non-prompt mismatches 0 bare 0 phrases 4921900
+PASS tailoring_validation.jsonl                                     changed                  rows 24631 reworded 24631 non-prompt mismatches 0 bare 0 phrases 615775
+PASS tailoring_test.jsonl                                           changed                  rows 24518 reworded 24518 non-prompt mismatches 0 bare 0 phrases 612950
+PASS logistics_train.jsonl                                          changed                  rows 174814 reworded 174814 non-prompt mismatches 0 bare 0 phrases 3146652
+PASS logistics_validation.jsonl                                     changed                  rows 21924 reworded 21924 non-prompt mismatches 0 bare 0 phrases 394632
+PASS logistics_test.jsonl                                           changed                  rows 21872 reworded 21872 non-prompt mismatches 0 bare 0 phrases 393696
+PASS edge/material_edge.jsonl                                       changed                  rows 108 reworded 108 non-prompt mismatches 0 bare 0 phrases 1944
+PASS edge/tailoring_edge.jsonl                                      changed                  rows 60 reworded 60 non-prompt mismatches 0 bare 0 phrases 1500
+PASS edge/logistics_edge.jsonl                                      changed                  rows 25 reworded 25 non-prompt mismatches 0 bare 0 phrases 450
+PASS reverse_auction/material_train.jsonl                           unchanged                rows 189745 reworded - non-prompt mismatches 0 bare 0 phrases 3794900 byte-identical True
+PASS reverse_auction/material_validation.jsonl                      unchanged                rows 23691 reworded - non-prompt mismatches 0 bare 0 phrases 473820 byte-identical True
+PASS reverse_auction/material_test.jsonl                            unchanged                rows 23799 reworded - non-prompt mismatches 0 bare 0 phrases 475980 byte-identical True
+PASS reverse_auction/tailoring_train.jsonl                          unchanged                rows 216751 reworded - non-prompt mismatches 0 bare 0 phrases 5852277 byte-identical True
+PASS reverse_auction/tailoring_validation.jsonl                     unchanged                rows 27157 reworded - non-prompt mismatches 0 bare 0 phrases 733239 byte-identical True
+PASS reverse_auction/tailoring_test.jsonl                           unchanged                rows 27116 reworded - non-prompt mismatches 0 bare 0 phrases 732132 byte-identical True
+PASS reverse_auction/logistics_train.jsonl                          unchanged                rows 194665 reworded - non-prompt mismatches 0 bare 0 phrases 3893300 byte-identical True
+PASS reverse_auction/logistics_validation.jsonl                     unchanged                rows 24462 reworded - non-prompt mismatches 0 bare 0 phrases 489240 byte-identical True
+PASS reverse_auction/logistics_test.jsonl                           unchanged                rows 24482 reworded - non-prompt mismatches 0 bare 0 phrases 489640 byte-identical True
+PASS reverse_auction/floor_boundary/material_below_floor.jsonl      unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 2640 byte-identical True
+PASS reverse_auction/floor_boundary/material_at_floor.jsonl         unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 2640 byte-identical True
+PASS reverse_auction/floor_boundary/material_above_floor.jsonl      unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 2640 byte-identical True
+PASS reverse_auction/floor_boundary/tailoring_below_floor.jsonl     unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 3564 byte-identical True
+PASS reverse_auction/floor_boundary/tailoring_at_floor.jsonl        unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 3564 byte-identical True
+PASS reverse_auction/floor_boundary/tailoring_above_floor.jsonl     unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 3564 byte-identical True
+PASS reverse_auction/floor_boundary/logistics_below_floor.jsonl     unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 2640 byte-identical True
+PASS reverse_auction/floor_boundary/logistics_at_floor.jsonl        unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 2640 byte-identical True
+PASS reverse_auction/floor_boundary/logistics_above_floor.jsonl     unchanged                rows 132 reworded - non-prompt mismatches 0 bare 0 phrases 2640 byte-identical True
+PASS supervisor/selection_train.jsonl                               unchanged                rows - reworded - non-prompt mismatches 0 bare 0 phrases - byte-identical True
+PASS supervisor/selection_validation.jsonl                          unchanged                rows - reworded - non-prompt mismatches 0 bare 0 phrases - byte-identical True
+PASS supervisor/selection_test.jsonl                                unchanged                rows - reworded - non-prompt mismatches 0 bare 0 phrases - byte-identical True
+PASS split/order_split.csv                                          unchanged                rows - reworded - non-prompt mismatches 0 bare 0 phrases - byte-identical True
+PASS edge/metadata.json                                             metadata identical False changed keys ['prompt_wording', 'worded_formulas']
+PASS metadata.json                                                  metadata identical False changed keys ['prompt_wording', 'worded_formulas']
+PASS reverse_auction/floor_boundary/metadata.json                   metadata identical True 
+PASS reverse_auction/metadata.json                                  metadata identical True 
+PASS split/metadata.json                                            metadata identical True 
+PASS supervisor/metadata.json                                       metadata identical True 
+totals {'changed_rows_compared': 677064, 'changed_rows_reworded_exactly': 677064, 'non_prompt_field_mismatches': 0, 'unchanged_files_byte_identical': 22, 'unchanged_files_checked': 22}
+passed True
+
+real	3m28.747s
+user	0m0.015s
+sys	0m0.000s
+exit 0

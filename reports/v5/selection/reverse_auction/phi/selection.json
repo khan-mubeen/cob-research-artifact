@@ -1,0 +1,72 @@
+{
+  "dataset_version": "v5",
+  "run": "phi-reverse_auction-v5-r01",
+  "mode": "reverse_auction",
+  "split_used": "validation",
+  "validation_rows": 75310,
+  "validation_row_ids_sha256": "7642976ac16b9486be75ab91ccd652d6d2a90aab63275907d5f3d884801e91d6",
+  "rule": {
+    "key_order": [
+      "macro decision accuracy %",
+      "mean floor-case accuracy %",
+      "offer exact-match %"
+    ],
+    "higher_is_better": true,
+    "tie": "the lower epoch"
+  },
+  "ranking": [
+    {
+      "epoch": 3,
+      "adapter": "./models/training/reverse_auction/phi/phi-reverse_auction-v5-r01/epoch-3",
+      "result": "./reports/v5/selection/reverse_auction/phi/validation_epoch3.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_accuracy_pct": 99.993333,
+        "mean_floor_case_accuracy_pct": 100.0,
+        "offer_exact_match_pct": 59.02
+      },
+      "key": [
+        99.993333,
+        100.0,
+        59.02
+      ]
+    },
+    {
+      "epoch": 2,
+      "adapter": "./models/training/reverse_auction/phi/phi-reverse_auction-v5-r01/epoch-2",
+      "result": "./reports/v5/selection/reverse_auction/phi/validation_epoch2.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_accuracy_pct": 99.95,
+        "mean_floor_case_accuracy_pct": 100.0,
+        "offer_exact_match_pct": 56.95
+      },
+      "key": [
+        99.95,
+        100.0,
+        56.95
+      ]
+    },
+    {
+      "epoch": 1,
+      "adapter": "./models/training/reverse_auction/phi/phi-reverse_auction-v5-r01/epoch-1",
+      "result": "./reports/v5/selection/reverse_auction/phi/validation_epoch1.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_accuracy_pct": 99.843333,
+        "mean_floor_case_accuracy_pct": 100.0,
+        "offer_exact_match_pct": 55.72
+      },
+      "key": [
+        99.843333,
+        100.0,
+        55.72
+      ]
+    }
+  ],
+  "chosen": {
+    "epoch": 3,
+    "adapter": "./models/training/reverse_auction/phi/phi-reverse_auction-v5-r01/epoch-3"
+  },
+  "test_split": "not read during selection; evaluate it once, on the chosen adapter only"
+}

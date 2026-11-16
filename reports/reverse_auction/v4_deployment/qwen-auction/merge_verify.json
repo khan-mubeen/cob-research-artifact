@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-26T03:46:35",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "adapter": "models\\reverse_auction\\epoch-1\\v4\\qwen3.5-4b-reverse-auction-lora\\final",
+  "out": "models\\reverse_auction\\epoch-1\\v4\\deployment\\qwen35-v4-merged",
+  "loaded_architecture": "Qwen3_5ForCausalLM",
+  "probe_weight_max_abs_delta": {
+    "model.layers.3.self_attn.q_proj.weight": 0.0005950927734375,
+    "model.layers.3.self_attn.o_proj.weight": 0.000274658203125,
+    "model.layers.0.mlp.down_proj.weight": 0.000152587890625
+  },
+  "merged_safetensors_gib": 7.834,
+  "merged_safetensors_sha256": "91c9d4d8f38b49d4a58deb073da4796fd196a9631db2b949a5375a78855fb6a5"
+}

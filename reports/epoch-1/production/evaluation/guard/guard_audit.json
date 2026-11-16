@@ -1,0 +1,1510 @@
+{
+  "base": {
+    "source": "eval_base-audit_20260718_235632.json",
+    "baseline_six": {
+      "logistics": {
+        "n": 2,
+        "json_valid": 2,
+        "a_converted": 2,
+        "b_converted": 2,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 2,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 1,
+        "b_converted": 4,
+        "a_vs_b_disagree": 3,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 4,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 3,
+          "NO_BID/NO_BID": 1
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "edge_holdout": {
+      "logistics": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 2,
+        "b_converted": 2,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 16.3,
+        "no_guard": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 2,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 8,
+        "json_valid": 8,
+        "a_converted": 5,
+        "b_converted": 4,
+        "a_vs_b_disagree": 3,
+        "a_new_false_nobid": 2,
+        "a_unparseable": 0,
+        "mean_offer_dev": 59.13,
+        "no_guard": {
+          "BID/BID": 4,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 4,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 2,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 1,
+          "NO_BID/NO_BID": 3
+        },
+        "guard_b": {
+          "BID/BID": 4,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "main_holdout": {
+      "logistics": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 24.59,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "material": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 7,
+        "b_converted": 39,
+        "a_vs_b_disagree": 32,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 53.88,
+        "no_guard": {
+          "BID/BID": 461,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 39,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 461,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 32,
+          "NO_BID/NO_BID": 7
+        },
+        "guard_b": {
+          "BID/BID": 461,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 39
+        }
+      },
+      "tailoring": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 36.28,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    },
+    "boundary_stress": {
+      "stress_ratio_0.98": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 4,
+        "b_converted": 0,
+        "a_vs_b_disagree": 4,
+        "a_new_false_nobid": 4,
+        "a_unparseable": 0,
+        "mean_offer_dev": 57.29,
+        "no_guard": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 8,
+          "BID/NO_BID": 4,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.0": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 3,
+        "b_converted": 0,
+        "a_vs_b_disagree": 3,
+        "a_new_false_nobid": 3,
+        "a_unparseable": 0,
+        "mean_offer_dev": 69.42,
+        "no_guard": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 9,
+          "BID/NO_BID": 3,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.02": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 4,
+        "b_converted": 12,
+        "a_vs_b_disagree": 8,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 12,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 8,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      }
+    },
+    "final_boundary_holdout": {
+      "above_infeasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 3,
+        "b_converted": 12,
+        "a_vs_b_disagree": 9,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 12,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 9,
+          "NO_BID/NO_BID": 3
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      },
+      "below_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 2,
+        "b_converted": 0,
+        "a_vs_b_disagree": 2,
+        "a_new_false_nobid": 2,
+        "a_unparseable": 0,
+        "mean_offer_dev": 56.07,
+        "no_guard": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 10,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "exact_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 1,
+        "b_converted": 0,
+        "a_vs_b_disagree": 1,
+        "a_new_false_nobid": 1,
+        "a_unparseable": 0,
+        "mean_offer_dev": 53.43,
+        "no_guard": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 11,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 12,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    }
+  },
+  "r1": {
+    "source": "eval_finetuned-r1-audit_20260719_001029.json",
+    "baseline_six": {
+      "logistics": {
+        "n": 2,
+        "json_valid": 2,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 2,
+        "b_converted": 2,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 2,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "edge_holdout": {
+      "logistics": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.87,
+        "no_guard": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_a": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 8,
+        "json_valid": 8,
+        "a_converted": 2,
+        "b_converted": 1,
+        "a_vs_b_disagree": 1,
+        "a_new_false_nobid": 1,
+        "a_unparseable": 0,
+        "mean_offer_dev": 7.51,
+        "no_guard": {
+          "BID/BID": 4,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 1,
+          "NO_BID/NO_BID": 3
+        },
+        "guard_a": {
+          "BID/BID": 3,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_b": {
+          "BID/BID": 4,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "main_holdout": {
+      "logistics": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.76,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "material": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 2,
+        "b_converted": 4,
+        "a_vs_b_disagree": 2,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.55,
+        "no_guard": {
+          "BID/BID": 460,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 4,
+          "NO_BID/NO_BID": 35
+        },
+        "guard_a": {
+          "BID/BID": 460,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 2,
+          "NO_BID/NO_BID": 37
+        },
+        "guard_b": {
+          "BID/BID": 460,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 39
+        }
+      },
+      "tailoring": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.65,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    },
+    "boundary_stress": {
+      "stress_ratio_0.98": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 9.95,
+        "no_guard": {
+          "BID/BID": 6,
+          "BID/NO_BID": 6,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 6,
+          "BID/NO_BID": 6,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 6,
+          "BID/NO_BID": 6,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.0": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 5,
+        "b_converted": 0,
+        "a_vs_b_disagree": 5,
+        "a_new_false_nobid": 5,
+        "a_unparseable": 0,
+        "mean_offer_dev": 9.54,
+        "no_guard": {
+          "BID/BID": 5,
+          "BID/NO_BID": 7,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 12,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 5,
+          "BID/NO_BID": 7,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.02": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 5,
+        "b_converted": 5,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 5,
+          "NO_BID/NO_BID": 7
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      }
+    },
+    "final_boundary_holdout": {
+      "above_infeasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 4,
+        "b_converted": 4,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 4,
+          "NO_BID/NO_BID": 8
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      },
+      "below_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 8.82,
+        "no_guard": {
+          "BID/BID": 5,
+          "BID/NO_BID": 7,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 5,
+          "BID/NO_BID": 7,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 5,
+          "BID/NO_BID": 7,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "exact_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 5,
+        "b_converted": 0,
+        "a_vs_b_disagree": 5,
+        "a_new_false_nobid": 5,
+        "a_unparseable": 0,
+        "mean_offer_dev": 9.71,
+        "no_guard": {
+          "BID/BID": 8,
+          "BID/NO_BID": 4,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 3,
+          "BID/NO_BID": 9,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 8,
+          "BID/NO_BID": 4,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    }
+  },
+  "r2": {
+    "source": "eval_finetuned-r2-finalb_20260718_230247.json",
+    "baseline_six": {
+      "logistics": {
+        "n": 2,
+        "json_valid": 2,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "edge_holdout": {
+      "logistics": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 1.23,
+        "no_guard": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_a": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 8,
+        "json_valid": 8,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 2.03,
+        "no_guard": {
+          "BID/BID": 1,
+          "BID/NO_BID": 3,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_a": {
+          "BID/BID": 1,
+          "BID/NO_BID": 3,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_b": {
+          "BID/BID": 1,
+          "BID/NO_BID": 3,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "main_holdout": {
+      "logistics": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.73,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "material": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 3,
+        "b_converted": 6,
+        "a_vs_b_disagree": 3,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.75,
+        "no_guard": {
+          "BID/BID": 459,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 6,
+          "NO_BID/NO_BID": 33
+        },
+        "guard_a": {
+          "BID/BID": 459,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 3,
+          "NO_BID/NO_BID": 36
+        },
+        "guard_b": {
+          "BID/BID": 459,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 39
+        }
+      },
+      "tailoring": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.76,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    },
+    "boundary_stress": {
+      "stress_ratio_0.98": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 3.73,
+        "no_guard": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.0": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.79,
+        "no_guard": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.02": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 1,
+        "b_converted": 1,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 1,
+          "NO_BID/NO_BID": 11
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      }
+    },
+    "final_boundary_holdout": {
+      "above_infeasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 3,
+        "b_converted": 3,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 3,
+          "NO_BID/NO_BID": 9
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      },
+      "below_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 1.23,
+        "no_guard": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "exact_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 12,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 12,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 12,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    }
+  },
+  "r3": {
+    "source": "eval_finetuned-r3_20260718_224755.json",
+    "baseline_six": {
+      "logistics": {
+        "n": 2,
+        "json_valid": 2,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "edge_holdout": {
+      "logistics": {
+        "n": 4,
+        "json_valid": 4,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.26,
+        "no_guard": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_a": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        },
+        "guard_b": {
+          "BID/BID": 2,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 2
+        }
+      },
+      "tailoring": {
+        "n": 8,
+        "json_valid": 8,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 2.64,
+        "no_guard": {
+          "BID/BID": 4,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_a": {
+          "BID/BID": 4,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        },
+        "guard_b": {
+          "BID/BID": 4,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 4
+        }
+      }
+    },
+    "main_holdout": {
+      "logistics": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.77,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "material": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 4,
+        "b_converted": 7,
+        "a_vs_b_disagree": 3,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.79,
+        "no_guard": {
+          "BID/BID": 459,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 7,
+          "NO_BID/NO_BID": 32
+        },
+        "guard_a": {
+          "BID/BID": 459,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 3,
+          "NO_BID/NO_BID": 36
+        },
+        "guard_b": {
+          "BID/BID": 459,
+          "BID/NO_BID": 2,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 39
+        }
+      },
+      "tailoring": {
+        "n": 500,
+        "json_valid": 500,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 0.76,
+        "no_guard": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 500,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    },
+    "boundary_stress": {
+      "stress_ratio_0.98": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 2.63,
+        "no_guard": {
+          "BID/BID": 2,
+          "BID/NO_BID": 10,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 2,
+          "BID/NO_BID": 10,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 2,
+          "BID/NO_BID": 10,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.0": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 3.42,
+        "no_guard": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 1,
+          "BID/NO_BID": 11,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "stress_ratio_1.02": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 1,
+        "b_converted": 1,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 1,
+          "NO_BID/NO_BID": 11
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      }
+    },
+    "final_boundary_holdout": {
+      "above_infeasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 10,
+        "b_converted": 11,
+        "a_vs_b_disagree": 1,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": null,
+        "no_guard": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 11,
+          "NO_BID/NO_BID": 1
+        },
+        "guard_a": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 1,
+          "NO_BID/NO_BID": 11
+        },
+        "guard_b": {
+          "BID/BID": 0,
+          "BID/NO_BID": 0,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 12
+        }
+      },
+      "below_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 3.71,
+        "no_guard": {
+          "BID/BID": 7,
+          "BID/NO_BID": 5,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 7,
+          "BID/NO_BID": 5,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 7,
+          "BID/NO_BID": 5,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      },
+      "exact_feasible": {
+        "n": 12,
+        "json_valid": 12,
+        "a_converted": 0,
+        "b_converted": 0,
+        "a_vs_b_disagree": 0,
+        "a_new_false_nobid": 0,
+        "a_unparseable": 0,
+        "mean_offer_dev": 3.45,
+        "no_guard": {
+          "BID/BID": 11,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_a": {
+          "BID/BID": 11,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        },
+        "guard_b": {
+          "BID/BID": 11,
+          "BID/NO_BID": 1,
+          "NO_BID/BID": 0,
+          "NO_BID/NO_BID": 0
+        }
+      }
+    }
+  }
+}

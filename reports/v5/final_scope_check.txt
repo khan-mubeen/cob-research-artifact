@@ -1,0 +1,28 @@
+protected files changed since phase 1: ['src/common/bidding_formulas.py', 'src/common/slm.py']
+tree src/supervisor: 3 files, differences since phase 1: []
+tree src/agents: 10 files, differences since phase 1: []
+tree src/api: 14 files, differences since phase 1: []
+tree tests/golden: 9 files, differences since phase 1: []
+tree data/synthetic/v4: 6 files, differences since phase 1: []
+tree data/synthetic/v5: 7 files, differences since phase 1: []
+tree data/finetune/v4: 67 files, differences since phase 1: []
+git status of out-of-scope paths (staged A lines predate tonight):
+A  data/processed/v5/logistics/agent_calibration.csv
+A  data/synthetic/v5/logistics_agents.csv
+A  data/synthetic/v5/manufacturer_agents.csv
+A  data/synthetic/v5/material_agents.csv
+A  data/synthetic/v5/material_reference_prices.csv
+A  data/synthetic/v5/orders.csv
+A  data/synthetic/v5/orders_metadata.json
+A  data/synthetic/v5/products.csv
+A  tests/golden/__init__.py
+A  tests/golden/generate_v4_golden.py
+A  tests/golden/v4_baseline.py
+A  tests/golden/v4_boundaries.py
+A  tests/golden/v4_boundary_decisions.json
+A  tests/golden/v4_decision_census.json
+A  tests/golden/v4_file_hashes.json
+A  tests/golden/v4_prompts.json
+A  tests/golden/v4_sample_decisions.json
+
+config.DATA_VERSION: v4

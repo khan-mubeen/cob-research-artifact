@@ -1,0 +1,3 @@
+40 files, main corpus rows {'all': 1473181, 'reverse_auction:all': 751868, 'reverse_auction:test': 75397, 'reverse_auction:train': 601161, 'reverse_auction:validation': 75310, 'sealed:all': 676871, 'sealed:test': 67597, 'sealed:train': 541545, 'sealed:validation': 67729, 'supervisor:all': 44442, 'supervisor:test': 4435, 'supervisor:train': 35552, 'supervisor:validation': 4455}
+supplementary rows {'diagnostic': 1188, 'robustness_eval': 193}
+wrote data/finetune/v5/manifest.json

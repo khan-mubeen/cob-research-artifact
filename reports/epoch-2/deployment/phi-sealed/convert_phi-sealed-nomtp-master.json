@@ -1,0 +1,11 @@
+{
+  "tag": "phi-sealed-nomtp-master",
+  "merged_dir": "models\\epoch-2\\deployment\\phi-sealed\\merged",
+  "model_type": "phi3",
+  "converter": "571d0d540df04f25298d0e159e520d9fc62ed121 (feasibility-era master)",
+  "flags": [],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 1,
+  "convert_seconds": 3.5,
+  "convert_stderr_tail": "f-to-gguf:Set meta model\nINFO:hf-to-gguf:Set model parameters\nINFO:hf-to-gguf:Set model quantization version\nINFO:hf-to-gguf:Set model tokenizer\nTraceback (most recent call last):\n  File \"tools\\llama.cpp\\convert_hf_to_gguf.py\", line 296, in <module>\n    main()\n  File \"tools\\llama.cpp\\convert_hf_to_gguf.py\", line 290, in main\n    model_instance.write()\n  File \"tools\\llama.cpp\\conversion\\base.py\", line 1026, in write\n    self.prepare_metadata(vocab_only=False)\n  File \"tools\\llama.cpp\\conversion\\base.py\", line 1193, in prepare_metadata\n    self.set_vocab()\n  File \"tools\\llama.cpp\\conversion\\phi.py\", line 57, in set_vocab\n    raise ValueError(f'Error: Missing {tokenizer_path}')\nValueError: Error: Missing models\\epoch-2\\deployment\\phi-sealed\\merged\\tokenizer.model\n"
+}

@@ -1,0 +1,19 @@
+
+stage      split           rows      BID   NO_BID  withdrawn   floor  bid %
+material   train         189745   115140    74605      17694   19890  60.68
+material   validation     23691    14472     9219       2170    2517  61.09
+material   test           23799    14554     9245       2163    2592  61.15
+tailoring  train         216751   154342    62409      15495   19875  71.21
+tailoring  validation     27157    19337     7820       1982    2526  71.20
+tailoring  test           27116    19278     7838       1941    2598  71.09
+logistics  train         194665   100579    94086          0   19851  51.67
+logistics  validation     24462    12660    11802          0    2538  51.75
+logistics  test           24482    12732    11750          0    2610  52.01
+total rows 751868, round mix {1: 284701, 2: 316096, 3: 151071}, skipped {}
+replay lengths {'material': {3: 35207, 2: 13229, 1: 1564}, 'tailoring': {3: 41539, 2: 8461}, 'logistics': {2: 49691}}
+written to data/finetune/v5/reverse_auction
+
+real	1m45.591s
+user	0m0.000s
+sys	0m0.000s
+exit 0

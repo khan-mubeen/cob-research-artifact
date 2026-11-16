@@ -1,0 +1,43 @@
+{
+  "tag": "qwen-sealed-nomtp-matched",
+  "merged_dir": "models\\epoch-2\\deployment\\qwen-sealed\\merged",
+  "converter": "e3546c7948e3af463d0b401e6421d5a4c2faf565 (vendored by llama-cpp-python 0.3.34)",
+  "flags": [
+    "--no-mtp"
+  ],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_seconds": 43.6,
+  "bf16_gib": 7.85,
+  "bf16_meta": {
+    "block_count": 32,
+    "tensor_count": 426,
+    "has_blk32": false
+  },
+  "quantize_rc": 0,
+  "quant_gib": 4.17,
+  "quant_sha256": "ba7fb27beabad4d658aa0c5f58bcf611785e665c445f896bc40430cccf8b5800",
+  "quant_meta": {
+    "block_count": 32,
+    "tensor_count": 426,
+    "has_blk32": false
+  },
+  "runtime_load_rc": 0,
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 6.0,
+    "latencies_s": [
+      1.29,
+      0.9,
+      0.97,
+      0.96,
+      0.9,
+      0.88
+    ],
+    "first_infer_s": 1.29,
+    "median_steady_s": 0.9,
+    "total_completion_tokens": 502,
+    "json_ok": "6/6",
+    "raw_head": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 301.2,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+  }
+}

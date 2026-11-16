@@ -1,0 +1,68 @@
+{
+  "source": "PostNord Finland, domestic service price list",
+  "source_url": "https://www.postnord.fi/siteassets/pdf/hinnastot/online_prices_2026-02-01_en.pdf",
+  "page_or_section": "15.01-20 kg weight bracket of the zone A, B and C domestic price table; page number not verified, the document could not be opened",
+  "role": "lower-bound calibration evidence for F_i and alpha_i",
+  "calibration_bound": "lower",
+  "currency": "EUR",
+  "unit": "EUR per parcel within a weight bracket and delivery zone",
+  "access_date_basis": "values supplied pre-verified in the task prompt. re-reading the document on this date failed: HTTP 403 from urllib with a browser user agent, from WebFetch and from PowerShell Invoke-WebRequest, and the Internet Archive holds no capture of this url. the values are recorded as supplied and every metadata field the document would have to state is marked unverified rather than guessed",
+  "reverification_status": "blocked: HTTP 403, no archive capture",
+  "document_dating_evidence": "2026-02-01 appears in the file name online_prices_2026-02-01_en.pdf, and a web search index lists the document title as 'PostNord Oy service price list 1.2.2026'. neither was read from the document itself",
+  "tariff_metadata": {
+    "vat_status": {
+      "value": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+      "source_wording": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself"
+    },
+    "effective_date": {
+      "value": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+      "source_wording": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+      "note": "see document_dating_evidence"
+    },
+    "currency_as_published": {
+      "value": "EUR, as supplied with the pre-verified values",
+      "source_wording": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself"
+    },
+    "unit_basis": {
+      "value": "per parcel within a weight bracket and delivery zone, as supplied",
+      "source_wording": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself"
+    },
+    "service_category": {
+      "value": "domestic parcel, as supplied; the service name could not be re-read",
+      "source_wording": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself"
+    },
+    "fuel_surcharge_treatment": {
+      "value": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+      "source_wording": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+      "note": "PostNord Finland publishes a separate monthly fuel surcharge, see fuel_surcharge/postnord_fuel_surcharge.json; whether this price list states it is charged on top could not be read"
+    }
+  },
+  "observations": [
+    {
+      "weight_bracket_kg": "15.01-20",
+      "zone": "A",
+      "eur_per_parcel": 12.0
+    },
+    {
+      "weight_bracket_kg": "15.01-20",
+      "zone": "B",
+      "eur_per_parcel": 14.0
+    },
+    {
+      "weight_bracket_kg": "15.01-20",
+      "zone": "C",
+      "eur_per_parcel": 19.0
+    }
+  ],
+  "verification_note": "lower-bound calibration evidence, same category caveat as Posti parcel; zone-and-weight-bracket structure, not a constant EUR/kg rate",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-13",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record",
+  "calibration_feeds": "F_i and alpha_i",
+  "metadata_convention": {
+    "not_stated": "not stated in source",
+    "unreadable": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+    "meaning": "a field reading 'not stated in source' was read and is absent from the source; a field reading 'not verified' could not be read at all"
+  }
+}

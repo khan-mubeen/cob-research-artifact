@@ -1,0 +1,21 @@
+{
+  "tag": "gemma4-e2b-unsloth",
+  "path": "unsloth (same stack as qwen training)",
+  "trainable_params": 25337856,
+  "losses": [
+    1.4342467784881592,
+    1.4571689367294312,
+    1.432523250579834,
+    1.2831835746765137,
+    1.1265590190887451,
+    0.9524778127670288,
+    0.867885947227478,
+    0.811020016670227
+  ],
+  "loss_changed": true,
+  "median_step_s": 4.52,
+  "peak_train_vram_reserved_gib": 13.87,
+  "batch_size_used": 8,
+  "exact_qwen_config": true,
+  "merged_saved_to": ".\\models\\feasibility\\gemma4-e2b-merged"
+}

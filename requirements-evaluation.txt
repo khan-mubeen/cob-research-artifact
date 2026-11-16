@@ -1,0 +1,30 @@
+# rebuilding the v5 evaluation tables and charts: src/experiments/v5/render_report.py and
+# src/experiments/v5/latency_measurement/summarize.py. no gpu is needed.
+# versions are those installed in the environment used for rendering (python 3.12).
+# matplotlib 3.9.4 is needed for pixel-identical charts. the fonts are bundled in src/experiments/v5/fonts/.
+matplotlib==3.9.4
+# pin the recorded rendering dependencies too; do not mix this with the runtime environment.
+numpy==2.2.6
+pillow==11.3.0
+fonttools==4.59.1
+kiwisolver==1.4.9
+cycler==0.12.1
+contourpy==1.3.3
+pyparsing==3.2.3
+python-dateutil==2.9.0.post0
+packaging==24.2
+# python-dateutil's dependency, selected for this rebuild environment rather than recorded in the paper.
+six==1.17.0
+# src/experiments/v5/check_latency_tables.py and summarize.py use the standard library only.
+
+# latency measurement (src/experiments/v5/latency_measurement/). not needed for the rebuild.
+# it ran in a pytorch 2.7.1 rocm 6.2.4 container with python 3.12.
+# the first four versions are recorded in every measurement session record.
+# torch==2.7.1+rocm6.2.4
+# transformers==5.17.0
+# peft==0.21.0
+# unsloth==2026.9.7
+# the next three are read from the installed environment. the measurement records do not list them.
+# unsloth_zoo==2026.9.6
+# trl==1.13.0
+# accelerate==1.15.0

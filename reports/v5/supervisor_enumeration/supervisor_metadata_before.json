@@ -1,0 +1,35 @@
+{
+  "generated_from": "rule-based decide_chain_selection() labels through the v5 dispatch, no model involved",
+  "data_version": "v5",
+  "currency": "USD",
+  "scale_decision": "deliberate v5 scaling decision: every one of the 50,000 v5 orders is used, not v4's 12,000-order supervisor sample",
+  "source_order_count": 50000,
+  "split_file": "data/finetune/v5/split/order_split.csv",
+  "split_file_sha256": "c068ed116da214a822df4e30b72c313cda309de48c76a3dd154396f292fcdd5f",
+  "split_rule": "order-id disjoint, the global v5 split; an order's example lands entirely in one split",
+  "single_corpus": "v4 has no separate reverse-auction supervisor set, so v5 has none either",
+  "max_candidates_per_prompt": 12,
+  "min_candidates_per_prompt": 2,
+  "shortlist": "src.experiments.generate_supervisor_data.shortlist, imported, random.Random(42 + 7)",
+  "candidate_source": "v5 decide_*_bid BIDs, widened by widen_candidates and crossed material x manufacturer x logistics as build_chains does with top_n=6; logistics priced from each chain's own manufacturer location",
+  "prompt_builder": "src.common.slm.build_chain_selection_prompt, v5 dispatch",
+  "label_rule": "src.common.bidding_formulas.decide_chain_selection, reading budget_usd through the context",
+  "counts": {
+    "train": 35552,
+    "validation": 4455,
+    "test": 4435
+  },
+  "skipped": {
+    "orders_without_a_product_pair": 0,
+    "stage_had_no_bidder": 1845,
+    "fewer_than_min_candidates": 3713,
+    "rule_declined": 0
+  },
+  "strategy_mix": {
+    "urgent": 11252,
+    "flexible": 6525,
+    "normal": 26665
+  },
+  "candidates_per_example_mean": 11.4597,
+  "selected_index_mean": 5.2742
+}

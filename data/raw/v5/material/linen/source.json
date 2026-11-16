@@ -1,0 +1,44 @@
+{
+  "group": "material/linen",
+  "hash_algorithm": "sha256",
+  "hash_purpose_means": {
+    "source_artifact_integrity": "sha-256 of the downloaded artifact itself. it proves the pinned file stored in this repository has not changed since it was retrieved from the source url on the recorded retrieval date. it says nothing about whether the source has since revised or withdrawn the series",
+    "record_integrity": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+  },
+  "sources": [
+    {
+      "artifact": "material/linen/alliance_flax.json",
+      "acquisition_mode": "manual_record",
+      "sha256": "b310e3b9b3c8e7b63562ea585a2ba51dc5a6f5706fda177d2e7790ffc1b47859",
+      "hash_purpose": "record_integrity",
+      "bytes": 2204,
+      "source": "Alliance for European Flax-Linen and Hemp, economic observatory",
+      "source_url": "https://allianceflaxlinenhemp.eu/en/flax-linen-hemp-economic-observatory",
+      "page_or_section": "quarterly narrative press releases of the observatory",
+      "access_date": "2026-09-11",
+      "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+      "unit": "EUR per kg",
+      "currency": "EUR",
+      "role": "upstream temporal proxy for linen",
+      "observation_count": 4,
+      "verification_note": "figures are irregular observations embedded in the Alliance's quarterly narrative press releases, not a continuous downloadable series; carry the most recent observation forward until the next one when resolving a date that falls between two observations; do not interpolate"
+    },
+    {
+      "artifact": "material/linen/imaterial_linen.json",
+      "acquisition_mode": "manual_record",
+      "sha256": "4b828a7eb04653aeb7fb81a364240a8072fc19f4419570a229cca0171ef75490",
+      "hash_purpose": "record_integrity",
+      "bytes": 3667,
+      "source": "iMaterial, January 2024 Fabric Pricelist",
+      "source_url": "https://www.imaterial.co.za/Portals/81/Price-Lists/Fabric-pricelist-Jan-2024.pdf",
+      "page_or_section": "linen and cotton sections of the January 2024 pricelist",
+      "access_date": "2026-09-11",
+      "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+      "unit": "ZAR per metre",
+      "currency": "ZAR",
+      "role": "finished-fabric price level for linen",
+      "observation_count": 9,
+      "verification_note": "ZAR-denominated; convert using the FX layer built in Part 6, not a hardcoded rate; conversion formula is USD/kg = (price_per_metre_ZAR x ZAR_to_USD(date)) / (width_m x GSM / 1000)"
+    }
+  ]
+}

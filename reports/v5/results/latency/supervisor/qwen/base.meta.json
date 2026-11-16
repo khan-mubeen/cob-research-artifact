@@ -1,0 +1,103 @@
+{
+  "mode": "supervisor",
+  "model": "qwen",
+  "arm": "base",
+  "epoch": 0,
+  "split": "test",
+  "shards": 4,
+  "checkpoint": "./models/base/qwen",
+  "selection": null,
+  "generation_stop_rule": {
+    "generation_stop_ids": [
+      248044
+    ],
+    "end_of_turn_id": 248046,
+    "end_of_turn_token": "<|im_end|>",
+    "tokenizer_eos_id": 248046,
+    "rule": "stop also on the chat template end-of-turn id when generation does not already stop on it",
+    "scope": [
+      "qwen/reverse_auction"
+    ],
+    "in_scope": false,
+    "added": false,
+    "stop_ids_used": [
+      248044
+    ]
+  },
+  "measurement": "one decision at a time, batch size 1, whole split; latency statistics exclude the first 3 rows of every shard (and the first row after a resume); token statistics include every row; output tokens counted from generated ids including the stop token",
+  "execution": {
+    "backend": "rocm",
+    "profile": "lumi",
+    "root": ".",
+    "hf_home": "./hf-cache",
+    "hf_hub_cache": "./hf-cache/hub",
+    "models_dir": "./models",
+    "base_dir": "./models/base",
+    "training_dir": "./models/training",
+    "default_optim": "adamw_torch"
+  },
+  "summary": {
+    "rows": 4435,
+    "rows_timed": 4423,
+    "rows_warmup_excluded": 12,
+    "latency_ms": {
+      "n": 4423,
+      "sum": 10620076.24,
+      "mean": 2401.1025,
+      "std": 466.2744,
+      "median": 2297.8,
+      "p95": 2991.03,
+      "min": 1563.97,
+      "max": 9955.5
+    },
+    "input_tokens": {
+      "n": 4435,
+      "sum": 6787024,
+      "mean": 1530.3324,
+      "std": 201.1407,
+      "median": 1578,
+      "p95": 1640,
+      "min": 517,
+      "max": 1687
+    },
+    "output_tokens": {
+      "n": 4435,
+      "sum": 210689,
+      "mean": 47.506,
+      "std": 9.3285,
+      "median": 44,
+      "p95": 57,
+      "min": 34,
+      "max": 200
+    },
+    "total_tokens": {
+      "n": 4435,
+      "sum": 6997713,
+      "mean": 1577.8383,
+      "std": 201.653,
+      "median": 1626,
+      "p95": 1690,
+      "min": 555,
+      "max": 1742
+    },
+    "output_tokens_per_second": {
+      "n": 4423,
+      "sum": 87637.2,
+      "mean": 19.814,
+      "std": 1.0212,
+      "median": 19.97,
+      "p95": 21.27,
+      "min": 16.71,
+      "max": 22.37
+    },
+    "cap_hit_share_pct": 0.0676,
+    "stopped_on_stop_id_share_pct": 99.9324,
+    "input_to_output_ratio": 32.2135,
+    "nodes": [
+      "node-withheld/job22470719/gcd0",
+      "node-withheld/job22472777/gcd2",
+      "node-withheld/job22470719/gcd1",
+      "node-withheld/job22470719/gcd6"
+    ]
+  }
+}

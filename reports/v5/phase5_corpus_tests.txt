@@ -1,0 +1,13 @@
+  PASS test_no_order_id_appears_in_two_splits_across_every_stage_and_mode
+  PASS test_supplementary_sets_are_never_counted_in_the_main_corpus
+  PASS test_the_manifest_lists_every_file_with_its_real_hash_and_rows
+  PASS test_the_phase_5_validation_passed
+  PASS test_the_split_is_exactly_80_10_10_of_50000_orders_and_every_stratum_is_in_every_split
+  PASS test_the_validator_imports_nothing_it_validates
+
+6/6 v5 fine-tuning corpus unit tests passed
+
+real	0m29.283s
+user	0m0.000s
+sys	0m0.015s
+exit 0

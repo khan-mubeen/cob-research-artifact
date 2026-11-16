@@ -1,0 +1,25 @@
+{
+  "differences": [
+    "files/sources/src/experiments/compare_epochs.py: 8dc49a3abd31d450cd77e7f4338170519245048defa4c390db487051553bfa03 != 921aa995d2ffee7404ef7a2a8ff99d81d1dfcc8957f85192d294979aa5341af6",
+    "files/sources/src/experiments/eval_finetune.py: 2c1cf81189bdff9bc1fe05f6ef71dfe0340ddc19ea3507d8db0a1d8542da4707 != 5e7f0bccb5a67ce7c77cf41e2dba685ba76c2535736f1b40c605574a16a6a143",
+    "files/sources/src/experiments/finetune_lora.py: 32c53d833881b83b95092d3f033a80b178a63d4038e25f3aa4b9d775ed0be5a4 != 75bc53723df5828f3e48ac2b1201508323fe1976351cda861ddef0cca33163ea"
+  ],
+  "allowed_to_change": [
+    "src/experiments/compare_epochs.py",
+    "src/experiments/eval_finetune.py",
+    "src/experiments/finetune_lora.py"
+  ],
+  "unexpected_differences": [],
+  "help_lines_removed_or_changed": {
+    "src/experiments/compare_epochs.py": [
+      "                         [--base BASE] [--out-epoch OUT_EPOCH]"
+    ],
+    "src/experiments/eval_finetune.py": [],
+    "src/experiments/finetune_lora.py": [
+      "                        [--dataset {reverse_auction,sealed}]",
+      "                        [--template-kwargs TEMPLATE_KWARGS]",
+      "  --dataset {reverse_auction,sealed}"
+    ]
+  },
+  "identical_apart_from_allowed": true
+}

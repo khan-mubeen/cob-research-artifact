@@ -1,0 +1,14 @@
+{
+  "data/finetune/v4/supervisor/selection_train.jsonl": {
+    "sha256": "a2b9098313dba4f8451cbebcedd7c7fca77bd0cc03d77479f0c44e19baf2943e",
+    "bytes": 42239766
+  },
+  "data/finetune/v4/supervisor/selection_holdout.jsonl": {
+    "sha256": "75e19f2ca669a1b6254ee7b652712d141f5f94bf58503faf8c868f53ac501078",
+    "bytes": 4638774
+  },
+  "data/finetune/v4/supervisor/metadata.json": {
+    "sha256": "cc36495878336b15845bfe5b3cc9034c519826e656112c06599677b2fc0c427b",
+    "bytes": 1343
+  }
+}

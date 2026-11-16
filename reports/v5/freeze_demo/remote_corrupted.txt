@@ -1,0 +1,12 @@
+
+gate FAILED, nothing may be submitted until every check above is ok
+remote freeze gate against reports\v5\freeze_demo\corrupted_record.json
+frozen commit unknown, 4 corpus file(s) checked
+  ok   git_head_matches_frozen_commit
+  FAIL corpus_files_match_frozen_manifest
+       expected: every file present and identical
+       actual:   {'missing': [], 'sha256_differs': ['edge/logistics_edge.jsonl']}
+  ok   base_model_artifacts_match_frozen_provenance
+  ok   results_store_live_commit_matches
+  ok   results_store_live_manifest_matches
+remote exit 1

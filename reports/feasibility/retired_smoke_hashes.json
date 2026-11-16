@@ -1,0 +1,132 @@
+{
+ "reports/feasibility/smoke-adapters/adapter_granite41-3b": {
+  "file_count": 3,
+  "total_bytes": 124599433,
+  "files": [
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_granite41-3b/adapter_config.json",
+    "size": 1151,
+    "sha256": "c35b51d152612cda324474491324bcce772251a6fb5531fcc83ccd0dcb615cd2"
+   },
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_granite41-3b/adapter_model.safetensors",
+    "size": 124593064,
+    "sha256": "51d344e2ca02209b486ea0e6a4bb61240c9018aa286eb38bdbe2d521cede8a86"
+   },
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_granite41-3b/README.md",
+    "size": 5218,
+    "sha256": "3bea54705d1ae86179834ef9118215f277e1434a4966b2c3c28c95b8fb29dfe6"
+   }
+  ]
+ },
+ "reports/feasibility/smoke-adapters/adapter_lfm25-8b-a1b": {
+  "file_count": 3,
+  "total_bytes": 22830316,
+  "files": [
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_lfm25-8b-a1b/adapter_config.json",
+    "size": 1146,
+    "sha256": "5d41a8310a5e0f547578d6db9bc22cb92cf94f7bf78c3e8ddd0537774621b973"
+   },
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_lfm25-8b-a1b/adapter_model.safetensors",
+    "size": 22823960,
+    "sha256": "b49b7be02bf643f5a9d8f0aa075076c6380a8d90dbf4ba17d024ee393b7a043d"
+   },
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_lfm25-8b-a1b/README.md",
+    "size": 5210,
+    "sha256": "845362278a530f3e4d80aea3ddfec40e49139210c692623849b1d99f49bdcf08"
+   }
+  ]
+ },
+ "reports/feasibility/smoke-adapters/adapter_phi4mini": {
+  "file_count": 3,
+  "total_bytes": 92315449,
+  "files": [
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_phi4mini/adapter_config.json",
+    "size": 1113,
+    "sha256": "56f74dac496b149557a21e67bfd650eecf4222221485f10ee6660c14005179ba"
+   },
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_phi4mini/adapter_model.safetensors",
+    "size": 92309112,
+    "sha256": "51911c445aba2a627e1b0686d58d4b12a0342f7986db24d4b45852367aef4874"
+   },
+   {
+    "path": "reports/feasibility/smoke-adapters/adapter_phi4mini/README.md",
+    "size": 5224,
+    "sha256": "09c19f7e2f621e4fc94ca7b495422e6e30ee4a59f3798eb19e8f6fe9c8e14325"
+   }
+  ]
+ },
+ "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke": {
+  "file_count": 12,
+  "total_bytes": 195696525,
+  "files": [
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/adapter_config.json",
+    "size": 1507,
+    "sha256": "7a12adb5659df15918ed0fe2b3538e9f6e56864a8b55524fc46fc12323174b4e"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/adapter_model.safetensors",
+    "size": 124593064,
+    "sha256": "12cb2fe08d6e006dfd7bef4299ca533bd21a5ce8b95a3ebaa461eec3c93ee5cb"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/chat_template.jinja",
+    "size": 6212,
+    "sha256": "735184a4c7cadc955b11f322926ac95a5961a106ae9028f85d984fc08f122073"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/optimizer.pt",
+    "size": 63893093,
+    "sha256": "b294da8a4b8b877accfd9e0a1aa9faf200648cf54443ec308dc6ab39fb4a8d01"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/README.md",
+    "size": 5228,
+    "sha256": "64e0ee1cec00b20b880caa61029398cbbd2e7aa3ebb0ecd0b4c1dc22279bbd51"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/rng_state.pth",
+    "size": 14645,
+    "sha256": "e9313c6023b495e709ecd28d837cd3f81498eaee4f34b731e45aa6b342cb585d"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/scheduler.pt",
+    "size": 1465,
+    "sha256": "e5b081013132989cd559e6ee0103b4e0d99354f0f991bb18a21f05d856d049a8"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/tokenizer.json",
+    "size": 7153434,
+    "sha256": "24665f2815ee47aba521e4710bfc52f8ca045a552ec3f60925cce5e0edecb657"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/tokenizer_config.json",
+    "size": 18459,
+    "sha256": "b4b7b8b499cba11a3ab0513ea13885c3852590c788c0e749f2cec9b561fe912d"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/trainer_state.json",
+    "size": 2203,
+    "sha256": "ec0113d515f0c442437ab1552dabb9493d02b04bac5fd93c2019d5415294d054"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/checkpoint-8/training_args.bin",
+    "size": 5713,
+    "sha256": "dce9a236ad48094bb6b9d49ccd8b791189c1ff993606914c158c0c609b562962"
+   },
+   {
+    "path": "models/feasibility/smoke-artifacts/granite41-3b-adapter-smoke/README.md",
+    "size": 1502,
+    "sha256": "f4e1793ed10be34b1c318a35455b6b1c260eccdbdea4ded63c6c3ebc9b95f4ea"
+   }
+  ],
+  "note": "was models/finetune/granite-4.1-3b-bidding-lora-smoke before stage 7"
+ }
+}

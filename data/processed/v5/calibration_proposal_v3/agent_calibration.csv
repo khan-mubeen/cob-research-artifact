@@ -1,0 +1,13 @@
+agent_id,calibration_corner,calibration_reading_id,fixed_charge_eur,alpha_eur_per_kg,beta_eur_per_tonne_km,fuel_surcharge_series_id,min_shipment_weight_kg,max_shipment_weight_kg,max_weight_inclusive,oversized_above_kg,oversized_fee_eur
+L01,freight,matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup,42.396668449197854,0.1269197860962567,0.07163,matkahuolto_lavarahti,0.0,1000.0,False,,
+L02,freight,matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup,167.476675,0.008350000000000008,0.07163,matkahuolto_lavarahti,1000.0,1500.0,False,,
+L03,parcel,posti_postal_parcel,5.9,0.3,0.07163,matkahuolto_lavarahti,0.0,25.0,True,,
+L04,freight,matkahuolto_lavarahti_1_49km_1500_to_2000kg_with_pickup,165.17956249999997,0.016625000000000015,0.07163,matkahuolto_lavarahti,1500.0,2000.0,False,,
+L05,freight,matkahuolto_lavarahti_1_49km_2000_to_2500kg_with_pickup,181.0259250000001,0.016849999999999952,0.07163,matkahuolto_lavarahti,2000.0,2500.0,False,,
+L06,parcel,posti_postal_parcel,5.9,0.3,0.07163,matkahuolto_lavarahti,0.0,25.0,True,,
+L07,parcel,posti_express_parcel,8.9,0.3,0.07163,matkahuolto_lavarahti,0.0,35.0,True,25.0,3.5
+L08,freight,posti_express_freight_zone0_loose_to_half_pallet_with_pickup,78.65,0.048,0.07163,matkahuolto_lavarahti,35.0,500.0,True,,
+L09,freight,posti_express_freight_zone0_half_pallet_to_pallet_with_pickup,75.38,0.054540000000000005,0.07163,matkahuolto_lavarahti,500.0,1000.0,True,,
+L10,parcel,posti_home_parcel,10.9,0.3,0.07163,matkahuolto_lavarahti,0.0,35.0,True,25.0,3.5
+L11,freight,matkahuolto_lavarahti_1_49km_2500_to_3000kg_with_pickup,195.5398125,0.017124999999999987,0.07163,matkahuolto_lavarahti,2500.0,3000.0,False,,
+L12,parcel,posti_home_parcel,10.9,0.3,0.07163,matkahuolto_lavarahti,0.0,35.0,True,25.0,3.5

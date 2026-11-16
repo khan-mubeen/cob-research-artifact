@@ -1,0 +1,442 @@
+{
+  "candidate": "data/finetune/.v5_wording_scratch",
+  "mapping": {
+    "<=": "less than or equal to (<=)",
+    ">=": "greater than or equal to (>=)",
+    "<": "less than (<)",
+    ">": "greater than (>)",
+    "x": "multiplied by (x)",
+    "+": "plus (+)",
+    "-": "minus (-)",
+    "/": "divided by (/)",
+    "max(": "the larger of the two values max("
+  },
+  "files": {
+    "material_train.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 169855,
+        "prompt_is_the_mapped_rewording": 169855,
+        "worded_phrases_total": 3057390,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 169855
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "material_validation.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 21174,
+        "prompt_is_the_mapped_rewording": 21174,
+        "worded_phrases_total": 381132,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 21174
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "material_test.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 21207,
+        "prompt_is_the_mapped_rewording": 21207,
+        "worded_phrases_total": 381726,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 21207
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "tailoring_train.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 196876,
+        "prompt_is_the_mapped_rewording": 196876,
+        "worded_phrases_total": 4921900,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 196876
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "tailoring_validation.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 24631,
+        "prompt_is_the_mapped_rewording": 24631,
+        "worded_phrases_total": 615775,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 24631
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "tailoring_test.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 24518,
+        "prompt_is_the_mapped_rewording": 24518,
+        "worded_phrases_total": 612950,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 24518
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "logistics_train.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 174814,
+        "prompt_is_the_mapped_rewording": 174814,
+        "worded_phrases_total": 3146652,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 174814
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "logistics_validation.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 21924,
+        "prompt_is_the_mapped_rewording": 21924,
+        "worded_phrases_total": 394632,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 21924
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "logistics_test.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 21872,
+        "prompt_is_the_mapped_rewording": 21872,
+        "worded_phrases_total": 393696,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 21872
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "edge/material_edge.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 108,
+        "prompt_is_the_mapped_rewording": 108,
+        "worded_phrases_total": 1944,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 108
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "edge/tailoring_edge.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 60,
+        "prompt_is_the_mapped_rewording": 60,
+        "worded_phrases_total": 1500,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 60
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "edge/logistics_edge.jsonl": {
+      "kind": "changed",
+      "passed": true,
+      "counts": {
+        "rows_compared": 25,
+        "prompt_is_the_mapped_rewording": 25,
+        "worded_phrases_total": 450,
+        "rows_with_no_worded_phrase": 0,
+        "accepted_rows_that_were_symbolic": 25
+      },
+      "examples": [],
+      "accepted_sha256_equals_snapshot": true
+    },
+    "reverse_auction/material_train.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 189745,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 3794900
+      },
+      "passed": true
+    },
+    "reverse_auction/material_validation.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 23691,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 473820
+      },
+      "passed": true
+    },
+    "reverse_auction/material_test.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 23799,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 475980
+      },
+      "passed": true
+    },
+    "reverse_auction/tailoring_train.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 216751,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 5852277
+      },
+      "passed": true
+    },
+    "reverse_auction/tailoring_validation.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 27157,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 733239
+      },
+      "passed": true
+    },
+    "reverse_auction/tailoring_test.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 27116,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 732132
+      },
+      "passed": true
+    },
+    "reverse_auction/logistics_train.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 194665,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 3893300
+      },
+      "passed": true
+    },
+    "reverse_auction/logistics_validation.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 24462,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 489240
+      },
+      "passed": true
+    },
+    "reverse_auction/logistics_test.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 24482,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 489640
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/material_below_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 2640
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/material_at_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 2640
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/material_above_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 2640
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/tailoring_below_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 3564
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/tailoring_at_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 3564
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/tailoring_above_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 3564
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/logistics_below_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 2640
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/logistics_at_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 2640
+      },
+      "passed": true
+    },
+    "reverse_auction/floor_boundary/logistics_above_floor.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "counts": {
+        "rows": 132,
+        "rows_with_a_bare_mapped_operator": 0,
+        "worded_phrases_total": 2640
+      },
+      "passed": true
+    },
+    "supervisor/selection_train.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "passed": true
+    },
+    "supervisor/selection_validation.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "passed": true
+    },
+    "supervisor/selection_test.jsonl": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "passed": true
+    },
+    "split/order_split.csv": {
+      "kind": "unchanged",
+      "accepted_sha256_equals_snapshot": true,
+      "candidate_byte_identical": true,
+      "passed": true
+    }
+  },
+  "metadata": {
+    "edge/metadata.json": {
+      "identical": false,
+      "may_change": true,
+      "passed": true,
+      "keys_changed": [
+        "prompt_wording",
+        "worded_formulas"
+      ]
+    },
+    "metadata.json": {
+      "identical": false,
+      "may_change": true,
+      "passed": true,
+      "keys_changed": [
+        "prompt_wording",
+        "worded_formulas"
+      ]
+    },
+    "reverse_auction/floor_boundary/metadata.json": {
+      "identical": true,
+      "may_change": false,
+      "passed": true
+    },
+    "reverse_auction/metadata.json": {
+      "identical": true,
+      "may_change": false,
+      "passed": true
+    },
+    "split/metadata.json": {
+      "identical": true,
+      "may_change": false,
+      "passed": true
+    },
+    "supervisor/metadata.json": {
+      "identical": true,
+      "may_change": false,
+      "passed": true
+    }
+  },
+  "passed": true,
+  "totals": {
+    "changed_rows_compared": 677064,
+    "changed_rows_reworded_exactly": 677064,
+    "non_prompt_field_mismatches": 0,
+    "unchanged_files_byte_identical": 22,
+    "unchanged_files_checked": 22
+  }
+}

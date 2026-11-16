@@ -1,0 +1,22 @@
+{
+  "recorded_at": "unknown",
+  "model": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+  "revision": "b6d637bef2393152b3da2b2fde72eecdee30557e",
+  "base_path_used": "pinned HF snapshot (no local copy needed; pad token already distinct)",
+  "gates": {
+    "1_identity_license_gated": {"status": "PASS", "evidence": "HF API: apache-2.0, NOT gated, rev b6d637be pinned. NOTE: the default repo mistralai/Ministral-3-3B-Instruct-2512 ships FP8 quantized weights (quant_method fp8); the -BF16 sibling was selected instead so LoRA math matches the other five models."},
+    "2_standard_architecture_no_custom_code": {"status": "PASS WITH CONTROLLED ADAPTATION", "evidence": "Mistral3ForConditionalGeneration (model_type mistral3), no auto_map, zero custom .py. NOT a plain dense text transformer as assumed in the swap rationale: it is MULTIMODAL with a 420M vision tower (10.9% of 3.849B params). Loaded via Mistral3ForConditionalGeneration; AutoModelForCausalLM rejects Mistral3Config."},
+    "3_lora_targets_identified_directly": {"status": "PASS", "evidence": "language tower carries all 7 targets at 26 layers each; vision tower carries IDENTICALLY-NAMED projections at 24 layers each. unsloth compiled targets into a language-only regex ((?:language|text)... | \\bmodel\\.layers\\.N\\.) which vision_tower paths cannot match, and logged 'Explicit target_modules are constrained by the finetune_(vision|language|attention|mlp) filters'. Result: 24,707,072 trainable (0.638% of 3,873,797,120), language tower only."},
+    "4_template_train_gguf_alignment": {"status": "PASS", "evidence": "ministral_template_alignment.json 7/7: gguf template string-identical to hf, gen render exact prefix of train render, [INST]/[/INST] each exactly once. Mistral format has no explicit assistant token; the assistant turn begins immediately after [/INST], which is the response_part."},
+    "5_native_vram_fit": {"status": "PASS", "evidence": "smoke batch 8 x accum 2 seq 1024: 10.6 GiB allocated / 14.6 GiB reserved of 23.9 physical - native fit, no spill; 5.24 s/step, est 83 min"},
+    "6_meaningful_trainable_fraction": {"status": "PASS", "evidence": "0.638%, comparable to phi (0.60%) and qwen (0.47%)"},
+    "7_gguf_deployment_path": {"status": "PASS", "evidence": "converts with the pinned e3546c79 converter: 6.39 GB, 236 tensors, rc=0"}
+  },
+  "controlled_adaptations_disclosed": [
+    "BF16 sibling repo chosen over the FP8-quantized default so LoRA is applied to bf16 weights like every other model in the comparison",
+    "multimodal checkpoint: vision tower (10.9% of params) is frozen and unadapted; only the language tower receives LoRA. Same situation as Qwen3.5 and Gemma-4 in this comparison, so it is consistent rather than exceptional",
+    "loaded with Mistral3ForConditionalGeneration (AutoModelForCausalLM does not accept Mistral3Config)"
+  ],
+  "recovery": "--save-steps 200; monitor_sys.ps1 telemetry",
+  "decision": "LAUNCH full Ministral Protocol v2 training AFTER SmolLM3 completes (strictly sequential)"
+}

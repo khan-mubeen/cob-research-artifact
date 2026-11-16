@@ -1,0 +1,21 @@
+{
+  "promoted": {
+    "material_train.jsonl": "7837aadcaf2a928abe7991acff08d8a058993d421bbe6ea2ff8b48ef69750fe7",
+    "material_validation.jsonl": "fc177f0096e3647970946513eab4c8d1181ffba27ef685305fc5395e0ac42175",
+    "material_test.jsonl": "91fea9226851f51a2b84d86c3bf9e8683e47af90530c87bedfdb37fb115296d2",
+    "tailoring_train.jsonl": "a7e9f170b2a6fc1971f851732a2aab073748c7cea8e478d91da20ab9e6ce0c77",
+    "tailoring_validation.jsonl": "68b50f30490bb94be04020e99bcdb49b67c8dd6122a5ffa601ea3b6b364d61df",
+    "tailoring_test.jsonl": "2565074c14b519c42fee905b041dd8d6802f1a0bf738e231d009c07f544f351f",
+    "logistics_train.jsonl": "ba8f0a23ac589a82e592d4e1d4d300c45f84206fdd7131cb672f5f69c7ab260c",
+    "logistics_validation.jsonl": "f169fe05d760f5d766bdd25804193b6a809824cd36dff4cda3acdfb29f363780",
+    "logistics_test.jsonl": "95f5af9ffd371062b902ea335c41a0d4ebc4cfad438688995de70a19c5c6516e",
+    "edge/material_edge.jsonl": "928049db7ff83e6957be46d42109cf491896509c7ca87b23c7f4fa6187cb4a62",
+    "edge/tailoring_edge.jsonl": "f38e2ddcd119ab19834ae16cd199cd8077b1e22d2ceb1020f1a11ce19d34d17f",
+    "edge/logistics_edge.jsonl": "61f5980ad7a69907d69c5d7a24994ac0e889c307f8f3c059a57c906829d0da78",
+    "edge/metadata.json": "1fc8fda0fa157e64e6b98a0196754f8c38ac83f345874e1b0eda7f56656afcf3",
+    "metadata.json": "159ae05a56b926e434ff4b7b4fd346be63e1e708c552e612803c9eb513deae45"
+  },
+  "manifest_sha256": "e19b50ee516fa3f558abf689aea29d363430988543d0160f204fd9310894d52b",
+  "manifest_verified": true,
+  "verification_report": "reports\\v5\\wording\\verify_prompt_wording.json"
+}

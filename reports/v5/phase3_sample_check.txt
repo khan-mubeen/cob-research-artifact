@@ -1,0 +1,15 @@
+  PASS deterministic_across_two_runs
+  PASS no_system_clock_read_during_generation
+  PASS every_prompt_carries_usd
+  PASS no_v4_only_wording_in_v5_prompts
+  PASS every_auction_field_is_usd
+  PASS every_stage_prompt_holds_the_v5_formula
+  PASS every_row_is_labeled_v5
+  PASS no_v5_wording_in_v4_prompts
+  PASS material_and_manufacturer_offers_re_derive_exactly
+  PASS logistics_offers_within_one_cent_of_full_precision_route_cost
+  PASS edge_cases_pass_their_label_assertions
+  PASS floor_boundary_rows_pass_the_shared_floor_checks
+rows {'sealed': 1889, 'reverse_auction': 2105, 'supervisor': 119}, logistics round-2 rows {'NO_BID': 301}, largest logistics difference 0.01
+wrote reports/v5/phase3_sample_check.json
+exit 0

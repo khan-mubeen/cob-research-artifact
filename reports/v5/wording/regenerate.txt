@@ -1,0 +1,10 @@
+regenerated sealed into data\finetune\.v5_wording_scratch
+regenerated reverse_auction into data\finetune\.v5_wording_scratch\reverse_auction
+regenerated supervisor into data\finetune\.v5_wording_scratch\supervisor
+regenerated edge into data\finetune\.v5_wording_scratch\edge
+regenerated reverse_auction/floor_boundary into data\finetune\.v5_wording_scratch\reverse_auction\floor_boundary
+
+real	8m34.490s
+user	0m0.015s
+sys	0m0.015s
+exit 0

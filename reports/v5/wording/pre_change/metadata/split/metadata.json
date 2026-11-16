@@ -1,0 +1,676 @@
+{
+  "dataset_version": "v5",
+  "source_orders": "data/synthetic/v5/orders.csv",
+  "source_orders_sha256": "05774f9087d50703edbc0a3827efa786d64ba1e3875ad46a29627e4f665c7a27",
+  "source_order_count": 50000,
+  "scale_decision": "deliberate v5 scaling decision: the full 50,000-order v5 pool is split and generated, not v4's ~3,000-order experimental sample",
+  "split_seed": 42,
+  "fractions": {
+    "train": 0.8,
+    "validation": 0.1,
+    "test": 0.1
+  },
+  "targets": {
+    "validation": 5000,
+    "test": 5000,
+    "train": 40000
+  },
+  "counts": {
+    "train": 40000,
+    "validation": 5000,
+    "test": 5000
+  },
+  "method": "stratified jointly on scenario_type x priority; per-stratum validation and test sizes apportioned by largest remainder of the exact 10% shares, the rest train; ids sorted then shuffled with one random.Random(split_seed) stream over strata in sorted order",
+  "stratify_on": [
+    "scenario_type",
+    "priority"
+  ],
+  "third_dimension_added": false,
+  "strata": [
+    {
+      "scenario_type": "high_quality",
+      "priority": "urgent",
+      "orders": 2500,
+      "train": 2000,
+      "validation": 250,
+      "test": 250,
+      "share_pct": {
+        "train": 80.0,
+        "validation": 10.0,
+        "test": 10.0
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "large_quantity",
+      "priority": "normal",
+      "orders": 2500,
+      "train": 2000,
+      "validation": 250,
+      "test": 250,
+      "share_pct": {
+        "train": 80.0,
+        "validation": 10.0,
+        "test": 10.0
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "low_budget",
+      "priority": "normal",
+      "orders": 3000,
+      "train": 2400,
+      "validation": 300,
+      "test": 300,
+      "share_pct": {
+        "train": 80.0,
+        "validation": 10.0,
+        "test": 10.0
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "random_realistic",
+      "priority": "flexible",
+      "orders": 6981,
+      "train": 5585,
+      "validation": 698,
+      "test": 698,
+      "share_pct": {
+        "train": 80.003,
+        "validation": 9.999,
+        "test": 9.999
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "random_realistic",
+      "priority": "normal",
+      "orders": 21323,
+      "train": 17059,
+      "validation": 2132,
+      "test": 2132,
+      "share_pct": {
+        "train": 80.003,
+        "validation": 9.999,
+        "test": 9.999
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "random_realistic",
+      "priority": "urgent",
+      "orders": 7196,
+      "train": 5756,
+      "validation": 720,
+      "test": 720,
+      "share_pct": {
+        "train": 79.989,
+        "validation": 10.006,
+        "test": 10.006
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "rare_combo",
+      "priority": "normal",
+      "orders": 2000,
+      "train": 1600,
+      "validation": 200,
+      "test": 200,
+      "share_pct": {
+        "train": 80.0,
+        "validation": 10.0,
+        "test": 10.0
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "tight_deadline",
+      "priority": "urgent",
+      "orders": 3000,
+      "train": 2400,
+      "validation": 300,
+      "test": 300,
+      "share_pct": {
+        "train": 80.0,
+        "validation": 10.0,
+        "test": 10.0
+      },
+      "in_every_split": true,
+      "rare": false
+    },
+    {
+      "scenario_type": "tight_low_budget",
+      "priority": "urgent",
+      "orders": 1500,
+      "train": 1200,
+      "validation": 150,
+      "test": 150,
+      "share_pct": {
+        "train": 80.0,
+        "validation": 10.0,
+        "test": 10.0
+      },
+      "in_every_split": true,
+      "rare": false
+    }
+  ],
+  "stratified_distributions": {
+    "scenario_type": {
+      "by_split": {
+        "train": {
+          "high_quality": {
+            "orders": 2000,
+            "share_pct": 5.0
+          },
+          "large_quantity": {
+            "orders": 2000,
+            "share_pct": 5.0
+          },
+          "low_budget": {
+            "orders": 2400,
+            "share_pct": 6.0
+          },
+          "random_realistic": {
+            "orders": 28400,
+            "share_pct": 71.0
+          },
+          "rare_combo": {
+            "orders": 1600,
+            "share_pct": 4.0
+          },
+          "tight_deadline": {
+            "orders": 2400,
+            "share_pct": 6.0
+          },
+          "tight_low_budget": {
+            "orders": 1200,
+            "share_pct": 3.0
+          }
+        },
+        "validation": {
+          "high_quality": {
+            "orders": 250,
+            "share_pct": 5.0
+          },
+          "large_quantity": {
+            "orders": 250,
+            "share_pct": 5.0
+          },
+          "low_budget": {
+            "orders": 300,
+            "share_pct": 6.0
+          },
+          "random_realistic": {
+            "orders": 3550,
+            "share_pct": 71.0
+          },
+          "rare_combo": {
+            "orders": 200,
+            "share_pct": 4.0
+          },
+          "tight_deadline": {
+            "orders": 300,
+            "share_pct": 6.0
+          },
+          "tight_low_budget": {
+            "orders": 150,
+            "share_pct": 3.0
+          }
+        },
+        "test": {
+          "high_quality": {
+            "orders": 250,
+            "share_pct": 5.0
+          },
+          "large_quantity": {
+            "orders": 250,
+            "share_pct": 5.0
+          },
+          "low_budget": {
+            "orders": 300,
+            "share_pct": 6.0
+          },
+          "random_realistic": {
+            "orders": 3550,
+            "share_pct": 71.0
+          },
+          "rare_combo": {
+            "orders": 200,
+            "share_pct": 4.0
+          },
+          "tight_deadline": {
+            "orders": 300,
+            "share_pct": 6.0
+          },
+          "tight_low_budget": {
+            "orders": 150,
+            "share_pct": 3.0
+          }
+        }
+      },
+      "max_share_deviation_points": 0.0
+    },
+    "priority": {
+      "by_split": {
+        "train": {
+          "flexible": {
+            "orders": 5585,
+            "share_pct": 13.962
+          },
+          "normal": {
+            "orders": 23059,
+            "share_pct": 57.647
+          },
+          "urgent": {
+            "orders": 11356,
+            "share_pct": 28.39
+          }
+        },
+        "validation": {
+          "flexible": {
+            "orders": 698,
+            "share_pct": 13.96
+          },
+          "normal": {
+            "orders": 2882,
+            "share_pct": 57.64
+          },
+          "urgent": {
+            "orders": 1420,
+            "share_pct": 28.4
+          }
+        },
+        "test": {
+          "flexible": {
+            "orders": 698,
+            "share_pct": 13.96
+          },
+          "normal": {
+            "orders": 2882,
+            "share_pct": 57.64
+          },
+          "urgent": {
+            "orders": 1420,
+            "share_pct": 28.4
+          }
+        }
+      },
+      "max_share_deviation_points": 0.008
+    }
+  },
+  "not_stratified_checked": {
+    "material_type": {
+      "by_split": {
+        "train": {
+          "cotton": {
+            "orders": 9535,
+            "share_pct": 23.838
+          },
+          "denim": {
+            "orders": 3715,
+            "share_pct": 9.288
+          },
+          "leather": {
+            "orders": 3764,
+            "share_pct": 9.41
+          },
+          "linen": {
+            "orders": 10163,
+            "share_pct": 25.408
+          },
+          "polyester": {
+            "orders": 12823,
+            "share_pct": 32.057
+          }
+        },
+        "validation": {
+          "cotton": {
+            "orders": 1219,
+            "share_pct": 24.38
+          },
+          "denim": {
+            "orders": 467,
+            "share_pct": 9.34
+          },
+          "leather": {
+            "orders": 448,
+            "share_pct": 8.96
+          },
+          "linen": {
+            "orders": 1295,
+            "share_pct": 25.9
+          },
+          "polyester": {
+            "orders": 1571,
+            "share_pct": 31.42
+          }
+        },
+        "test": {
+          "cotton": {
+            "orders": 1201,
+            "share_pct": 24.02
+          },
+          "denim": {
+            "orders": 475,
+            "share_pct": 9.5
+          },
+          "leather": {
+            "orders": 450,
+            "share_pct": 9.0
+          },
+          "linen": {
+            "orders": 1302,
+            "share_pct": 26.04
+          },
+          "polyester": {
+            "orders": 1572,
+            "share_pct": 31.44
+          }
+        }
+      },
+      "max_share_deviation_points": 0.52,
+      "independence_test": {
+        "chi_square": 4.3833,
+        "degrees_of_freedom": 8,
+        "p_value": 0.8209928884110349
+      },
+      "imbalanced": false
+    },
+    "product_id": {
+      "by_split": {
+        "train": {
+          "hoodie": {
+            "orders": 6337,
+            "share_pct": 15.843
+          },
+          "jacket": {
+            "orders": 10231,
+            "share_pct": 25.577
+          },
+          "jeans": {
+            "orders": 3715,
+            "share_pct": 9.288
+          },
+          "shirt": {
+            "orders": 9582,
+            "share_pct": 23.955
+          },
+          "skirt": {
+            "orders": 10135,
+            "share_pct": 25.338
+          }
+        },
+        "validation": {
+          "hoodie": {
+            "orders": 779,
+            "share_pct": 15.58
+          },
+          "jacket": {
+            "orders": 1253,
+            "share_pct": 25.06
+          },
+          "jeans": {
+            "orders": 467,
+            "share_pct": 9.34
+          },
+          "shirt": {
+            "orders": 1215,
+            "share_pct": 24.3
+          },
+          "skirt": {
+            "orders": 1286,
+            "share_pct": 25.72
+          }
+        },
+        "test": {
+          "hoodie": {
+            "orders": 770,
+            "share_pct": 15.4
+          },
+          "jacket": {
+            "orders": 1214,
+            "share_pct": 24.28
+          },
+          "jeans": {
+            "orders": 475,
+            "share_pct": 9.5
+          },
+          "shirt": {
+            "orders": 1208,
+            "share_pct": 24.16
+          },
+          "skirt": {
+            "orders": 1333,
+            "share_pct": 26.66
+          }
+        }
+      },
+      "max_share_deviation_points": 1.152,
+      "independence_test": {
+        "chi_square": 7.512,
+        "degrees_of_freedom": 8,
+        "p_value": 0.4825257481389015
+      },
+      "imbalanced": false
+    },
+    "deliver_to": {
+      "by_split": {
+        "train": {
+          "Espoo": {
+            "orders": 5678,
+            "share_pct": 14.195
+          },
+          "Helsinki": {
+            "orders": 5688,
+            "share_pct": 14.22
+          },
+          "Jyvaskyla": {
+            "orders": 5851,
+            "share_pct": 14.628
+          },
+          "Lahti": {
+            "orders": 5748,
+            "share_pct": 14.37
+          },
+          "Oulu": {
+            "orders": 5741,
+            "share_pct": 14.353
+          },
+          "Tampere": {
+            "orders": 5691,
+            "share_pct": 14.228
+          },
+          "Turku": {
+            "orders": 5603,
+            "share_pct": 14.008
+          }
+        },
+        "validation": {
+          "Espoo": {
+            "orders": 745,
+            "share_pct": 14.9
+          },
+          "Helsinki": {
+            "orders": 691,
+            "share_pct": 13.82
+          },
+          "Jyvaskyla": {
+            "orders": 715,
+            "share_pct": 14.3
+          },
+          "Lahti": {
+            "orders": 730,
+            "share_pct": 14.6
+          },
+          "Oulu": {
+            "orders": 706,
+            "share_pct": 14.12
+          },
+          "Tampere": {
+            "orders": 742,
+            "share_pct": 14.84
+          },
+          "Turku": {
+            "orders": 671,
+            "share_pct": 13.42
+          }
+        },
+        "test": {
+          "Espoo": {
+            "orders": 709,
+            "share_pct": 14.18
+          },
+          "Helsinki": {
+            "orders": 708,
+            "share_pct": 14.16
+          },
+          "Jyvaskyla": {
+            "orders": 713,
+            "share_pct": 14.26
+          },
+          "Lahti": {
+            "orders": 724,
+            "share_pct": 14.48
+          },
+          "Oulu": {
+            "orders": 709,
+            "share_pct": 14.18
+          },
+          "Tampere": {
+            "orders": 709,
+            "share_pct": 14.18
+          },
+          "Turku": {
+            "orders": 728,
+            "share_pct": 14.56
+          }
+        }
+      },
+      "max_share_deviation_points": 0.636,
+      "independence_test": {
+        "chi_square": 6.6971,
+        "degrees_of_freedom": 12,
+        "p_value": 0.8769639327524019
+      },
+      "imbalanced": false
+    },
+    "month": {
+      "by_split": {
+        "train": {
+          "2025-10": {
+            "orders": 3880,
+            "share_pct": 9.7
+          },
+          "2025-11": {
+            "orders": 6535,
+            "share_pct": 16.337
+          },
+          "2025-12": {
+            "orders": 6977,
+            "share_pct": 17.442
+          },
+          "2026-01": {
+            "orders": 6756,
+            "share_pct": 16.89
+          },
+          "2026-02": {
+            "orders": 6190,
+            "share_pct": 15.475
+          },
+          "2026-03": {
+            "orders": 7000,
+            "share_pct": 17.5
+          },
+          "2026-04": {
+            "orders": 2662,
+            "share_pct": 6.655
+          }
+        },
+        "validation": {
+          "2025-10": {
+            "orders": 491,
+            "share_pct": 9.82
+          },
+          "2025-11": {
+            "orders": 760,
+            "share_pct": 15.2
+          },
+          "2025-12": {
+            "orders": 858,
+            "share_pct": 17.16
+          },
+          "2026-01": {
+            "orders": 891,
+            "share_pct": 17.82
+          },
+          "2026-02": {
+            "orders": 773,
+            "share_pct": 15.46
+          },
+          "2026-03": {
+            "orders": 887,
+            "share_pct": 17.74
+          },
+          "2026-04": {
+            "orders": 340,
+            "share_pct": 6.8
+          }
+        },
+        "test": {
+          "2025-10": {
+            "orders": 499,
+            "share_pct": 9.98
+          },
+          "2025-11": {
+            "orders": 817,
+            "share_pct": 16.34
+          },
+          "2025-12": {
+            "orders": 883,
+            "share_pct": 17.66
+          },
+          "2026-01": {
+            "orders": 863,
+            "share_pct": 17.26
+          },
+          "2026-02": {
+            "orders": 820,
+            "share_pct": 16.4
+          },
+          "2026-03": {
+            "orders": 814,
+            "share_pct": 16.28
+          },
+          "2026-04": {
+            "orders": 304,
+            "share_pct": 6.08
+          }
+        }
+      },
+      "max_share_deviation_points": 1.122,
+      "independence_test": {
+        "chi_square": 15.9633,
+        "degrees_of_freedom": 12,
+        "p_value": 0.19292475205246454
+      },
+      "imbalanced": false
+    }
+  },
+  "imbalance_rule": "a dimension not stratified on is imbalanced when its chi-square test of independence from the split gives p < 0.001",
+  "disjoint": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "order_split_csv": "data/finetune/v5/split/order_split.csv",
+  "order_split_csv_sha256": "c068ed116da214a822df4e30b72c313cda309de48c76a3dd154396f292fcdd5f"
+}

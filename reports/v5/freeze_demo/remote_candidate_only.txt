@@ -1,0 +1,5 @@
+REFUSED: only a candidate record is present (.\reports\v5\freeze_check_candidate.json).
+a candidate is non-authoritative and disposable, and is never a launch gate.
+run 'freeze_check.py --mode freeze' on the local machine once bid_check, slm_check
+and any resulting fix are committed, then transfer freeze_check_local.json here.
+remote exit 2

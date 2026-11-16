@@ -1,0 +1,37 @@
+--- material (3.29s, json=True) ---
+```json
+{
+  "order_id": "ORD-09428",
+  "stage": "material",
+  "agent_id": "M01",
+  "decision": "BID",
+  "offer_amount": 321.0006,
+  "estimated_completion_days": 2,
+  "defect_probability": 0.04
+}
+```
+
+--- material (2.58s, json=True) ---
+{
+  "order_id": "ORD-09428",
+  "stage": "material",
+  "agent_id": "M02",
+  "decision": "BID",
+  "offer_amount": 302.5,
+  "estimated_completion_days": 1,
+  "defect_probability": 0.01
+}
+
+--- tailoring (2.46s, json=True) ---
+```json
+{
+  "order_id": "ORD-09428",
+  "stage": "tailoring",
+  "agent_id": "T4",
+  "decision": "NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.02
+}
+```
+

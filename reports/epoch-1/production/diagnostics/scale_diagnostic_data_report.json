@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-07-20T17:35:20",
+  "purpose": "explanatory diagnostic only; NOT a training set, NOT an acceptance gate",
+  "n": 432,
+  "sha256": "4a6bee8baafcd053b00dbaec56c223b6952f3ddfdf7d2320b2dc7bd5e69f69f1",
+  "families": {
+    "ratio_fixed_deadline_varies": 120,
+    "quantity_fixed_deadline_varies": 60,
+    "capacity_varies_dl_qty_fixed": 60,
+    "crossed_ratio_deadline": 192
+  },
+  "label_balance_by_family": {
+    "capacity_varies_dl_qty_fixed:BID": 36,
+    "capacity_varies_dl_qty_fixed:NO_BID": 24,
+    "crossed_ratio_deadline:BID": 96,
+    "crossed_ratio_deadline:NO_BID": 96,
+    "quantity_fixed_deadline_varies:BID": 36,
+    "quantity_fixed_deadline_varies:NO_BID": 24,
+    "ratio_fixed_deadline_varies:BID": 60,
+    "ratio_fixed_deadline_varies:NO_BID": 60
+  },
+  "held_vs_moved": {
+    "F1_ratio_fixed_deadline_varies": "HELD target_ratio, agent; MOVES deadline, quantity, completion",
+    "F2_quantity_fixed_deadline_varies": "HELD agent, quantity (=> completion constant); MOVES deadline, ratio",
+    "F3_capacity_varies_dl_qty_fixed": "HELD deadline, quantity; MOVES capacity, completion, ratio",
+    "F4_crossed_ratio_deadline": "ratio x deadline grid, quantity solved"
+  },
+  "label_verification": "every row via decide_manufacturer_bid; eligibility via manufacturer_eligibility_reason"
+}

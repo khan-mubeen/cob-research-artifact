@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-27T19:49:45",
+  "base_model": ".\\models\\base-checkpoints\\hf\\phi4mini-v2-base",
+  "base_revision": null,
+  "adapter": ".\\models\\epoch-2\\production\\phi4mini-bidding-lora-v2\\final",
+  "out": ".\\models\\epoch-2\\deployment\\phi-sealed\\merged",
+  "loaded_architecture": "Phi3ForCausalLM",
+  "probe_weight_max_abs_delta": {
+    "model.layers.0.self_attn.qkv_proj.weight": 0.000244140625,
+    "model.layers.0.self_attn.o_proj.weight": 0.000335693359375,
+    "model.layers.0.mlp.down_proj.weight": 0.000244140625,
+    "model.layers.0.mlp.gate_up_proj.weight": 0.00048828125
+  },
+  "merged_safetensors_gib": 7.145,
+  "merged_safetensors_sha256": "46195c7eb89b414b206544ff49509d9f8f1c2620b771bf6a8e35e6880ed62b11"
+}

@@ -1,0 +1,413 @@
+{
+  "generated_at": "2026-07-19T05:23:39",
+  "bidding_window_seconds_current": 10,
+  "runtime": "llama-cpp-python 0.3.34 cu132 (project runtime)",
+  "convert_tooling": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121 + b10068 quantize",
+  "models": {
+    "qwen35-4b": {
+      "stage_a": {
+        "checkpoint": "Qwen/Qwen3.5-4B",
+        "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+        "instruct": true,
+        "params_total": 4560499200,
+        "params_active": null,
+        "params_note": "multimodal checkpoint, language tower trained; 4.56B stored",
+        "arch": "Qwen3_5ForConditionalGeneration (hybrid linear-attention, multimodal)",
+        "trust_remote_code": false,
+        "gated": false,
+        "access_verified": "downloaded + trained (July runs)",
+        "license": "Apache-2.0",
+        "thinking": "template kwarg enable_thinking=False, verified matches gguf render"
+      },
+      "stage_e": {
+        "tag": "qwen35-r1",
+        "merged_dir": "models/feasibility/qwen35-r1-merged",
+        "quant": "Q8_0",
+        "convert_script": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121",
+        "quantize_bin": "llama.cpp release b10068",
+        "convert_rc": 0,
+        "convert_stderr_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 8.14G/8.41G [00:34<00:01, 221Mbyte/s]\nWriting:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 8.19G/8.41G [00:34<00:00, 232Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 8.23G/8.41G [00:34<00:00, 238Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 8.27G/8.41G [00:34<00:00, 247Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 8.32G/8.41G [00:35<00:00, 198Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 8.37G/8.41G [00:35<00:00, 218Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 8.41G/8.41G [00:35<00:00, 230Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 8.41G/8.41G [00:35<00:00, 236Mbyte/s]\nINFO:hf-to-gguf:Model successfully exported to .\\models\\feasibility\\qwen35-r1-bf16.gguf\n",
+        "bf16_gib": 7.85,
+        "quantize_rc": 0,
+        "quant_gib": 4.17,
+        "quant_sha256": "aa80547eff812c87d6596d99093f96c0a6345a4f1b0814173253f64ef9691b4d",
+        "runtime_load_rc": 1,
+        "runtime_stderr_tail": "Traceback (most recent call last):\n  File \"<string>\", line 12, in <module>\n  File \".\\.venv\\Lib\\site-packages\\llama_cpp\\llama.py\", line 381, in __init__\n    internals.LlamaModel(\n  File \".\\.venv\\Lib\\site-packages\\llama_cpp\\_internals.py\", line 62, in __init__\n    raise ValueError(f\"Failed to load model from file: {path_model}\")\nValueError: Failed to load model from file: .\\models\\feasibility\\qwen35-r1-Q8_0.gguf\n"
+      },
+      "executed_reference": {
+        "B_json_ok": "3/3 equivalent (829/829 distinct real generations, slm_check)",
+        "C_trainable_params": 21233664,
+        "C_step_s": 6.6,
+        "C_peak_vram_gib": "10.3 (allocated, fits natively)",
+        "C_exact_config": true
+      }
+    },
+    "phi4mini": {
+      "stage_a": {
+        "checkpoint": "microsoft/Phi-4-mini-instruct",
+        "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+        "instruct": true,
+        "params_total": 3836021760,
+        "params_active": null,
+        "params_note": "dense",
+        "arch": "Phi3ForCausalLM (dense, fused qkv/gate_up projections)",
+        "trust_remote_code": false,
+        "gated": false,
+        "access_verified": "downloaded 7.17 GiB",
+        "license": "MIT",
+        "thinking": "not a reasoning model, no controls needed (verified: all kwargs ignored)"
+      },
+      "stages_bcd": {
+        "B1_tokenizer_and_template": {
+          "status": "pass",
+          "thinking_controls": {
+            "enable_thinking=False": "accepted_but_ignored",
+            "thinking=False": "accepted_but_ignored",
+            "reasoning_effort=none": "accepted_but_ignored",
+            "add_reasoning_prompt=False": "accepted_but_ignored"
+          }
+        },
+        "B2_model_load": {
+          "status": "pass",
+          "trust_remote_code": false,
+          "load_seconds": 5.4,
+          "load_vram_gib": 7.15
+        },
+        "B3_module_inventory": {
+          "status": "pass"
+        },
+        "B4_json_inference": {
+          "status": "pass",
+          "json_ok_count": 3
+        },
+        "C1_lora_attach": {
+          "status": "pass",
+          "strict_trainable_params": 8912896,
+          "trainable_params": 23068672
+        },
+        "C2_gradient_smoke": {
+          "status": "pass",
+          "median_step_s": 16.8,
+          "peak_train_vram_gib": 53.61,
+          "loss_changed": true,
+          "batch_size_used": 8,
+          "exact_qwen_config": true
+        },
+        "C3_adapter_save_reload_merge": {
+          "status": "pass",
+          "merge_ok": true
+        }
+      },
+      "stage_e": {
+        "tag": "phi4mini",
+        "merged_dir": "models/feasibility/phi4mini-merged",
+        "quant": "Q8_0",
+        "convert_script": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121",
+        "quantize_bin": "llama.cpp release b10068",
+        "convert_rc": 0,
+        "convert_stderr_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 7.27G/7.67G [00:31<00:01, 244Mbyte/s]\nWriting:  95%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 7.32G/7.67G [00:32<00:01, 214Mbyte/s]\nWriting:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 7.42G/7.67G [00:32<00:01, 232Mbyte/s]\nWriting:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 7.47G/7.67G [00:32<00:00, 246Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 7.52G/7.67G [00:32<00:00, 217Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 7.62G/7.67G [00:33<00:00, 233Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 7.67G/7.67G [00:33<00:00, 244Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 7.67G/7.67G [00:33<00:00, 229Mbyte/s]\nINFO:hf-to-gguf:Model successfully exported to .\\models\\feasibility\\phi4mini-bf16.gguf\n",
+        "bf16_gib": 7.15,
+        "quantize_rc": 0,
+        "quant_gib": 3.8,
+        "quant_sha256": "db403dd73907c7e67c5f7e5b7396a0a76eabeb4e608c141b110711f5607bdc93",
+        "runtime_load_rc": 0,
+        "runtime_test": {
+          "llama_cpp_python": "0.3.34",
+          "load_s": 2.2,
+          "latencies_s": [
+            0.88,
+            0.82,
+            0.85,
+            0.76,
+            2.34,
+            0.74
+          ],
+          "first_infer_s": 0.88,
+          "median_steady_s": 0.82,
+          "total_completion_tokens": 414,
+          "json_ok": "6/6",
+          "raw_head": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 302.5,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+        }
+      }
+    },
+    "granite41-3b": {
+      "stage_a": {
+        "checkpoint": "ibm-granite/granite-4.1-3b",
+        "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+        "instruct": true,
+        "params_total": 3400000000,
+        "params_active": null,
+        "params_note": "dense, card-stated 3.4B",
+        "arch": "GraniteForCausalLM (dense)",
+        "trust_remote_code": false,
+        "gated": false,
+        "access_verified": "downloaded 6.35 GiB",
+        "license": "Apache-2.0",
+        "thinking": "no reasoning modes (model card)"
+      },
+      "stages_bcd": {
+        "B1_tokenizer_and_template": {
+          "status": "pass",
+          "thinking_controls": {
+            "enable_thinking=False": "accepted_but_ignored",
+            "thinking=False": "accepted_but_ignored",
+            "reasoning_effort=none": "accepted_but_ignored",
+            "add_reasoning_prompt=False": "accepted_but_ignored"
+          }
+        },
+        "B2_model_load": {
+          "status": "pass",
+          "trust_remote_code": false,
+          "load_seconds": 7.8,
+          "load_vram_gib": 6.34
+        },
+        "B3_module_inventory": {
+          "status": "pass"
+        },
+        "B4_json_inference": {
+          "status": "pass",
+          "json_ok_count": 3
+        },
+        "C1_lora_attach": {
+          "status": "pass",
+          "strict_trainable_params": 31129600,
+          "trainable_params": 31129600
+        },
+        "C2_gradient_smoke": {
+          "status": "pass",
+          "median_step_s": 11.43,
+          "peak_train_vram_gib": 37.88,
+          "loss_changed": true,
+          "batch_size_used": 8,
+          "exact_qwen_config": true
+        },
+        "C3_adapter_save_reload_merge": {
+          "status": "pass",
+          "merge_ok": true
+        }
+      },
+      "stage_e": {
+        "tag": "granite41-3b",
+        "merged_dir": "models/feasibility/granite41-3b-merged",
+        "quant": "Q8_0",
+        "convert_script": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121",
+        "quantize_bin": "llama.cpp release b10068",
+        "convert_rc": 0,
+        "convert_stderr_tail": "\u2588\u2588\u2588\u258b| 6.58G/6.81G [00:28<00:01, 225Mbyte/s]\nWriting:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 6.62G/6.81G [00:28<00:00, 235Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 6.65G/6.81G [00:28<00:00, 242Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 6.69G/6.81G [00:29<00:00, 202Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 6.73G/6.81G [00:29<00:00, 221Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 6.77G/6.81G [00:29<00:00, 234Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 6.80G/6.81G [00:29<00:00, 239Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 6.81G/6.81G [00:29<00:00, 230Mbyte/s]\nINFO:hf-to-gguf:Model successfully exported to .\\models\\feasibility\\granite41-3b-bf16.gguf\n",
+        "bf16_gib": 6.34,
+        "quantize_rc": 0,
+        "quant_gib": 3.37,
+        "quant_sha256": "7f770a7bd431e5873c548b9ff4c96b82aa13756b02a603b30cfb7c88ac74f9ef",
+        "runtime_load_rc": 0,
+        "runtime_test": {
+          "llama_cpp_python": "0.3.34",
+          "load_s": 5.2,
+          "latencies_s": [
+            1.14,
+            0.84,
+            0.87,
+            0.84,
+            0.78,
+            0.77
+          ],
+          "first_infer_s": 1.14,
+          "median_steady_s": 0.84,
+          "total_completion_tokens": 467,
+          "json_ok": "6/6",
+          "raw_head": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 263.86,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+        }
+      }
+    },
+    "nemotron3-nano": {
+      "stage_a": {
+        "checkpoint": "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+        "revision": "dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f",
+        "instruct": true,
+        "params_total": 3973556832,
+        "params_active": null,
+        "params_note": "hybrid mamba2+attention (nemotron_h)",
+        "arch": "NemotronHForCausalLM (custom modeling files in repo)",
+        "trust_remote_code": "required but still fails (mamba-ssm)",
+        "gated": false,
+        "access_verified": "downloaded 7.42 GiB",
+        "license": "NVIDIA Open Model License (repo LICENSE file is 0 bytes; terms on nvidia.com)",
+        "thinking": "reasoning on/off via <think> in template + reasoning parser (docs, NOT executed here)"
+      },
+      "stages_bcd": {
+        "B1_tokenizer_and_template": {
+          "status": "fail",
+          "error": "KeyError: '-'"
+        },
+        "B2_model_load": {
+          "status": "fail",
+          "error": "ImportError: mamba-ssm is required by the Mamba model but cannot be imported"
+        },
+        "B3_module_inventory": {
+          "status": "fail",
+          "error": "AttributeError: 'NoneType' object has no attribute 'named_modules'"
+        },
+        "B4_json_inference": {
+          "status": "fail",
+          "error": "AttributeError: 'NoneType' object has no attribute 'padding_side'"
+        },
+        "C1_lora_attach": {
+          "status": "fail",
+          "error": "KeyError: 'qwen_targets_present'"
+        }
+      }
+    },
+    "gemma4-e2b": {
+      "stage_a": {
+        "checkpoint": "google/gemma-4-E2B-it",
+        "revision": "179516f0c449474fdc46f08f30ead5b11e178497",
+        "instruct": true,
+        "params_total": 5123178051,
+        "params_active": 2300000000,
+        "params_note": "stored 5.1B vs EFFECTIVE 2.3B (per-layer embeddings), multimodal any-to-any",
+        "arch": "Gemma4ForConditionalGeneration",
+        "trust_remote_code": false,
+        "gated": false,
+        "access_verified": "downloaded 9.57 GiB",
+        "license": "Apache-2.0 (gemma 4 dropped the gemma terms gate, verified by ungated download)",
+        "thinking": "thinking enabled by <|think|> token in system prompt, disabled by omitting it (docs)"
+      },
+      "stages_bcd": {
+        "B1_tokenizer_and_template": {
+          "status": "pass",
+          "thinking_controls": {
+            "enable_thinking=False": "accepted_but_ignored",
+            "thinking=False": "accepted_but_ignored",
+            "reasoning_effort=none": "accepted_but_ignored",
+            "add_reasoning_prompt=False": "accepted_but_ignored"
+          }
+        },
+        "B2_model_load": {
+          "status": "pass",
+          "trust_remote_code": false,
+          "load_seconds": 8.1,
+          "load_vram_gib": 9.57
+        },
+        "B3_module_inventory": {
+          "status": "pass"
+        },
+        "B4_json_inference": {
+          "status": "pass",
+          "json_ok_count": 3
+        },
+        "C1_lora_attach": {
+          "status": "fail",
+          "error": "ValueError: Target module Gemma4ClippableLinear(\n  (linear): Linear(in_features=768, out_features=768, bias=False)\n) is not supported. Currently, only the following modules are supported: `torch.nn.Linear`, `torch.nn.Embedding`, `torch.nn.Conv1d`, `torch.nn.Conv2d`, `torch.nn.Conv3d`, `transformers.pytorch_utils.Conv1D`, `torch.nn.MultiheadAttention.`."
+        }
+      },
+      "unsloth_smoke": {
+        "tag": "gemma4-e2b-unsloth",
+        "path": "unsloth (same stack as qwen training)",
+        "trainable_params": 25337856,
+        "losses": [
+          1.4342467784881592,
+          1.4571689367294312,
+          1.432523250579834,
+          1.2831835746765137,
+          1.1265590190887451,
+          0.9524778127670288,
+          0.867885947227478,
+          0.811020016670227
+        ],
+        "loss_changed": true,
+        "median_step_s": 4.52,
+        "peak_train_vram_reserved_gib": 13.87,
+        "batch_size_used": 8,
+        "exact_qwen_config": true,
+        "merged_saved_to": ".\\models\\feasibility\\gemma4-e2b-merged"
+      },
+      "stage_e": {
+        "tag": "gemma4-e2b",
+        "merged_dir": "models/feasibility/gemma4-e2b-merged",
+        "quant": "Q8_0",
+        "convert_script": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121",
+        "quantize_bin": "llama.cpp release b10068",
+        "convert_rc": 0,
+        "convert_stderr_tail": "\u2588\u2588\u2588\u2588\u2588\u258b| 9.06G/9.30G [00:57<00:00, 289Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 9.09G/9.30G [00:58<00:00, 286Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 9.13G/9.30G [00:58<00:00, 290Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 9.17G/9.30G [00:58<00:00, 284Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 9.20G/9.30G [00:58<00:00, 288Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 9.24G/9.30G [00:58<00:00, 284Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 9.27G/9.30G [00:58<00:00, 281Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 9.30G/9.30G [00:58<00:00, 158Mbyte/s]\nINFO:hf-to-gguf:Model successfully exported to .\\models\\feasibility\\gemma4-e2b-bf16.gguf\n",
+        "bf16_gib": 8.67,
+        "quantize_rc": 0,
+        "quant_gib": 4.63,
+        "quant_sha256": "8e643554b4dbacdfd04bd8c49c695c4b023912b88130cf1824727e567c3c9f70",
+        "runtime_load_rc": 0,
+        "runtime_test": {
+          "llama_cpp_python": "0.3.34",
+          "load_s": 6.4,
+          "latencies_s": [
+            1.27,
+            0.66,
+            0.67,
+            0.71,
+            0.99,
+            0.65
+          ],
+          "first_infer_s": 1.27,
+          "median_steady_s": 0.67,
+          "total_completion_tokens": 581,
+          "json_ok": "6/6",
+          "raw_head": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 25.46,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+        }
+      }
+    },
+    "lfm25-8b-a1b": {
+      "stage_a": {
+        "checkpoint": "LiquidAI/LFM2.5-8B-A1B",
+        "revision": "5673e0de372b64331504de73bbbc33b0dde71903",
+        "instruct": true,
+        "params_total": 8467856832,
+        "params_active": 1500000000,
+        "params_note": "MoE 32 experts / 4 active, 8.3B total / 1.5B active (card)",
+        "arch": "Lfm2MoeForCausalLM",
+        "trust_remote_code": false,
+        "gated": false,
+        "access_verified": "downloaded 15.79 GiB",
+        "license": "LFM Open License v1.0 ($10M revenue threshold on commercial use; research permitted)",
+        "thinking": "reasoning ALWAYS ON, no official disable (card + verified: all kwargs ignored, <think> consumed full budget in probe)"
+      },
+      "stages_bcd": {
+        "B1_tokenizer_and_template": {
+          "status": "pass",
+          "thinking_controls": {
+            "enable_thinking=False": "accepted_but_ignored",
+            "thinking=False": "accepted_but_ignored",
+            "reasoning_effort=none": "accepted_but_ignored",
+            "add_reasoning_prompt=False": "accepted_but_ignored"
+          }
+        },
+        "B2_model_load": {
+          "status": "pass",
+          "trust_remote_code": false,
+          "load_seconds": 16.8,
+          "load_vram_gib": 15.77
+        },
+        "B3_module_inventory": {
+          "status": "pass"
+        },
+        "B4_json_inference": {
+          "status": "pass",
+          "json_ok_count": 0
+        },
+        "C1_lora_attach": {
+          "status": "pass",
+          "strict_trainable_params": 884736,
+          "trainable_params": 5701632
+        },
+        "C2_gradient_smoke": {
+          "status": "pass",
+          "median_step_s": 12.04,
+          "peak_train_vram_gib": 56.91,
+          "loss_changed": true,
+          "batch_size_used": 8,
+          "exact_qwen_config": true
+        },
+        "C3_adapter_save_reload_merge": {
+          "status": "pass",
+          "merge_ok": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-09-13T18:04:44+00:00",
+  "dataset_version": "v5",
+  "currency": "USD",
+  "seed": 42,
+  "total_orders": 50000,
+  "base_date": "2025-10-15",
+  "creation_window_days": 180,
+  "window": {
+    "start": "2025-10-15",
+    "end_exclusive": "2026-04-13",
+    "first_order_created": "2025-10-15T08:00:00",
+    "last_order_created": "2026-04-12T17:00:00",
+    "status": "provisional decision pending confirmation, not a permanent methodology choice",
+    "basis": "180 days ending at the last observation of the tightest monthly price series, the denim PPI WPU03420104 (2026-04-01), so cotton, denim and leather prices move on real observations across the whole window instead of carrying one stale value forward"
+  },
+  "material_coverage": {
+    "all_v4_materials_covered": true,
+    "materials": [
+      "cotton",
+      "polyester",
+      "linen",
+      "denim",
+      "leather"
+    ],
+    "product_material_pairs": {
+      "v4": 12,
+      "v5": 12
+    },
+    "FIXED_PRICE_NOTICE": "polyester's price is FIXED at 14.6887 USD/kg on every date in the window. unlike cotton, linen, denim and leather it does not move with time: its SunSirs temporal series is still missing, so it is priced at its Tabb Textile TWPWD finished-fabric anchor, as methodology section 5.1 specifies when no credible historical series exists",
+    "price_basis": {
+      "cotton": "dated: finished-material anchor moved by its temporal series on each order_created date",
+      "linen": "dated: finished-material anchor moved by its temporal series on each order_created date",
+      "denim": "dated: finished-material anchor moved by its temporal series on each order_created date",
+      "leather": "dated: finished-material anchor moved by its temporal series on each order_created date",
+      "polyester": "fixed: fixed at the Tabb Textile TWPWD finished-fabric anchor for every date: data/raw/v5/material/polyester/sunsirs_dty.json still declares observations_status=missing, so no temporal series moves it"
+    },
+    "fixed_prices_usd_per_kg": {
+      "polyester": 14.688721510000573
+    },
+    "orders_by_material": {
+      "polyester": 15966,
+      "linen": 12760,
+      "cotton": 11955,
+      "leather": 4662,
+      "denim": 4657
+    },
+    "v4_orders_by_material": {
+      "polyester": 15966,
+      "linen": 12760,
+      "cotton": 11955,
+      "leather": 4662,
+      "denim": 4657
+    }
+  },
+  "scenario_mix": {
+    "random_realistic": 0.71,
+    "tight_deadline": 0.06,
+    "low_budget": 0.06,
+    "large_quantity": 0.05,
+    "high_quality": 0.05,
+    "rare_combo": 0.04,
+    "tight_low_budget": 0.03
+  },
+  "priority_weights": {
+    "urgent": 0.2,
+    "normal": 0.6,
+    "flexible": 0.2
+  },
+  "budget_anchor": "expected chain market price on order_created's date: material and manufacturer stage prices with stage factors from the v5 agent csvs, times the priority markup, plus the mean v5 route price of the weight-eligible agents serving the delivery city at the mean manufacturer distance, which carries its own damage risk and priority markup",
+  "stage_factors": {
+    "material": 1.320646,
+    "manufacturer": 1.383857
+  },
+  "logistics_price": {
+    "rule": "usd = ((F + alpha x kg + beta x kg / 1000 x km) x (1 + fuel(order date)) + oversized fee) x (1 + damage_probability) x (1 + priority markup) x EUR_to_USD(order date)",
+    "applies": [
+      "shared fuel surcharge by order date",
+      "Oversized fee above a parcel base limit",
+      "damage_probability",
+      "priority markup",
+      "EUR_to_USD by order date"
+    ],
+    "excludes": [
+      "initial_markup",
+      "min_profit_margin"
+    ],
+    "status": "provisional decision pending confirmation: F, alpha and beta are treated as market-level prices, so initial_markup and min_profit_margin are left out",
+    "no_markup_no_floor": "refers only to initial_markup and min_profit_margin: F, alpha and beta are market-level prices, and no source gives the cost basis a floor would need. damage-risk and priority adjustments are applied. a proper cost-basis methodology is future work",
+    "shared_fuel_series": {
+      "id": "matkahuolto_lavarahti",
+      "basis": "one common temporal fuel-cost signal for every agent. Matkahuolto Lavarahti has the best coverage of the v5 window among the usable pinned series: 22 dated observations inside the window and no day carried past its last observation. absolute surcharge levels published by different carriers sit on different bases and are not comparable, so agents do not differ by fuel series in v5"
+    },
+    "parcel_weight_limits": {
+      "L03": {
+        "max_shipment_weight_kg": 25.0,
+        "oversized_above_kg": null,
+        "oversized_fee_eur": null,
+        "reading": "posti_postal_parcel"
+      },
+      "L06": {
+        "max_shipment_weight_kg": 25.0,
+        "oversized_above_kg": null,
+        "oversized_fee_eur": null,
+        "reading": "posti_postal_parcel"
+      },
+      "L07": {
+        "max_shipment_weight_kg": 35.0,
+        "oversized_above_kg": 25.0,
+        "oversized_fee_eur": 3.5,
+        "reading": "posti_express_parcel"
+      },
+      "L10": {
+        "max_shipment_weight_kg": 35.0,
+        "oversized_above_kg": 25.0,
+        "oversized_fee_eur": 3.5,
+        "reading": "posti_home_parcel"
+      },
+      "L12": {
+        "max_shipment_weight_kg": 35.0,
+        "oversized_above_kg": 25.0,
+        "oversized_fee_eur": 3.5,
+        "reading": "posti_home_parcel"
+      }
+    },
+    "weight_domains": {
+      "L01": {
+        "min_kg": 0.0,
+        "max_kg": 1000.0,
+        "max_inclusive": false,
+        "reading": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup"
+      },
+      "L02": {
+        "min_kg": 0.0,
+        "max_kg": 1000.0,
+        "max_inclusive": false,
+        "reading": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup"
+      },
+      "L03": {
+        "min_kg": 0.0,
+        "max_kg": 25.0,
+        "max_inclusive": true,
+        "reading": "posti_postal_parcel"
+      },
+      "L04": {
+        "min_kg": 0.0,
+        "max_kg": 1000.0,
+        "max_inclusive": false,
+        "reading": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup"
+      },
+      "L05": {
+        "min_kg": 1000.0,
+        "max_kg": 3000.0,
+        "max_inclusive": false,
+        "reading": "matkahuolto_lavarahti_1_49km_1000_to_3000kg_with_pickup"
+      },
+      "L06": {
+        "min_kg": 0.0,
+        "max_kg": 25.0,
+        "max_inclusive": true,
+        "reading": "posti_postal_parcel"
+      },
+      "L07": {
+        "min_kg": 0.0,
+        "max_kg": 35.0,
+        "max_inclusive": true,
+        "reading": "posti_express_parcel"
+      },
+      "L08": {
+        "min_kg": 1000.0,
+        "max_kg": 3000.0,
+        "max_inclusive": false,
+        "reading": "matkahuolto_lavarahti_1_49km_1000_to_3000kg_with_pickup"
+      },
+      "L09": {
+        "min_kg": 0.0,
+        "max_kg": 1000.0,
+        "max_inclusive": false,
+        "reading": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup"
+      },
+      "L10": {
+        "min_kg": 0.0,
+        "max_kg": 35.0,
+        "max_inclusive": true,
+        "reading": "posti_home_parcel"
+      },
+      "L11": {
+        "min_kg": 35.0,
+        "max_kg": 500.0,
+        "max_inclusive": true,
+        "reading": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup"
+      },
+      "L12": {
+        "min_kg": 0.0,
+        "max_kg": 35.0,
+        "max_inclusive": true,
+        "reading": "posti_home_parcel"
+      }
+    },
+    "orders_with_no_weight_eligible_logistics_agent": 806,
+    "beta": "used as directly specified by the project supervisor, identical for every agent because no documented reason to vary it exists. its derivation remains a candidate, not confirmed, exactly as data/processed/v5/logistics/beta_candidate_derivation.json records"
+  },
+  "input_sha256": {
+    "data/synthetic/v5/products.csv": "934f9007768259ee959d5d698231f0a3aba093f527d1617cc67f3331f0d02d73",
+    "data/synthetic/v5/material_agents.csv": "246a77758d3b774871f87adf82c40b07de774a705960adbfb8b7b6fa2a765298",
+    "data/synthetic/v5/material_reference_prices.csv": "f819a2b7b89f4d4284bf22bafb0d2a48cae0fc4c5db36062d678b4485ab1704c",
+    "data/synthetic/v5/manufacturer_agents.csv": "b9d515e926429a40204361ce37391931a2e65b38ab7ad170474a405639ba9933",
+    "data/processed/v5/calibration_proposal/alternative_heavy_span/logistics_agents.csv": "a9905081ad7af5dcb61560b57e6668065da1da270b5ab915b8b9aa071a052a80",
+    "data/processed/v5/calibration_proposal/alternative_heavy_span/agent_calibration.csv": "59e5e0b7095febb718de8680de1b04c32ca25d7d949900003299e7ef4b0abab2",
+    "data/processed/v5/logistics/manufacturer_to_city_distance_matrix.csv": "88716e6baa12deee04d26068b46d32e3ada0cf69b8a93ff333e2dc846e1dcba7",
+    "data/raw/v5/manifest.json": "0357be623c013cc748a5393c94a394b97e66e245b6178426468a10d2b0defa08",
+    "data/raw/v5/logistics/manifest.json": "3d32244e774ec963035bf28c77e91a134a9e60e9f24ec31fc84d2b94584ce1ca"
+  },
+  "v4_files_read_only_sha256": {
+    "data/synthetic/v4/products.csv": "75c306523459eecaab2978fa067e31668e5e20e1ab08dd08b50dc5786c499554",
+    "data/synthetic/v4/material_agents.csv": "15bfc6881d149bbaeacea1c72d11dc64ea5763ff84cf0c90d2f9f2a6e550a3b6",
+    "data/synthetic/v4/manufacturer_agents.csv": "faf86a339aee3e7d827b680653e1a932bff360066a19d143fd557ac5ac792220",
+    "data/synthetic/v4/logistics_agents.csv": "56b6145189e746007184bcf983b16bc7e39b6e2988f8f4f10969cd764a7444cf"
+  }
+}

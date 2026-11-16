@@ -1,0 +1,1406 @@
+{
+  "status": "proposal awaiting review before it is made final and regenerated for real. production data/synthetic/v5/ and data/processed/v5/logistics/agent_calibration.csv are untouched by it",
+  "method": "freight candidates assigned by a global bijective search over all 7! assignments, scored on an independent calibration demand sample and the agents' v4 service regions only; the parcel corner is copied unchanged from production",
+  "part_1_candidates": {
+    "candidates": [
+      {
+        "candidate": 1,
+        "label": "Matkahuolto Lavarahti [0, 1000) kg",
+        "reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+        "fixed_charge_eur": 42.396668449197854,
+        "alpha_eur_per_kg": 0.1269197860962567,
+        "min_shipment_weight_kg": 0.0,
+        "max_shipment_weight_kg": 1000.0,
+        "max_weight_inclusive": false,
+        "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+        "arithmetic": "(29.71 + pickup 17.70) at 39.5 kg and (119.62 + pickup 46.46) at 974.5 kg: alpha = (166.08 - 47.41) / (974.5 - 39.5) = 0.126920 EUR/kg; F = 47.41 - 0.126920 x 39.5 = 42.3967 EUR",
+        "domain_basis": "the secant runs from the 0-79 kg bracket to the 950-999 kg bracket, so it is evidenced from 0 kg up to the next bracket's start at 1000 kg, even though the tariff continues on both sides"
+      },
+      {
+        "candidate": 2,
+        "label": "Matkahuolto Lavarahti [1000, 1500) kg",
+        "reading_id": "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup",
+        "fixed_charge_eur": 167.476675,
+        "alpha_eur_per_kg": 0.008350000000000008,
+        "min_shipment_weight_kg": 1000.0,
+        "max_shipment_weight_kg": 1500.0,
+        "max_weight_inclusive": false,
+        "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+        "arithmetic": "(129.78 + pickup 46.46) at 1049.5 kg and (133.12 + pickup 46.46) at 1449.5 kg: alpha = (179.58 - 176.24) / (1449.5 - 1049.5) = 0.008350 EUR/kg; F = 176.24 - 0.008350 x 1049.5 = 167.4767 EUR",
+        "domain_basis": "the secant runs from the 1000-1099 kg bracket to the 1400-1499 kg bracket, so it is evidenced from 1000 kg up to the next bracket's start at 1500 kg, even though the tariff continues on both sides"
+      },
+      {
+        "candidate": 3,
+        "label": "Matkahuolto Lavarahti [1500, 2000) kg",
+        "reading_id": "matkahuolto_lavarahti_1_49km_1500_to_2000kg_with_pickup",
+        "fixed_charge_eur": 165.17956249999997,
+        "alpha_eur_per_kg": 0.016625000000000015,
+        "min_shipment_weight_kg": 1500.0,
+        "max_shipment_weight_kg": 2000.0,
+        "max_weight_inclusive": false,
+        "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+        "arithmetic": "(144.48 + pickup 46.46) at 1549.5 kg and (151.13 + pickup 46.46) at 1949.5 kg: alpha = (197.59 - 190.94) / (1949.5 - 1549.5) = 0.016625 EUR/kg; F = 190.94 - 0.016625 x 1549.5 = 165.1796 EUR",
+        "domain_basis": "the secant runs from the 1500-1599 kg bracket to the 1900-1999 kg bracket, so it is evidenced from 1500 kg up to the next bracket's start at 2000 kg, even though the tariff continues on both sides"
+      },
+      {
+        "candidate": 4,
+        "label": "Matkahuolto Lavarahti [2000, 2500) kg",
+        "reading_id": "matkahuolto_lavarahti_1_49km_2000_to_2500kg_with_pickup",
+        "fixed_charge_eur": 181.0259250000001,
+        "alpha_eur_per_kg": 0.016849999999999952,
+        "min_shipment_weight_kg": 2000.0,
+        "max_shipment_weight_kg": 2500.0,
+        "max_weight_inclusive": false,
+        "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+        "arithmetic": "(164.43 + pickup 51.13) at 2049.5 kg and (171.17 + pickup 51.13) at 2449.5 kg: alpha = (222.30 - 215.56) / (2449.5 - 2049.5) = 0.016850 EUR/kg; F = 215.56 - 0.016850 x 2049.5 = 181.0259 EUR",
+        "domain_basis": "the secant runs from the 2000-2099 kg bracket to the 2400-2499 kg bracket, so it is evidenced from 2000 kg up to the next bracket's start at 2500 kg, even though the tariff continues on both sides"
+      },
+      {
+        "candidate": 5,
+        "label": "Matkahuolto Lavarahti [2500, 3000) kg",
+        "reading_id": "matkahuolto_lavarahti_1_49km_2500_to_3000kg_with_pickup",
+        "fixed_charge_eur": 195.5398125,
+        "alpha_eur_per_kg": 0.017124999999999987,
+        "min_shipment_weight_kg": 2500.0,
+        "max_shipment_weight_kg": 3000.0,
+        "max_weight_inclusive": false,
+        "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json freight_table_parsed 1-49 km band and pickup_table_as_printed",
+        "arithmetic": "(188.07 + pickup 51.13) at 2549.5 kg and (194.92 + pickup 51.13) at 2949.5 kg: alpha = (246.05 - 239.20) / (2949.5 - 2549.5) = 0.017125 EUR/kg; F = 239.20 - 0.017125 x 2549.5 = 195.5398 EUR",
+        "domain_basis": "the secant runs from the 2500-2599 kg bracket to the 2900-2999 kg bracket, so it is evidenced from 2500 kg up to the next bracket's start at 3000 kg, even though the tariff continues on both sides"
+      },
+      {
+        "candidate": 6,
+        "label": "Posti Express Freight [35, 500] kg, loose package to half pallet",
+        "reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+        "fixed_charge_eur": 78.65,
+        "alpha_eur_per_kg": 0.048,
+        "min_shipment_weight_kg": 35.0,
+        "max_shipment_weight_kg": 500.0,
+        "max_weight_inclusive": true,
+        "source": "data/raw/v5/logistics/rate_calibration/posti_express_freight.json Express-rahti 14 zone 0 'loose_package' and 'half_pallet_first_unit', separate_pickup_as_printed 1 unit",
+        "arithmetic": "alpha = (62.32 - 40.00) / (500 - 35) = 0.048000 EUR/kg; F = 40.00 - 0.048000 x 35 + pickup 40.33 = 78.6500 EUR",
+        "domain_basis": "the two prices are placed at the units' printed gross limits, 'Loose colli: Maximum gross weight 35 kg' and 'Half pallet: Maximum width 60 cm, Maximum length 80 cm, Maximum gross weight 500 kg', so the line is evidenced from 35 to 500 kg"
+      },
+      {
+        "candidate": 7,
+        "label": "Posti Express Freight [500, 1000] kg, half pallet to pallet",
+        "reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+        "fixed_charge_eur": 75.38,
+        "alpha_eur_per_kg": 0.054540000000000005,
+        "min_shipment_weight_kg": 500.0,
+        "max_shipment_weight_kg": 1000.0,
+        "max_weight_inclusive": true,
+        "source": "data/raw/v5/logistics/rate_calibration/posti_express_freight.json Express-rahti 14 zone 0 'half_pallet_first_unit' and 'pallet_first_unit', separate_pickup_as_printed 1 unit",
+        "arithmetic": "alpha = (89.59 - 62.32) / (1000 - 500) = 0.054540 EUR/kg; F = 62.32 - 0.054540 x 500 + pickup 40.33 = 75.3800 EUR",
+        "domain_basis": "the two prices are placed at the units' printed gross limits, 'Half pallet: Maximum width 60 cm, Maximum length 80 cm, Maximum gross weight 500 kg' and 'Pallet: Maximum width 120 cm, Maximum length 100 cm, Maximum gross weight 1000 kg', so the line is evidenced from 500 to 1000 kg"
+      }
+    ],
+    "verification_against_pinned_sources": {
+      "candidates_checked": 7,
+      "fields_checked": [
+        "fixed_charge_eur",
+        "alpha_eur_per_kg",
+        "min_shipment_weight_kg",
+        "max_shipment_weight_kg",
+        "max_weight_inclusive"
+      ],
+      "comparison": "exact equality, python ==",
+      "discrepancies": 0,
+      "sources": [
+        "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json",
+        "data/raw/v5/logistics/rate_calibration/posti_express_freight.json"
+      ],
+      "reused_from": "data/processed/v5/logistics/agent_calibration_proposal.json"
+    },
+    "candidate_1_lower_bound": {
+      "used_kg": 0.0,
+      "reading_0_kg": "the price table's first printed bracket is 0-79 kg (printed as '0 - 79'), and the table has no minimum-weight column",
+      "reading_35_kg": "the service's own description says 'Lavarahti on palvelumme yli 35 kg tai isokokoisille lähetyksille.' (for shipments over 35 kg or large shipments)",
+      "reason": "0 kg is used because the service text itself admits shipments under 35 kg when they are large ('tai isokokoisille'), the tariff prices them from 0 kg, and the simulation has no size field that could tell a large 20 kg shipment from a small one",
+      "source": "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json"
+    }
+  },
+  "part_2_calibration_sample": {
+    "seed": 7,
+    "seed_note": "arbitrary. its only role is to differ from the production seed 42 (streams 42 and 43); it uses streams 7 and 8. it is not a tuned parameter",
+    "generator": "src/data_synthesis/v5/orders.py OrderGenerator, the production order design with another seed",
+    "orders": 50000,
+    "persisted": "no: generated in memory for the demand count and discarded. only its seed and the counts below are recorded",
+    "fields_read": [
+      "product_id",
+      "material_type",
+      "quantity",
+      "deliver_to"
+    ],
+    "never_read": [
+      "data/synthetic/v5/orders.csv",
+      "any price, budget, F, alpha or damage probability"
+    ],
+    "used_for": "part 3 demand and part 4 assignment only; never for diagnostics, reporting of results or evaluation"
+  },
+  "part_3_demand": {
+    "threshold": "a disclosed modeling threshold, not a mathematical derivation: a (city, candidate) cell is meaningful when its calibration-sample demand is at least 1% of that city's calibration-sample orders. 1% sits below every deliberately designed stress-scenario share in methodology section 8.2, the smallest being tight_low_budget at 3%, so it cannot be met by absorbing an intentional stress category. cells below it are rare residuals, accepted as stress conditions, consistent with section 2's deliberately difficult conditions",
+    "overlap_convention": "an order counts toward every candidate domain that contains its weight when demand per (city, candidate) is tabulated and the 1% threshold is applied: meaningfulness belongs to a domain, and picking one domain for an order before any agent holds one would be an arbitrary attribution. the objective counts orders, not cells: an order is in scope once if any of its domains is meaningful in its city, and covered once if any eligible provider can carry it, so overlapping domains never count the same order twice and a domain boundary such as exactly 1000 kg is judged by the order's exact weight, not by whole-cell containment. the cell-summed alternative, which would count an order once per meaningful domain containing it, is scored for every assignment as a sensitivity",
+    "demand_by_city_and_candidate": {
+      "Espoo": {
+        "orders": 7138,
+        "by_candidate": {
+          "1": {
+            "orders": 6320,
+            "share_pct": 88.54,
+            "meaningful": true
+          },
+          "2": {
+            "orders": 454,
+            "share_pct": 6.36,
+            "meaningful": true
+          },
+          "3": {
+            "orders": 279,
+            "share_pct": 3.91,
+            "meaningful": true
+          },
+          "4": {
+            "orders": 42,
+            "share_pct": 0.59,
+            "meaningful": false
+          },
+          "5": {
+            "orders": 43,
+            "share_pct": 0.6,
+            "meaningful": false
+          },
+          "6": {
+            "orders": 4601,
+            "share_pct": 64.46,
+            "meaningful": true
+          },
+          "7": {
+            "orders": 1351,
+            "share_pct": 18.93,
+            "meaningful": true
+          }
+        }
+      },
+      "Helsinki": {
+        "orders": 7139,
+        "by_candidate": {
+          "1": {
+            "orders": 6307,
+            "share_pct": 88.35,
+            "meaningful": true
+          },
+          "2": {
+            "orders": 454,
+            "share_pct": 6.36,
+            "meaningful": true
+          },
+          "3": {
+            "orders": 287,
+            "share_pct": 4.02,
+            "meaningful": true
+          },
+          "4": {
+            "orders": 43,
+            "share_pct": 0.6,
+            "meaningful": false
+          },
+          "5": {
+            "orders": 48,
+            "share_pct": 0.67,
+            "meaningful": false
+          },
+          "6": {
+            "orders": 4523,
+            "share_pct": 63.36,
+            "meaningful": true
+          },
+          "7": {
+            "orders": 1342,
+            "share_pct": 18.8,
+            "meaningful": true
+          }
+        }
+      },
+      "Jyvaskyla": {
+        "orders": 7138,
+        "by_candidate": {
+          "1": {
+            "orders": 6266,
+            "share_pct": 87.78,
+            "meaningful": true
+          },
+          "2": {
+            "orders": 471,
+            "share_pct": 6.6,
+            "meaningful": true
+          },
+          "3": {
+            "orders": 305,
+            "share_pct": 4.27,
+            "meaningful": true
+          },
+          "4": {
+            "orders": 52,
+            "share_pct": 0.73,
+            "meaningful": false
+          },
+          "5": {
+            "orders": 44,
+            "share_pct": 0.62,
+            "meaningful": false
+          },
+          "6": {
+            "orders": 4490,
+            "share_pct": 62.9,
+            "meaningful": true
+          },
+          "7": {
+            "orders": 1372,
+            "share_pct": 19.22,
+            "meaningful": true
+          }
+        }
+      },
+      "Lahti": {
+        "orders": 7268,
+        "by_candidate": {
+          "1": {
+            "orders": 6435,
+            "share_pct": 88.54,
+            "meaningful": true
+          },
+          "2": {
+            "orders": 488,
+            "share_pct": 6.71,
+            "meaningful": true
+          },
+          "3": {
+            "orders": 242,
+            "share_pct": 3.33,
+            "meaningful": true
+          },
+          "4": {
+            "orders": 58,
+            "share_pct": 0.8,
+            "meaningful": false
+          },
+          "5": {
+            "orders": 45,
+            "share_pct": 0.62,
+            "meaningful": false
+          },
+          "6": {
+            "orders": 4674,
+            "share_pct": 64.31,
+            "meaningful": true
+          },
+          "7": {
+            "orders": 1362,
+            "share_pct": 18.74,
+            "meaningful": true
+          }
+        }
+      },
+      "Oulu": {
+        "orders": 7003,
+        "by_candidate": {
+          "1": {
+            "orders": 6180,
+            "share_pct": 88.25,
+            "meaningful": true
+          },
+          "2": {
+            "orders": 447,
+            "share_pct": 6.38,
+            "meaningful": true
+          },
+          "3": {
+            "orders": 289,
+            "share_pct": 4.13,
+            "meaningful": true
+          },
+          "4": {
+            "orders": 38,
+            "share_pct": 0.54,
+            "meaningful": false
+          },
+          "5": {
+            "orders": 49,
+            "share_pct": 0.7,
+            "meaningful": false
+          },
+          "6": {
+            "orders": 4396,
+            "share_pct": 62.77,
+            "meaningful": true
+          },
+          "7": {
+            "orders": 1329,
+            "share_pct": 18.98,
+            "meaningful": true
+          }
+        }
+      },
+      "Tampere": {
+        "orders": 7106,
+        "by_candidate": {
+          "1": {
+            "orders": 6289,
+            "share_pct": 88.5,
+            "meaningful": true
+          },
+          "2": {
+            "orders": 455,
+            "share_pct": 6.4,
+            "meaningful": true
+          },
+          "3": {
+            "orders": 268,
+            "share_pct": 3.77,
+            "meaningful": true
+          },
+          "4": {
+            "orders": 45,
+            "share_pct": 0.63,
+            "meaningful": false
+          },
+          "5": {
+            "orders": 49,
+            "share_pct": 0.69,
+            "meaningful": false
+          },
+          "6": {
+            "orders": 4512,
+            "share_pct": 63.5,
+            "meaningful": true
+          },
+          "7": {
+            "orders": 1332,
+            "share_pct": 18.74,
+            "meaningful": true
+          }
+        }
+      },
+      "Turku": {
+        "orders": 7208,
+        "by_candidate": {
+          "1": {
+            "orders": 6355,
+            "share_pct": 88.17,
+            "meaningful": true
+          },
+          "2": {
+            "orders": 475,
+            "share_pct": 6.59,
+            "meaningful": true
+          },
+          "3": {
+            "orders": 276,
+            "share_pct": 3.83,
+            "meaningful": true
+          },
+          "4": {
+            "orders": 49,
+            "share_pct": 0.68,
+            "meaningful": false
+          },
+          "5": {
+            "orders": 53,
+            "share_pct": 0.74,
+            "meaningful": false
+          },
+          "6": {
+            "orders": 4550,
+            "share_pct": 63.12,
+            "meaningful": true
+          },
+          "7": {
+            "orders": 1329,
+            "share_pct": 18.44,
+            "meaningful": true
+          }
+        }
+      }
+    },
+    "orders_by_city_and_weight_piece": {
+      "Espoo": {
+        "(0, 35) kg": 369,
+        "exactly 35 kg": 3,
+        "(35, 500) kg": 4597,
+        "exactly 500 kg": 1,
+        "(500, 1000) kg": 1350,
+        "(1000, 1500) kg": 454,
+        "(1500, 2000) kg": 279,
+        "(2000, 2500) kg": 42,
+        "(2500, 3000) kg": 43
+      },
+      "Helsinki": {
+        "(0, 35) kg": 443,
+        "(35, 500) kg": 4523,
+        "(500, 1000) kg": 1341,
+        "exactly 1000 kg": 1,
+        "(1000, 1500) kg": 453,
+        "(1500, 2000) kg": 287,
+        "exactly 2000 kg": 1,
+        "(2000, 2500) kg": 42,
+        "(2500, 3000) kg": 48
+      },
+      "Jyvaskyla": {
+        "(0, 35) kg": 406,
+        "exactly 35 kg": 1,
+        "(35, 500) kg": 4487,
+        "exactly 500 kg": 2,
+        "(500, 1000) kg": 1370,
+        "(1000, 1500) kg": 471,
+        "exactly 1500 kg": 1,
+        "(1500, 2000) kg": 304,
+        "(2000, 2500) kg": 52,
+        "(2500, 3000) kg": 44
+      },
+      "Lahti": {
+        "(0, 35) kg": 401,
+        "(35, 500) kg": 4672,
+        "exactly 500 kg": 2,
+        "(500, 1000) kg": 1360,
+        "(1000, 1500) kg": 488,
+        "(1500, 2000) kg": 242,
+        "exactly 2000 kg": 1,
+        "(2000, 2500) kg": 57,
+        "(2500, 3000) kg": 45
+      },
+      "Oulu": {
+        "(0, 35) kg": 455,
+        "exactly 35 kg": 1,
+        "(35, 500) kg": 4395,
+        "(500, 1000) kg": 1329,
+        "(1000, 1500) kg": 447,
+        "(1500, 2000) kg": 289,
+        "(2000, 2500) kg": 38,
+        "(2500, 3000) kg": 49
+      },
+      "Tampere": {
+        "(0, 35) kg": 445,
+        "exactly 35 kg": 1,
+        "(35, 500) kg": 4511,
+        "(500, 1000) kg": 1332,
+        "(1000, 1500) kg": 455,
+        "exactly 1500 kg": 2,
+        "(1500, 2000) kg": 266,
+        "(2000, 2500) kg": 45,
+        "(2500, 3000) kg": 49
+      },
+      "Turku": {
+        "(0, 35) kg": 479,
+        "exactly 35 kg": 1,
+        "(35, 500) kg": 4547,
+        "exactly 500 kg": 2,
+        "(500, 1000) kg": 1326,
+        "exactly 1000 kg": 1,
+        "(1000, 1500) kg": 474,
+        "(1500, 2000) kg": 276,
+        "(2000, 2500) kg": 49,
+        "(2500, 3000) kg": 53
+      }
+    },
+    "meaningful_cells": 35,
+    "rare_residuals": [
+      {
+        "city": "Espoo",
+        "candidate": 4,
+        "orders": 42,
+        "share_pct": 0.59
+      },
+      {
+        "city": "Espoo",
+        "candidate": 5,
+        "orders": 43,
+        "share_pct": 0.6
+      },
+      {
+        "city": "Helsinki",
+        "candidate": 4,
+        "orders": 43,
+        "share_pct": 0.6
+      },
+      {
+        "city": "Helsinki",
+        "candidate": 5,
+        "orders": 48,
+        "share_pct": 0.67
+      },
+      {
+        "city": "Jyvaskyla",
+        "candidate": 4,
+        "orders": 52,
+        "share_pct": 0.73
+      },
+      {
+        "city": "Jyvaskyla",
+        "candidate": 5,
+        "orders": 44,
+        "share_pct": 0.62
+      },
+      {
+        "city": "Lahti",
+        "candidate": 4,
+        "orders": 58,
+        "share_pct": 0.8
+      },
+      {
+        "city": "Lahti",
+        "candidate": 5,
+        "orders": 45,
+        "share_pct": 0.62
+      },
+      {
+        "city": "Oulu",
+        "candidate": 4,
+        "orders": 38,
+        "share_pct": 0.54
+      },
+      {
+        "city": "Oulu",
+        "candidate": 5,
+        "orders": 49,
+        "share_pct": 0.7
+      },
+      {
+        "city": "Tampere",
+        "candidate": 4,
+        "orders": 45,
+        "share_pct": 0.63
+      },
+      {
+        "city": "Tampere",
+        "candidate": 5,
+        "orders": 49,
+        "share_pct": 0.69
+      },
+      {
+        "city": "Turku",
+        "candidate": 4,
+        "orders": 49,
+        "share_pct": 0.68
+      },
+      {
+        "city": "Turku",
+        "candidate": 5,
+        "orders": 53,
+        "share_pct": 0.74
+      }
+    ]
+  },
+  "part_4_assignment": {
+    "inputs": [
+      "calibration demand per (city, weight piece)",
+      "the seven candidates' weight domains",
+      "the seven freight agents' v4 service_regions"
+    ],
+    "not_read": [
+      "price",
+      "F",
+      "alpha",
+      "beta",
+      "damage_probability",
+      "specialty",
+      "diagnostic output"
+    ],
+    "objective": [
+      "1. orders in a meaningful cell with at least one eligible provider, maximized",
+      "2. among ties, such orders with at least two eligible providers, maximized",
+      "3. among ties, the lexicographically smallest candidate sequence with agents sorted by id"
+    ],
+    "assignments_evaluated": 5040,
+    "all_bijective": true,
+    "winner": {
+      "candidates_by_agent": {
+        "L01": 1,
+        "L02": 2,
+        "L04": 3,
+        "L05": 4,
+        "L08": 6,
+        "L09": 7,
+        "L11": 5
+      },
+      "covered_once": 48301,
+      "covered_twice": 23445
+    },
+    "assignments_tied_on_objective_1": 24,
+    "assignments_tied_on_objectives_1_and_2": 2,
+    "tie_break_applied": true,
+    "distinct_objective_1_values": 1385,
+    "worst": {
+      "candidates_by_agent": {
+        "L01": 5,
+        "L02": 4,
+        "L04": 7,
+        "L05": 1,
+        "L08": 3,
+        "L09": 2,
+        "L11": 6
+      },
+      "covered_once": 24129,
+      "covered_twice": 11818
+    },
+    "top": [
+      {
+        "rank": 1,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 4,
+          "L08": 6,
+          "L09": 7,
+          "L11": 5
+        },
+        "covered_once": 48301,
+        "covered_twice": 23445
+      },
+      {
+        "rank": 2,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 5,
+          "L08": 6,
+          "L09": 7,
+          "L11": 4
+        },
+        "covered_once": 48301,
+        "covered_twice": 23445
+      },
+      {
+        "rank": 3,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 4,
+          "L08": 7,
+          "L09": 6,
+          "L11": 5
+        },
+        "covered_once": 48301,
+        "covered_twice": 23314
+      },
+      {
+        "rank": 4,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 5,
+          "L08": 7,
+          "L09": 6,
+          "L11": 4
+        },
+        "covered_once": 48301,
+        "covered_twice": 23314
+      },
+      {
+        "rank": 5,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 4,
+          "L08": 6,
+          "L09": 5,
+          "L11": 7
+        },
+        "covered_once": 48301,
+        "covered_twice": 22094
+      },
+      {
+        "rank": 6,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 5,
+          "L08": 6,
+          "L09": 4,
+          "L11": 7
+        },
+        "covered_once": 48301,
+        "covered_twice": 22094
+      },
+      {
+        "rank": 7,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 4,
+          "L08": 5,
+          "L09": 6,
+          "L11": 7
+        },
+        "covered_once": 48301,
+        "covered_twice": 21943
+      },
+      {
+        "rank": 8,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 5,
+          "L08": 4,
+          "L09": 6,
+          "L11": 7
+        },
+        "covered_once": 48301,
+        "covered_twice": 21943
+      },
+      {
+        "rank": 9,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 7,
+          "L08": 6,
+          "L09": 4,
+          "L11": 5
+        },
+        "covered_once": 48301,
+        "covered_twice": 20765
+      },
+      {
+        "rank": 10,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 7,
+          "L08": 6,
+          "L09": 5,
+          "L11": 4
+        },
+        "covered_once": 48301,
+        "covered_twice": 20765
+      },
+      {
+        "rank": 11,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 7,
+          "L08": 4,
+          "L09": 6,
+          "L11": 5
+        },
+        "covered_once": 48301,
+        "covered_twice": 20614
+      },
+      {
+        "rank": 12,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 7,
+          "L08": 5,
+          "L09": 6,
+          "L11": 4
+        },
+        "covered_once": 48301,
+        "covered_twice": 20614
+      },
+      {
+        "rank": 13,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 4,
+          "L08": 7,
+          "L09": 5,
+          "L11": 6
+        },
+        "covered_once": 48301,
+        "covered_twice": 19069
+      },
+      {
+        "rank": 14,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 5,
+          "L08": 7,
+          "L09": 4,
+          "L11": 6
+        },
+        "covered_once": 48301,
+        "covered_twice": 19069
+      },
+      {
+        "rank": 15,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 4,
+          "L08": 5,
+          "L09": 7,
+          "L11": 6
+        },
+        "covered_once": 48301,
+        "covered_twice": 19049
+      },
+      {
+        "rank": 16,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 5,
+          "L08": 4,
+          "L09": 7,
+          "L11": 6
+        },
+        "covered_once": 48301,
+        "covered_twice": 19049
+      },
+      {
+        "rank": 17,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 7,
+          "L08": 4,
+          "L09": 5,
+          "L11": 6
+        },
+        "covered_once": 48301,
+        "covered_twice": 16366
+      },
+      {
+        "rank": 18,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 7,
+          "L08": 5,
+          "L09": 4,
+          "L11": 6
+        },
+        "covered_once": 48301,
+        "covered_twice": 16366
+      },
+      {
+        "rank": 19,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 6,
+          "L08": 7,
+          "L09": 4,
+          "L11": 5
+        },
+        "covered_once": 48301,
+        "covered_twice": 14519
+      },
+      {
+        "rank": 20,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 6,
+          "L08": 7,
+          "L09": 5,
+          "L11": 4
+        },
+        "covered_once": 48301,
+        "covered_twice": 14519
+      },
+      {
+        "rank": 21,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 6,
+          "L08": 4,
+          "L09": 7,
+          "L11": 5
+        },
+        "covered_once": 48301,
+        "covered_twice": 14499
+      },
+      {
+        "rank": 22,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 6,
+          "L08": 5,
+          "L09": 7,
+          "L11": 4
+        },
+        "covered_once": 48301,
+        "covered_twice": 14499
+      },
+      {
+        "rank": 23,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 6,
+          "L08": 4,
+          "L09": 5,
+          "L11": 7
+        },
+        "covered_once": 48301,
+        "covered_twice": 13145
+      },
+      {
+        "rank": 24,
+        "candidates_by_agent": {
+          "L01": 1,
+          "L02": 2,
+          "L04": 3,
+          "L05": 6,
+          "L08": 5,
+          "L09": 4,
+          "L11": 7
+        },
+        "covered_once": 48301,
+        "covered_twice": 13145
+      },
+      {
+        "rank": 25,
+        "candidates_by_agent": {
+          "L01": 2,
+          "L02": 1,
+          "L04": 3,
+          "L05": 4,
+          "L08": 6,
+          "L09": 7,
+          "L11": 5
+        },
+        "covered_once": 48293,
+        "covered_twice": 17720
+      }
+    ],
+    "best_objective_with_each_agent_candidate_pairing": {
+      "L01": {
+        "1": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "2": {
+          "best_covered_once": 48293,
+          "best_covered_twice": 17720
+        },
+        "3": {
+          "best_covered_once": 48034,
+          "best_covered_twice": 11862
+        },
+        "4": {
+          "best_covered_once": 46930,
+          "best_covered_twice": 11862
+        },
+        "5": {
+          "best_covered_once": 46930,
+          "best_covered_twice": 11862
+        },
+        "6": {
+          "best_covered_once": 47237,
+          "best_covered_twice": 25554
+        },
+        "7": {
+          "best_covered_once": 47237,
+          "best_covered_twice": 15902
+        }
+      },
+      "L02": {
+        "1": {
+          "best_covered_once": 48293,
+          "best_covered_twice": 17720
+        },
+        "2": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "3": {
+          "best_covered_once": 48192,
+          "best_covered_twice": 11862
+        },
+        "4": {
+          "best_covered_once": 47627,
+          "best_covered_twice": 22094
+        },
+        "5": {
+          "best_covered_once": 47627,
+          "best_covered_twice": 22094
+        },
+        "6": {
+          "best_covered_once": 47627,
+          "best_covered_twice": 32741
+        },
+        "7": {
+          "best_covered_once": 47627,
+          "best_covered_twice": 26156
+        }
+      },
+      "L04": {
+        "1": {
+          "best_covered_once": 48192,
+          "best_covered_twice": 11862
+        },
+        "2": {
+          "best_covered_once": 48135,
+          "best_covered_twice": 23445
+        },
+        "3": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "4": {
+          "best_covered_once": 48098,
+          "best_covered_twice": 22094
+        },
+        "5": {
+          "best_covered_once": 48098,
+          "best_covered_twice": 22094
+        },
+        "6": {
+          "best_covered_once": 48098,
+          "best_covered_twice": 28253
+        },
+        "7": {
+          "best_covered_once": 48098,
+          "best_covered_twice": 24786
+        }
+      },
+      "L05": {
+        "1": {
+          "best_covered_once": 44789,
+          "best_covered_twice": 9128
+        },
+        "2": {
+          "best_covered_once": 46718,
+          "best_covered_twice": 26878
+        },
+        "3": {
+          "best_covered_once": 47515,
+          "best_covered_twice": 28253
+        },
+        "4": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "5": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "6": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 14519
+        },
+        "7": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 20765
+        }
+      },
+      "L08": {
+        "1": {
+          "best_covered_once": 47762,
+          "best_covered_twice": 9191
+        },
+        "2": {
+          "best_covered_once": 47672,
+          "best_covered_twice": 26877
+        },
+        "3": {
+          "best_covered_once": 48053,
+          "best_covered_twice": 28235
+        },
+        "4": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 21943
+        },
+        "5": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 21943
+        },
+        "6": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "7": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23314
+        }
+      },
+      "L09": {
+        "1": {
+          "best_covered_once": 47251,
+          "best_covered_twice": 16205
+        },
+        "2": {
+          "best_covered_once": 47637,
+          "best_covered_twice": 26878
+        },
+        "3": {
+          "best_covered_once": 48098,
+          "best_covered_twice": 28253
+        },
+        "4": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 22094
+        },
+        "5": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 22094
+        },
+        "6": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23314
+        },
+        "7": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        }
+      },
+      "L11": {
+        "1": {
+          "best_covered_once": 46594,
+          "best_covered_twice": 13678
+        },
+        "2": {
+          "best_covered_once": 47192,
+          "best_covered_twice": 28253
+        },
+        "3": {
+          "best_covered_once": 47791,
+          "best_covered_twice": 28253
+        },
+        "4": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "5": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 23445
+        },
+        "6": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 19069
+        },
+        "7": {
+          "best_covered_once": 48301,
+          "best_covered_twice": 22094
+        }
+      }
+    },
+    "sensitivity_cell_summed_objective": {
+      "winner": {
+        "L01": 1,
+        "L02": 2,
+        "L04": 3,
+        "L05": 4,
+        "L08": 6,
+        "L09": 7,
+        "L11": 5
+      },
+      "same_winner_as_primary": true,
+      "primary_winner_rank_under_sensitivity": 1
+    },
+    "full_ranking_csv": "reports/v5/calibration_proposal_v3/assignment_ranking.csv"
+  },
+  "agents": [
+    {
+      "agent_id": "L01",
+      "calibration_corner": "freight",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+      "fixed_charge_eur": 42.396668449197854,
+      "alpha_eur_per_kg": 0.1269197860962567,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 0.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null
+    },
+    {
+      "agent_id": "L02",
+      "calibration_corner": "freight",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup",
+      "fixed_charge_eur": 167.476675,
+      "alpha_eur_per_kg": 0.008350000000000008,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 1000.0,
+      "max_shipment_weight_kg": 1500.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null
+    },
+    {
+      "agent_id": "L03",
+      "calibration_corner": "parcel",
+      "calibration_reading_id": "posti_postal_parcel",
+      "fixed_charge_eur": 5.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "max_shipment_weight_kg": 25.0,
+      "oversized_above_kg": NaN,
+      "oversized_fee_eur": NaN,
+      "min_shipment_weight_kg": 0.0,
+      "max_weight_inclusive": true
+    },
+    {
+      "agent_id": "L04",
+      "calibration_corner": "freight",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_1500_to_2000kg_with_pickup",
+      "fixed_charge_eur": 165.17956249999997,
+      "alpha_eur_per_kg": 0.016625000000000015,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 1500.0,
+      "max_shipment_weight_kg": 2000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null
+    },
+    {
+      "agent_id": "L05",
+      "calibration_corner": "freight",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_2000_to_2500kg_with_pickup",
+      "fixed_charge_eur": 181.0259250000001,
+      "alpha_eur_per_kg": 0.016849999999999952,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 2000.0,
+      "max_shipment_weight_kg": 2500.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null
+    },
+    {
+      "agent_id": "L06",
+      "calibration_corner": "parcel",
+      "calibration_reading_id": "posti_postal_parcel",
+      "fixed_charge_eur": 5.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "max_shipment_weight_kg": 25.0,
+      "oversized_above_kg": NaN,
+      "oversized_fee_eur": NaN,
+      "min_shipment_weight_kg": 0.0,
+      "max_weight_inclusive": true
+    },
+    {
+      "agent_id": "L07",
+      "calibration_corner": "parcel",
+      "calibration_reading_id": "posti_express_parcel",
+      "fixed_charge_eur": 8.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "max_shipment_weight_kg": 35.0,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "min_shipment_weight_kg": 0.0,
+      "max_weight_inclusive": true
+    },
+    {
+      "agent_id": "L08",
+      "calibration_corner": "freight",
+      "calibration_reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+      "fixed_charge_eur": 78.65,
+      "alpha_eur_per_kg": 0.048,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 35.0,
+      "max_shipment_weight_kg": 500.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null
+    },
+    {
+      "agent_id": "L09",
+      "calibration_corner": "freight",
+      "calibration_reading_id": "posti_express_freight_zone0_half_pallet_to_pallet_with_pickup",
+      "fixed_charge_eur": 75.38,
+      "alpha_eur_per_kg": 0.054540000000000005,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 500.0,
+      "max_shipment_weight_kg": 1000.0,
+      "max_weight_inclusive": true,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null
+    },
+    {
+      "agent_id": "L10",
+      "calibration_corner": "parcel",
+      "calibration_reading_id": "posti_home_parcel",
+      "fixed_charge_eur": 10.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "max_shipment_weight_kg": 35.0,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "min_shipment_weight_kg": 0.0,
+      "max_weight_inclusive": true
+    },
+    {
+      "agent_id": "L11",
+      "calibration_corner": "freight",
+      "calibration_reading_id": "matkahuolto_lavarahti_1_49km_2500_to_3000kg_with_pickup",
+      "fixed_charge_eur": 195.5398125,
+      "alpha_eur_per_kg": 0.017124999999999987,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "min_shipment_weight_kg": 2500.0,
+      "max_shipment_weight_kg": 3000.0,
+      "max_weight_inclusive": false,
+      "oversized_above_kg": null,
+      "oversized_fee_eur": null
+    },
+    {
+      "agent_id": "L12",
+      "calibration_corner": "parcel",
+      "calibration_reading_id": "posti_home_parcel",
+      "fixed_charge_eur": 10.9,
+      "alpha_eur_per_kg": 0.3,
+      "beta_eur_per_tonne_km": 0.07163,
+      "fuel_surcharge_series_id": "matkahuolto_lavarahti",
+      "max_shipment_weight_kg": 35.0,
+      "oversized_above_kg": 25.0,
+      "oversized_fee_eur": 3.5,
+      "min_shipment_weight_kg": 0.0,
+      "max_weight_inclusive": true
+    }
+  ],
+  "production_files_sha256_at_proposal_time": {
+    "data/synthetic/v5/logistics_agents.csv": "1f13e6499d39a7facd488fd97769df7745b7f90d5481777b1fe6c916fd53c86e",
+    "data/synthetic/v5/manufacturer_agents.csv": "b9d515e926429a40204361ce37391931a2e65b38ab7ad170474a405639ba9933",
+    "data/synthetic/v5/material_agents.csv": "246a77758d3b774871f87adf82c40b07de774a705960adbfb8b7b6fa2a765298",
+    "data/synthetic/v5/material_reference_prices.csv": "f819a2b7b89f4d4284bf22bafb0d2a48cae0fc4c5db36062d678b4485ab1704c",
+    "data/synthetic/v5/orders.csv": "05774f9087d50703edbc0a3827efa786d64ba1e3875ad46a29627e4f665c7a27",
+    "data/synthetic/v5/orders_metadata.json": "a197c9be149505c17089fa4269c27cf2dadabc14734d1f2b85900226952bb7da",
+    "data/synthetic/v5/products.csv": "934f9007768259ee959d5d698231f0a3aba093f527d1617cc67f3331f0d02d73",
+    "data/processed/v5/logistics/agent_calibration.csv": "4de771e5a21f89d68293c529d9d77a136852cd0d50d62b045db3a0b5deebd7d1",
+    "data/processed/v5/logistics/agent_calibration_reasoning.json": "9e31419e00675ce77caab2f4ea48a14673da28a16357a0f2d8467bdff224775a"
+  }
+}

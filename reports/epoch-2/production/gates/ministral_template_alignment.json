@@ -1,0 +1,21 @@
+{
+  "model": "/anonymous/anonymous/anonymous/anonymous/home/models--mistralai--Ministral-3-3B-Instruct-2512-BF16/snapshots/b6d637bef2393152b3da2b2fde72eecdee30557e",
+  "revision": null,
+  "gguf": "models/base-checkpoints/gguf-convertibility/ministral3-base-bf16.gguf",
+  "instruction_part": "[INST]",
+  "response_part": "[/INST]",
+  "template_kwargs": {},
+  "thinking_capable_template": false,
+  "checks": {
+    "gen_prompt_is_prefix_of_train_text": true,
+    "assistant_content_follows_prefix": true,
+    "gguf_template_equals_hf_template": true,
+    "gguf_render_equals_hf_render": true,
+    "instruction_part_count_in_train_text": 1,
+    "response_part_count_in_train_text": 1,
+    "response_part_ends_gen_prompt": true
+  },
+  "gate": "PASS",
+  "gen_prompt_tail": "on\": \"BID or NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.04\n}[/INST]",
+  "train_text_around_boundary": "ompletion_days\": null,\n  \"defect_probability\": 0.04\n}[/INST]{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent"
+}

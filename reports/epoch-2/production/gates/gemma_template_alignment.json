@@ -1,0 +1,21 @@
+{
+  "model": "/anonymous/anonymous/anonymous/anonymous/home/models--google--gemma-4-E2B-it/snapshots/179516f0c449474fdc46f08f30ead5b11e178497",
+  "revision": null,
+  "gguf": "models/feasibility/smoke-artifacts/gemma4-e2b/gemma4-e2b-Q8_0.gguf",
+  "instruction_part": "<|turn>user\n",
+  "response_part": "<|turn>model\n",
+  "template_kwargs": {},
+  "thinking_capable_template": true,
+  "checks": {
+    "gen_prompt_is_prefix_of_train_text": true,
+    "assistant_content_follows_prefix": true,
+    "gguf_template_equals_hf_template": false,
+    "gguf_render_equals_hf_render": true,
+    "instruction_part_count_in_train_text": 1,
+    "response_part_count_in_train_text": 1,
+    "response_part_ends_gen_prompt": true
+  },
+  "gate": "PASS",
+  "gen_prompt_tail": "O_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.04\n}<turn|>\n<|turn>model\n",
+  "train_text_around_boundary": "\": null,\n  \"defect_probability\": 0.04\n}<turn|>\n<|turn>model\n{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent"
+}

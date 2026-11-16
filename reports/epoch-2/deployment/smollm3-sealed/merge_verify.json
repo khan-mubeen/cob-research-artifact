@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-08-27T02:45:14",
+  "base_model": ".\\models\\base-checkpoints\\hf\\smollm3-v2-base",
+  "base_revision": null,
+  "adapter": ".\\models\\epoch-2\\production\\smollm3-bidding-lora-v2\\final",
+  "out": ".\\models\\epoch-2\\deployment\\smollm3-sealed\\merged",
+  "loaded_architecture": "SmolLM3ForCausalLM",
+  "probe_weight_max_abs_delta": {
+    "model.layers.0.self_attn.q_proj.weight": 0.001220703125,
+    "model.layers.0.self_attn.o_proj.weight": 0.00031280517578125,
+    "model.layers.0.mlp.down_proj.weight": 0.0006103515625
+  },
+  "merged_safetensors_gib": 5.728,
+  "merged_safetensors_sha256": "07b42097b74b7ec551d667f0b1267b628ed360dd6d9fb99db6acf0f857d56a61"
+}

@@ -1,0 +1,8 @@
+{
+  "run": "gemma-reverse_auction-v5-r01",
+  "family": "records",
+  "mode": "reverse_auction",
+  "model": "gemma",
+  "authority": "reports/v5/selection/<mode>/<model>/ is authoritative; these records point at it by result_sha256 and add provenance",
+  "records": 8
+}

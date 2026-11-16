@@ -1,0 +1,72 @@
+{
+  "dataset_version": "v5",
+  "run": "granite-sealed-v5-r01",
+  "mode": "sealed",
+  "split_used": "validation",
+  "validation_rows": 67729,
+  "validation_row_ids_sha256": "e3c5b1035473ba2ae46d27091c43b7ffdce2fa1e1bd07e262897df525c40e28c",
+  "rule": {
+    "key_order": [
+      "macro decision agreement %",
+      "macro json validity %",
+      "negated macro mean abs offer deviation %"
+    ],
+    "higher_is_better": true,
+    "tie": "the lower epoch"
+  },
+  "ranking": [
+    {
+      "epoch": 2,
+      "adapter": "./models/training/sealed/granite/granite-sealed-v5-r01/epoch-2",
+      "result": "./reports/v5/selection/sealed/granite/validation_epoch2.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_decision_agreement_pct": 99.996667,
+        "macro_json_valid_pct": 100.0,
+        "macro_mean_abs_offer_dev_pct": 0.146667
+      },
+      "key": [
+        99.996667,
+        100.0,
+        -0.146667
+      ]
+    },
+    {
+      "epoch": 3,
+      "adapter": "./models/training/sealed/granite/granite-sealed-v5-r01/epoch-3",
+      "result": "./reports/v5/selection/sealed/granite/validation_epoch3.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_decision_agreement_pct": 99.986667,
+        "macro_json_valid_pct": 99.993333,
+        "macro_mean_abs_offer_dev_pct": 0.056667
+      },
+      "key": [
+        99.986667,
+        99.993333,
+        -0.056667
+      ]
+    },
+    {
+      "epoch": 1,
+      "adapter": "./models/training/sealed/granite/granite-sealed-v5-r01/epoch-1",
+      "result": "./reports/v5/selection/sealed/granite/validation_epoch1.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "macro_decision_agreement_pct": 99.936667,
+        "macro_json_valid_pct": 99.996667,
+        "macro_mean_abs_offer_dev_pct": 0.333333
+      },
+      "key": [
+        99.936667,
+        99.996667,
+        -0.333333
+      ]
+    }
+  ],
+  "chosen": {
+    "epoch": 2,
+    "adapter": "./models/training/sealed/granite/granite-sealed-v5-r01/epoch-2"
+  },
+  "test_split": "not read during selection; evaluate it once, on the chosen adapter only"
+}

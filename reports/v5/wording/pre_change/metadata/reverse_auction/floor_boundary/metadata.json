@@ -1,0 +1,42 @@
+{
+  "role": "diagnostic",
+  "role_statement": "a targeted floor diagnostic; not training data and not in any train, validation or test count",
+  "data_version": "v5",
+  "currency": "USD",
+  "pairs_per_stage": 132,
+  "rows_per_file": 132,
+  "total_rows": 1188,
+  "size_basis": "fixed, deliberately not scaled with the 50,000-order pool. v4's validated held-out floor slice is 132 prompts per case summed over the three stages; the requested and built size is 132 per case per stage",
+  "source_split": "test",
+  "excludes": "(order, agent) pairs already carrying a floor block in reverse_auction/{stage}_test.jsonl",
+  "floor_function": "src.common.reverse_auction.agent_minimum_bid, shared by the prompt and the case construction",
+  "case_construction": {
+    "above_floor": "next offer = round(floor x 1.01, 2)",
+    "at_floor": "next offer = floor",
+    "below_floor": "next offer = floor - 0.01"
+  },
+  "platform_minimum_decrement": 5.0,
+  "worded_formulas": true,
+  "expected_labels": {
+    "below_floor": "NO_BID",
+    "at_floor": "BID",
+    "above_floor": "BID"
+  },
+  "label_rule": "src.common.reverse_auction.decide_round_bid",
+  "counts": {
+    "material_below_floor": 132,
+    "material_at_floor": 132,
+    "material_above_floor": 132,
+    "tailoring_below_floor": 132,
+    "tailoring_at_floor": 132,
+    "tailoring_above_floor": 132,
+    "logistics_below_floor": 132,
+    "logistics_at_floor": 132,
+    "logistics_above_floor": 132
+  },
+  "orders_used_per_stage": {
+    "material": 132,
+    "tailoring": 132,
+    "logistics": 132
+  }
+}

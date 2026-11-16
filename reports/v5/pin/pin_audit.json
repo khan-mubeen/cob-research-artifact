@@ -1,0 +1,34 @@
+{
+  "pins": {
+    "sealed": "7d813699b80bd77b5f64698218e66e9c38929a90bd6c7aa17ffabb1f9ca919d7",
+    "reverse_auction": "24a5f9a20c36b18343b450ec419f1a5536e70fd23634185b6f366a3947ccc237",
+    "supervisor": "e323dbd6fc24969474ea86a5f3b81c403428686b1bb4e2a755ab37f6187575c2"
+  },
+  "split_metadata_sha256": {
+    "before": "4b168f17830527baf55cd087fdaeae82915b2f42a891cb519e6c45ad0726a5a9",
+    "after": "3ce37c6e5964a26b4441b9f2c72f57f6cd958ec3aa173e49a0b4c1d96ebc7e73"
+  },
+  "manifest_sha256": {
+    "before": "cbf21f69acf1ffce8df72ec7aab1cb19498cbde5dbd046835995b6f8439bda1d",
+    "after": "8cefb2396939c3889cade4b0f47c52cf9f7627c3fbc7b23e940fbb2c0e791a3b"
+  },
+  "manifest_entries_changed": [
+    "split/metadata.json"
+  ],
+  "manifest_entry": {
+    "before": {
+      "path": "split/metadata.json",
+      "role": "metadata",
+      "sha256": "4b168f17830527baf55cd087fdaeae82915b2f42a891cb519e6c45ad0726a5a9",
+      "bytes": 15831,
+      "rows": null
+    },
+    "after": {
+      "path": "split/metadata.json",
+      "role": "metadata",
+      "sha256": "3ce37c6e5964a26b4441b9f2c72f57f6cd958ec3aa173e49a0b4c1d96ebc7e73",
+      "bytes": 16549,
+      "rows": null
+    }
+  }
+}

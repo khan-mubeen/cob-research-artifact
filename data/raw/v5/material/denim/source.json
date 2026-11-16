@@ -1,0 +1,45 @@
+{
+  "group": "material/denim",
+  "hash_algorithm": "sha256",
+  "hash_purpose_means": {
+    "source_artifact_integrity": "sha-256 of the downloaded artifact itself. it proves the pinned file stored in this repository has not changed since it was retrieved from the source url on the recorded retrieval date. it says nothing about whether the source has since revised or withdrawn the series",
+    "record_integrity": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+  },
+  "sources": [
+    {
+      "artifact": "material/denim/WPU03420104.csv",
+      "acquisition_mode": "downloaded",
+      "sha256": "0a0b96125852a6f5cb3ae95f4a3d18c6e4a0487e50b566286d9844d07104137c",
+      "hash_purpose": "source_artifact_integrity",
+      "bytes": 7137,
+      "source": "FRED / BLS, Producer Price Index by Commodity: Textile Products and Apparel: Finished Cotton Broadwoven Fabrics",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPU03420104",
+      "source_page": "https://fred.stlouisfed.org/series/WPU03420104",
+      "series_id": "WPU03420104",
+      "retrieval_date": "2026-09-12",
+      "unit": "Index Dec 1994=100",
+      "unit_confirmed_from": "the Units line printed on the FRED series page",
+      "frequency": "Monthly",
+      "role": "monthly temporal proxy for denim; an index of finished cotton broadwoven fabrics, not a denim market price",
+      "licence_note": "U.S. Bureau of Labor Statistics, Producer Price Index",
+      "seasonal_adjustment": "Not Seasonally Adjusted"
+    },
+    {
+      "artifact": "material/denim/tabb_denim.json",
+      "acquisition_mode": "manual_record",
+      "sha256": "61486bd0a9b731882fc6606a8644d4b1ad7ca7f87613c78ac57c880124a992a7",
+      "hash_purpose": "record_integrity",
+      "bytes": 2149,
+      "source": "Tabb Textile Company, 2024 Product Catalog",
+      "source_url": "https://www.tabbtextileinc.com/wp-content/uploads/2024/11/Tabb-Textile-Fabric-Catalog-Final-Version-1.pdf",
+      "page_or_section": "denim section of the fabric catalog",
+      "access_date": "2026-09-11",
+      "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+      "unit": "USD per yard",
+      "currency": "USD",
+      "role": "finished-fabric price level for denim",
+      "observation_count": 4,
+      "verification_note": "catalog list prices; catalog states bulk/repeat-purchase discounts are available but does not quantify them"
+    }
+  ]
+}

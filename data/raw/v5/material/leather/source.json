@@ -1,0 +1,62 @@
+{
+  "group": "material/leather",
+  "hash_algorithm": "sha256",
+  "hash_purpose_means": {
+    "source_artifact_integrity": "sha-256 of the downloaded artifact itself. it proves the pinned file stored in this repository has not changed since it was retrieved from the source url on the recorded retrieval date. it says nothing about whether the source has since revised or withdrawn the series",
+    "record_integrity": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+  },
+  "sources": [
+    {
+      "artifact": "material/leather/PHIDEUSDM.csv",
+      "acquisition_mode": "downloaded",
+      "sha256": "c78c484101fb0cb5e7a6cfaa8cb64be2020f68e9e9e46ed55eac08325ad9ffd9",
+      "hash_purpose": "source_artifact_integrity",
+      "bytes": 12082,
+      "source": "FRED / IMF, Global price of Hides",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PHIDEUSDM",
+      "source_page": "https://fred.stlouisfed.org/series/PHIDEUSDM",
+      "series_id": "PHIDEUSDM",
+      "retrieval_date": "2026-09-12",
+      "unit": "U.S. Cents per Pound",
+      "unit_confirmed_from": "the Units line printed on the FRED series page",
+      "frequency": "Monthly",
+      "role": "upstream temporal proxy for leather only; it is a hide price, not a finished garment-leather price",
+      "licence_note": "IMF Primary Commodity Prices, reprinted by FRED with permission",
+      "seasonal_adjustment": "Not Seasonally Adjusted"
+    },
+    {
+      "artifact": "material/leather/leather_unlimited.json",
+      "acquisition_mode": "manual_record",
+      "sha256": "fa538760667ba469a539b96d53bcb3235723f5d5524c4a6cdabfc90e28fc1b31",
+      "hash_purpose": "record_integrity",
+      "bytes": 1870,
+      "source": "Leather Unlimited, Garment & Bag Leather Hides collection",
+      "source_url": "https://leatherunltd.com/collections/garment-bag-leather/products/premium-soft-light-weight-garment-leather-hide-20-square-feet-2-3-oz",
+      "page_or_section": "the product page for the premium garment leather hide",
+      "access_date": "2026-09-11",
+      "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+      "unit": "USD per hide",
+      "currency": "USD",
+      "role": "finished-material price level for leather",
+      "observation_count": 1,
+      "verification_note": "this is the premium, garment-labeled tier, deliberately chosen over the same supplier's cheaper 'value priced' 2-4oz upholstery bundles after discovering those bundles sit in the same product line the supplier elsewhere labels 'crust leather' (a semi-finished stage this project excludes); do not substitute the value-priced bundles here"
+    },
+    {
+      "artifact": "material/leather/townsend_conversion_rule.json",
+      "acquisition_mode": "manual_record",
+      "sha256": "c38cecdbda12fd6772091c9e877082d9e68a96750175577cfdbb549d494f9301",
+      "hash_purpose": "record_integrity",
+      "bytes": 1694,
+      "source": "Townsend Leather, technical bulletin on leather thickness and weight",
+      "source_url": "https://www.townsendleather.com/wp-content/uploads/2013/12/Bulletin-6_Thickness.pdf",
+      "page_or_section": "Bulletin 6, leather thickness and weight",
+      "access_date": "2026-09-11",
+      "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+      "unit": null,
+      "currency": null,
+      "role": "physical conversion rule for leather, not a price",
+      "observation_count": 0,
+      "verification_note": "cross-checked against Hoplok Leather, Stonestreet Leather, and LeatherSkinShop, all independently confirm oz/sqft as a direct weight measure; this avoids introducing a separate, unsupported leather density assumption"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"models": ["gemma", "granite", "ministral", "phi", "qwen", "smollm3"], "scenarios": ["sealed", "reverse_auction"]}

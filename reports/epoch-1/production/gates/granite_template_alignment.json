@@ -1,0 +1,21 @@
+{
+  "model": "ibm-granite/granite-4.1-3b",
+  "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+  "gguf": "models/feasibility/smoke-artifacts/granite41-3b/granite41-3b-Q8_0.gguf",
+  "gguf_at_check_time": "models/feasibility/granite41-3b-Q8_0.gguf",
+  "path_note": "path updated 2026-07-25 during the repository reorganization; gguf_at_check_time preserves the string recorded when the check ran",
+  "instruction_part": "<|start_of_role|>user<|end_of_role|>",
+  "response_part": "<|start_of_role|>assistant<|end_of_role|>",
+  "checks": {
+    "gen_prompt_is_prefix_of_train_text": true,
+    "assistant_content_follows_prefix": true,
+    "gguf_template_equals_hf_template": true,
+    "gguf_render_equals_hf_render": true,
+    "instruction_part_count_in_train_text": 1,
+    "response_part_count_in_train_text": 1,
+    "response_part_ends_gen_prompt": true
+  },
+  "gate": "PASS",
+  "gen_prompt_tail": "stimated_completion_days\": null,\n  \"defect_probability\": 0.04\n}<|end_of_text|>\n<|start_of_role|>assistant<|end_of_role|>",
+  "train_text_around_boundary": "4\n}<|end_of_text|>\n<|start_of_role|>assistant<|end_of_role|>{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent"
+}

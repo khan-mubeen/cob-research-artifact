@@ -1,0 +1,48 @@
+{
+  "recorded_at": "unknown",
+  "model": "microsoft/Phi-4-mini-instruct",
+  "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+  "base_path_used": "models/base-checkpoints/hf/phi4mini-v2-base (local copy of the pinned snapshot)",
+  "gates": {
+    "1_checkpoint_revision_matches_feasibility": {
+      "status": "PASS",
+      "evidence": "local copy of HF snapshot cfbefacb..., the feasibility-report revision"
+    },
+    "2_protocol_v2_files_hashes_unchanged": {
+      "status": "PASS",
+      "evidence": "edge_tailoring_train c952f02b, edge_logistics_train 47a1dcdf (protocol_v2.json), real subsample identical to qwen/granite v2"
+    },
+    "3_validated_fused_lora_targets": {
+      "status": "PASS",
+      "evidence": "qkv_proj,o_proj,gate_up_proj,down_proj -> 23,068,672 trainable (0.598%), matches feasibility 23.1M; strict qwen names would give only 8.9M"
+    },
+    "4_response_only_masking_template_alignment": {
+      "status": "PASS",
+      "evidence": "phi_template_alignment.json all 7 checks pass; markers <|user|>/<|assistant|> occur once, gguf template identical to hf"
+    },
+    "5_native_fit_batch8x2": {
+      "status": "PASS",
+      "evidence": "smoke peak 11.2 GiB allocated / 15.1 GiB reserved of 23.9 GiB physical; NO sysmem spill; 5.11 s/step"
+    },
+    "6_isolated_paths": {
+      "status": "PASS",
+      "evidence": "output models/epoch-1/production/phi4mini-bidding-lora-v2, distinct from all prior adapters"
+    },
+    "7_no_protocol_variable_changed": {
+      "status": "PASS",
+      "evidence": "same 15,203 rows, seed 42, seq 1024, 1 epoch, eff batch 16, adamw_8bit 2e-4, greedy eval; ONLY controlled adaptations: fused target names (functionally equivalent) and a distinct pad token"
+    }
+  },
+  "controlled_adaptations_disclosed": [
+    "fused LoRA target names qkv_proj/gate_up_proj (Phi3 fuses q/k/v and gate/up); functionally equivalent to the qwen/granite attention+MLP set, 23.1M trainable published",
+    "pad_token set to the reserved existing vocab token <|endofprompt|> (id 200018) because Phi ships pad_token==eos_token==<|endoftext|>, which unsloth rejects; existing token, no embedding resize, no weight change; masked in training and generation"
+  ],
+  "recovery": "--save-steps 200 enabled (checkpoints for crash recovery, does not alter training math); --resume available if a run is interrupted",
+  "decision": "LAUNCH full Phi Protocol v2 training from the local base copy, output models/finetune/phi4mini-bidding-lora-v2",
+  "base_path_used_at_launch_time": "models/phi4mini-v2-base (local copy of the pinned snapshot)",
+  "post_reorganization_locations": {
+    "adapter_produced_by_this_launch": "models/epoch-1/production/phi4mini-bidding-lora-v2",
+    "note": "path updated 2026-07-25 during the repository reorganization; *_at_launch_time keys preserve the string recorded when the record was written",
+    "decision": "left verbatim as the record of what was actually executed"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "source": "Pakettipiste, fuel surcharge",
+  "source_url": "https://www.pakettipiste.fi/en/fuel-surcharge/",
+  "page_or_section": "the monthly 'Fuel surcharge starting' list",
+  "role": "source evidence of a fuel-surcharge mechanism",
+  "currency": null,
+  "unit": "percent; the base the percentage is applied to is not stated on this page",
+  "access_date_basis": "read on this date from the live page named in source_url",
+  "reverification_status": "read from the live page",
+  "mechanism_as_printed": [
+    "The Fuel surcharge is updated monthly based on the cost index of road transport of goods published by Statistics Finland."
+  ],
+  "tariff_metadata": {
+    "vat_status": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source"
+    },
+    "effective_date": {
+      "value": "per row, the month the surcharge starts",
+      "source_wording": "Fuel surcharge starting September 1st, 2026"
+    },
+    "currency_as_published": {
+      "value": "not applicable: published as a percentage",
+      "source_wording": "%"
+    },
+    "unit_basis": {
+      "value": "percent",
+      "source_wording": "not stated in source",
+      "note": "the page does not state what the percentage is applied to"
+    },
+    "service_category": {
+      "value": "domestic parcel and logistics services",
+      "source_wording": "Domestic parcel and logistics services"
+    },
+    "fuel_surcharge_treatment": {
+      "value": "not applicable: this record is the surcharge itself",
+      "source_wording": "not stated in source"
+    }
+  },
+  "observations": [
+    {
+      "starting": "2026-09-01",
+      "percent": 23.38,
+      "printed_as": "Fuel surcharge starting September 1st, 2026 Domestic parcel and logistics services 23,38 %"
+    },
+    {
+      "starting": "2026-08-01",
+      "percent": 21.74,
+      "printed_as": "Fuel surcharge starting August 1st, 2026 Domestic parcel and logistics services 21,74 %"
+    },
+    {
+      "starting": "2026-07-01",
+      "percent": 24.8,
+      "printed_as": "Fuel surcharge starting July 1st, 2026 Domestic parcel and logistics services 24,80 %"
+    },
+    {
+      "starting": "2026-06-01",
+      "percent": 26.38,
+      "printed_as": "Fuel surcharge starting June 1st, 2026 Domestic parcel and logistics services 26,38 %"
+    },
+    {
+      "starting": "2026-05-01",
+      "percent": 21.28,
+      "printed_as": "Fuel surcharge starting May 1st, 2026 Domestic parcel and logistics services 21,28 %"
+    },
+    {
+      "starting": "2026-04-01",
+      "percent": 14.62,
+      "printed_as": "Fuel surcharge starting April 1st, 2026 Domestic parcel and logistics services 14,62 %"
+    },
+    {
+      "starting": "2026-03-01",
+      "percent": 13.97,
+      "printed_as": "Fuel surcharge starting March 1st, 2026 Domestic parcel and logistics services 13,97 %"
+    },
+    {
+      "starting": "2026-02-01",
+      "percent": 12.42,
+      "printed_as": "Fuel surcharge starting February 1st, 2026 Domestic parcel and logistics services 12,42 %"
+    },
+    {
+      "starting": "2026-01-01",
+      "percent": 13.51,
+      "printed_as": "Fuel surcharge starting January 1st, 2026 Domestic parcel and logistics services 13,51 %"
+    },
+    {
+      "starting": "2025-12-01",
+      "percent": 12.3,
+      "printed_as": "Fuel surcharge starting December 1st, 2025 Domestic parcel and logistics services 12,30 %"
+    },
+    {
+      "starting": "2025-11-01",
+      "percent": 12.56,
+      "printed_as": "Fuel surcharge starting November 1st, 2025 Domestic parcel and logistics services 12,56 %"
+    },
+    {
+      "starting": "2025-10-01",
+      "percent": 12.32,
+      "printed_as": "Fuel surcharge starting October 1st, 2025 Domestic parcel and logistics services 12,32 %"
+    },
+    {
+      "starting": "2025-09-01",
+      "percent": 13.0,
+      "printed_as": "Fuel surcharge starting September 1st, 2025 Domestic parcel and logistics services 13,00 %"
+    },
+    {
+      "starting": "2025-08-01",
+      "percent": 12.36,
+      "printed_as": "Fuel surcharge starting August 1st, 2025 Domestic parcel and logistics services 12,36 %"
+    },
+    {
+      "starting": "2025-07-01",
+      "percent": 11.73,
+      "printed_as": "Fuel surcharge starting July 1st, 2025 Domestic parcel and logistics services 11,73 %"
+    },
+    {
+      "starting": "2025-06-01",
+      "percent": 12.2,
+      "printed_as": "Fuel surcharge starting June 1st, 2025 Domestic parcel and logistics services 12,20 %"
+    },
+    {
+      "starting": "2025-05-01",
+      "percent": 13.49,
+      "printed_as": "Fuel surcharge starting May 1st, 2025 Domestic parcel and logistics services 13,49 %"
+    },
+    {
+      "starting": "2025-04-01",
+      "percent": 14.88,
+      "printed_as": "Fuel surcharge starting April 1st, 2025 Domestic parcel and logistics services 14,88 %"
+    },
+    {
+      "starting": "2025-03-01",
+      "percent": 15.02,
+      "printed_as": "Fuel surcharge starting March 1st, 2025 Domestic parcel and logistics services 15,02 %"
+    },
+    {
+      "starting": "2025-02-01",
+      "percent": 13.73,
+      "printed_as": "Fuel surcharge starting February 1st, 2025 Domestic parcel and logistics services 13,73 %"
+    },
+    {
+      "starting": "2025-01-01",
+      "percent": 13.73,
+      "printed_as": "Fuel surcharge starting January 1st, 2025 Domestic parcel and logistics services 13,73 %"
+    }
+  ],
+  "verification_note": "source evidence of Pakettipiste's published monthly fuel surcharge, recorded as printed; tied to Statistics Finland's road goods transport cost index, a different base from PostNord's diesel consumer price index, so the two percentages are not directly comparable; not a per-agent value",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-13",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record",
+  "calibration_feeds": "fuel_surcharge_i(t)",
+  "metadata_convention": {
+    "not_stated": "not stated in source",
+    "unreadable": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+    "meaning": "a field reading 'not stated in source' was read and is absent from the source; a field reading 'not verified' could not be read at all"
+  }
+}

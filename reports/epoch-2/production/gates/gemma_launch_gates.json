@@ -1,0 +1,42 @@
+{
+  "recorded_at": "unknown",
+  "family": "epoch-2 production (gemma, fourth model)",
+  "model": "google/gemma-4-E2B-it",
+  "revision": "179516f0c449474fdc46f08f30ead5b11e178497",
+  "base_path_used": "/anonymous/anonymous/anonymous/anonymous/home/models--google--gemma-4-E2B-it/snapshots/179516f0c449474fdc46f08f30ead5b11e178497",
+  "single_variable_under_test": "num_train_epochs 1 -> 2; every other protocol v2 variable held",
+  "gates": {
+    "1_frozen_data_hashes": {
+      "status": "PASS (same disclosed orders.csv exception, re-proven inert AT GEMMA'S RENDER LAYER)",
+      "evidence": "5 of 6 pinned files match protocol_v2.json exactly; orders.csv carries the known dated drift. Rendering all 15,203 rows through Gemma's own chat template against both orders.csv versions gives the identical fingerprint 208431c883d0ff22da23d46a15ae3a0c10d9a2dd87b5c0034a8637c4324cc58e with an identical order_id sequence. Distinct from granite cb762cc6..., phi 38fc4698..., qwen 5f14347c... exactly because it is Gemma's template.",
+      "action_taken": "none. orders.csv untouched, protocol hash not re-pinned."
+    },
+    "2_adapter_targets_match_validated_set": {
+      "status": "PASS",
+      "evidence": "q/k/v/o/gate/up/down via unsloth -> 25,337,856 trainable of 5,148,515,872 (0.49%), identical to epoch-1 gemma-v2 and the feasibility-validated 25.3M. Gemma-4-E2B is multimodal (gemma4_audio); unsloth's language-tower-only regex excludes the non-text towers automatically, same mechanism as qwen."
+    },
+    "3_template_alignment_train_vs_gguf": {
+      "status": "PASS",
+      "evidence": "reports/epoch-2/production/gates/gemma_template_alignment.json: gen_prompt an exact prefix of the training text, assistant content follows, <|turn>user/<|turn>model markers exactly once each, gguf_render_equals_hf_render true.",
+      "note_on_the_new_warning": "Gemma's template DOES branch on enable_thinking, so the newly added advisory warning fires. The gate passes anyway: unlike Qwen, Gemma's default generation-prompt render does not open a <think> block, so no mismatch arises. This is the intended behaviour of the warning -- advisory, not a failure predictor, and it neither blocks nor auto-applies kwargs.",
+      "independent_confirmation": "verified without any GGUF: to_text() training render (no kwargs, as epoch-1) and the eval-time generation prompt (enable_thinking=False) agree exactly -- gen_prompt is an exact prefix and assistant content follows. So training needs no --template-kwargs, identical to epoch-1."
+    },
+    "4_native_fit_no_sysmem_spill": {
+      "status": "PASS expected -- comfortable headroom, second-best fit of the six",
+      "evidence": "epoch-1 gemma-v2 measured 12.5 GiB allocated / 22.2 GiB reserved against a 23.889 GiB ceiling -- 1.7 GiB of headroom. A real measurement at the identical configuration.",
+      "why_not_probe_based": "the 12-step probe reports 12.4/15.5 GiB. All three prior probes underpredicted (granite 16.9 vs 24.6; phi 10.8 vs 28.4; qwen 13.1 vs 18.1), so the probe confirms only the trainable count and step time.",
+      "caveat": "across three completed epoch-2 runs, reserved memory drifted materially only where the allocator was already saturated (phi +2.1 GiB at 26.3 -> 28.4; granite 0.0 at 24.6; qwen +0.1 at 18.0 -> 18.1). Gemma sits 1.7 GiB UNDER the ceiling, which is less margin than qwen had, so a phi-like drift could push it over. Not predicted either way -- the full training log is the authoritative record. This is the gate most likely to be surprised."
+    }
+  },
+  "watch_item_specific_to_gemma": "Gemma epoch-1 sits at 8/7/6 on the robustness holdout -- the only one of the four run so far that was NOT already near a terminal state. Granite (2/3/4), Phi (11/2/1) and Qwen (12/5/0) all converged to 12/0/0 or 12/0/1 after a second epoch. Gemma is therefore the first genuine chance to see whether boundary collapse is universal or has an exception. Its failure mode is also distinct: reasoning-leakage / CoT-contaminated JSON on difficult cases, not the magnitude-triggered comma formatting granite and phi showed.",
+  "expected": {
+    "steps": 1902,
+    "steps_per_epoch": 951,
+    "est_runtime_min": 142,
+    "est_s_per_step": 4.47
+  },
+  "decision": "LAUNCH gemma epoch-2 from the pinned base snapshot",
+  "output_dir": "models/epoch-2/production/gemma4-e2b-bidding-lora-v2",
+  "save_steps": 250,
+  "checkpoint_resume_fix": "SaveIntervalEnforcer active. Verified synthetically; phi and qwen both completed without crashing, so it has still never been exercised under a real production crash."
+}

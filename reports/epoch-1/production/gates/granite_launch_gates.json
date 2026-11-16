@@ -1,0 +1,31 @@
+{
+  "recorded_at": "unknown",
+  "model": "ibm-granite/granite-4.1-3b",
+  "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+  "gates": {
+    "1_native_fit_no_sysmem_spill": {
+      "status": "PASS",
+      "evidence": "unsloth smoke at batch 8 x accum 2 seq 1024: 9.3 GiB allocated / 16.9 GiB reserved of 23.889 GiB physical; loss 2.946 -> 0.198 over 8 steps; median 5.66 s/step",
+      "note": "feasibility probe's 37.9 GiB spill reading was the plain-PEFT probe stack, not the unsloth training stack"
+    },
+    "2_adapter_targets_match_validated_set": {
+      "status": "PASS",
+      "evidence": "trainable = 31,129,600 of 3,433,966,080 (0.91%), exactly the feasibility-validated functional set (strict == functional for granite)"
+    },
+    "3_no_unresolved_protocol_choice": {
+      "status": "PASS",
+      "evidence": "batch policy frozen (native-fit rule, granite needs no deviation); data recipe frozen (official r1 recipe via preserved round1_edge files); acceptance criteria pre-registered in protocol_v1.json; edge-holdout contamination handled by dual reporting"
+    },
+    "4_template_alignment_train_vs_gguf": {
+      "status": "PASS",
+      "evidence": "reports/epoch-1/production/gates/granite_template_alignment.json: all 7 checks pass (gguf template string-identical to hf, generation render exact prefix of training render, markers exactly once)",
+      "path_note": "path updated 2026-07-25 during the repository reorganization; evidence pointer only; the decision/command fields below are left verbatim as the record of what was actually executed"
+    }
+  },
+  "decision": "LAUNCH full granite training from the original base checkpoint (not the feasibility smoke adapter), output models/finetune/granite-4.1-3b-bidding-lora",
+  "command": "PYTHONPATH=. .venv/Scripts/python.exe src/experiments/finetune_lora.py --subsample 15000 --include-edge --edge-repeat 5 --edge-dir data/finetune/v4/round1_edge --batch-size 8 --grad-accum 2 --base-model ibm-granite/granite-4.1-3b --revision c0650403e44e78ec0262dab1c90914c65b196c4e --instruction-part <|start_of_role|>user<|end_of_role|> --response-part <|start_of_role|>assistant<|end_of_role|> --output-dir models/finetune/granite-4.1-3b-bidding-lora",
+  "post_reorganization_locations": {
+    "adapter_produced_by_this_launch": "models/epoch-1/ablation/granite-4.1-3b-bidding-lora-v1",
+    "note": "the --output-dir in `command` is the path used at run time and is intentionally not rewritten"
+  }
+}

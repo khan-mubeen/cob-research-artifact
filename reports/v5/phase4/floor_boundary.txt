@@ -1,0 +1,17 @@
+{
+  "material_below_floor": 132,
+  "material_at_floor": 132,
+  "material_above_floor": 132,
+  "tailoring_below_floor": 132,
+  "tailoring_at_floor": 132,
+  "tailoring_above_floor": 132,
+  "logistics_below_floor": 132,
+  "logistics_at_floor": 132,
+  "logistics_above_floor": 132
+}
+written to data/finetune/v5/reverse_auction/floor_boundary
+
+real	0m3.345s
+user	0m0.000s
+sys	0m0.015s
+exit 0

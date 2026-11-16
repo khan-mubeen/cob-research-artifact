@@ -1,0 +1,23 @@
+{
+  "artifact": "models/cross_model/granite-ft-Q8_0.gguf",
+  "sha256": "4c2ed54cf4ca8bfbf70bca6ffcdf459573591fc783dd292c3b6546d2d46dfa3c",
+  "size_gib": 3.37,
+  "merged_from": {
+    "base": "ibm-granite/granite-4.1-3b @ c0650403e44e78ec0262dab1c90914c65b196c4e",
+    "adapter": "models/finetune/granite-4.1-3b-bidding-lora/final",
+    "merge_tool": "src/experiments/feasibility/merge_adapter.py (.venv-feas, bf16)"
+  },
+  "conversion": {
+    "converter": "tools/llama.cpp-e3546c79/convert_hf_to_gguf.py (commit vendored by llama-cpp-python 0.3.34)",
+    "quantize": "llama-quantize b10068, Q8_0",
+    "log": "reports/cross_model/convert_granite_ft.log"
+  },
+  "runtime_test_2026_07_19": {
+    "runtime": "llama-cpp-python 0.3.34 (project runtime, unmodified)",
+    "load_s": 2.1,
+    "latencies_s": [1.07, 0.87, 0.9, 0.87, 0.78, 0.77],
+    "median_steady_s": 0.87,
+    "json_ok": "6/6",
+    "first_raw_head": "{ \"order_id\": \"ORD-09428\", \"stage\": \"material\", \"agent_id\": \"M01\", \"decision\": \"BID\", \"offer_amount\": 311.5, \"estimated_completion_days\": 2, \"defect_probability\": 0.04 }"
+  }
+}

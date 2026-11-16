@@ -1,0 +1,8 @@
+usable examples 44442 {'test': 4435, 'train': 35552, 'validation': 4455}, skipped {'orders_without_a_product_pair': 0, 'stage_had_no_bidder': 1845, 'fewer_than_min_candidates': 3713, 'rule_declined': 0}, strategy mix {'urgent': 11252, 'flexible': 6525, 'normal': 26665}
+candidates per example mean 11.46, selected index mean 5.27
+written to data/finetune/v5/supervisor
+
+real	0m47.328s
+user	0m0.000s
+sys	0m0.030s
+exit 0

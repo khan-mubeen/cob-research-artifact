@@ -1,0 +1,46 @@
+material_train.jsonl                          rows  169855 schema problems 0 golden 300 re-derived, 0 disagree
+tailoring_train.jsonl                         rows  196876 schema problems 0 golden 300 re-derived, 0 disagree
+logistics_train.jsonl                         rows  174814 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/material_train.jsonl          rows  189745 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/tailoring_train.jsonl         rows  216751 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/logistics_train.jsonl         rows  194665 schema problems 0 golden 300 re-derived, 0 disagree
+supervisor/selection_train.jsonl              rows   35552 schema problems 0 golden 300 re-derived, 0 disagree
+material_validation.jsonl                     rows   21174 schema problems 0 golden 300 re-derived, 0 disagree
+tailoring_validation.jsonl                    rows   24631 schema problems 0 golden 300 re-derived, 0 disagree
+logistics_validation.jsonl                    rows   21924 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/material_validation.jsonl     rows   23691 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/tailoring_validation.jsonl    rows   27157 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/logistics_validation.jsonl    rows   24462 schema problems 0 golden 300 re-derived, 0 disagree
+supervisor/selection_validation.jsonl         rows    4455 schema problems 0 golden 300 re-derived, 0 disagree
+material_test.jsonl                           rows   21207 schema problems 0 golden 300 re-derived, 0 disagree
+tailoring_test.jsonl                          rows   24518 schema problems 0 golden 300 re-derived, 0 disagree
+logistics_test.jsonl                          rows   21872 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/material_test.jsonl           rows   23799 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/tailoring_test.jsonl          rows   27116 schema problems 0 golden 300 re-derived, 0 disagree
+reverse_auction/logistics_test.jsonl          rows   24482 schema problems 0 golden 300 re-derived, 0 disagree
+supervisor/selection_test.jsonl               rows    4435 schema problems 0 golden 300 re-derived, 0 disagree
+edge/material_edge.jsonl                      rows     108 schema problems 0 golden all re-derived, 0 disagree
+edge/tailoring_edge.jsonl                     rows      60 schema problems 0 golden all re-derived, 0 disagree
+edge/logistics_edge.jsonl                     rows      25 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/material_below_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/material_at_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/material_above_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/tailoring_below_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/tailoring_at_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/tailoring_above_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/logistics_below_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/logistics_at_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+reverse_auction/floor_boundary/logistics_above_floor.jsonl rows     132 schema problems 0 golden all re-derived, 0 disagree
+  PASS schema
+  PASS golden_style_re_derivation
+  PASS no_non_finite_or_non_positive_offers
+  PASS no_implausible_offers
+  PASS manifest_hashes_match_disk
+  PASS no_order_id_in_two_splits
+leakage {'train': 40000, 'validation': 5000, 'test': 5000} overlaps {'train_validation': 0, 'train_test': 0, 'validation_test': 0}
+wrote reports\v5\phase5_validation.json
+
+real	1m28.309s
+user	0m0.015s
+sys	0m0.030s
+exit 0

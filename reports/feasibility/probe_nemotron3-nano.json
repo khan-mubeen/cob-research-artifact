@@ -1,0 +1,58 @@
+{
+  "tag": "nemotron3-nano",
+  "steps": {
+    "B1_tokenizer_and_template": {
+      "status": "fail",
+      "seconds": 1.0,
+      "error": "KeyError: '-'",
+      "trace_tail": [
+        "    return [pattern_mapping[char] for char in pattern]",
+        "            ~~~~~~~~~~~~~~~^^^^^^",
+        "KeyError: '-'"
+      ]
+    },
+    "B2_model_load": {
+      "status": "fail",
+      "without_trust_remote_code": "KeyError: '-'",
+      "seconds": 0.3,
+      "error": "ImportError: mamba-ssm is required by the Mamba model but cannot be imported",
+      "trace_tail": [
+        "  File \"/anonymous/home\\.cache\\huggingface\\modules\\transformers_modules\\nvidia\\NVIDIA_hyphen_Nemotron_hyphen_3_hyphen_Nano_hyphen_4B_hyphen_BF16\\dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f\\modeling_nemotron_h.py\", line 65, in <module>",
+        "    raise ImportError(\"mamba-ssm is required by the Mamba model but cannot be imported\")",
+        "ImportError: mamba-ssm is required by the Mamba model but cannot be imported"
+      ]
+    },
+    "B3_module_inventory": {
+      "status": "fail",
+      "seconds": 0.0,
+      "error": "AttributeError: 'NoneType' object has no attribute 'named_modules'",
+      "trace_tail": [
+        "    for name, module in model.named_modules():",
+        "                        ^^^^^^^^^^^^^^^^^^^",
+        "AttributeError: 'NoneType' object has no attribute 'named_modules'"
+      ]
+    },
+    "B4_json_inference": {
+      "status": "fail",
+      "seconds": 0.0,
+      "error": "AttributeError: 'NoneType' object has no attribute 'padding_side'",
+      "trace_tail": [
+        "    text_tok.padding_side = \"left\"",
+        "    ^^^^^^^^^^^^^^^^^^^^^",
+        "AttributeError: 'NoneType' object has no attribute 'padding_side'"
+      ]
+    },
+    "C1_lora_attach": {
+      "status": "fail",
+      "seconds": 0.2,
+      "error": "KeyError: 'qwen_targets_present'",
+      "trace_tail": [
+        "    strict = [t for t, c in inv[\"qwen_targets_present\"].items() if c > 0]",
+        "                            ~~~^^^^^^^^^^^^^^^^^^^^^^^^",
+        "KeyError: 'qwen_targets_present'"
+      ]
+    }
+  },
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+  "revision": "dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f"
+}

@@ -1,0 +1,38 @@
+L09 COUNTERFACTUAL (phase 0)
+convention: production's: a freight reading is its F and alpha with no weight domain, as the production calibration applies every freight reading; fixed before any counterfactual was run
+
+                                                production      cand 1      cand 2      cand 3      cand 4      cand 5      cand 6
+  feasible orders                                    44617       44598       44724       44725       44730       44753       44618
+  high_quality feasible orders                        1714        1721        1705        1706        1699        1697        1713
+  orders with no eligible logistics bidder             309         309         309         309         309         309         309
+  L09 lowest-cost win share overall %                10.87       27.37        2.13        2.11        2.05        2.01       16.94
+  L09 win share Espoo %                               0.00        0.00        0.00        0.00        0.00        0.00        0.00
+  L09 win share Helsinki %                            0.00       23.72        0.00        0.00        0.00        0.00       20.56
+  L09 win share Jyvaskyla %                          21.68       63.39        1.70        1.63        1.54        1.50       29.18
+  L09 win share Lahti %                               0.00        0.00        0.00        0.00        0.00        0.00        0.00
+  L09 win share Oulu %                               32.75       73.97       11.28       11.24       10.99       10.86       38.98
+  L09 win share Tampere %                            20.75       28.41        1.81        1.77        1.68        1.60       28.67
+  L09 win share Turku %                               0.00        0.00        0.00        0.00        0.00        0.00        0.00
+  L05/L09 Helsinki contested orders                   1985        3366        1990        1990        1991        1992        1985
+  tied-price groups                                      4           3           3           3           3           3           4
+  structural-domination pairs                           24          27          23          23          23          24          25
+
+candidate 1 (Matkahuolto Lavarahti [0, 1000) kg): clears every guard False, removes the L05/L09 tie True, total abs share change 46.45 points
+    failed: feasible_orders_not_fewer, no_new_tied_price_group, no_new_structural_domination_pair
+    new tied-price groups: [['L01', 'L02', 'L09', 'L11']]
+    new domination pairs (city, dominated, dominating): [['Helsinki', 'L11', 'L09'], ['Jyvaskyla', 'L01', 'L09'], ['Oulu', 'L01', 'L09'], ['Tampere', 'L01', 'L09']]
+candidate 2 (Matkahuolto Lavarahti [1000, 1500) kg): clears every guard False, removes the L05/L09 tie True, total abs share change 17.51 points
+    failed: high_quality_feasible_orders_not_fewer, l09_share_not_lower_in_Jyvaskyla, l09_share_not_lower_in_Oulu, l09_share_not_lower_in_Tampere
+candidate 3 (Matkahuolto Lavarahti [1500, 2000) kg): clears every guard False, removes the L05/L09 tie True, total abs share change 17.55 points
+    failed: high_quality_feasible_orders_not_fewer, l09_share_not_lower_in_Jyvaskyla, l09_share_not_lower_in_Oulu, l09_share_not_lower_in_Tampere
+candidate 4 (Matkahuolto Lavarahti [2000, 2500) kg): clears every guard False, removes the L05/L09 tie True, total abs share change 17.67 points
+    failed: high_quality_feasible_orders_not_fewer, l09_share_not_lower_in_Jyvaskyla, l09_share_not_lower_in_Oulu, l09_share_not_lower_in_Tampere
+candidate 5 (Matkahuolto Lavarahti [2500, 3000) kg): clears every guard False, removes the L05/L09 tie True, total abs share change 17.75 points
+    failed: high_quality_feasible_orders_not_fewer, l09_share_not_lower_in_Jyvaskyla, l09_share_not_lower_in_Oulu, l09_share_not_lower_in_Tampere
+candidate 6 (Posti Express Freight [35, 500] kg, loose package to half pallet): clears every guard False, removes the L05/L09 tie True, total abs share change 12.40 points
+    failed: high_quality_feasible_orders_not_fewer, no_new_tied_price_group, no_new_structural_domination_pair
+    new tied-price groups: [['L08', 'L09']]
+    new domination pairs (city, dominated, dominating): [['Oulu', 'L08', 'L09'], ['Tampere', 'L08', 'L09']]
+
+decision: keep production unchanged
+no candidate clears every guard and removes the L05/L09 tie, so production stays as it is. the L05/L09 tie and L04's lowest-cost share are disclosed dataset characteristics, and logistics calibration is closed without a further freight redesign

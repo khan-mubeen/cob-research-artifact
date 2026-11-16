@@ -1,0 +1,46 @@
+{
+  "source": "Tabb Textile Company, 2024 Product Catalog",
+  "source_url": "https://www.tabbtextileinc.com/wp-content/uploads/2024/11/Tabb-Textile-Fabric-Catalog-Final-Version-1.pdf",
+  "page_or_section": "jersey knit section of the fabric catalog",
+  "role": "finished-fabric price level for cotton",
+  "observation_kind": "catalog list prices, one catalog edition, not a series",
+  "catalog_edition": "2024",
+  "currency": "USD",
+  "unit": "USD per pound",
+  "observations": [
+    {
+      "sku": "JKCWI",
+      "description": "Imported 4.5oz Jersey Knit White",
+      "composition": "100% Cotton",
+      "value": 6.65,
+      "unit": "USD/lb"
+    },
+    {
+      "sku": "JKCCI",
+      "description": "Imported 4.5oz Jersey Knit Colors",
+      "composition": "100% Cotton",
+      "value": 6.95,
+      "unit": "USD/lb"
+    },
+    {
+      "sku": "JKCWD",
+      "description": "Domestic 4.5oz Jersey Knit White",
+      "composition": "100% Cotton",
+      "value": 7.65,
+      "unit": "USD/lb"
+    },
+    {
+      "sku": "JKCCD",
+      "description": "Domestic 4.5oz Jersey Knit Colors",
+      "composition": "100% Cotton",
+      "value": 7.95,
+      "unit": "USD/lb"
+    }
+  ],
+  "verification_note": "confirmed '100% Cotton' printed directly on each line; catalog's separate JKPCWI/JKPCCI/JKPCWD/JKPCCD 'Jersey Knit Poly/Cotton' SKUs checked and explicitly excluded as blends",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-11",
+  "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+}

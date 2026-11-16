@@ -1,0 +1,1291 @@
+{
+  "tag": "gemma-v2-mag",
+  "model": "models/finetune/gemma4-e2b-bidding-lora-v2/final",
+  "generated_at": "2026-07-21T03:31:17",
+  "magnitude_diagnostic": {
+    "summary": {
+      "A_absolute_scale": {
+        "n": 48,
+        "decision_agreement_pct": 35.42,
+        "json_valid_pct": 100.0,
+        "mean_abs_offer_dev_pct": 8.94,
+        "median_abs_offer_dev_pct": 8.91,
+        "days_exact_match_pct": 0.0
+      },
+      "B_qty_workload_split": {
+        "n": 80,
+        "decision_agreement_pct": 53.75,
+        "json_valid_pct": 100.0,
+        "mean_abs_offer_dev_pct": 3.42,
+        "median_abs_offer_dev_pct": 3.53,
+        "days_exact_match_pct": 0.0
+      }
+    },
+    "rows": [
+      {
+        "id": "MAG-A_absolute_scale-T0c0-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c0-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13000.82,\n  \"estimated_completion_days\": 3.47,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 8.485273393560307,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c0-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c0-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 16800.82,\n  \"estimated_completion_days\": 3.01,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 2.606539187940492,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c0-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c0-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 18800.82,\n  \"estimated_completion_days\": 3.15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 7.360754011153674,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c1-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c1-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 18100.82,\n  \"estimated_completion_days\": 4.9,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 13.333617420207105,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c2-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c2-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13000.82,\n  \"estimated_completion_days\": 3.5,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c2-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c2-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 16831.12,\n  \"estimated_completion_days\": 3.11,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c2-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c2-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 19800.12,\n  \"estimated_completion_days\": 3.23,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c3-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c3-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 9988.81,\n  \"estimated_completion_days\": 2.06,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c3-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c3-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 11600.82,\n  \"estimated_completion_days\": 2.35,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c3-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c3-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13000.82,\n  \"estimated_completion_days\": 2.23,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c3-s120",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c3-s120\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 16100.82,\n  \"estimated_completion_days\": 2.51,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T0c3-s140",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T0c3-s140\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 19988.82,\n  \"estimated_completion_days\": 2.8,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c0-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c0-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 12800.82,\n  \"estimated_completion_days\": 3.47,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 6.527606179297779,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c0-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c0-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 15000.82,\n  \"estimated_completion_days\": 3.01,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 9.793106766049178,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c0-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c0-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 18808.8,\n  \"estimated_completion_days\": 3.15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.859905591662223,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c1-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c1-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 17800.82,\n  \"estimated_completion_days\": 4.9,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 11.586633905560006,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c2-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c2-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13000.82,\n  \"estimated_completion_days\": 3.5,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c2-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c2-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 16000.82,\n  \"estimated_completion_days\": 3.07,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c2-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c2-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 19800.12,\n  \"estimated_completion_days\": 3.23,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c3-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c3-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c3-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c3-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 11100.82,\n  \"estimated_completion_days\": 2.35,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c3-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c3-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13000.82,\n  \"estimated_completion_days\": 2.23,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c3-s120",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c3-s120\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 15000.82,\n  \"estimated_completion_days\": 2.51,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T1c3-s140",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T1c3-s140\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 18800.82,\n  \"estimated_completion_days\": 2.77,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c0-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c0-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 17800.82,\n  \"estimated_completion_days\": 3.47,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 4.44246896402157,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c0-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c0-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 21800.82,\n  \"estimated_completion_days\": 3.01,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.6222523428195554,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c0-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c0-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 24700.82,\n  \"estimated_completion_days\": 3.15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 7.181542741856395,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c1-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c1-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 24200.82,\n  \"estimated_completion_days\": 4.9,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 11.633591242528368,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c2-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c2-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 18800.21,\n  \"estimated_completion_days\": 3.5,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c2-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c2-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 21800.82,\n  \"estimated_completion_days\": 3.07,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c2-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c2-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 25700.82,\n  \"estimated_completion_days\": 3.23,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c3-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c3-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13100.82,\n  \"estimated_completion_days\": 2.15,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c3-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c3-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 15800.22,\n  \"estimated_completion_days\": 2.35,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c3-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c3-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 18800.82,\n  \"estimated_completion_days\": 2.23,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c3-s120",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c3-s120\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 21800.82,\n  \"estimated_completion_days\": 2.51,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T2c3-s140",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T2c3-s140\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 25700.11,\n  \"estimated_completion_days\": 2.78,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c0-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c0-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 11000.82,\n  \"estimated_completion_days\": 3.5,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 12.86279051162363,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c0-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c0-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13900.09,\n  \"estimated_completion_days\": 3.07,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 9.327527723418132,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c0-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c0-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 16000.8,\n  \"estimated_completion_days\": 3.1,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 11.280655159603667,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c1-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c1-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 15000.82,\n  \"estimated_completion_days\": 4.9,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 19.178663040321723,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c2-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c2-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 11800.82,\n  \"estimated_completion_days\": 3.5,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c2-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c2-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 14500.12,\n  \"estimated_completion_days\": 3.17,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c2-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c2-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 17000.82,\n  \"estimated_completion_days\": 3.11,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c3-s70",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c3-s70\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 8600.82,\n  \"estimated_completion_days\": 2.03,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c3-s85",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c3-s85\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 10000.12,\n  \"estimated_completion_days\": 2.35,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c3-s100",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c3-s100\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 11300.82,\n  \"estimated_completion_days\": 2.23,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c3-s120",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c3-s120\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 13900.8,\n  \"estimated_completion_days\": 2.5,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-A_absolute_scale-T3c3-s140",
+        "stage": "A_absolute_scale",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-A_absolute_scale-T3c3-s140\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 16000.82,\n  \"estimated_completion_days\": 2.78,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c0-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c0-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1800.12,\n  \"estimated_completion_days\": 1.09,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 7.077151794840035,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c0-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c0-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3300.11,\n  \"estimated_completion_days\": 1.16,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 2.6553553993504666,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c0-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c0-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4780.82,\n  \"estimated_completion_days\": 1.125,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 1.2847302520730832,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c0-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c0-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6300.82,\n  \"estimated_completion_days\": 1.15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 0.07719235827418969,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c0-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c0-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 7700.82,\n  \"estimated_completion_days\": 1.19,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 0.6200904131828278,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c1-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c1-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2090.11,\n  \"estimated_completion_days\": 1.34,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 1.3554650443876952,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c1-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c1-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3500.12,\n  \"estimated_completion_days\": 1.34,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 5.733369243199572,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c1-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c1-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5400.11,\n  \"estimated_completion_days\": 1.44,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 1.9450338677157935,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c1-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c1-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6600.82,\n  \"estimated_completion_days\": 1.37,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 4.0740224031994625,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c1-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c1-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 8100.82,\n  \"estimated_completion_days\": 1.51,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 4.418824989705418,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c2-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c2-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1780.82,\n  \"estimated_completion_days\": 1.21,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c2-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c2-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3000.12,\n  \"estimated_completion_days\": 1.13,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c2-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c2-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4480.82,\n  \"estimated_completion_days\": 1.07,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c2-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c2-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5980.82,\n  \"estimated_completion_days\": 1.22,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c2-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c2-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6900.82,\n  \"estimated_completion_days\": 1.27,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c3-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c3-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2100.81,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c3-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c3-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3600.11,\n  \"estimated_completion_days\": 1.77,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c3-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c3-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c3-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c3-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6800.82,\n  \"estimated_completion_days\": 1.94,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T0c3-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T0c3-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 8100.81,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c0-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c0-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1780.82,\n  \"estimated_completion_days\": 1.09,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 4.63996744258275,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c0-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c0-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3100.81,\n  \"estimated_completion_days\": 1.16,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 5.1180054282803065,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c0-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c0-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4688.84,\n  \"estimated_completion_days\": 1.1,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 0.4320288219128804,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c0-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c0-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6000.12,\n  \"estimated_completion_days\": 1.15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 1.1393462475717926,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c0-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c0-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 7100.81,\n  \"estimated_completion_days\": 1.19,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 4.940648230825965,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c1-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c1-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1940.12,\n  \"estimated_completion_days\": 1.48,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 5.014344884310715,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c1-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c1-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3500.82,\n  \"estimated_completion_days\": 1.33,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 2.1928807507592185,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c1-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c1-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5100.12,\n  \"estimated_completion_days\": 1.44,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 0.1222005499024703,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c1-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c1-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6480.82,\n  \"estimated_completion_days\": 1.47,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 2.30017788765942,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c1-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c1-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 8000.81,\n  \"estimated_completion_days\": 1.51,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 2.072906683704252,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c2-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c2-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1680.82,\n  \"estimated_completion_days\": 1.31,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c2-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c2-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3000.12,\n  \"estimated_completion_days\": 1.13,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c2-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c2-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4208.81,\n  \"estimated_completion_days\": 1.07,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c2-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c2-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5600.81,\n  \"estimated_completion_days\": 1.27,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c2-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c2-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6800.82,\n  \"estimated_completion_days\": 1.27,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c3-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c3-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2091.12,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c3-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c3-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3500.12,\n  \"estimated_completion_days\": 1.77,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c3-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c3-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c3-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c3-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6800.81,\n  \"estimated_completion_days\": 1.83,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T1c3-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T1c3-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 8100.81,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c0-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c0-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2441.11,\n  \"estimated_completion_days\": 1.09,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.902008873212264,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c0-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c0-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4388.81,\n  \"estimated_completion_days\": 1.16,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 1.2732233922180285,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c0-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c0-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5900.82,\n  \"estimated_completion_days\": 1.125,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 7.08218776867625,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c0-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c0-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 8300.11,\n  \"estimated_completion_days\": 1.15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 0.5372006938186231,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c0-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c0-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 9780.82,\n  \"estimated_completion_days\": 1.19,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.74099246723237,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c1-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c1-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2600.11,\n  \"estimated_completion_days\": 1.34,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 6.416328939885832,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c1-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c1-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4680.11,\n  \"estimated_completion_days\": 1.34,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.875098073850124,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c1-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c1-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6800.82,\n  \"estimated_completion_days\": 1.57,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 2.0894190139577757,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c1-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c1-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 8700.11,\n  \"estimated_completion_days\": 1.47,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.579803881584199,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c1-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c1-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 10900.11,\n  \"estimated_completion_days\": 1.51,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 1.9202736846651631,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c2-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c2-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2300.11,\n  \"estimated_completion_days\": 1.21,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c2-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c2-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4200.11,\n  \"estimated_completion_days\": 1.13,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c2-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c2-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5580.11,\n  \"estimated_completion_days\": 1.07,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c2-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c2-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 7400.11,\n  \"estimated_completion_days\": 1.22,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c2-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c2-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 9300.11,\n  \"estimated_completion_days\": 1.27,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c3-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c3-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2800.11,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c3-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c3-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4888.81,\n  \"estimated_completion_days\": 1.77,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c3-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c3-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c3-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c3-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 9300.11,\n  \"estimated_completion_days\": 1.94,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T2c3-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T2c3-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 11100.82,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c0-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c0-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1500.09,\n  \"estimated_completion_days\": 1.09,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 12.863988847259739,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c0-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c0-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2988.82,\n  \"estimated_completion_days\": 1.16,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 0.7929737678037339,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c0-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c0-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4388.84,\n  \"estimated_completion_days\": 1.125,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 1.9740327332546455,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c0-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c0-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5400.12,\n  \"estimated_completion_days\": 1.15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.4837999370871358,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c0-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c0-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6600.82,\n  \"estimated_completion_days\": 1.19,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 4.14423048996544,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c1-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c1-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1888.82,\n  \"estimated_completion_days\": 1.48,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 0.3117448684245408,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c1-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c1-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3100.09,\n  \"estimated_completion_days\": 1.34,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 6.047629438362965,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c1-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c1-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4988.82,\n  \"estimated_completion_days\": 1.44,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 5.978922413152139,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c1-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c1-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 5880.82,\n  \"estimated_completion_days\": 1.47,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 3.8310147520314572,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c1-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c1-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 7100.81,\n  \"estimated_completion_days\": 1.48,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 5.722145731625544,
+        "days_matched": false
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c2-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c2-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1500.12,\n  \"estimated_completion_days\": 1.3,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c2-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c2-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2700.12,\n  \"estimated_completion_days\": 1.13,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c2-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c2-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3988.82,\n  \"estimated_completion_days\": 1.14,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c2-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c2-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4980.12,\n  \"estimated_completion_days\": 1.22,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c2-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c2-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6100.82,\n  \"estimated_completion_days\": 1.27,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c3-q20",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c3-q20\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1900.82,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c3-q35",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c3-q35\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3300.12,\n  \"estimated_completion_days\": 1.97,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c3-q50",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c3-q50\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 4999.92,\n  \"estimated_completion_days\": 2.1,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c3-q65",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c3-q65\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 6300.12,\n  \"estimated_completion_days\": 1.95,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "MAG-B_qty_workload_split-T3c3-q80",
+        "stage": "B_qty_workload_split",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"MAG-B_qty_workload_split-T3c3-q80\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 7500.82,\n  \"estimated_completion_days\": 2.36,\n  \"defect_probability\": 0.02\n}"
+      }
+    ]
+  }
+}

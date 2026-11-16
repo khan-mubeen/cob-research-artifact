@@ -1,0 +1,13 @@
+old generator: usable examples 44442 {'test': 4435, 'train': 35552, 'validation': 4455}, skipped {'orders_without_a_product_pair': 0, 'stage_had_no_bidder': 1845, 'fewer_than_min_candidates': 3713, 'rule_declined': 0}, strategy mix {'urgent': 11252, 'flexible': 6525, 'normal': 26665}
+orders before 44442 after 44442 only_before 0 only_after 0
+labels compared 44442 chain changed 12367 (27.83%)
+changed by split {'train': 9900, 'test': 1220, 'validation': 1247}
+of the changed: new chain cheaper 1759, new chain faster 10969
+  ORD-00007: ('M02', 'T2', 'L09') cost 10182.4 days 3.0 -> ('M02', 'T1', 'L09') cost 10313.04 days 2.62
+  ORD-00008: ('M10', 'T4', 'L02') cost 3870.18 days 4.39 -> ('M10', 'T4', 'L04') cost 3868.32 days 3.39
+  ORD-00016: ('M06', 'T12', 'L02') cost 3219.46 days 5.22 -> ('M06', 'T12', 'L04') cost 3217.6 days 4.22
+  ORD-00017: ('M11', 'T12', 'L02') cost 10291.51 days 5.29 -> ('M05', 'T2', 'L04') cost 10610.03 days 4.03
+  ORD-00019: ('M02', 'T12', 'L07') cost 1366.19 days 3.44 -> ('M02', 'T1', 'L07') cost 1415.48 days 2.88
+  audit ORD-06189: ('M11', 'T2', 'L02') -> ('M11', 'T1', 'L02')
+  audit ORD-10431: ('M11', 'T4', 'L02') -> ('M05', 'T4', 'L02')
+exit 0

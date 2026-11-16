@@ -1,0 +1,2 @@
+{"order_id": "ORD-00002", "mode": "sealed", "priority": "normal", "budget": 1042.77, "outcome": {"order_id": "ORD-00002", "status": "infeasible", "reason": "chain_cost_exceeds_budget"}, "stage_traces": [], "elapsed_seconds": 30.04, "recorded_at": "unknown"}
+{"order_id": "ORD-00003", "mode": "sealed", "priority": "normal", "budget": 9387.23, "outcome": {"order_id": "ORD-00003", "status": "completed", "chain": {"material": "M14", "tailoring": "T3", "logistics": "L08"}, "total_cost": 8368.59}, "stage_traces": [], "elapsed_seconds": 30.05, "recorded_at": "unknown"}

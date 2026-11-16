@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-08-27T21:23:17",
+  "base_model": ".\\models\\base-checkpoints\\hf\\phi4mini-v2-base",
+  "base_revision": null,
+  "adapter": ".\\models\\reverse_auction\\epoch-1\\v4\\phi-reverse-auction-lora\\final",
+  "out": ".\\models\\reverse_auction\\epoch-1\\v4\\deployment\\phi-auction\\merged",
+  "loaded_architecture": "Phi3ForCausalLM",
+  "probe_weight_max_abs_delta": {
+    "model.layers.0.self_attn.qkv_proj.weight": 0.00042724609375,
+    "model.layers.0.self_attn.o_proj.weight": 0.0002899169921875,
+    "model.layers.0.mlp.down_proj.weight": 0.00048828125,
+    "model.layers.0.mlp.gate_up_proj.weight": 0.00048828125
+  },
+  "merged_safetensors_gib": 7.145,
+  "merged_safetensors_sha256": "ec6fdb0af900c0c974729394b8bf02c07e4d2b8643ad875037e655938082c25a"
+}

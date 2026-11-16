@@ -1,0 +1,31 @@
+{
+  "tag": "gemma4-e2b",
+  "merged_dir": "models/feasibility/gemma4-e2b-merged",
+  "quant": "Q8_0",
+  "convert_script": "llama.cpp@571d0d540df04f25298d0e159e520d9fc62ed121",
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_stderr_tail": "\u2588\u2588\u2588\u2588\u2588\u258b| 9.06G/9.30G [00:57<00:00, 289Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 9.09G/9.30G [00:58<00:00, 286Mbyte/s]\nWriting:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 9.13G/9.30G [00:58<00:00, 290Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 9.17G/9.30G [00:58<00:00, 284Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 9.20G/9.30G [00:58<00:00, 288Mbyte/s]\nWriting:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 9.24G/9.30G [00:58<00:00, 284Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 9.27G/9.30G [00:58<00:00, 281Mbyte/s]\nWriting: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 9.30G/9.30G [00:58<00:00, 158Mbyte/s]\nINFO:hf-to-gguf:Model successfully exported to .\\models\\feasibility\\gemma4-e2b-bf16.gguf\n",
+  "bf16_gib": 8.67,
+  "quantize_rc": 0,
+  "quant_gib": 4.63,
+  "quant_sha256": "8e643554b4dbacdfd04bd8c49c695c4b023912b88130cf1824727e567c3c9f70",
+  "runtime_load_rc": 0,
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 6.4,
+    "latencies_s": [
+      1.27,
+      0.66,
+      0.67,
+      0.71,
+      0.99,
+      0.65
+    ],
+    "first_infer_s": 1.27,
+    "median_steady_s": 0.67,
+    "total_completion_tokens": 581,
+    "json_ok": "6/6",
+    "raw_head": "{\n  \"order_id\": \"ORD-09428\",\n  \"stage\": \"material\",\n  \"agent_id\": \"M01\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 25.46,\n  \"estimated_completion_days\": 2,\n  \"defect_probability\": 0.04\n}"
+  }
+}

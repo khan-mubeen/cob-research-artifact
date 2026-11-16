@@ -1,0 +1,92 @@
+{
+  "recorded_at": "unknown",
+  "family": "reverse-auction rounds 1/2/3",
+  "model": ".\\models\\reverse_auction\\epoch-1\\v3\\smollm3-reverse-auction-lora\\final",
+  "revision": null,
+  "tag": "ra-e1-smollm3",
+  "eval_rows": 1296,
+  "eval_result": "reports/reverse_auction/epoch-1/v3/evaluation/raw/eval_ra-e1-smollm3_20260809_053952.json",
+  "gates": {
+    "1_floor_one_cent_below_floor": {
+      "status": "FAIL",
+      "bar": ">= 90.0% accuracy",
+      "measured": 59.09,
+      "n": 132,
+      "evidence": "132 rows, accuracy 59.09%, model bid rate 40.91% against a label rate of 0.0%"
+    },
+    "2_floor_at_floor": {
+      "status": "FAIL",
+      "bar": ">= 90.0% accuracy",
+      "measured": 87.12,
+      "n": 132,
+      "evidence": "132 rows, accuracy 87.12%, model bid rate 87.12% against a label rate of 100.0%"
+    },
+    "3_floor_above_floor": {
+      "status": "PASS",
+      "bar": ">= 90.0% accuracy",
+      "measured": 100.0,
+      "n": 132,
+      "evidence": "132 rows, accuracy 100.0%, model bid rate 100.0% against a label rate of 100.0%"
+    },
+    "4_bid_rate_priority_flexible": {
+      "status": "PASS",
+      "bar": "model BID rate within 10.0 points of the label rate",
+      "measured": 3.28,
+      "n": 213,
+      "evidence": "model 59.62% vs label 56.34%, gap 3.28 points, BID recall 97.5%, NO_BID recall 89.25%"
+    },
+    "4_bid_rate_priority_normal": {
+      "status": "PASS",
+      "bar": "model BID rate within 10.0 points of the label rate",
+      "measured": 2.72,
+      "n": 772,
+      "evidence": "model 68.13% vs label 65.41%, gap 2.72 points, BID recall 97.43%, NO_BID recall 87.27%"
+    },
+    "4_bid_rate_priority_urgent": {
+      "status": "PASS",
+      "bar": "model BID rate within 10.0 points of the label rate",
+      "measured": 2.89,
+      "n": 311,
+      "evidence": "model 84.24% vs label 81.35%, gap 2.89 points, BID recall 98.81%, NO_BID recall 79.31%"
+    },
+    "5_bid_rate_stage_logistics": {
+      "status": "PASS",
+      "bar": "model BID rate within 10.0 points of the label rate",
+      "measured": 2.76,
+      "n": 435,
+      "evidence": "model 75.17% vs label 72.41%, gap 2.76 points, BID recall 98.41%, NO_BID recall 85.83%"
+    },
+    "5_bid_rate_stage_material": {
+      "status": "PASS",
+      "bar": "model BID rate within 10.0 points of the label rate",
+      "measured": 1.18,
+      "n": 426,
+      "evidence": "model 61.27% vs label 60.09%, gap 1.18 points, BID recall 96.09%, NO_BID recall 91.18%"
+    },
+    "5_bid_rate_stage_tailoring": {
+      "status": "PASS",
+      "bar": "model BID rate within 10.0 points of the label rate",
+      "measured": 4.6,
+      "n": 435,
+      "evidence": "model 75.17% vs label 70.57%, gap 4.6 points, BID recall 98.7%, NO_BID recall 81.25%"
+    },
+    "6_json_validity": {
+      "status": "PASS",
+      "bar": ">= 99.0%",
+      "measured": 100.0,
+      "evidence": "1296 rows scored"
+    },
+    "7_days_no_regression": {
+      "status": "PASS",
+      "bar": ">= 27.11% (reference arm)",
+      "measured": 80.21,
+      "evidence": "estimated_completion_days is carried through from the round-1 decision and must not degrade"
+    }
+  },
+  "decision": "FAIL (2 gate(s))",
+  "counts": {
+    "PASS": 9,
+    "FAIL": 2,
+    "NOT_EVALUATED": 0
+  }
+}

@@ -1,0 +1,399 @@
+{
+  "tag": "granite-base-robust",
+  "model": "ibm-granite/granite-4.1-3b",
+  "generated_at": "2026-07-20T03:16:06",
+  "robustness_holdout_v2": {
+    "summary": {
+      "above_infeasible": {
+        "n": 12,
+        "decision_agreement_pct": 33.33,
+        "json_valid_pct": 100.0,
+        "mean_abs_offer_dev_pct": null,
+        "median_abs_offer_dev_pct": null,
+        "days_exact_match_pct": null
+      },
+      "below_feasible": {
+        "n": 12,
+        "decision_agreement_pct": 83.33,
+        "json_valid_pct": 100.0,
+        "mean_abs_offer_dev_pct": 78.33,
+        "median_abs_offer_dev_pct": 93.26,
+        "days_exact_match_pct": 0.0
+      },
+      "exact_feasible": {
+        "n": 12,
+        "decision_agreement_pct": 83.33,
+        "json_valid_pct": 100.0,
+        "mean_abs_offer_dev_pct": 101.94,
+        "median_abs_offer_dev_pct": 96.74,
+        "days_exact_match_pct": 0.0
+      }
+    },
+    "rows": [
+      {
+        "id": "ROBUSTB-T-BELOW-T1",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-TO-BELOW-T1\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 38492.57,\n  \"estimated_completion_days\": 14,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 37.32919723882641,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T1",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-EXACT-EXACT-T1\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 37692.57,\n  \"estimated_completion_days\": 12,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 39.75790369881069,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T1",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-ABOVE-T1\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T1\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 43223.57,\n  \"estimated_completion_days\": 21,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T2",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "NO_BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-TO-BELOW-T2\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T2",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-EXACT-EXACT-T2\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 224073.67,\n  \"estimated_completion_days\": 23,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 269.64092942047483,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T2",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T2\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T2\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 38412.57,\n  \"estimated_completion_days\": 13,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T3",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-BELOW-T3\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 163, \n  \"estimated_completion_days\": 23,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 99.85558081365416,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T3",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-EXACT-T3\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2103.0732,\n  \"estimated_completion_days\": 23,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 98.27712005777795,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T3",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T3\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T3\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 78647.57,\n  \"estimated_completion_days\": 18,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T4",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB- T- BELOW- T4\",\n  \"stage\": \"tailoring\",\n  \"agent_ id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3295.68,\n  \"estimated_completion_days\": 45,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 93.4446433299035,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T4",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-EXACT-T4\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3525.57,\n  \"estimated_completion_days\": 15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 93.36432992073492,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T4",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T4\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T4\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.02\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T5",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-BELOW-T5\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T5\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 24792.38,\n  \"estimated_completion_days\": 30,\n  \"defect_probability\": 0.053\n}",
+        "offer_pct_dev": 60.08859192257125,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T5",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "NO_BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-EXACT-EXACT-T5\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T5\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.053\n}"
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T5",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T5\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T5\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 127073.5872,\n  \"estimated_completion_days\": 30,\n  \"defect_probability\": 0.053\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T6",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "NO_BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-TO-BELOW-T6\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T6\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.045\n}"
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T6",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-EXACT-T6\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T6\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 30692.544,\n  \"estimated_completion_days\": 45,\n  \"defect_probability\": 0.045\n}",
+        "offer_pct_dev": 35.50451399461258,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T6",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T6\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T6\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.045\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T7",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-TO-BELOW-T7\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T7\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2475.9,\n  \"estimated_completion_days\": 30,\n  \"defect_probability\": 0.067\n}",
+        "offer_pct_dev": 95.83634352965868,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T7",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-EXACT-T7\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T7\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1395.06,\n  \"estimated_completion_days\": 12,\n  \"defect_probability\": 0.067\n}",
+        "offer_pct_dev": 97.86808230101506,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T7",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-ABOVE-T7\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T7\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.067\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T8",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-TO-BELOW-T8\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T8\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2103.57,\n  \"estimated_completion_days\": 30,\n  \"defect_probability\": 0.062\n}",
+        "offer_pct_dev": 94.01252503355835,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T8",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-EXACT-T8\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T8\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1633.57,\n  \"estimated_completion_days\": 23,\n  \"defect_probability\": 0.062\n}",
+        "offer_pct_dev": 95.68027526586918,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T8",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "NO_BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-ABOVE-T8\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T8\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.062\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T9",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-TO-BELOW-T9\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T9\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 17892.57,\n  \"estimated_completion_days\": 22,\n  \"defect_probability\": 0.026\n}",
+        "offer_pct_dev": 79.34690654980703,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T9",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-EXACT-EXACT-T9\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T9\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 1711.57,\n  \"estimated_completion_days\": 22,\n  \"defect_probability\": 0.026\n}",
+        "offer_pct_dev": 98.17846715899431,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T9",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-ABOVE-T9\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T9\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 212073.4976,\n  \"estimated_completion_days\": 38,\n  \"defect_probability\": 0.026\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T10",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB- T- BELOW- T10\",\n  \"stage\": \"tailoring\",\n  \"agent_ id\": \"T10\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 224.5484375,\n  \"estimated_ completion_ days\": 13,\n  \"defect_probability\": 0.023\n}",
+        "offer_pct_dev": 99.62957532507446,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T10",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "NO_BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-EXACT-EXACT-T10\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T10\",\n  \"decision\": \"NO_BID\",\n  \"offer_amount\": null,\n  \"estimated_completion_days\": null,\n  \"defect_probability\": 0.023\n}"
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T10",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T10\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T10\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 26392.57,\n  \"estimated_completion_days\": 19,\n  \"defect_probability\": 0.023\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T11",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB- T- BELOW- T11\",\n  \"stage\": \"tailoring\",\n  \"agent_ id\": \"T11\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 7350.72,\n  \"estimated_completion_days\": 13,\n  \"defect_probability\": 0.026\n}",
+        "offer_pct_dev": 93.0853054274189,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T11",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-EXACT-T11\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T11\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 2485.57,\n  \"estimated_completion_days\": 12,\n  \"defect_probability\": 0.026\n}",
+        "offer_pct_dev": 97.79741132448724,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T11",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T11\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T11\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 842.57,\n  \"estimated_completion_days\": 14,\n  \"defect_probability\": 0.026\n}"
+      },
+      {
+        "id": "ROBUSTB-T-BELOW-T12",
+        "stage": "below_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-TO-BELOW-T12\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T12\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 36392.57,\n  \"estimated_completion_days\": 15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 30.63134928985547,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-EXACT-T12",
+        "stage": "exact_feasible",
+        "json_valid": true,
+        "label_decision": "BID",
+        "model_decision": "BID",
+        "decision_matched": true,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-T-EXACT-T12\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T12\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 3765.57,\n  \"estimated_completion_days\": 15,\n  \"defect_probability\": 0.02\n}",
+        "offer_pct_dev": 93.34293408593051,
+        "days_matched": false
+      },
+      {
+        "id": "ROBUSTB-T-ABOVE-T12",
+        "stage": "above_infeasible",
+        "json_valid": true,
+        "label_decision": "NO_BID",
+        "model_decision": "BID",
+        "decision_matched": false,
+        "raw": "{\n  \"order_id\": \"ROBUSTB-ABOVE-T12\",\n  \"stage\": \"tailoring\",\n  \"agent_id\": \"T12\",\n  \"decision\": \"BID\",\n  \"offer_amount\": 38473.57,\n  \"estimated_completion_days\": 15,\n  \"defect_probability\": 0.02\n}"
+      }
+    ]
+  }
+}

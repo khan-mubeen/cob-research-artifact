@@ -1,0 +1,37 @@
+{
+  "tag": "smollm3-auction-nomtp-matched",
+  "merged_dir": ".\\models\\reverse_auction\\epoch-1\\v4\\deployment\\smollm3-auction\\merged",
+  "model_type": "smollm3",
+  "converter": "e3546c7948e3af463d0b401e6421d5a4c2faf565 (vendored by llama-cpp-python 0.3.34)",
+  "flags": [],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_seconds": 38.3,
+  "bf16_gib": 5.74,
+  "bf16_meta": {
+    "architecture": "smollm3",
+    "block_count": 36,
+    "tensor_count": 326,
+    "orphan_block": false
+  },
+  "quantize_rc": 0,
+  "quant_gib": 3.05,
+  "quant_sha256": "f5a11a2b0299240822c883afc200b7bc1573795f368d2fa29c7c974f2002a052",
+  "quant_meta": {
+    "architecture": "smollm3",
+    "block_count": 36,
+    "tensor_count": 326,
+    "orphan_block": false
+  },
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 3.0,
+    "median_steady_s": 0.6,
+    "json_ok": "6/6"
+  },
+  "verify_gates": {
+    "block_count matches config": true,
+    "no orphan block": true,
+    "json 6/6": true
+  }
+}

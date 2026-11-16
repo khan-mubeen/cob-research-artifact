@@ -1,0 +1,20 @@
+{
+  "source": "Townsend Leather, technical bulletin on leather thickness and weight",
+  "source_url": "https://www.townsendleather.com/wp-content/uploads/2013/12/Bulletin-6_Thickness.pdf",
+  "page_or_section": "Bulletin 6, leather thickness and weight",
+  "role": "physical conversion rule for leather, not a price",
+  "observation_kind": "a stated industry conversion rule",
+  "rule": "leather ounce weight is a literal areal mass (oz per square foot), not a thickness proxy requiring a density assumption",
+  "conversion": {
+    "total_oz": "oz_per_sqft x area_sqft",
+    "total_kg": "total_oz x 0.0283495",
+    "oz_to_kg": 0.0283495
+  },
+  "observations": [],
+  "verification_note": "cross-checked against Hoplok Leather, Stonestreet Leather, and LeatherSkinShop, all independently confirm oz/sqft as a direct weight measure; this avoids introducing a separate, unsupported leather density assumption",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-11",
+  "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+}

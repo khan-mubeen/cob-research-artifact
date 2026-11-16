@@ -1,0 +1,93 @@
+{
+  "generated_from": "rule-based decide_*_bid() labels through the v5 dispatch, no model involved",
+  "data_version": "v5",
+  "currency": "USD",
+  "mode": "sealed",
+  "scale_decision": "deliberate v5 scaling decision: every one of the 50,000 v5 orders is used, not v4's ~3,000-order experimental sample",
+  "source_order_count": 50000,
+  "orders_iterated": 50000,
+  "orders_with_rows": {
+    "train": 40000,
+    "validation": 5000,
+    "test": 5000
+  },
+  "split_file": "data/finetune/v5/split/order_split.csv",
+  "split_file_sha256": "c068ed116da214a822df4e30b72c313cda309de48c76a3dd154396f292fcdd5f",
+  "split_disjoint_by": "order_id",
+  "walk_order": "pandas sample of the whole pool with random_state 42, as v4 walks its sample",
+  "label_rule": "src.common.bidding_formulas.decide_{material,manufacturer,logistics}_bid, v5 dispatch",
+  "prompt_builder": "src.common.slm.build_{material,manufacturer,logistics}_prompt, v5 dispatch",
+  "eligibility_gate": "src.common.bidding_formulas.eligibility_reason, ineligible pairs are not rows",
+  "logistics_origin": "the location of supervisor.pick_winner over the order's manufacturer bids; an order with no manufacturer bid has no logistics rfq, as at runtime",
+  "skipped": {
+    "orders_without_a_product_pair": 0,
+    "logistics_rfqs_without_a_manufacturer_bid": 0
+  },
+  "counts": {
+    "material_train": 169855,
+    "material_validation": 21174,
+    "material_test": 21207,
+    "tailoring_train": 196876,
+    "tailoring_validation": 24631,
+    "tailoring_test": 24518,
+    "logistics_train": 174814,
+    "logistics_validation": 21924,
+    "logistics_test": 21872
+  },
+  "class_balance": {
+    "material_train": {
+      "rows": 169855,
+      "BID": 156534,
+      "NO_BID": 13321,
+      "bid_pct": 92.157
+    },
+    "material_validation": {
+      "rows": 21174,
+      "BID": 19706,
+      "NO_BID": 1468,
+      "bid_pct": 93.067
+    },
+    "material_test": {
+      "rows": 21207,
+      "BID": 19664,
+      "NO_BID": 1543,
+      "bid_pct": 92.724
+    },
+    "tailoring_train": {
+      "rows": 196876,
+      "BID": 196876,
+      "NO_BID": 0,
+      "bid_pct": 100.0
+    },
+    "tailoring_validation": {
+      "rows": 24631,
+      "BID": 24631,
+      "NO_BID": 0,
+      "bid_pct": 100.0
+    },
+    "tailoring_test": {
+      "rows": 24518,
+      "BID": 24518,
+      "NO_BID": 0,
+      "bid_pct": 100.0
+    },
+    "logistics_train": {
+      "rows": 174814,
+      "BID": 174814,
+      "NO_BID": 0,
+      "bid_pct": 100.0
+    },
+    "logistics_validation": {
+      "rows": 21924,
+      "BID": 21924,
+      "NO_BID": 0,
+      "bid_pct": 100.0
+    },
+    "logistics_test": {
+      "rows": 21872,
+      "BID": 21872,
+      "NO_BID": 0,
+      "bid_pct": 100.0
+    }
+  }
+}

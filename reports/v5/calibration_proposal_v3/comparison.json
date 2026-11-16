@@ -1,0 +1,697 @@
+{
+  "status": "proposal awaiting review before it is made final and regenerated for real. production data/synthetic/v5/ and data/processed/v5/logistics/agent_calibration.csv are untouched by it",
+  "evaluation_set": "data/synthetic/v5/orders.csv",
+  "calibration_seed": 7,
+  "winning_assignment": {
+    "L01": {
+      "candidate": 1,
+      "label": "Matkahuolto Lavarahti [0, 1000) kg"
+    },
+    "L02": {
+      "candidate": 2,
+      "label": "Matkahuolto Lavarahti [1000, 1500) kg"
+    },
+    "L04": {
+      "candidate": 3,
+      "label": "Matkahuolto Lavarahti [1500, 2000) kg"
+    },
+    "L05": {
+      "candidate": 4,
+      "label": "Matkahuolto Lavarahti [2000, 2500) kg"
+    },
+    "L08": {
+      "candidate": 6,
+      "label": "Posti Express Freight [35, 500] kg, loose package to half pallet"
+    },
+    "L09": {
+      "candidate": 7,
+      "label": "Posti Express Freight [500, 1000] kg, half pallet to pallet"
+    },
+    "L11": {
+      "candidate": 5,
+      "label": "Matkahuolto Lavarahti [2500, 3000) kg"
+    }
+  },
+  "comparisons": {
+    "v3_against_production": {
+      "baseline": {
+        "feasible_orders": 44617,
+        "feasibility_pct": 89.2,
+        "high_quality_feasibility_pct": 68.6,
+        "orders_with_no_eligible_logistics_bidder": 309,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L04",
+          "share_pct": 45.4
+        },
+        "weight_domain_violations": 0,
+        "logistics_win_share_lowest_cost_pct": {
+          "L01": 8.7,
+          "L02": 12.1,
+          "L03": 2.0,
+          "L04": 45.4,
+          "L05": 9.5,
+          "L06": 0.0,
+          "L07": 3.7,
+          "L08": 7.3,
+          "L09": 10.9,
+          "L10": 0.4,
+          "L11": 0.0,
+          "L12": 0.0
+        }
+      },
+      "variant": {
+        "feasible_orders": 40976,
+        "feasibility_pct": 82.0,
+        "high_quality_feasibility_pct": 31.4,
+        "orders_with_no_eligible_logistics_bidder": 4195,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L11",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L01",
+          "share_pct": 72.9
+        },
+        "weight_domain_violations": 0,
+        "logistics_win_share_lowest_cost_pct": {
+          "L01": 72.9,
+          "L02": 5.5,
+          "L03": 2.2,
+          "L04": 2.6,
+          "L05": 0.0,
+          "L06": 0.0,
+          "L07": 4.0,
+          "L08": 1.5,
+          "L09": 10.9,
+          "L10": 0.4,
+          "L11": 0.0,
+          "L12": 0.0
+        }
+      },
+      "share_change_points": {
+        "L01": 64.2,
+        "L02": -6.6,
+        "L03": 0.2,
+        "L04": -42.8,
+        "L05": -9.5,
+        "L06": 0.0,
+        "L07": 0.3,
+        "L08": -5.8,
+        "L09": 0.0,
+        "L10": 0.0,
+        "L11": 0.0,
+        "L12": 0.0
+      },
+      "reduces_largest_share": false,
+      "reduces_zero_win_agents": false,
+      "change_in_orders_with_no_logistics_bidder": 3886
+    },
+    "v3_against_specialty_proposal": {
+      "baseline": {
+        "feasible_orders": 42308,
+        "feasibility_pct": 84.6,
+        "high_quality_feasibility_pct": 61.4,
+        "orders_with_no_eligible_logistics_bidder": 3661,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L09",
+          "share_pct": 48.7
+        },
+        "weight_domain_violations": 0,
+        "logistics_win_share_lowest_cost_pct": {
+          "L01": 0.5,
+          "L02": 38.0,
+          "L03": 2.1,
+          "L04": 0.5,
+          "L05": 1.8,
+          "L06": 0.0,
+          "L07": 3.9,
+          "L08": 3.4,
+          "L09": 48.7,
+          "L10": 0.4,
+          "L11": 0.7,
+          "L12": 0.0
+        }
+      },
+      "variant": {
+        "feasible_orders": 40976,
+        "feasibility_pct": 82.0,
+        "high_quality_feasibility_pct": 31.4,
+        "orders_with_no_eligible_logistics_bidder": 4195,
+        "zero_win_logistics_agents": [
+          "L06",
+          "L11",
+          "L12"
+        ],
+        "largest_logistics_share": {
+          "agent": "L01",
+          "share_pct": 72.9
+        },
+        "weight_domain_violations": 0,
+        "logistics_win_share_lowest_cost_pct": {
+          "L01": 72.9,
+          "L02": 5.5,
+          "L03": 2.2,
+          "L04": 2.6,
+          "L05": 0.0,
+          "L06": 0.0,
+          "L07": 4.0,
+          "L08": 1.5,
+          "L09": 10.9,
+          "L10": 0.4,
+          "L11": 0.0,
+          "L12": 0.0
+        }
+      },
+      "share_change_points": {
+        "L01": 72.4,
+        "L02": -32.5,
+        "L03": 0.1,
+        "L04": 2.1,
+        "L05": -1.8,
+        "L06": 0.0,
+        "L07": 0.1,
+        "L08": -1.9,
+        "L09": -37.8,
+        "L10": 0.0,
+        "L11": -0.7,
+        "L12": 0.0
+      },
+      "reduces_largest_share": false,
+      "reduces_zero_win_agents": false,
+      "change_in_orders_with_no_logistics_bidder": 534
+    }
+  },
+  "specialty_proposal_rediagnosis_matches_file": true,
+  "tied_price_groups": {
+    "production": [
+      {
+        "agents": [
+          "L01",
+          "L02",
+          "L11"
+        ],
+        "contested_orders": 5044,
+        "wins": {
+          "L01": 218,
+          "L02": 4808,
+          "L11": 18
+        },
+        "one_agent_wins_every_contested_order": false
+      },
+      {
+        "agents": [
+          "L03",
+          "L06"
+        ],
+        "contested_orders": 708,
+        "wins": {
+          "L03": 708,
+          "L06": 0
+        },
+        "one_agent_wins_every_contested_order": true
+      },
+      {
+        "agents": [
+          "L05",
+          "L09"
+        ],
+        "contested_orders": 1985,
+        "wins": {
+          "L05": 1985,
+          "L09": 0
+        },
+        "one_agent_wins_every_contested_order": true
+      },
+      {
+        "agents": [
+          "L10",
+          "L12"
+        ],
+        "contested_orders": 0,
+        "wins": {
+          "L10": 0,
+          "L12": 0
+        },
+        "one_agent_wins_every_contested_order": false
+      }
+    ],
+    "specialty_proposal_on_file": [
+      {
+        "agents": [
+          "L01",
+          "L02",
+          "L04",
+          "L09"
+        ],
+        "contested_orders": 36215,
+        "wins": {
+          "L01": 200,
+          "L02": 15867,
+          "L04": 208,
+          "L09": 19940
+        },
+        "one_agent_wins_every_contested_order": false
+      },
+      {
+        "agents": [
+          "L03",
+          "L06"
+        ],
+        "contested_orders": 706,
+        "wins": {
+          "L03": 706,
+          "L06": 0
+        },
+        "one_agent_wins_every_contested_order": true
+      },
+      {
+        "agents": [
+          "L05",
+          "L08"
+        ],
+        "contested_orders": 0,
+        "wins": {
+          "L05": 0,
+          "L08": 0
+        },
+        "one_agent_wins_every_contested_order": false
+      },
+      {
+        "agents": [
+          "L10",
+          "L12"
+        ],
+        "contested_orders": 0,
+        "wins": {
+          "L10": 0,
+          "L12": 0
+        },
+        "one_agent_wins_every_contested_order": false
+      }
+    ],
+    "v3": [
+      {
+        "agents": [
+          "L03",
+          "L06"
+        ],
+        "contested_orders": 704,
+        "wins": {
+          "L03": 704,
+          "L06": 0
+        },
+        "one_agent_wins_every_contested_order": true
+      },
+      {
+        "agents": [
+          "L10",
+          "L12"
+        ],
+        "contested_orders": 0,
+        "wins": {
+          "L10": 0,
+          "L12": 0
+        },
+        "one_agent_wins_every_contested_order": false
+      }
+    ]
+  },
+  "production_set_coverage_of_meaningful_cells": {
+    "basis": "freight agents only, by weight domain and service region, before damage, reputation and deadline filters; those filters are in the diagnostic's no-bidder count",
+    "cells": [
+      {
+        "city": "Espoo",
+        "candidate": 1,
+        "orders": 6254,
+        "with_one_or_more": 6254,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Espoo",
+        "candidate": 2,
+        "orders": 476,
+        "with_one_or_more": 476,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Espoo",
+        "candidate": 3,
+        "orders": 303,
+        "with_one_or_more": 303,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Espoo",
+        "candidate": 6,
+        "orders": 4461,
+        "with_one_or_more": 4461,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Espoo",
+        "candidate": 7,
+        "orders": 1334,
+        "with_one_or_more": 1334,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Helsinki",
+        "candidate": 1,
+        "orders": 6288,
+        "with_one_or_more": 6288,
+        "with_two_or_more": 1357
+      },
+      {
+        "city": "Helsinki",
+        "candidate": 2,
+        "orders": 430,
+        "with_one_or_more": 430,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Helsinki",
+        "candidate": 3,
+        "orders": 287,
+        "with_one_or_more": 287,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Helsinki",
+        "candidate": 6,
+        "orders": 4518,
+        "with_one_or_more": 4518,
+        "with_two_or_more": 4
+      },
+      {
+        "city": "Helsinki",
+        "candidate": 7,
+        "orders": 1357,
+        "with_one_or_more": 1357,
+        "with_two_or_more": 1357
+      },
+      {
+        "city": "Jyvaskyla",
+        "candidate": 1,
+        "orders": 6444,
+        "with_one_or_more": 6444,
+        "with_two_or_more": 6045
+      },
+      {
+        "city": "Jyvaskyla",
+        "candidate": 2,
+        "orders": 458,
+        "with_one_or_more": 458,
+        "with_two_or_more": 2
+      },
+      {
+        "city": "Jyvaskyla",
+        "candidate": 3,
+        "orders": 283,
+        "with_one_or_more": 0,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Jyvaskyla",
+        "candidate": 6,
+        "orders": 4656,
+        "with_one_or_more": 4656,
+        "with_two_or_more": 4656
+      },
+      {
+        "city": "Jyvaskyla",
+        "candidate": 7,
+        "orders": 1393,
+        "with_one_or_more": 1393,
+        "with_two_or_more": 1393
+      },
+      {
+        "city": "Lahti",
+        "candidate": 1,
+        "orders": 6331,
+        "with_one_or_more": 6331,
+        "with_two_or_more": 4552
+      },
+      {
+        "city": "Lahti",
+        "candidate": 2,
+        "orders": 502,
+        "with_one_or_more": 502,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Lahti",
+        "candidate": 3,
+        "orders": 268,
+        "with_one_or_more": 268,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Lahti",
+        "candidate": 6,
+        "orders": 4552,
+        "with_one_or_more": 4552,
+        "with_two_or_more": 4552
+      },
+      {
+        "city": "Lahti",
+        "candidate": 7,
+        "orders": 1321,
+        "with_one_or_more": 1321,
+        "with_two_or_more": 1
+      },
+      {
+        "city": "Oulu",
+        "candidate": 1,
+        "orders": 6306,
+        "with_one_or_more": 6306,
+        "with_two_or_more": 5855
+      },
+      {
+        "city": "Oulu",
+        "candidate": 2,
+        "orders": 489,
+        "with_one_or_more": 0,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Oulu",
+        "candidate": 3,
+        "orders": 271,
+        "with_one_or_more": 0,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Oulu",
+        "candidate": 6,
+        "orders": 4547,
+        "with_one_or_more": 4547,
+        "with_two_or_more": 4547
+      },
+      {
+        "city": "Oulu",
+        "candidate": 7,
+        "orders": 1309,
+        "with_one_or_more": 1309,
+        "with_two_or_more": 1309
+      },
+      {
+        "city": "Tampere",
+        "candidate": 1,
+        "orders": 6314,
+        "with_one_or_more": 6314,
+        "with_two_or_more": 5892
+      },
+      {
+        "city": "Tampere",
+        "candidate": 2,
+        "orders": 469,
+        "with_one_or_more": 469,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Tampere",
+        "candidate": 3,
+        "orders": 274,
+        "with_one_or_more": 274,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Tampere",
+        "candidate": 6,
+        "orders": 4544,
+        "with_one_or_more": 4544,
+        "with_two_or_more": 4544
+      },
+      {
+        "city": "Tampere",
+        "candidate": 7,
+        "orders": 1350,
+        "with_one_or_more": 1350,
+        "with_two_or_more": 1350
+      },
+      {
+        "city": "Turku",
+        "candidate": 1,
+        "orders": 6199,
+        "with_one_or_more": 6199,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Turku",
+        "candidate": 2,
+        "orders": 440,
+        "with_one_or_more": 440,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Turku",
+        "candidate": 3,
+        "orders": 274,
+        "with_one_or_more": 274,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Turku",
+        "candidate": 6,
+        "orders": 4465,
+        "with_one_or_more": 4465,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Turku",
+        "candidate": 7,
+        "orders": 1325,
+        "with_one_or_more": 1325,
+        "with_two_or_more": 0
+      }
+    ],
+    "meaningful_cells": 35,
+    "cells_fully_covered_by_one_or_more": 32,
+    "cells_not_fully_covered": [
+      {
+        "city": "Jyvaskyla",
+        "candidate": 3,
+        "orders": 283,
+        "with_one_or_more": 0,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Oulu",
+        "candidate": 2,
+        "orders": 489,
+        "with_one_or_more": 0,
+        "with_two_or_more": 0
+      },
+      {
+        "city": "Oulu",
+        "candidate": 3,
+        "orders": 271,
+        "with_one_or_more": 0,
+        "with_two_or_more": 0
+      }
+    ]
+  },
+  "highest_demand_meaningful_cell": {
+    "city": "Lahti",
+    "candidate": 1,
+    "calibration_orders": 6435,
+    "winner_orders_with_two_or_more_providers": 4674,
+    "best_any_bijection_orders_with_two_or_more_providers": 6034
+  },
+  "rare_residuals_calibration_sample": [
+    {
+      "city": "Espoo",
+      "candidate": 4,
+      "orders": 42,
+      "share_pct": 0.59
+    },
+    {
+      "city": "Espoo",
+      "candidate": 5,
+      "orders": 43,
+      "share_pct": 0.6
+    },
+    {
+      "city": "Helsinki",
+      "candidate": 4,
+      "orders": 43,
+      "share_pct": 0.6
+    },
+    {
+      "city": "Helsinki",
+      "candidate": 5,
+      "orders": 48,
+      "share_pct": 0.67
+    },
+    {
+      "city": "Jyvaskyla",
+      "candidate": 4,
+      "orders": 52,
+      "share_pct": 0.73
+    },
+    {
+      "city": "Jyvaskyla",
+      "candidate": 5,
+      "orders": 44,
+      "share_pct": 0.62
+    },
+    {
+      "city": "Lahti",
+      "candidate": 4,
+      "orders": 58,
+      "share_pct": 0.8
+    },
+    {
+      "city": "Lahti",
+      "candidate": 5,
+      "orders": 45,
+      "share_pct": 0.62
+    },
+    {
+      "city": "Oulu",
+      "candidate": 4,
+      "orders": 38,
+      "share_pct": 0.54
+    },
+    {
+      "city": "Oulu",
+      "candidate": 5,
+      "orders": 49,
+      "share_pct": 0.7
+    },
+    {
+      "city": "Tampere",
+      "candidate": 4,
+      "orders": 45,
+      "share_pct": 0.63
+    },
+    {
+      "city": "Tampere",
+      "candidate": 5,
+      "orders": 49,
+      "share_pct": 0.69
+    },
+    {
+      "city": "Turku",
+      "candidate": 4,
+      "orders": 49,
+      "share_pct": 0.68
+    },
+    {
+      "city": "Turku",
+      "candidate": 5,
+      "orders": 53,
+      "share_pct": 0.74
+    }
+  ],
+  "production_files_unchanged": true
+}

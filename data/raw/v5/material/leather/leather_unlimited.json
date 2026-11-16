@@ -1,0 +1,25 @@
+{
+  "source": "Leather Unlimited, Garment & Bag Leather Hides collection",
+  "source_url": "https://leatherunltd.com/collections/garment-bag-leather/products/premium-soft-light-weight-garment-leather-hide-20-square-feet-2-3-oz",
+  "page_or_section": "the product page for the premium garment leather hide",
+  "role": "finished-material price level for leather",
+  "observation_kind": "one listed product price, not a series",
+  "currency": "USD",
+  "unit": "USD per hide",
+  "observations": [
+    {
+      "product": "Premium Soft Light Weight Garment Leather Hide",
+      "area_sqft": 20,
+      "weight_oz_per_sqft_range": "2-3",
+      "hide_type": "cowhide",
+      "value": 89.95,
+      "unit": "USD/hide"
+    }
+  ],
+  "verification_note": "this is the premium, garment-labeled tier, deliberately chosen over the same supplier's cheaper 'value priced' 2-4oz upholstery bundles after discovering those bundles sit in the same product line the supplier elsewhere labels 'crust leather' (a semi-finished stage this project excludes); do not substitute the value-priced bundles here",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-11",
+  "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+}

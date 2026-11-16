@@ -1,0 +1,6880 @@
+{
+  "phase": "0, the L09 counterfactual",
+  "convention": "production's: a freight reading is its F and alpha with no weight domain, as the production calibration applies every freight reading; fixed before any counterfactual was run",
+  "candidate_verification": {
+    "candidates_checked": 7,
+    "fields_checked": [
+      "fixed_charge_eur",
+      "alpha_eur_per_kg",
+      "min_shipment_weight_kg",
+      "max_shipment_weight_kg",
+      "max_weight_inclusive"
+    ],
+    "comparison": "exact equality, python ==",
+    "discrepancies": 0,
+    "sources": [
+      "data/raw/v5/logistics/rate_calibration/matkahuolto_lavarahti.json",
+      "data/raw/v5/logistics/rate_calibration/posti_express_freight.json"
+    ],
+    "reused_from": "data/processed/v5/logistics/agent_calibration_proposal.json"
+  },
+  "l09_production_candidate": 7,
+  "candidates_tried": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "control_rebuild": {
+    "agent_calibration_csv_identical": true,
+    "logistics_agents_csv_identical": true,
+    "orders_csv_identical": true
+  },
+  "production": {
+    "orders": 50000,
+    "feasible_orders": 44617,
+    "high_quality_feasible_orders": 1714,
+    "high_quality_orders": 2500,
+    "orders_with_no_eligible_logistics_bidder": 309,
+    "lowest_cost_logistics_wins": {
+      "L01": 3887,
+      "L02": 5388,
+      "L03": 889,
+      "L04": 20252,
+      "L05": 4249,
+      "L06": 0,
+      "L07": 1668,
+      "L08": 3239,
+      "L09": 4851,
+      "L10": 176,
+      "L11": 18,
+      "L12": 0
+    },
+    "lowest_cost_logistics_win_share": {
+      "L01": {
+        "value": 0.087119,
+        "exact": "3887/44617"
+      },
+      "L02": {
+        "value": 0.120761,
+        "exact": "5388/44617"
+      },
+      "L03": {
+        "value": 0.019925,
+        "exact": "889/44617"
+      },
+      "L04": {
+        "value": 0.453908,
+        "exact": "20252/44617"
+      },
+      "L05": {
+        "value": 0.095233,
+        "exact": "4249/44617"
+      },
+      "L06": {
+        "value": 0.0,
+        "exact": "0/1"
+      },
+      "L07": {
+        "value": 0.037385,
+        "exact": "1668/44617"
+      },
+      "L08": {
+        "value": 0.072596,
+        "exact": "3239/44617"
+      },
+      "L09": {
+        "value": 0.108725,
+        "exact": "4851/44617"
+      },
+      "L10": {
+        "value": 0.003945,
+        "exact": "176/44617"
+      },
+      "L11": {
+        "value": 0.000403,
+        "exact": "18/44617"
+      },
+      "L12": {
+        "value": 0.0,
+        "exact": "0/1"
+      }
+    },
+    "l09_win_share_by_city": {
+      "Espoo": {
+        "value": 0.0,
+        "exact": "0/1"
+      },
+      "Helsinki": {
+        "value": 0.0,
+        "exact": "0/1"
+      },
+      "Jyvaskyla": {
+        "value": 0.216838,
+        "exact": "1414/6521"
+      },
+      "Lahti": {
+        "value": 0.0,
+        "exact": "0/1"
+      },
+      "Oulu": {
+        "value": 0.327454,
+        "exact": "2098/6407"
+      },
+      "Tampere": {
+        "value": 0.207468,
+        "exact": "1339/6454"
+      },
+      "Turku": {
+        "value": 0.0,
+        "exact": "0/1"
+      }
+    },
+    "l09_wins_by_city": {
+      "Espoo": 0,
+      "Helsinki": 0,
+      "Jyvaskyla": 1414,
+      "Lahti": 0,
+      "Oulu": 2098,
+      "Tampere": 1339,
+      "Turku": 0
+    },
+    "lowest_cost_wins_by_city": {
+      "Espoo": 6387,
+      "Helsinki": 6368,
+      "Jyvaskyla": 6521,
+      "Lahti": 6353,
+      "Oulu": 6407,
+      "Tampere": 6454,
+      "Turku": 6127
+    },
+    "no_bidder_orders_by_city_and_band": {
+      "Lahti | 1000-1500 kg": 8,
+      "Lahti | 1500-2000 kg": 2,
+      "Lahti | 35-500 kg": 113,
+      "Lahti | 500-1000 kg": 33,
+      "Turku | 1000-1500 kg": 14,
+      "Turku | 1500-2000 kg": 4,
+      "Turku | 2500 kg and over": 2,
+      "Turku | 35-500 kg": 115,
+      "Turku | 500-1000 kg": 18
+    },
+    "structural_gap_orders_by_city_and_band": {},
+    "tied_price_groups": [
+      {
+        "agents": [
+          "L01",
+          "L02",
+          "L11"
+        ],
+        "contested_orders": 5044,
+        "wins": {
+          "L01": 218,
+          "L02": 4808,
+          "L11": 18
+        },
+        "one_agent_wins_every_contested_order": false
+      },
+      {
+        "agents": [
+          "L03",
+          "L06"
+        ],
+        "contested_orders": 708,
+        "wins": {
+          "L03": 708,
+          "L06": 0
+        },
+        "one_agent_wins_every_contested_order": true
+      },
+      {
+        "agents": [
+          "L05",
+          "L09"
+        ],
+        "contested_orders": 1985,
+        "wins": {
+          "L05": 1985,
+          "L09": 0
+        },
+        "one_agent_wins_every_contested_order": true
+      },
+      {
+        "agents": [
+          "L10",
+          "L12"
+        ],
+        "contested_orders": 0,
+        "wins": {
+          "L10": 0,
+          "L12": 0
+        },
+        "one_agent_wins_every_contested_order": false
+      }
+    ],
+    "tied_price_group_sets": [
+      [
+        "L01",
+        "L02",
+        "L11"
+      ],
+      [
+        "L03",
+        "L06"
+      ],
+      [
+        "L05",
+        "L09"
+      ],
+      [
+        "L10",
+        "L12"
+      ]
+    ],
+    "domination_pairs": [
+      [
+        "Espoo",
+        "L01",
+        "L02"
+      ],
+      [
+        "Espoo",
+        "L01",
+        "L11"
+      ],
+      [
+        "Espoo",
+        "L10",
+        "L07"
+      ],
+      [
+        "Espoo",
+        "L10",
+        "L12"
+      ],
+      [
+        "Espoo",
+        "L11",
+        "L02"
+      ],
+      [
+        "Helsinki",
+        "L09",
+        "L05"
+      ],
+      [
+        "Helsinki",
+        "L10",
+        "L07"
+      ],
+      [
+        "Helsinki",
+        "L10",
+        "L12"
+      ],
+      [
+        "Helsinki",
+        "L11",
+        "L02"
+      ],
+      [
+        "Helsinki",
+        "L12",
+        "L07"
+      ],
+      [
+        "Jyvaskyla",
+        "L01",
+        "L02"
+      ],
+      [
+        "Jyvaskyla",
+        "L06",
+        "L03"
+      ],
+      [
+        "Lahti",
+        "L01",
+        "L02"
+      ],
+      [
+        "Lahti",
+        "L10",
+        "L07"
+      ],
+      [
+        "Lahti",
+        "L10",
+        "L12"
+      ],
+      [
+        "Lahti",
+        "L12",
+        "L07"
+      ],
+      [
+        "Oulu",
+        "L06",
+        "L03"
+      ],
+      [
+        "Tampere",
+        "L01",
+        "L02"
+      ],
+      [
+        "Tampere",
+        "L06",
+        "L03"
+      ],
+      [
+        "Turku",
+        "L01",
+        "L02"
+      ],
+      [
+        "Turku",
+        "L01",
+        "L11"
+      ],
+      [
+        "Turku",
+        "L10",
+        "L07"
+      ],
+      [
+        "Turku",
+        "L10",
+        "L12"
+      ],
+      [
+        "Turku",
+        "L12",
+        "L07"
+      ]
+    ],
+    "l05_l09_helsinki_contested": {
+      "orders": 1985,
+      "wins": {
+        "L05": 1985
+      }
+    }
+  },
+  "primary": {
+    "1": {
+      "orders": 50000,
+      "feasible_orders": 44598,
+      "high_quality_feasible_orders": 1721,
+      "high_quality_orders": 2500,
+      "orders_with_no_eligible_logistics_bidder": 309,
+      "lowest_cost_logistics_wins": {
+        "L01": 218,
+        "L02": 1528,
+        "L03": 888,
+        "L04": 17541,
+        "L05": 4120,
+        "L06": 0,
+        "L07": 1665,
+        "L08": 6237,
+        "L09": 12208,
+        "L10": 175,
+        "L11": 18,
+        "L12": 0
+      },
+      "lowest_cost_logistics_win_share": {
+        "L01": {
+          "value": 0.004888,
+          "exact": "109/22299"
+        },
+        "L02": {
+          "value": 0.034262,
+          "exact": "764/22299"
+        },
+        "L03": {
+          "value": 0.019911,
+          "exact": "148/7433"
+        },
+        "L04": {
+          "value": 0.393314,
+          "exact": "5847/14866"
+        },
+        "L05": {
+          "value": 0.092381,
+          "exact": "2060/22299"
+        },
+        "L06": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "L07": {
+          "value": 0.037334,
+          "exact": "555/14866"
+        },
+        "L08": {
+          "value": 0.139849,
+          "exact": "2079/14866"
+        },
+        "L09": {
+          "value": 0.273734,
+          "exact": "6104/22299"
+        },
+        "L10": {
+          "value": 0.003924,
+          "exact": "175/44598"
+        },
+        "L11": {
+          "value": 0.000404,
+          "exact": "3/7433"
+        },
+        "L12": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_win_share_by_city": {
+        "Espoo": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Helsinki": {
+          "value": 0.237198,
+          "exact": "755/3183"
+        },
+        "Jyvaskyla": {
+          "value": 0.633907,
+          "exact": "258/407"
+        },
+        "Lahti": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Oulu": {
+          "value": 0.739735,
+          "exact": "4738/6405"
+        },
+        "Tampere": {
+          "value": 0.284119,
+          "exact": "229/806"
+        },
+        "Turku": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_wins_by_city": {
+        "Espoo": 0,
+        "Helsinki": 1510,
+        "Jyvaskyla": 4128,
+        "Lahti": 0,
+        "Oulu": 4738,
+        "Tampere": 1832,
+        "Turku": 0
+      },
+      "lowest_cost_wins_by_city": {
+        "Espoo": 6387,
+        "Helsinki": 6366,
+        "Jyvaskyla": 6512,
+        "Lahti": 6353,
+        "Oulu": 6405,
+        "Tampere": 6448,
+        "Turku": 6127
+      },
+      "no_bidder_orders_by_city_and_band": {
+        "Lahti | 1000-1500 kg": 8,
+        "Lahti | 1500-2000 kg": 2,
+        "Lahti | 35-500 kg": 113,
+        "Lahti | 500-1000 kg": 33,
+        "Turku | 1000-1500 kg": 14,
+        "Turku | 1500-2000 kg": 4,
+        "Turku | 2500 kg and over": 2,
+        "Turku | 35-500 kg": 115,
+        "Turku | 500-1000 kg": 18
+      },
+      "structural_gap_orders_by_city_and_band": {},
+      "tied_price_groups": [
+        {
+          "agents": [
+            "L01",
+            "L02",
+            "L09",
+            "L11"
+          ],
+          "contested_orders": 13084,
+          "wins": {
+            "L01": 218,
+            "L02": 1305,
+            "L09": 11543,
+            "L11": 18
+          },
+          "one_agent_wins_every_contested_order": false
+        },
+        {
+          "agents": [
+            "L03",
+            "L06"
+          ],
+          "contested_orders": 707,
+          "wins": {
+            "L03": 707,
+            "L06": 0
+          },
+          "one_agent_wins_every_contested_order": true
+        },
+        {
+          "agents": [
+            "L10",
+            "L12"
+          ],
+          "contested_orders": 0,
+          "wins": {
+            "L10": 0,
+            "L12": 0
+          },
+          "one_agent_wins_every_contested_order": false
+        }
+      ],
+      "tied_price_group_sets": [
+        [
+          "L01",
+          "L02",
+          "L09",
+          "L11"
+        ],
+        [
+          "L03",
+          "L06"
+        ],
+        [
+          "L10",
+          "L12"
+        ]
+      ],
+      "domination_pairs": [
+        [
+          "Espoo",
+          "L01",
+          "L02"
+        ],
+        [
+          "Espoo",
+          "L01",
+          "L11"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L07"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L12"
+        ],
+        [
+          "Espoo",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L07"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L12"
+        ],
+        [
+          "Helsinki",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L11",
+          "L09"
+        ],
+        [
+          "Helsinki",
+          "L12",
+          "L07"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L02"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L09"
+        ],
+        [
+          "Jyvaskyla",
+          "L06",
+          "L03"
+        ],
+        [
+          "Lahti",
+          "L01",
+          "L02"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L07"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L12"
+        ],
+        [
+          "Lahti",
+          "L12",
+          "L07"
+        ],
+        [
+          "Oulu",
+          "L01",
+          "L09"
+        ],
+        [
+          "Oulu",
+          "L06",
+          "L03"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L02"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L09"
+        ],
+        [
+          "Tampere",
+          "L06",
+          "L03"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L02"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L11"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L07"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L12"
+        ],
+        [
+          "Turku",
+          "L12",
+          "L07"
+        ]
+      ],
+      "l05_l09_helsinki_contested": {
+        "orders": 3366,
+        "wins": {
+          "L05": 1856,
+          "L09": 1510
+        }
+      }
+    },
+    "2": {
+      "orders": 50000,
+      "feasible_orders": 44724,
+      "high_quality_feasible_orders": 1705,
+      "high_quality_orders": 2500,
+      "orders_with_no_eligible_logistics_bidder": 309,
+      "lowest_cost_logistics_wins": {
+        "L01": 4173,
+        "L02": 5659,
+        "L03": 894,
+        "L04": 20492,
+        "L05": 4254,
+        "L06": 0,
+        "L07": 1670,
+        "L08": 6433,
+        "L09": 954,
+        "L10": 177,
+        "L11": 18,
+        "L12": 0
+      },
+      "lowest_cost_logistics_win_share": {
+        "L01": {
+          "value": 0.093306,
+          "exact": "1391/14908"
+        },
+        "L02": {
+          "value": 0.126532,
+          "exact": "5659/44724"
+        },
+        "L03": {
+          "value": 0.019989,
+          "exact": "149/7454"
+        },
+        "L04": {
+          "value": 0.458188,
+          "exact": "5123/11181"
+        },
+        "L05": {
+          "value": 0.095117,
+          "exact": "709/7454"
+        },
+        "L06": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "L07": {
+          "value": 0.03734,
+          "exact": "835/22362"
+        },
+        "L08": {
+          "value": 0.143838,
+          "exact": "6433/44724"
+        },
+        "L09": {
+          "value": 0.021331,
+          "exact": "159/7454"
+        },
+        "L10": {
+          "value": 0.003958,
+          "exact": "59/14908"
+        },
+        "L11": {
+          "value": 0.000402,
+          "exact": "3/7454"
+        },
+        "L12": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_win_share_by_city": {
+        "Espoo": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Helsinki": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Jyvaskyla": {
+          "value": 0.01696,
+          "exact": "111/6545"
+        },
+        "Lahti": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Oulu": {
+          "value": 0.112838,
+          "exact": "363/3217"
+        },
+        "Tampere": {
+          "value": 0.018056,
+          "exact": "13/720"
+        },
+        "Turku": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_wins_by_city": {
+        "Espoo": 0,
+        "Helsinki": 0,
+        "Jyvaskyla": 111,
+        "Lahti": 0,
+        "Oulu": 726,
+        "Tampere": 117,
+        "Turku": 0
+      },
+      "lowest_cost_wins_by_city": {
+        "Espoo": 6387,
+        "Helsinki": 6398,
+        "Jyvaskyla": 6545,
+        "Lahti": 6353,
+        "Oulu": 6434,
+        "Tampere": 6480,
+        "Turku": 6127
+      },
+      "no_bidder_orders_by_city_and_band": {
+        "Lahti | 1000-1500 kg": 8,
+        "Lahti | 1500-2000 kg": 2,
+        "Lahti | 35-500 kg": 113,
+        "Lahti | 500-1000 kg": 33,
+        "Turku | 1000-1500 kg": 14,
+        "Turku | 1500-2000 kg": 4,
+        "Turku | 2500 kg and over": 2,
+        "Turku | 35-500 kg": 115,
+        "Turku | 500-1000 kg": 18
+      },
+      "structural_gap_orders_by_city_and_band": {},
+      "tied_price_groups": [
+        {
+          "agents": [
+            "L01",
+            "L02",
+            "L11"
+          ],
+          "contested_orders": 5250,
+          "wins": {
+            "L01": 220,
+            "L02": 5012,
+            "L11": 18
+          },
+          "one_agent_wins_every_contested_order": false
+        },
+        {
+          "agents": [
+            "L03",
+            "L06"
+          ],
+          "contested_orders": 713,
+          "wins": {
+            "L03": 713,
+            "L06": 0
+          },
+          "one_agent_wins_every_contested_order": true
+        },
+        {
+          "agents": [
+            "L10",
+            "L12"
+          ],
+          "contested_orders": 0,
+          "wins": {
+            "L10": 0,
+            "L12": 0
+          },
+          "one_agent_wins_every_contested_order": false
+        }
+      ],
+      "tied_price_group_sets": [
+        [
+          "L01",
+          "L02",
+          "L11"
+        ],
+        [
+          "L03",
+          "L06"
+        ],
+        [
+          "L10",
+          "L12"
+        ]
+      ],
+      "domination_pairs": [
+        [
+          "Espoo",
+          "L01",
+          "L02"
+        ],
+        [
+          "Espoo",
+          "L01",
+          "L11"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L07"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L12"
+        ],
+        [
+          "Espoo",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L07"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L12"
+        ],
+        [
+          "Helsinki",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L12",
+          "L07"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L02"
+        ],
+        [
+          "Jyvaskyla",
+          "L06",
+          "L03"
+        ],
+        [
+          "Lahti",
+          "L01",
+          "L02"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L07"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L12"
+        ],
+        [
+          "Lahti",
+          "L12",
+          "L07"
+        ],
+        [
+          "Oulu",
+          "L06",
+          "L03"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L02"
+        ],
+        [
+          "Tampere",
+          "L06",
+          "L03"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L02"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L11"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L07"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L12"
+        ],
+        [
+          "Turku",
+          "L12",
+          "L07"
+        ]
+      ],
+      "l05_l09_helsinki_contested": {
+        "orders": 1990,
+        "wins": {
+          "L05": 1990
+        }
+      }
+    },
+    "3": {
+      "orders": 50000,
+      "feasible_orders": 44725,
+      "high_quality_feasible_orders": 1706,
+      "high_quality_orders": 2500,
+      "orders_with_no_eligible_logistics_bidder": 309,
+      "lowest_cost_logistics_wins": {
+        "L01": 4174,
+        "L02": 5664,
+        "L03": 894,
+        "L04": 20492,
+        "L05": 4254,
+        "L06": 0,
+        "L07": 1670,
+        "L08": 6437,
+        "L09": 945,
+        "L10": 177,
+        "L11": 18,
+        "L12": 0
+      },
+      "lowest_cost_logistics_win_share": {
+        "L01": {
+          "value": 0.093326,
+          "exact": "4174/44725"
+        },
+        "L02": {
+          "value": 0.126641,
+          "exact": "5664/44725"
+        },
+        "L03": {
+          "value": 0.019989,
+          "exact": "894/44725"
+        },
+        "L04": {
+          "value": 0.458178,
+          "exact": "20492/44725"
+        },
+        "L05": {
+          "value": 0.095115,
+          "exact": "4254/44725"
+        },
+        "L06": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "L07": {
+          "value": 0.037339,
+          "exact": "334/8945"
+        },
+        "L08": {
+          "value": 0.143924,
+          "exact": "6437/44725"
+        },
+        "L09": {
+          "value": 0.021129,
+          "exact": "189/8945"
+        },
+        "L10": {
+          "value": 0.003958,
+          "exact": "177/44725"
+        },
+        "L11": {
+          "value": 0.000402,
+          "exact": "18/44725"
+        },
+        "L12": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_win_share_by_city": {
+        "Espoo": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Helsinki": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Jyvaskyla": {
+          "value": 0.016348,
+          "exact": "107/6545"
+        },
+        "Lahti": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Oulu": {
+          "value": 0.112354,
+          "exact": "241/2145"
+        },
+        "Tampere": {
+          "value": 0.017747,
+          "exact": "23/1296"
+        },
+        "Turku": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_wins_by_city": {
+        "Espoo": 0,
+        "Helsinki": 0,
+        "Jyvaskyla": 107,
+        "Lahti": 0,
+        "Oulu": 723,
+        "Tampere": 115,
+        "Turku": 0
+      },
+      "lowest_cost_wins_by_city": {
+        "Espoo": 6387,
+        "Helsinki": 6398,
+        "Jyvaskyla": 6545,
+        "Lahti": 6353,
+        "Oulu": 6435,
+        "Tampere": 6480,
+        "Turku": 6127
+      },
+      "no_bidder_orders_by_city_and_band": {
+        "Lahti | 1000-1500 kg": 8,
+        "Lahti | 1500-2000 kg": 2,
+        "Lahti | 35-500 kg": 113,
+        "Lahti | 500-1000 kg": 33,
+        "Turku | 1000-1500 kg": 14,
+        "Turku | 1500-2000 kg": 4,
+        "Turku | 2500 kg and over": 2,
+        "Turku | 35-500 kg": 115,
+        "Turku | 500-1000 kg": 18
+      },
+      "structural_gap_orders_by_city_and_band": {},
+      "tied_price_groups": [
+        {
+          "agents": [
+            "L01",
+            "L02",
+            "L11"
+          ],
+          "contested_orders": 5251,
+          "wins": {
+            "L01": 220,
+            "L02": 5013,
+            "L11": 18
+          },
+          "one_agent_wins_every_contested_order": false
+        },
+        {
+          "agents": [
+            "L03",
+            "L06"
+          ],
+          "contested_orders": 713,
+          "wins": {
+            "L03": 713,
+            "L06": 0
+          },
+          "one_agent_wins_every_contested_order": true
+        },
+        {
+          "agents": [
+            "L10",
+            "L12"
+          ],
+          "contested_orders": 0,
+          "wins": {
+            "L10": 0,
+            "L12": 0
+          },
+          "one_agent_wins_every_contested_order": false
+        }
+      ],
+      "tied_price_group_sets": [
+        [
+          "L01",
+          "L02",
+          "L11"
+        ],
+        [
+          "L03",
+          "L06"
+        ],
+        [
+          "L10",
+          "L12"
+        ]
+      ],
+      "domination_pairs": [
+        [
+          "Espoo",
+          "L01",
+          "L02"
+        ],
+        [
+          "Espoo",
+          "L01",
+          "L11"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L07"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L12"
+        ],
+        [
+          "Espoo",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L07"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L12"
+        ],
+        [
+          "Helsinki",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L12",
+          "L07"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L02"
+        ],
+        [
+          "Jyvaskyla",
+          "L06",
+          "L03"
+        ],
+        [
+          "Lahti",
+          "L01",
+          "L02"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L07"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L12"
+        ],
+        [
+          "Lahti",
+          "L12",
+          "L07"
+        ],
+        [
+          "Oulu",
+          "L06",
+          "L03"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L02"
+        ],
+        [
+          "Tampere",
+          "L06",
+          "L03"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L02"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L11"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L07"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L12"
+        ],
+        [
+          "Turku",
+          "L12",
+          "L07"
+        ]
+      ],
+      "l05_l09_helsinki_contested": {
+        "orders": 1990,
+        "wins": {
+          "L05": 1990
+        }
+      }
+    },
+    "4": {
+      "orders": 50000,
+      "feasible_orders": 44730,
+      "high_quality_feasible_orders": 1699,
+      "high_quality_orders": 2500,
+      "orders_with_no_eligible_logistics_bidder": 309,
+      "lowest_cost_logistics_wins": {
+        "L01": 4185,
+        "L02": 5673,
+        "L03": 894,
+        "L04": 20498,
+        "L05": 4255,
+        "L06": 0,
+        "L07": 1671,
+        "L08": 6442,
+        "L09": 917,
+        "L10": 177,
+        "L11": 18,
+        "L12": 0
+      },
+      "lowest_cost_logistics_win_share": {
+        "L01": {
+          "value": 0.093561,
+          "exact": "93/994"
+        },
+        "L02": {
+          "value": 0.126828,
+          "exact": "1891/14910"
+        },
+        "L03": {
+          "value": 0.019987,
+          "exact": "149/7455"
+        },
+        "L04": {
+          "value": 0.458261,
+          "exact": "10249/22365"
+        },
+        "L05": {
+          "value": 0.095126,
+          "exact": "851/8946"
+        },
+        "L06": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "L07": {
+          "value": 0.037357,
+          "exact": "557/14910"
+        },
+        "L08": {
+          "value": 0.14402,
+          "exact": "3221/22365"
+        },
+        "L09": {
+          "value": 0.020501,
+          "exact": "131/6390"
+        },
+        "L10": {
+          "value": 0.003957,
+          "exact": "59/14910"
+        },
+        "L11": {
+          "value": 0.000402,
+          "exact": "1/2485"
+        },
+        "L12": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_win_share_by_city": {
+        "Espoo": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Helsinki": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Jyvaskyla": {
+          "value": 0.015434,
+          "exact": "101/6544"
+        },
+        "Lahti": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Oulu": {
+          "value": 0.109919,
+          "exact": "707/6432"
+        },
+        "Tampere": {
+          "value": 0.016818,
+          "exact": "109/6481"
+        },
+        "Turku": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_wins_by_city": {
+        "Espoo": 0,
+        "Helsinki": 0,
+        "Jyvaskyla": 101,
+        "Lahti": 0,
+        "Oulu": 707,
+        "Tampere": 109,
+        "Turku": 0
+      },
+      "lowest_cost_wins_by_city": {
+        "Espoo": 6387,
+        "Helsinki": 6406,
+        "Jyvaskyla": 6544,
+        "Lahti": 6353,
+        "Oulu": 6432,
+        "Tampere": 6481,
+        "Turku": 6127
+      },
+      "no_bidder_orders_by_city_and_band": {
+        "Lahti | 1000-1500 kg": 8,
+        "Lahti | 1500-2000 kg": 2,
+        "Lahti | 35-500 kg": 113,
+        "Lahti | 500-1000 kg": 33,
+        "Turku | 1000-1500 kg": 14,
+        "Turku | 1500-2000 kg": 4,
+        "Turku | 2500 kg and over": 2,
+        "Turku | 35-500 kg": 115,
+        "Turku | 500-1000 kg": 18
+      },
+      "structural_gap_orders_by_city_and_band": {},
+      "tied_price_groups": [
+        {
+          "agents": [
+            "L01",
+            "L02",
+            "L11"
+          ],
+          "contested_orders": 5256,
+          "wins": {
+            "L01": 220,
+            "L02": 5018,
+            "L11": 18
+          },
+          "one_agent_wins_every_contested_order": false
+        },
+        {
+          "agents": [
+            "L03",
+            "L06"
+          ],
+          "contested_orders": 713,
+          "wins": {
+            "L03": 713,
+            "L06": 0
+          },
+          "one_agent_wins_every_contested_order": true
+        },
+        {
+          "agents": [
+            "L10",
+            "L12"
+          ],
+          "contested_orders": 0,
+          "wins": {
+            "L10": 0,
+            "L12": 0
+          },
+          "one_agent_wins_every_contested_order": false
+        }
+      ],
+      "tied_price_group_sets": [
+        [
+          "L01",
+          "L02",
+          "L11"
+        ],
+        [
+          "L03",
+          "L06"
+        ],
+        [
+          "L10",
+          "L12"
+        ]
+      ],
+      "domination_pairs": [
+        [
+          "Espoo",
+          "L01",
+          "L02"
+        ],
+        [
+          "Espoo",
+          "L01",
+          "L11"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L07"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L12"
+        ],
+        [
+          "Espoo",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L07"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L12"
+        ],
+        [
+          "Helsinki",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L12",
+          "L07"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L02"
+        ],
+        [
+          "Jyvaskyla",
+          "L06",
+          "L03"
+        ],
+        [
+          "Lahti",
+          "L01",
+          "L02"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L07"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L12"
+        ],
+        [
+          "Lahti",
+          "L12",
+          "L07"
+        ],
+        [
+          "Oulu",
+          "L06",
+          "L03"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L02"
+        ],
+        [
+          "Tampere",
+          "L06",
+          "L03"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L02"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L11"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L07"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L12"
+        ],
+        [
+          "Turku",
+          "L12",
+          "L07"
+        ]
+      ],
+      "l05_l09_helsinki_contested": {
+        "orders": 1991,
+        "wins": {
+          "L05": 1991
+        }
+      }
+    },
+    "5": {
+      "orders": 50000,
+      "feasible_orders": 44753,
+      "high_quality_feasible_orders": 1697,
+      "high_quality_orders": 2500,
+      "orders_with_no_eligible_logistics_bidder": 309,
+      "lowest_cost_logistics_wins": {
+        "L01": 4199,
+        "L02": 5687,
+        "L03": 895,
+        "L04": 20505,
+        "L05": 4256,
+        "L06": 0,
+        "L07": 1671,
+        "L08": 6443,
+        "L09": 901,
+        "L10": 178,
+        "L11": 18,
+        "L12": 0
+      },
+      "lowest_cost_logistics_win_share": {
+        "L01": {
+          "value": 0.093826,
+          "exact": "4199/44753"
+        },
+        "L02": {
+          "value": 0.127075,
+          "exact": "5687/44753"
+        },
+        "L03": {
+          "value": 0.019999,
+          "exact": "895/44753"
+        },
+        "L04": {
+          "value": 0.458182,
+          "exact": "20505/44753"
+        },
+        "L05": {
+          "value": 0.0951,
+          "exact": "4256/44753"
+        },
+        "L06": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "L07": {
+          "value": 0.037338,
+          "exact": "1671/44753"
+        },
+        "L08": {
+          "value": 0.143968,
+          "exact": "6443/44753"
+        },
+        "L09": {
+          "value": 0.020133,
+          "exact": "901/44753"
+        },
+        "L10": {
+          "value": 0.003977,
+          "exact": "178/44753"
+        },
+        "L11": {
+          "value": 0.000402,
+          "exact": "18/44753"
+        },
+        "L12": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_win_share_by_city": {
+        "Espoo": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Helsinki": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Jyvaskyla": {
+          "value": 0.01496,
+          "exact": "98/6551"
+        },
+        "Lahti": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Oulu": {
+          "value": 0.108557,
+          "exact": "699/6439"
+        },
+        "Tampere": {
+          "value": 0.016027,
+          "exact": "104/6489"
+        },
+        "Turku": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_wins_by_city": {
+        "Espoo": 0,
+        "Helsinki": 0,
+        "Jyvaskyla": 98,
+        "Lahti": 0,
+        "Oulu": 699,
+        "Tampere": 104,
+        "Turku": 0
+      },
+      "lowest_cost_wins_by_city": {
+        "Espoo": 6387,
+        "Helsinki": 6407,
+        "Jyvaskyla": 6551,
+        "Lahti": 6353,
+        "Oulu": 6439,
+        "Tampere": 6489,
+        "Turku": 6127
+      },
+      "no_bidder_orders_by_city_and_band": {
+        "Lahti | 1000-1500 kg": 8,
+        "Lahti | 1500-2000 kg": 2,
+        "Lahti | 35-500 kg": 113,
+        "Lahti | 500-1000 kg": 33,
+        "Turku | 1000-1500 kg": 14,
+        "Turku | 1500-2000 kg": 4,
+        "Turku | 2500 kg and over": 2,
+        "Turku | 35-500 kg": 115,
+        "Turku | 500-1000 kg": 18
+      },
+      "structural_gap_orders_by_city_and_band": {},
+      "tied_price_groups": [
+        {
+          "agents": [
+            "L01",
+            "L02",
+            "L11"
+          ],
+          "contested_orders": 5265,
+          "wins": {
+            "L01": 220,
+            "L02": 5027,
+            "L11": 18
+          },
+          "one_agent_wins_every_contested_order": false
+        },
+        {
+          "agents": [
+            "L03",
+            "L06"
+          ],
+          "contested_orders": 714,
+          "wins": {
+            "L03": 714,
+            "L06": 0
+          },
+          "one_agent_wins_every_contested_order": true
+        },
+        {
+          "agents": [
+            "L10",
+            "L12"
+          ],
+          "contested_orders": 0,
+          "wins": {
+            "L10": 0,
+            "L12": 0
+          },
+          "one_agent_wins_every_contested_order": false
+        }
+      ],
+      "tied_price_group_sets": [
+        [
+          "L01",
+          "L02",
+          "L11"
+        ],
+        [
+          "L03",
+          "L06"
+        ],
+        [
+          "L10",
+          "L12"
+        ]
+      ],
+      "domination_pairs": [
+        [
+          "Espoo",
+          "L01",
+          "L02"
+        ],
+        [
+          "Espoo",
+          "L01",
+          "L11"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L07"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L12"
+        ],
+        [
+          "Espoo",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L09",
+          "L05"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L07"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L12"
+        ],
+        [
+          "Helsinki",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L12",
+          "L07"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L02"
+        ],
+        [
+          "Jyvaskyla",
+          "L06",
+          "L03"
+        ],
+        [
+          "Lahti",
+          "L01",
+          "L02"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L07"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L12"
+        ],
+        [
+          "Lahti",
+          "L12",
+          "L07"
+        ],
+        [
+          "Oulu",
+          "L06",
+          "L03"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L02"
+        ],
+        [
+          "Tampere",
+          "L06",
+          "L03"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L02"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L11"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L07"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L12"
+        ],
+        [
+          "Turku",
+          "L12",
+          "L07"
+        ]
+      ],
+      "l05_l09_helsinki_contested": {
+        "orders": 1992,
+        "wins": {
+          "L05": 1992
+        }
+      }
+    },
+    "6": {
+      "orders": 50000,
+      "feasible_orders": 44618,
+      "high_quality_feasible_orders": 1713,
+      "high_quality_orders": 2500,
+      "orders_with_no_eligible_logistics_bidder": 309,
+      "lowest_cost_logistics_wins": {
+        "L01": 3906,
+        "L02": 5412,
+        "L03": 889,
+        "L04": 20267,
+        "L05": 2940,
+        "L06": 0,
+        "L07": 1668,
+        "L08": 1782,
+        "L09": 7560,
+        "L10": 176,
+        "L11": 18,
+        "L12": 0
+      },
+      "lowest_cost_logistics_win_share": {
+        "L01": {
+          "value": 0.087543,
+          "exact": "279/3187"
+        },
+        "L02": {
+          "value": 0.121296,
+          "exact": "2706/22309"
+        },
+        "L03": {
+          "value": 0.019925,
+          "exact": "127/6374"
+        },
+        "L04": {
+          "value": 0.454234,
+          "exact": "20267/44618"
+        },
+        "L05": {
+          "value": 0.065893,
+          "exact": "210/3187"
+        },
+        "L06": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "L07": {
+          "value": 0.037384,
+          "exact": "834/22309"
+        },
+        "L08": {
+          "value": 0.039939,
+          "exact": "891/22309"
+        },
+        "L09": {
+          "value": 0.169438,
+          "exact": "540/3187"
+        },
+        "L10": {
+          "value": 0.003945,
+          "exact": "88/22309"
+        },
+        "L11": {
+          "value": 0.000403,
+          "exact": "9/22309"
+        },
+        "L12": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_win_share_by_city": {
+        "Espoo": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Helsinki": {
+          "value": 0.205559,
+          "exact": "1309/6368"
+        },
+        "Jyvaskyla": {
+          "value": 0.291826,
+          "exact": "1903/6521"
+        },
+        "Lahti": {
+          "value": 0.0,
+          "exact": "0/1"
+        },
+        "Oulu": {
+          "value": 0.389764,
+          "exact": "2498/6409"
+        },
+        "Tampere": {
+          "value": 0.286688,
+          "exact": "1850/6453"
+        },
+        "Turku": {
+          "value": 0.0,
+          "exact": "0/1"
+        }
+      },
+      "l09_wins_by_city": {
+        "Espoo": 0,
+        "Helsinki": 1309,
+        "Jyvaskyla": 1903,
+        "Lahti": 0,
+        "Oulu": 2498,
+        "Tampere": 1850,
+        "Turku": 0
+      },
+      "lowest_cost_wins_by_city": {
+        "Espoo": 6387,
+        "Helsinki": 6368,
+        "Jyvaskyla": 6521,
+        "Lahti": 6353,
+        "Oulu": 6409,
+        "Tampere": 6453,
+        "Turku": 6127
+      },
+      "no_bidder_orders_by_city_and_band": {
+        "Lahti | 1000-1500 kg": 8,
+        "Lahti | 1500-2000 kg": 2,
+        "Lahti | 35-500 kg": 113,
+        "Lahti | 500-1000 kg": 33,
+        "Turku | 1000-1500 kg": 14,
+        "Turku | 1500-2000 kg": 4,
+        "Turku | 2500 kg and over": 2,
+        "Turku | 35-500 kg": 115,
+        "Turku | 500-1000 kg": 18
+      },
+      "structural_gap_orders_by_city_and_band": {},
+      "tied_price_groups": [
+        {
+          "agents": [
+            "L01",
+            "L02",
+            "L11"
+          ],
+          "contested_orders": 5067,
+          "wins": {
+            "L01": 218,
+            "L02": 4831,
+            "L11": 18
+          },
+          "one_agent_wins_every_contested_order": false
+        },
+        {
+          "agents": [
+            "L03",
+            "L06"
+          ],
+          "contested_orders": 708,
+          "wins": {
+            "L03": 708,
+            "L06": 0
+          },
+          "one_agent_wins_every_contested_order": true
+        },
+        {
+          "agents": [
+            "L08",
+            "L09"
+          ],
+          "contested_orders": 5648,
+          "wins": {
+            "L08": 269,
+            "L09": 5379
+          },
+          "one_agent_wins_every_contested_order": false
+        },
+        {
+          "agents": [
+            "L10",
+            "L12"
+          ],
+          "contested_orders": 0,
+          "wins": {
+            "L10": 0,
+            "L12": 0
+          },
+          "one_agent_wins_every_contested_order": false
+        }
+      ],
+      "tied_price_group_sets": [
+        [
+          "L01",
+          "L02",
+          "L11"
+        ],
+        [
+          "L03",
+          "L06"
+        ],
+        [
+          "L08",
+          "L09"
+        ],
+        [
+          "L10",
+          "L12"
+        ]
+      ],
+      "domination_pairs": [
+        [
+          "Espoo",
+          "L01",
+          "L02"
+        ],
+        [
+          "Espoo",
+          "L01",
+          "L11"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L07"
+        ],
+        [
+          "Espoo",
+          "L10",
+          "L12"
+        ],
+        [
+          "Espoo",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L07"
+        ],
+        [
+          "Helsinki",
+          "L10",
+          "L12"
+        ],
+        [
+          "Helsinki",
+          "L11",
+          "L02"
+        ],
+        [
+          "Helsinki",
+          "L12",
+          "L07"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L02"
+        ],
+        [
+          "Jyvaskyla",
+          "L06",
+          "L03"
+        ],
+        [
+          "Lahti",
+          "L01",
+          "L02"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L07"
+        ],
+        [
+          "Lahti",
+          "L10",
+          "L12"
+        ],
+        [
+          "Lahti",
+          "L12",
+          "L07"
+        ],
+        [
+          "Oulu",
+          "L06",
+          "L03"
+        ],
+        [
+          "Oulu",
+          "L08",
+          "L09"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L02"
+        ],
+        [
+          "Tampere",
+          "L06",
+          "L03"
+        ],
+        [
+          "Tampere",
+          "L08",
+          "L09"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L02"
+        ],
+        [
+          "Turku",
+          "L01",
+          "L11"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L07"
+        ],
+        [
+          "Turku",
+          "L10",
+          "L12"
+        ],
+        [
+          "Turku",
+          "L12",
+          "L07"
+        ]
+      ],
+      "l05_l09_helsinki_contested": {
+        "orders": 1985,
+        "wins": {
+          "L09": 1309,
+          "L05": 676
+        }
+      }
+    }
+  },
+  "candidates": [
+    {
+      "candidate": 1,
+      "checks": {
+        "feasible_orders_not_fewer": false,
+        "high_quality_feasible_orders_not_fewer": true,
+        "no_bidder_orders_not_more": true,
+        "no_cell_gains_a_structural_coverage_gap": true,
+        "no_cell_gains_a_no_bidder_order": true,
+        "l09_share_not_lower_in_Jyvaskyla": true,
+        "l09_share_not_lower_in_Oulu": true,
+        "l09_share_not_lower_in_Tampere": true,
+        "no_new_tied_price_group": false,
+        "no_new_structural_domination_pair": false
+      },
+      "clears_every_guard": false,
+      "failed_guards": [
+        "feasible_orders_not_fewer",
+        "no_new_tied_price_group",
+        "no_new_structural_domination_pair"
+      ],
+      "new_tied_price_groups": [
+        [
+          "L01",
+          "L02",
+          "L09",
+          "L11"
+        ]
+      ],
+      "new_domination_pairs": [
+        [
+          "Helsinki",
+          "L11",
+          "L09"
+        ],
+        [
+          "Jyvaskyla",
+          "L01",
+          "L09"
+        ],
+        [
+          "Oulu",
+          "L01",
+          "L09"
+        ],
+        [
+          "Tampere",
+          "L01",
+          "L09"
+        ]
+      ],
+      "removes_l05_l09_tie": true,
+      "total_abs_win_share_change": {
+        "value": 0.464525,
+        "exact": "462163087/994914483"
+      },
+      "label": "Matkahuolto Lavarahti [0, 1000) kg",
+      "reading_id": "matkahuolto_lavarahti_1_49km_0_to_1000kg_with_pickup",
+      "build": {
+        "calibration": "data/processed/v5/l09_counterfactual/candidate_1/agent_calibration.csv",
+        "logistics_profile": "data/processed/v5/l09_counterfactual/candidate_1/logistics_agents.csv",
+        "orders_csv_sha256": "93378eda8a0cb5555e51a4a1bc5ea0a87e8a5ecadbcff4e2966849a2810be9a0",
+        "orders_csv_rows": 50000,
+        "orders_csv_persisted": false
+      }
+    },
+    {
+      "candidate": 2,
+      "checks": {
+        "feasible_orders_not_fewer": true,
+        "high_quality_feasible_orders_not_fewer": false,
+        "no_bidder_orders_not_more": true,
+        "no_cell_gains_a_structural_coverage_gap": true,
+        "no_cell_gains_a_no_bidder_order": true,
+        "l09_share_not_lower_in_Jyvaskyla": false,
+        "l09_share_not_lower_in_Oulu": false,
+        "l09_share_not_lower_in_Tampere": false,
+        "no_new_tied_price_group": true,
+        "no_new_structural_domination_pair": true
+      },
+      "clears_every_guard": false,
+      "failed_guards": [
+        "high_quality_feasible_orders_not_fewer",
+        "l09_share_not_lower_in_Jyvaskyla",
+        "l09_share_not_lower_in_Oulu",
+        "l09_share_not_lower_in_Tampere"
+      ],
+      "new_tied_price_groups": [],
+      "new_domination_pairs": [],
+      "removes_l05_l09_tie": true,
+      "total_abs_win_share_change": {
+        "value": 0.175113,
+        "exact": "87357116/498862677"
+      },
+      "label": "Matkahuolto Lavarahti [1000, 1500) kg",
+      "reading_id": "matkahuolto_lavarahti_1_49km_1000_to_1500kg_with_pickup",
+      "build": {
+        "calibration": "data/processed/v5/l09_counterfactual/candidate_2/agent_calibration.csv",
+        "logistics_profile": "data/processed/v5/l09_counterfactual/candidate_2/logistics_agents.csv",
+        "orders_csv_sha256": "7dca2879e5e9662730a37ef057d13d03b2c2ce984caf34a02f60b745d0c946c1",
+        "orders_csv_rows": 50000,
+        "orders_csv_persisted": false
+      }
+    },
+    {
+      "candidate": 3,
+      "checks": {
+        "feasible_orders_not_fewer": true,
+        "high_quality_feasible_orders_not_fewer": false,
+        "no_bidder_orders_not_more": true,
+        "no_cell_gains_a_structural_coverage_gap": true,
+        "no_cell_gains_a_no_bidder_order": true,
+        "l09_share_not_lower_in_Jyvaskyla": false,
+        "l09_share_not_lower_in_Oulu": false,
+        "l09_share_not_lower_in_Tampere": false,
+        "no_new_tied_price_group": true,
+        "no_new_structural_domination_pair": true
+      },
+      "clears_every_guard": false,
+      "failed_guards": [
+        "high_quality_feasible_orders_not_fewer",
+        "l09_share_not_lower_in_Jyvaskyla",
+        "l09_share_not_lower_in_Oulu",
+        "l09_share_not_lower_in_Tampere"
+      ],
+      "new_tied_price_groups": [],
+      "new_domination_pairs": [],
+      "removes_l05_l09_tie": true,
+      "total_abs_win_share_change": {
+        "value": 0.175522,
+        "exact": "350253142/1995495325"
+      },
+      "label": "Matkahuolto Lavarahti [1500, 2000) kg",
+      "reading_id": "matkahuolto_lavarahti_1_49km_1500_to_2000kg_with_pickup",
+      "build": {
+        "calibration": "data/processed/v5/l09_counterfactual/candidate_3/agent_calibration.csv",
+        "logistics_profile": "data/processed/v5/l09_counterfactual/candidate_3/logistics_agents.csv",
+        "orders_csv_sha256": "0f32b3923d0ba0d13b3a57af8c3c5bd68d4dc027680e3e5a96ec0a7e0a88524f",
+        "orders_csv_rows": 50000,
+        "orders_csv_persisted": false
+      }
+    },
+    {
+      "candidate": 4,
+      "checks": {
+        "feasible_orders_not_fewer": true,
+        "high_quality_feasible_orders_not_fewer": false,
+        "no_bidder_orders_not_more": true,
+        "no_cell_gains_a_structural_coverage_gap": true,
+        "no_cell_gains_a_no_bidder_order": true,
+        "l09_share_not_lower_in_Jyvaskyla": false,
+        "l09_share_not_lower_in_Oulu": false,
+        "l09_share_not_lower_in_Tampere": false,
+        "no_new_tied_price_group": true,
+        "no_new_structural_domination_pair": true
+      },
+      "clears_every_guard": false,
+      "failed_guards": [
+        "high_quality_feasible_orders_not_fewer",
+        "l09_share_not_lower_in_Jyvaskyla",
+        "l09_share_not_lower_in_Oulu",
+        "l09_share_not_lower_in_Tampere"
+      ],
+      "new_tied_price_groups": [],
+      "new_domination_pairs": [],
+      "removes_l05_l09_tie": true,
+      "total_abs_win_share_change": {
+        "value": 0.176719,
+        "exact": "58780181/332619735"
+      },
+      "label": "Matkahuolto Lavarahti [2000, 2500) kg",
+      "reading_id": "matkahuolto_lavarahti_1_49km_2000_to_2500kg_with_pickup",
+      "build": {
+        "calibration": "data/processed/v5/l09_counterfactual/candidate_4/agent_calibration.csv",
+        "logistics_profile": "data/processed/v5/l09_counterfactual/candidate_4/logistics_agents.csv",
+        "orders_csv_sha256": "f507611b745307e69b38544a93920e06df9a3edf97d4a106a9ffa7b50b715924",
+        "orders_csv_rows": 50000,
+        "orders_csv_persisted": false
+      }
+    },
+    {
+      "candidate": 5,
+      "checks": {
+        "feasible_orders_not_fewer": true,
+        "high_quality_feasible_orders_not_fewer": false,
+        "no_bidder_orders_not_more": true,
+        "no_cell_gains_a_structural_coverage_gap": true,
+        "no_cell_gains_a_no_bidder_order": true,
+        "l09_share_not_lower_in_Jyvaskyla": false,
+        "l09_share_not_lower_in_Oulu": false,
+        "l09_share_not_lower_in_Tampere": false,
+        "no_new_tied_price_group": true,
+        "no_new_structural_domination_pair": true
+      },
+      "clears_every_guard": false,
+      "failed_guards": [
+        "high_quality_feasible_orders_not_fewer",
+        "l09_share_not_lower_in_Jyvaskyla",
+        "l09_share_not_lower_in_Oulu",
+        "l09_share_not_lower_in_Tampere"
+      ],
+      "new_tied_price_groups": [],
+      "new_domination_pairs": [],
+      "removes_l05_l09_tie": true,
+      "total_abs_win_share_change": {
+        "value": 0.177547,
+        "exact": "354515752/1996744601"
+      },
+      "label": "Matkahuolto Lavarahti [2500, 3000) kg",
+      "reading_id": "matkahuolto_lavarahti_1_49km_2500_to_3000kg_with_pickup",
+      "build": {
+        "calibration": "data/processed/v5/l09_counterfactual/candidate_5/agent_calibration.csv",
+        "logistics_profile": "data/processed/v5/l09_counterfactual/candidate_5/logistics_agents.csv",
+        "orders_csv_sha256": "087303beb977a3aa3a1110df77346dfaeb74cb1bdeaa825d0b4814755d66609a",
+        "orders_csv_rows": 50000,
+        "orders_csv_persisted": false
+      }
+    },
+    {
+      "candidate": 6,
+      "checks": {
+        "feasible_orders_not_fewer": true,
+        "high_quality_feasible_orders_not_fewer": false,
+        "no_bidder_orders_not_more": true,
+        "no_cell_gains_a_structural_coverage_gap": true,
+        "no_cell_gains_a_no_bidder_order": true,
+        "l09_share_not_lower_in_Jyvaskyla": true,
+        "l09_share_not_lower_in_Oulu": true,
+        "l09_share_not_lower_in_Tampere": true,
+        "no_new_tied_price_group": false,
+        "no_new_structural_domination_pair": false
+      },
+      "clears_every_guard": false,
+      "failed_guards": [
+        "high_quality_feasible_orders_not_fewer",
+        "no_new_tied_price_group",
+        "no_new_structural_domination_pair"
+      ],
+      "new_tied_price_groups": [
+        [
+          "L08",
+          "L09"
+        ]
+      ],
+      "new_domination_pairs": [
+        [
+          "Oulu",
+          "L08",
+          "L09"
+        ],
+        [
+          "Tampere",
+          "L08",
+          "L09"
+        ]
+      ],
+      "removes_l05_l09_tie": true,
+      "total_abs_win_share_change": {
+        "value": 0.123996,
+        "exact": "123420861/995360653"
+      },
+      "label": "Posti Express Freight [35, 500] kg, loose package to half pallet",
+      "reading_id": "posti_express_freight_zone0_loose_to_half_pallet_with_pickup",
+      "build": {
+        "calibration": "data/processed/v5/l09_counterfactual/candidate_6/agent_calibration.csv",
+        "logistics_profile": "data/processed/v5/l09_counterfactual/candidate_6/logistics_agents.csv",
+        "orders_csv_sha256": "fe81dd5a091b29e98aef8f432df2343c5eaca254893251933ab22e9ca95838dd",
+        "orders_csv_rows": 50000,
+        "orders_csv_persisted": false
+      }
+    }
+  ],
+  "production_l05_l09_helsinki_contested_orders_won_now_by": {
+    "1": {
+      "L05": 1855,
+      "L09": 130
+    },
+    "2": {
+      "L05": 1985
+    },
+    "3": {
+      "L05": 1985
+    },
+    "4": {
+      "L05": 1985
+    },
+    "5": {
+      "L05": 1985
+    },
+    "6": {
+      "L09": 1309,
+      "L05": 676
+    }
+  },
+  "sensitivities_reported_never_promote": {
+    "budget_held": {
+      "candidates": [
+        {
+          "candidate": 1,
+          "checks": {
+            "feasible_orders_not_fewer": true,
+            "high_quality_feasible_orders_not_fewer": true,
+            "no_bidder_orders_not_more": true,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": true,
+            "l09_share_not_lower_in_Jyvaskyla": true,
+            "l09_share_not_lower_in_Oulu": true,
+            "l09_share_not_lower_in_Tampere": true,
+            "no_new_tied_price_group": false,
+            "no_new_structural_domination_pair": false
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "no_new_tied_price_group",
+            "no_new_structural_domination_pair"
+          ],
+          "new_tied_price_groups": [
+            [
+              "L01",
+              "L02",
+              "L09",
+              "L11"
+            ]
+          ],
+          "new_domination_pairs": [
+            [
+              "Helsinki",
+              "L11",
+              "L09"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L09"
+            ],
+            [
+              "Oulu",
+              "L01",
+              "L09"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L09"
+            ]
+          ],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.464765,
+            "exact": "925486996/1991301327"
+          }
+        },
+        {
+          "candidate": 2,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": true,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": true,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.175535,
+            "exact": "174517388/994200611"
+          }
+        },
+        {
+          "candidate": 3,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": true,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": true,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.175807,
+            "exact": "43698698/248561307"
+          }
+        },
+        {
+          "candidate": 4,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": true,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": true,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.17701,
+            "exact": "351911584/1988088903"
+          }
+        },
+        {
+          "candidate": 5,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": true,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": true,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.178122,
+            "exact": "88508928/496899529"
+          }
+        },
+        {
+          "candidate": 6,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": true,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": true,
+            "l09_share_not_lower_in_Jyvaskyla": true,
+            "l09_share_not_lower_in_Oulu": true,
+            "l09_share_not_lower_in_Tampere": true,
+            "no_new_tied_price_group": false,
+            "no_new_structural_domination_pair": false
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "no_new_tied_price_group",
+            "no_new_structural_domination_pair"
+          ],
+          "new_tied_price_groups": [
+            [
+              "L08",
+              "L09"
+            ]
+          ],
+          "new_domination_pairs": [
+            [
+              "Oulu",
+              "L08",
+              "L09"
+            ],
+            [
+              "Tampere",
+              "L08",
+              "L09"
+            ]
+          ],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.123984,
+            "exact": "20567189/165886006"
+          }
+        }
+      ],
+      "would_qualify": null,
+      "metrics": {
+        "1": {
+          "orders": 50000,
+          "feasible_orders": 44631,
+          "high_quality_feasible_orders": 1720,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 309,
+          "lowest_cost_logistics_wins": {
+            "L01": 218,
+            "L02": 1529,
+            "L03": 889,
+            "L04": 17550,
+            "L05": 4119,
+            "L06": 0,
+            "L07": 1668,
+            "L08": 6236,
+            "L09": 12228,
+            "L10": 176,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.004884,
+              "exact": "218/44631"
+            },
+            "L02": {
+              "value": 0.034259,
+              "exact": "1529/44631"
+            },
+            "L03": {
+              "value": 0.019919,
+              "exact": "889/44631"
+            },
+            "L04": {
+              "value": 0.393224,
+              "exact": "650/1653"
+            },
+            "L05": {
+              "value": 0.09229,
+              "exact": "1373/14877"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037373,
+              "exact": "556/14877"
+            },
+            "L08": {
+              "value": 0.139724,
+              "exact": "6236/44631"
+            },
+            "L09": {
+              "value": 0.27398,
+              "exact": "4076/14877"
+            },
+            "L10": {
+              "value": 0.003943,
+              "exact": "176/44631"
+            },
+            "L11": {
+              "value": 0.000403,
+              "exact": "2/4959"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.237168,
+              "exact": "1511/6371"
+            },
+            "Jyvaskyla": {
+              "value": 0.634105,
+              "exact": "4135/6521"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.740221,
+              "exact": "4750/6417"
+            },
+            "Tampere": {
+              "value": 0.283811,
+              "exact": "1832/6455"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 1511,
+            "Jyvaskyla": 4135,
+            "Lahti": 0,
+            "Oulu": 4750,
+            "Tampere": 1832,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6371,
+            "Jyvaskyla": 6521,
+            "Lahti": 6353,
+            "Oulu": 6417,
+            "Tampere": 6455,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L09",
+                "L11"
+              ],
+              "contested_orders": 13105,
+              "wins": {
+                "L01": 218,
+                "L02": 1306,
+                "L09": 11563,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 708,
+              "wins": {
+                "L03": 708,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L09",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L09"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L09"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L01",
+              "L09"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L09"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 3366,
+            "wins": {
+              "L05": 1855,
+              "L09": 1511
+            }
+          }
+        },
+        "2": {
+          "orders": 50000,
+          "feasible_orders": 44566,
+          "high_quality_feasible_orders": 1685,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 309,
+          "lowest_cost_logistics_wins": {
+            "L01": 4125,
+            "L02": 5630,
+            "L03": 889,
+            "L04": 20447,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1668,
+            "L08": 6430,
+            "L09": 934,
+            "L10": 176,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.092559,
+              "exact": "4125/44566"
+            },
+            "L02": {
+              "value": 0.126329,
+              "exact": "2815/22283"
+            },
+            "L03": {
+              "value": 0.019948,
+              "exact": "889/44566"
+            },
+            "L04": {
+              "value": 0.458803,
+              "exact": "20447/44566"
+            },
+            "L05": {
+              "value": 0.095342,
+              "exact": "4249/44566"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037428,
+              "exact": "834/22283"
+            },
+            "L08": {
+              "value": 0.14428,
+              "exact": "3215/22283"
+            },
+            "L09": {
+              "value": 0.020958,
+              "exact": "467/22283"
+            },
+            "L10": {
+              "value": 0.003949,
+              "exact": "88/22283"
+            },
+            "L11": {
+              "value": 0.000404,
+              "exact": "9/22283"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.01628,
+              "exact": "106/6511"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.111582,
+              "exact": "79/708"
+            },
+            "Tampere": {
+              "value": 0.018145,
+              "exact": "9/496"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 106,
+            "Lahti": 0,
+            "Oulu": 711,
+            "Tampere": 117,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6368,
+            "Jyvaskyla": 6511,
+            "Lahti": 6353,
+            "Oulu": 6372,
+            "Tampere": 6448,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5227,
+              "wins": {
+                "L01": 218,
+                "L02": 4991,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 708,
+              "wins": {
+                "L03": 708,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 1985,
+            "wins": {
+              "L05": 1985
+            }
+          }
+        },
+        "3": {
+          "orders": 50000,
+          "feasible_orders": 44568,
+          "high_quality_feasible_orders": 1686,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 309,
+          "lowest_cost_logistics_wins": {
+            "L01": 4125,
+            "L02": 5635,
+            "L03": 889,
+            "L04": 20447,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1668,
+            "L08": 6433,
+            "L09": 928,
+            "L10": 176,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.092555,
+              "exact": "1375/14856"
+            },
+            "L02": {
+              "value": 0.126436,
+              "exact": "5635/44568"
+            },
+            "L03": {
+              "value": 0.019947,
+              "exact": "889/44568"
+            },
+            "L04": {
+              "value": 0.458782,
+              "exact": "20447/44568"
+            },
+            "L05": {
+              "value": 0.095337,
+              "exact": "4249/44568"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037426,
+              "exact": "139/3714"
+            },
+            "L08": {
+              "value": 0.144341,
+              "exact": "6433/44568"
+            },
+            "L09": {
+              "value": 0.020822,
+              "exact": "116/5571"
+            },
+            "L10": {
+              "value": 0.003949,
+              "exact": "22/5571"
+            },
+            "L11": {
+              "value": 0.000404,
+              "exact": "1/2476"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.015819,
+              "exact": "103/6511"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.11139,
+              "exact": "355/3187"
+            },
+            "Tampere": {
+              "value": 0.017835,
+              "exact": "115/6448"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 103,
+            "Lahti": 0,
+            "Oulu": 710,
+            "Tampere": 115,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6368,
+            "Jyvaskyla": 6511,
+            "Lahti": 6353,
+            "Oulu": 6374,
+            "Tampere": 6448,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5228,
+              "wins": {
+                "L01": 218,
+                "L02": 4992,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 708,
+              "wins": {
+                "L03": 708,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 1985,
+            "wins": {
+              "L05": 1985
+            }
+          }
+        },
+        "4": {
+          "orders": 50000,
+          "feasible_orders": 44559,
+          "high_quality_feasible_orders": 1682,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 309,
+          "lowest_cost_logistics_wins": {
+            "L01": 4132,
+            "L02": 5642,
+            "L03": 889,
+            "L04": 20447,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1668,
+            "L08": 6437,
+            "L09": 901,
+            "L10": 176,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.092731,
+              "exact": "4132/44559"
+            },
+            "L02": {
+              "value": 0.126619,
+              "exact": "5642/44559"
+            },
+            "L03": {
+              "value": 0.019951,
+              "exact": "889/44559"
+            },
+            "L04": {
+              "value": 0.458875,
+              "exact": "20447/44559"
+            },
+            "L05": {
+              "value": 0.095357,
+              "exact": "4249/44559"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037434,
+              "exact": "556/14853"
+            },
+            "L08": {
+              "value": 0.14446,
+              "exact": "6437/44559"
+            },
+            "L09": {
+              "value": 0.02022,
+              "exact": "901/44559"
+            },
+            "L10": {
+              "value": 0.00395,
+              "exact": "176/44559"
+            },
+            "L11": {
+              "value": 0.000404,
+              "exact": "2/4951"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.015359,
+              "exact": "100/6511"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.10872,
+              "exact": "692/6365"
+            },
+            "Tampere": {
+              "value": 0.016904,
+              "exact": "109/6448"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 100,
+            "Lahti": 0,
+            "Oulu": 692,
+            "Tampere": 109,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6368,
+            "Jyvaskyla": 6511,
+            "Lahti": 6353,
+            "Oulu": 6365,
+            "Tampere": 6448,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5232,
+              "wins": {
+                "L01": 218,
+                "L02": 4996,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 708,
+              "wins": {
+                "L03": 708,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 1985,
+            "wins": {
+              "L05": 1985
+            }
+          }
+        },
+        "5": {
+          "orders": 50000,
+          "feasible_orders": 44548,
+          "high_quality_feasible_orders": 1675,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 309,
+          "lowest_cost_logistics_wins": {
+            "L01": 4139,
+            "L02": 5649,
+            "L03": 889,
+            "L04": 20447,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1668,
+            "L08": 6437,
+            "L09": 876,
+            "L10": 176,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.092911,
+              "exact": "4139/44548"
+            },
+            "L02": {
+              "value": 0.126807,
+              "exact": "807/6364"
+            },
+            "L03": {
+              "value": 0.019956,
+              "exact": "127/6364"
+            },
+            "L04": {
+              "value": 0.458988,
+              "exact": "2921/6364"
+            },
+            "L05": {
+              "value": 0.09538,
+              "exact": "607/6364"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037443,
+              "exact": "417/11137"
+            },
+            "L08": {
+              "value": 0.144496,
+              "exact": "6437/44548"
+            },
+            "L09": {
+              "value": 0.019664,
+              "exact": "219/11137"
+            },
+            "L10": {
+              "value": 0.003951,
+              "exact": "44/11137"
+            },
+            "L11": {
+              "value": 0.000404,
+              "exact": "9/22274"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.015051,
+              "exact": "98/6511"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.106356,
+              "exact": "169/1589"
+            },
+            "Tampere": {
+              "value": 0.015824,
+              "exact": "51/3223"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 98,
+            "Lahti": 0,
+            "Oulu": 676,
+            "Tampere": 102,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6368,
+            "Jyvaskyla": 6511,
+            "Lahti": 6353,
+            "Oulu": 6356,
+            "Tampere": 6446,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5236,
+              "wins": {
+                "L01": 218,
+                "L02": 5000,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 708,
+              "wins": {
+                "L03": 708,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L09",
+              "L05"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 1985,
+            "wins": {
+              "L05": 1985
+            }
+          }
+        },
+        "6": {
+          "orders": 50000,
+          "feasible_orders": 44616,
+          "high_quality_feasible_orders": 1713,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 309,
+          "lowest_cost_logistics_wins": {
+            "L01": 3904,
+            "L02": 5412,
+            "L03": 889,
+            "L04": 20267,
+            "L05": 2940,
+            "L06": 0,
+            "L07": 1668,
+            "L08": 1782,
+            "L09": 7560,
+            "L10": 176,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.087502,
+              "exact": "488/5577"
+            },
+            "L02": {
+              "value": 0.121302,
+              "exact": "41/338"
+            },
+            "L03": {
+              "value": 0.019926,
+              "exact": "889/44616"
+            },
+            "L04": {
+              "value": 0.454254,
+              "exact": "1559/3432"
+            },
+            "L05": {
+              "value": 0.065896,
+              "exact": "245/3718"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037386,
+              "exact": "139/3718"
+            },
+            "L08": {
+              "value": 0.039941,
+              "exact": "27/676"
+            },
+            "L09": {
+              "value": 0.169446,
+              "exact": "315/1859"
+            },
+            "L10": {
+              "value": 0.003945,
+              "exact": "2/507"
+            },
+            "L11": {
+              "value": 0.000403,
+              "exact": "3/7436"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.205559,
+              "exact": "1309/6368"
+            },
+            "Jyvaskyla": {
+              "value": 0.291826,
+              "exact": "1903/6521"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.389886,
+              "exact": "2498/6407"
+            },
+            "Tampere": {
+              "value": 0.286688,
+              "exact": "1850/6453"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 1309,
+            "Jyvaskyla": 1903,
+            "Lahti": 0,
+            "Oulu": 2498,
+            "Tampere": 1850,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6368,
+            "Jyvaskyla": 6521,
+            "Lahti": 6353,
+            "Oulu": 6407,
+            "Tampere": 6453,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5067,
+              "wins": {
+                "L01": 218,
+                "L02": 4831,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 708,
+              "wins": {
+                "L03": 708,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L08",
+                "L09"
+              ],
+              "contested_orders": 5648,
+              "wins": {
+                "L08": 269,
+                "L09": 5379
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L08",
+              "L09"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Oulu",
+              "L08",
+              "L09"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L08",
+              "L09"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 1985,
+            "wins": {
+              "L09": 1309,
+              "L05": 676
+            }
+          }
+        }
+      }
+    },
+    "weight_domain": {
+      "candidates": [
+        {
+          "candidate": 1,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": false,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": false,
+            "l09_share_not_lower_in_Jyvaskyla": true,
+            "l09_share_not_lower_in_Oulu": true,
+            "l09_share_not_lower_in_Tampere": true,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "no_bidder_orders_not_more",
+            "no_cell_gains_a_no_bidder_order"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.46029,
+            "exact": "457374387/993665207"
+          }
+        },
+        {
+          "candidate": 2,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": false,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": false,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "no_bidder_orders_not_more",
+            "no_cell_gains_a_no_bidder_order",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.213437,
+            "exact": "208809458/978316959"
+          }
+        },
+        {
+          "candidate": 3,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": false,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": false,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "no_bidder_orders_not_more",
+            "no_cell_gains_a_no_bidder_order",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.215534,
+            "exact": "421481130/1955518493"
+          }
+        },
+        {
+          "candidate": 4,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": false,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": false,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "no_bidder_orders_not_more",
+            "no_cell_gains_a_no_bidder_order",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.217451,
+            "exact": "9702/44617"
+          }
+        },
+        {
+          "candidate": 5,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": false,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": false,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "no_bidder_orders_not_more",
+            "no_cell_gains_a_no_bidder_order",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.217451,
+            "exact": "9702/44617"
+          }
+        },
+        {
+          "candidate": 6,
+          "checks": {
+            "feasible_orders_not_fewer": false,
+            "high_quality_feasible_orders_not_fewer": false,
+            "no_bidder_orders_not_more": false,
+            "no_cell_gains_a_structural_coverage_gap": true,
+            "no_cell_gains_a_no_bidder_order": false,
+            "l09_share_not_lower_in_Jyvaskyla": false,
+            "l09_share_not_lower_in_Oulu": false,
+            "l09_share_not_lower_in_Tampere": false,
+            "no_new_tied_price_group": true,
+            "no_new_structural_domination_pair": true
+          },
+          "clears_every_guard": false,
+          "failed_guards": [
+            "feasible_orders_not_fewer",
+            "high_quality_feasible_orders_not_fewer",
+            "no_bidder_orders_not_more",
+            "no_cell_gains_a_no_bidder_order",
+            "l09_share_not_lower_in_Jyvaskyla",
+            "l09_share_not_lower_in_Oulu",
+            "l09_share_not_lower_in_Tampere"
+          ],
+          "new_tied_price_groups": [],
+          "new_domination_pairs": [],
+          "removes_l05_l09_tie": true,
+          "total_abs_win_share_change": {
+            "value": 0.16181,
+            "exact": "80056789/494757913"
+          }
+        }
+      ],
+      "would_qualify": null,
+      "metrics": {
+        "1": {
+          "orders": 50000,
+          "feasible_orders": 44542,
+          "high_quality_feasible_orders": 1697,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 398,
+          "lowest_cost_logistics_wins": {
+            "L01": 241,
+            "L02": 1567,
+            "L03": 888,
+            "L04": 17541,
+            "L05": 4120,
+            "L06": 0,
+            "L07": 1665,
+            "L08": 6242,
+            "L09": 12085,
+            "L10": 175,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.005411,
+              "exact": "241/44542"
+            },
+            "L02": {
+              "value": 0.03518,
+              "exact": "1567/44542"
+            },
+            "L03": {
+              "value": 0.019936,
+              "exact": "444/22271"
+            },
+            "L04": {
+              "value": 0.393808,
+              "exact": "17541/44542"
+            },
+            "L05": {
+              "value": 0.092497,
+              "exact": "2060/22271"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.03738,
+              "exact": "1665/44542"
+            },
+            "L08": {
+              "value": 0.140137,
+              "exact": "3121/22271"
+            },
+            "L09": {
+              "value": 0.271317,
+              "exact": "12085/44542"
+            },
+            "L10": {
+              "value": 0.003929,
+              "exact": "175/44542"
+            },
+            "L11": {
+              "value": 0.000404,
+              "exact": "9/22271"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.237198,
+              "exact": "755/3183"
+            },
+            "Jyvaskyla": {
+              "value": 0.630705,
+              "exact": "152/241"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.733407,
+              "exact": "4663/6358"
+            },
+            "Tampere": {
+              "value": 0.280571,
+              "exact": "452/1611"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 1510,
+            "Jyvaskyla": 4104,
+            "Lahti": 0,
+            "Oulu": 4663,
+            "Tampere": 1808,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6366,
+            "Jyvaskyla": 6507,
+            "Lahti": 6353,
+            "Oulu": 6358,
+            "Tampere": 6444,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Jyvaskyla | 1000-1500 kg": 9,
+            "Jyvaskyla | 1500-2000 kg": 7,
+            "Jyvaskyla | 2000-2500 kg": 1,
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Oulu | 1000-1500 kg": 40,
+            "Oulu | 1500-2000 kg": 17,
+            "Oulu | 2000-2500 kg": 2,
+            "Tampere | 1000-1500 kg": 10,
+            "Tampere | 1500-2000 kg": 2,
+            "Tampere | 2000-2500 kg": 1,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 1486,
+              "wins": {
+                "L01": 218,
+                "L02": 1250,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 707,
+              "wins": {
+                "L03": 707,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 2802,
+            "wins": {
+              "L05": 1292,
+              "L09": 1510
+            }
+          }
+        },
+        "2": {
+          "orders": 50000,
+          "feasible_orders": 43854,
+          "high_quality_feasible_orders": 1322,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 1078,
+          "lowest_cost_logistics_wins": {
+            "L01": 4246,
+            "L02": 5639,
+            "L03": 887,
+            "L04": 20439,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1664,
+            "L08": 6449,
+            "L09": 88,
+            "L10": 175,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.096821,
+              "exact": "2123/21927"
+            },
+            "L02": {
+              "value": 0.128586,
+              "exact": "5639/43854"
+            },
+            "L03": {
+              "value": 0.020226,
+              "exact": "887/43854"
+            },
+            "L04": {
+              "value": 0.466069,
+              "exact": "6813/14618"
+            },
+            "L05": {
+              "value": 0.09689,
+              "exact": "4249/43854"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037944,
+              "exact": "832/21927"
+            },
+            "L08": {
+              "value": 0.147056,
+              "exact": "6449/43854"
+            },
+            "L09": {
+              "value": 0.002007,
+              "exact": "44/21927"
+            },
+            "L10": {
+              "value": 0.003991,
+              "exact": "175/43854"
+            },
+            "L11": {
+              "value": 0.00041,
+              "exact": "3/7309"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.00218,
+              "exact": "14/6423"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.0094,
+              "exact": "55/5851"
+            },
+            "Tampere": {
+              "value": 0.002992,
+              "exact": "19/6351"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 14,
+            "Lahti": 0,
+            "Oulu": 55,
+            "Tampere": 19,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6362,
+            "Jyvaskyla": 6423,
+            "Lahti": 6353,
+            "Oulu": 5851,
+            "Tampere": 6351,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Jyvaskyla | 1500-2000 kg": 7,
+            "Jyvaskyla | 2000-2500 kg": 1,
+            "Jyvaskyla | 25-35 kg": 4,
+            "Jyvaskyla | 35-500 kg": 99,
+            "Jyvaskyla | 500-1000 kg": 35,
+            "Jyvaskyla | under 25 kg": 2,
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Oulu | 1500-2000 kg": 17,
+            "Oulu | 2000-2500 kg": 2,
+            "Oulu | 25-35 kg": 23,
+            "Oulu | 35-500 kg": 341,
+            "Oulu | 500-1000 kg": 99,
+            "Oulu | under 25 kg": 1,
+            "Tampere | 1500-2000 kg": 2,
+            "Tampere | 2000-2500 kg": 1,
+            "Tampere | 35-500 kg": 108,
+            "Tampere | 500-1000 kg": 27,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5232,
+              "wins": {
+                "L01": 218,
+                "L02": 4996,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 707,
+              "wins": {
+                "L03": 707,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L09",
+              "L05"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 344,
+            "wins": {
+              "L05": 344
+            }
+          }
+        },
+        "3": {
+          "orders": 50000,
+          "feasible_orders": 43829,
+          "high_quality_feasible_orders": 1312,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 1111,
+          "lowest_cost_logistics_wins": {
+            "L01": 4259,
+            "L02": 5652,
+            "L03": 887,
+            "L04": 20439,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1664,
+            "L08": 6444,
+            "L09": 42,
+            "L10": 175,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.097173,
+              "exact": "4259/43829"
+            },
+            "L02": {
+              "value": 0.128956,
+              "exact": "5652/43829"
+            },
+            "L03": {
+              "value": 0.020238,
+              "exact": "887/43829"
+            },
+            "L04": {
+              "value": 0.466335,
+              "exact": "20439/43829"
+            },
+            "L05": {
+              "value": 0.096945,
+              "exact": "4249/43829"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037966,
+              "exact": "1664/43829"
+            },
+            "L08": {
+              "value": 0.147026,
+              "exact": "6444/43829"
+            },
+            "L09": {
+              "value": 0.000958,
+              "exact": "42/43829"
+            },
+            "L10": {
+              "value": 0.003993,
+              "exact": "175/43829"
+            },
+            "L11": {
+              "value": 0.000411,
+              "exact": "18/43829"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.001557,
+              "exact": "10/6421"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.004287,
+              "exact": "25/5832"
+            },
+            "Tampere": {
+              "value": 0.001103,
+              "exact": "7/6347"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 10,
+            "Lahti": 0,
+            "Oulu": 25,
+            "Tampere": 7,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6362,
+            "Jyvaskyla": 6421,
+            "Lahti": 6353,
+            "Oulu": 5832,
+            "Tampere": 6347,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Jyvaskyla | 1000-1500 kg": 9,
+            "Jyvaskyla | 2000-2500 kg": 1,
+            "Jyvaskyla | 25-35 kg": 4,
+            "Jyvaskyla | 35-500 kg": 99,
+            "Jyvaskyla | 500-1000 kg": 35,
+            "Jyvaskyla | under 25 kg": 2,
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Oulu | 1000-1500 kg": 40,
+            "Oulu | 2000-2500 kg": 2,
+            "Oulu | 25-35 kg": 23,
+            "Oulu | 35-500 kg": 341,
+            "Oulu | 500-1000 kg": 99,
+            "Oulu | under 25 kg": 1,
+            "Tampere | 1000-1500 kg": 10,
+            "Tampere | 2000-2500 kg": 1,
+            "Tampere | 35-500 kg": 108,
+            "Tampere | 500-1000 kg": 27,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5236,
+              "wins": {
+                "L01": 218,
+                "L02": 5000,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 707,
+              "wins": {
+                "L03": 707,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L09",
+              "L05"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 220,
+            "wins": {
+              "L05": 220
+            }
+          }
+        },
+        "4": {
+          "orders": 50000,
+          "feasible_orders": 43813,
+          "high_quality_feasible_orders": 1305,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 1133,
+          "lowest_cost_logistics_wins": {
+            "L01": 4264,
+            "L02": 5664,
+            "L03": 887,
+            "L04": 20439,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1664,
+            "L08": 6453,
+            "L09": 0,
+            "L10": 175,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.097323,
+              "exact": "4264/43813"
+            },
+            "L02": {
+              "value": 0.129277,
+              "exact": "5664/43813"
+            },
+            "L03": {
+              "value": 0.020245,
+              "exact": "887/43813"
+            },
+            "L04": {
+              "value": 0.466505,
+              "exact": "20439/43813"
+            },
+            "L05": {
+              "value": 0.09698,
+              "exact": "607/6259"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.03798,
+              "exact": "1664/43813"
+            },
+            "L08": {
+              "value": 0.147285,
+              "exact": "6453/43813"
+            },
+            "L09": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L10": {
+              "value": 0.003994,
+              "exact": "25/6259"
+            },
+            "L11": {
+              "value": 0.000411,
+              "exact": "18/43813"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Tampere": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 0,
+            "Lahti": 0,
+            "Oulu": 0,
+            "Tampere": 0,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6362,
+            "Jyvaskyla": 6419,
+            "Lahti": 6353,
+            "Oulu": 5818,
+            "Tampere": 6347,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Jyvaskyla | 1000-1500 kg": 9,
+            "Jyvaskyla | 1500-2000 kg": 7,
+            "Jyvaskyla | 25-35 kg": 4,
+            "Jyvaskyla | 35-500 kg": 99,
+            "Jyvaskyla | 500-1000 kg": 35,
+            "Jyvaskyla | under 25 kg": 2,
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Oulu | 1000-1500 kg": 40,
+            "Oulu | 1500-2000 kg": 17,
+            "Oulu | 25-35 kg": 23,
+            "Oulu | 35-500 kg": 341,
+            "Oulu | 500-1000 kg": 99,
+            "Oulu | under 25 kg": 1,
+            "Tampere | 1000-1500 kg": 10,
+            "Tampere | 1500-2000 kg": 2,
+            "Tampere | 35-500 kg": 108,
+            "Tampere | 500-1000 kg": 27,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5244,
+              "wins": {
+                "L01": 218,
+                "L02": 5008,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 707,
+              "wins": {
+                "L03": 707,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L09",
+              "L05"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 0,
+            "wins": {}
+          }
+        },
+        "5": {
+          "orders": 50000,
+          "feasible_orders": 43813,
+          "high_quality_feasible_orders": 1305,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 1137,
+          "lowest_cost_logistics_wins": {
+            "L01": 4264,
+            "L02": 5664,
+            "L03": 887,
+            "L04": 20439,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1664,
+            "L08": 6453,
+            "L09": 0,
+            "L10": 175,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.097323,
+              "exact": "4264/43813"
+            },
+            "L02": {
+              "value": 0.129277,
+              "exact": "5664/43813"
+            },
+            "L03": {
+              "value": 0.020245,
+              "exact": "887/43813"
+            },
+            "L04": {
+              "value": 0.466505,
+              "exact": "20439/43813"
+            },
+            "L05": {
+              "value": 0.09698,
+              "exact": "607/6259"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.03798,
+              "exact": "1664/43813"
+            },
+            "L08": {
+              "value": 0.147285,
+              "exact": "6453/43813"
+            },
+            "L09": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L10": {
+              "value": 0.003994,
+              "exact": "25/6259"
+            },
+            "L11": {
+              "value": 0.000411,
+              "exact": "18/43813"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Tampere": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 0,
+            "Lahti": 0,
+            "Oulu": 0,
+            "Tampere": 0,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6362,
+            "Jyvaskyla": 6419,
+            "Lahti": 6353,
+            "Oulu": 5818,
+            "Tampere": 6347,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Jyvaskyla | 1000-1500 kg": 9,
+            "Jyvaskyla | 1500-2000 kg": 7,
+            "Jyvaskyla | 2000-2500 kg": 1,
+            "Jyvaskyla | 25-35 kg": 4,
+            "Jyvaskyla | 35-500 kg": 99,
+            "Jyvaskyla | 500-1000 kg": 35,
+            "Jyvaskyla | under 25 kg": 2,
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Oulu | 1000-1500 kg": 40,
+            "Oulu | 1500-2000 kg": 17,
+            "Oulu | 2000-2500 kg": 2,
+            "Oulu | 25-35 kg": 23,
+            "Oulu | 35-500 kg": 341,
+            "Oulu | 500-1000 kg": 99,
+            "Oulu | under 25 kg": 1,
+            "Tampere | 1000-1500 kg": 10,
+            "Tampere | 1500-2000 kg": 2,
+            "Tampere | 2000-2500 kg": 1,
+            "Tampere | 35-500 kg": 108,
+            "Tampere | 500-1000 kg": 27,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5244,
+              "wins": {
+                "L01": 218,
+                "L02": 5008,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 707,
+              "wins": {
+                "L03": 707,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L09",
+              "L05"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 0,
+            "wins": {}
+          }
+        },
+        "6": {
+          "orders": 50000,
+          "feasible_orders": 44356,
+          "high_quality_feasible_orders": 1604,
+          "high_quality_orders": 2500,
+          "orders_with_no_eligible_logistics_bidder": 589,
+          "lowest_cost_logistics_wins": {
+            "L01": 4031,
+            "L02": 5542,
+            "L03": 887,
+            "L04": 20342,
+            "L05": 4249,
+            "L06": 0,
+            "L07": 1664,
+            "L08": 6214,
+            "L09": 1234,
+            "L10": 175,
+            "L11": 18,
+            "L12": 0
+          },
+          "lowest_cost_logistics_win_share": {
+            "L01": {
+              "value": 0.090878,
+              "exact": "4031/44356"
+            },
+            "L02": {
+              "value": 0.124944,
+              "exact": "2771/22178"
+            },
+            "L03": {
+              "value": 0.019997,
+              "exact": "887/44356"
+            },
+            "L04": {
+              "value": 0.458608,
+              "exact": "10171/22178"
+            },
+            "L05": {
+              "value": 0.095793,
+              "exact": "4249/44356"
+            },
+            "L06": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "L07": {
+              "value": 0.037515,
+              "exact": "32/853"
+            },
+            "L08": {
+              "value": 0.140094,
+              "exact": "239/1706"
+            },
+            "L09": {
+              "value": 0.02782,
+              "exact": "617/22178"
+            },
+            "L10": {
+              "value": 0.003945,
+              "exact": "175/44356"
+            },
+            "L11": {
+              "value": 0.000406,
+              "exact": "9/22178"
+            },
+            "L12": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_win_share_by_city": {
+            "Espoo": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Helsinki": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Jyvaskyla": {
+              "value": 0.042065,
+              "exact": "273/6490"
+            },
+            "Lahti": {
+              "value": 0.0,
+              "exact": "0/1"
+            },
+            "Oulu": {
+              "value": 0.115143,
+              "exact": "238/2067"
+            },
+            "Tampere": {
+              "value": 0.038408,
+              "exact": "247/6431"
+            },
+            "Turku": {
+              "value": 0.0,
+              "exact": "0/1"
+            }
+          },
+          "l09_wins_by_city": {
+            "Espoo": 0,
+            "Helsinki": 0,
+            "Jyvaskyla": 273,
+            "Lahti": 0,
+            "Oulu": 714,
+            "Tampere": 247,
+            "Turku": 0
+          },
+          "lowest_cost_wins_by_city": {
+            "Espoo": 6387,
+            "Helsinki": 6367,
+            "Jyvaskyla": 6490,
+            "Lahti": 6353,
+            "Oulu": 6201,
+            "Tampere": 6431,
+            "Turku": 6127
+          },
+          "no_bidder_orders_by_city_and_band": {
+            "Jyvaskyla | 1000-1500 kg": 9,
+            "Jyvaskyla | 1500-2000 kg": 7,
+            "Jyvaskyla | 2000-2500 kg": 1,
+            "Jyvaskyla | 25-35 kg": 4,
+            "Jyvaskyla | 500-1000 kg": 35,
+            "Jyvaskyla | under 25 kg": 2,
+            "Lahti | 1000-1500 kg": 8,
+            "Lahti | 1500-2000 kg": 2,
+            "Lahti | 35-500 kg": 113,
+            "Lahti | 500-1000 kg": 33,
+            "Oulu | 1000-1500 kg": 40,
+            "Oulu | 1500-2000 kg": 17,
+            "Oulu | 2000-2500 kg": 2,
+            "Oulu | 25-35 kg": 23,
+            "Oulu | 500-1000 kg": 99,
+            "Oulu | under 25 kg": 1,
+            "Tampere | 1000-1500 kg": 10,
+            "Tampere | 1500-2000 kg": 2,
+            "Tampere | 2000-2500 kg": 1,
+            "Tampere | 500-1000 kg": 27,
+            "Turku | 1000-1500 kg": 14,
+            "Turku | 1500-2000 kg": 4,
+            "Turku | 2500 kg and over": 2,
+            "Turku | 35-500 kg": 115,
+            "Turku | 500-1000 kg": 18
+          },
+          "structural_gap_orders_by_city_and_band": {},
+          "tied_price_groups": [
+            {
+              "agents": [
+                "L01",
+                "L02",
+                "L11"
+              ],
+              "contested_orders": 5130,
+              "wins": {
+                "L01": 218,
+                "L02": 4894,
+                "L11": 18
+              },
+              "one_agent_wins_every_contested_order": false
+            },
+            {
+              "agents": [
+                "L03",
+                "L06"
+              ],
+              "contested_orders": 707,
+              "wins": {
+                "L03": 707,
+                "L06": 0
+              },
+              "one_agent_wins_every_contested_order": true
+            },
+            {
+              "agents": [
+                "L10",
+                "L12"
+              ],
+              "contested_orders": 0,
+              "wins": {
+                "L10": 0,
+                "L12": 0
+              },
+              "one_agent_wins_every_contested_order": false
+            }
+          ],
+          "tied_price_group_sets": [
+            [
+              "L01",
+              "L02",
+              "L11"
+            ],
+            [
+              "L03",
+              "L06"
+            ],
+            [
+              "L10",
+              "L12"
+            ]
+          ],
+          "domination_pairs": [
+            [
+              "Espoo",
+              "L01",
+              "L02"
+            ],
+            [
+              "Espoo",
+              "L01",
+              "L11"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L07"
+            ],
+            [
+              "Espoo",
+              "L10",
+              "L12"
+            ],
+            [
+              "Espoo",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L09",
+              "L05"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L07"
+            ],
+            [
+              "Helsinki",
+              "L10",
+              "L12"
+            ],
+            [
+              "Helsinki",
+              "L11",
+              "L02"
+            ],
+            [
+              "Helsinki",
+              "L12",
+              "L07"
+            ],
+            [
+              "Jyvaskyla",
+              "L01",
+              "L02"
+            ],
+            [
+              "Jyvaskyla",
+              "L06",
+              "L03"
+            ],
+            [
+              "Lahti",
+              "L01",
+              "L02"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L07"
+            ],
+            [
+              "Lahti",
+              "L10",
+              "L12"
+            ],
+            [
+              "Lahti",
+              "L12",
+              "L07"
+            ],
+            [
+              "Oulu",
+              "L06",
+              "L03"
+            ],
+            [
+              "Tampere",
+              "L01",
+              "L02"
+            ],
+            [
+              "Tampere",
+              "L06",
+              "L03"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L02"
+            ],
+            [
+              "Turku",
+              "L01",
+              "L11"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L07"
+            ],
+            [
+              "Turku",
+              "L10",
+              "L12"
+            ],
+            [
+              "Turku",
+              "L12",
+              "L07"
+            ]
+          ],
+          "l05_l09_helsinki_contested": {
+            "orders": 311,
+            "wins": {
+              "L05": 311
+            }
+          }
+        }
+      }
+    }
+  },
+  "decision": {
+    "outcome": "keep production unchanged",
+    "reason": "no candidate clears every guard and removes the L05/L09 tie, so production stays as it is. the L05/L09 tie and L04's lowest-cost share are disclosed dataset characteristics, and logistics calibration is closed without a further freight redesign",
+    "winner": null
+  },
+  "production_files_unchanged": true
+}

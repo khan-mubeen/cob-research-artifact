@@ -1,0 +1,149 @@
+{
+  "protocol": "protocol v2, epoch-2 family (smollm3)",
+  "recorded_at": "unknown",
+  "relationship_to_protocol_v2": {
+    "inherits": "reports/epoch-1/production/protocol/protocol_v2.json in full",
+    "single_documented_difference": "training_frozen.epochs 1 -> 2 (951 -> 1902 optimizer steps)",
+    "everything_else": "unchanged: same 15,203 rows and hashes, seed 42, LoRA r16/alpha16/dropout0 on direct q/k/v/o/gate/up/down, max_seq_length 1024, per_device 8 x grad_accum 2 = effective 16, adamw_8bit lr 2e-4 warmup 5 linear, weight_decay 0.01, bf16, unsloth gradient checkpointing, train_on_responses_only with the same granite markers, greedy decoding 200 max new tokens, identical evaluation sets, identical pre-registered criteria"
+  },
+  "important_caveat_on_interpretation": "epoch-2 is NOT epoch-1 plus one more epoch. The linear LR schedule spans the whole run, so at step 951 this run sits at ~50% of peak LR while the epoch-1 run had decayed to ~0. The optimization trajectory differs from step 6 onward, not only after step 951. This is a fresh training run from the original base checkpoint, NOT a continuation of the epoch-1 adapter.",
+  "scope": "smollm3-3b only. Sixth and final model in the epoch-2 family. Same directory template.",
+  "data": {
+    "real_subsample": {
+      "files": {
+        "data/finetune/v4/material_train.jsonl": "66e591c6e2d8557c0657ca0cdc7444bbbdac68e7ecee6d057ffee64999485908",
+        "data/finetune/v4/tailoring_train.jsonl": "0571fb511caf0242654f9e8067ccc35e458ca02be070914830b12ed0f5a5f29b",
+        "data/finetune/v4/logistics_train.jsonl": "195574aab84e52dfc1de372aece5f06a934d41e266439b44788f295dad7a3c3a",
+        "data/synthetic/v4/orders.csv": "b6acf05bbf44d427aeb546a6b7f0a96d02508a4b6b801cb87b7808285f5ab187"
+      },
+      "n": 15000,
+      "method": "stratified_subsample scenario shares, seed 42 (identical to v1)"
+    },
+    "edge_v2": {
+      "files": {
+        "data/finetune/v4/protocol_v2/edge_tailoring_train.jsonl": "c952f02bb0d3556c05005905ae621f023d1b503a415c94eebe6426732d836da2",
+        "data/finetune/v4/protocol_v2/edge_logistics_train.jsonl": "47a1dcdf67b4b4c91374478e033fdd2a4acf459b9a2d88cfe68e37c2554dbdc2"
+      },
+      "tailoring_unique": 180,
+      "logistics_unique": 23,
+      "edge_repeat": 1,
+      "feasible_ratios": [
+        0.7,
+        0.8,
+        0.88,
+        0.94,
+        0.97,
+        0.99,
+        1.0
+      ],
+      "infeasible_ratios": [
+        1.01,
+        1.03,
+        1.07,
+        1.12,
+        1.2,
+        1.35,
+        1.6,
+        1.85
+      ],
+      "train_deadline_days": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "label_verification": "all records asserted through production decide functions, serialized via completion_json",
+      "leakage": "0 overlaps at param-tuple and exact-prompt level vs real data, all eval sets, baseline six (protocol_v2_data_report.json)"
+    },
+    "planned_train_rows": 15203,
+    "expected_optimizer_steps": 951
+  },
+  "data_hash_exception": {
+    "file": "data/synthetic/v4/orders.csv",
+    "frozen": "b6acf05bbf44d427aeb546a6b7f0a96d02508a4b6b801cb87b7808285f5ab187",
+    "actual_2026_07_27": "4754f62354321b739ccf88efdf3220ec750d825255f98cda05a82abbb274ce21",
+    "nature": "content change, not line endings: every row's order_created and deadline shifted ~+16 days, consistent with the generator having been re-run after the protocol was frozen",
+    "impact_on_this_run": "none, proven rather than assumed. See gates.1 in reports/epoch-2/production/gates/granite_launch_gates.json",
+    "resolved": false,
+    "note": "left unresolved deliberately. Re-pinning the protocol hash or restoring the file are both decisions for the maintainer, not side effects of a training run."
+  },
+  "training_frozen": {
+    "stack": "unsloth 2026.7.2 + transformers 5.5.0 + trl 0.24.0 + peft 0.19.1 + torch 2.10.0+cu130, main .venv",
+    "seed": 42,
+    "epochs": 2,
+    "max_seq_length": 1024,
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0,
+      "targets": "q/k/v/o/gate/up/down direct; 30,228,480 trainable (0.97%), the largest fraction of the six"
+    },
+    "batch": {
+      "per_device": 8,
+      "grad_accum": 2,
+      "effective": 16,
+      "rule": "native-fit rule from v1: reduce per-device only if reserved memory exceeds physical, keep effective 16, disclose",
+      "note_for_this_run": "kept at 8x2 identical to epoch-1. The protocol's native-fit rule would permit 4x4, and it was tested and works, but it was declined to avoid introducing a second variable -- see gates/smollm3_launch_gates.json spill_avoidance_investigation"
+    },
+    "optimizer": "adamw_8bit lr 2e-4 warmup 5 linear, weight_decay 0.01",
+    "precision": "bf16, unsloth gradient checkpointing",
+    "loss_masking": "train_on_responses_only, model-specific markers, template gate required pre-launch",
+    "base_checkpoints": {
+      "smollm3": "models/base-checkpoints/hf/smollm3-v2-base @ a07cc9a04f16550a088caea529712d1d335b0ac1"
+    },
+    "output_dirs": {
+      "smollm3": "models/epoch-2/production/smollm3-bidding-lora-v2"
+    },
+    "no_per_model_tuning": true,
+    "seed_plan": "seed 42 primary; seeds 43,44 pre-registered as confirmation budget for the top model(s) only",
+    "expected_optimizer_steps": 1902,
+    "controlled_adaptations": [
+      "pad_token <|reserved_special_token_2|> because SmolLM3 ships pad_token==eos_token which unsloth rejects; existing reserved vocab token, no embedding resize",
+      "--template-kwargs enable_thinking=false at TRAINING time (unlike every other model in the family): SmolLM3's non-thinking mode is template-controlled and injects '/no_think' into the system header, producing the closed <think></think> block the eval path also uses",
+      "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True -- allocator-only spill mitigation, proven bit-identical in loss to the untuned baseline"
+    ],
+    "checkpoint_frequency": "save_steps 100 from the start, enforced across resumes by SaveIntervalEnforcer"
+  },
+  "evaluation_frozen": {
+    "tier1_gated": "main_holdout (1500, seeded 500/stage)",
+    "tier2_regression_context_not_gates": [
+      "baseline_six",
+      "edge_holdout (all-12 AND clean-10)",
+      "boundary_stress",
+      "final_boundary_holdout"
+    ],
+    "tier3_gated": {
+      "set": "data/finetune/v4/protocol_v2/robustness_holdout.jsonl",
+      "sha256": "cc65b091cc10887f785b365b6d94ee052d79cbd68bbf8a2f7c6f6dfe441ce5ba",
+      "n": 36,
+      "classes": {
+        "below_feasible": 12,
+        "exact_feasible": 12,
+        "above_infeasible": 12
+      },
+      "construction": "band-drawn ratios (0.90-0.995 / exact 1.00 / 1.005-1.08), days 11-12, disjoint from everything by tuple and prompt",
+      "locked": "generated and hashed before any v2 training; will not be revised after results"
+    },
+    "decoding": "greedy, 200 max new tokens; hf runtime for primary numbers; gguf latency separately",
+    "criteria_pre_registered": {
+      "1_json_validity": "100% on every set",
+      "2_no_decision_regression": "main_holdout per-stage decisions >= own base",
+      "3_offer_improvement": "per-stage mean abs offer dev < own base",
+      "4_robustness_holdout": ">= 9/12 in EACH of the three classes, never aggregated"
+    },
+    "official_metrics_reported": [
+      "json validity",
+      "decision agreement",
+      "false BID / false NO_BID per set",
+      "offer deviation by stage",
+      "completion-days agreement",
+      "latency and throughput"
+    ]
+  },
+  "comparison_target": {
+    "epoch_1_adapter": "models/epoch-1/production/smollm3-bidding-lora-v2/final",
+    "epoch_1_eval": "reports/epoch-1/production/evaluation/raw/eval_smollm3-v2_20260722_005904.json",
+    "epoch_1_base_eval": "reports/reference/base-evaluations/raw/eval_smollm3-base_20260722_004118.json",
+    "rule": "epoch-1 artifacts are read-only inputs; not modified, retrained, or re-evaluated"
+  }
+}

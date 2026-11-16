@@ -1,0 +1,23 @@
+  ok   tests.test_auction_rounds           11 passed     0.1s
+[supervisor] order 'ORD-JUNK' has unreadable order_created 'not-a-timestamp', falling back to the real clock
+  ok   tests.test_deadline_anchor          11 passed     0.4s
+  ok   tests.test_v4_golden                 9 passed    25.6s
+  ok   tests.test_dataset_context          19 passed     0.0s
+  ok   tests.test_dataset_schemas          18 passed     0.9s
+  ok   tests.test_source_manifest          30 passed     0.5s
+  ok   tests.test_history_lookup           27 passed     0.0s
+  ok   tests.test_fx                       30 passed     5.4s
+  ok   tests.test_logistics_sources        19 passed     0.2s
+  ok   tests.test_logistics_calibration    16 passed     0.1s
+  ok   tests.test_material_pricing         17 passed     3.1s
+  ok   tests.test_route_distance           10 passed     1.1s
+  ok   tests.test_v5_synthesis             29 passed     8.7s
+  ok   tests.test_freight_assignment       12 passed     0.2s
+  ok   tests.test_calibration_proposal_v3  14 passed     3.1s
+  ok   tests.test_l09_counterfactual        8 passed     0.0s
+  ok   tests.test_v5_wiring                21 passed     4.7s
+  ok   tests.test_v5_floor_boundary         4 passed     4.2s
+  ok   tests.test_v5_finetune_corpus        6 passed    10.0s
+
+311 passed, 0 failed in 68.4s
+exit 0

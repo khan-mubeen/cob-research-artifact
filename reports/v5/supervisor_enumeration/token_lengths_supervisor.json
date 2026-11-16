@@ -1,0 +1,66 @@
+{
+  "method": "phase 6: the token length of the rendered v5 training text, per model tokenizer",
+  "longest_per_file": 60,
+  "sample_per_file": 300,
+  "models": {
+    "qwen": {
+      "supervisor": {
+        "max_over_longest_rows": 1724,
+        "sample_median": 1603.0,
+        "sample_mean": 1568.0,
+        "sample_p99": 1672
+      }
+    },
+    "granite": {
+      "supervisor": {
+        "max_over_longest_rows": 1611,
+        "sample_median": 1554.0,
+        "sample_mean": 1514.7,
+        "sample_p99": 1580
+      }
+    },
+    "phi": {
+      "supervisor": {
+        "max_over_longest_rows": 1387,
+        "sample_median": 1355.0,
+        "sample_mean": 1321.1,
+        "sample_p99": 1381
+      }
+    },
+    "ministral": {
+      "supervisor": {
+        "max_over_longest_rows": 1770,
+        "sample_median": 1649.0,
+        "sample_mean": 1612.4,
+        "sample_p99": 1718
+      }
+    },
+    "gemma": {
+      "supervisor": {
+        "max_over_longest_rows": 1844,
+        "sample_median": 1722.0,
+        "sample_mean": 1684.0,
+        "sample_p99": 1792
+      }
+    },
+    "smollm3": {
+      "supervisor": {
+        "max_over_longest_rows": 1433,
+        "sample_median": 1401.0,
+        "sample_mean": 1367.1,
+        "sample_p99": 1427
+      }
+    }
+  },
+  "max_tokens_any_model": {
+    "supervisor": 1844
+  },
+  "smallest_standard_window_that_fits": {
+    "supervisor": 2048
+  },
+  "v4_windows": {
+    "stage_agents": 1024,
+    "supervisor": 2048
+  },
+  "root": ".\\data\\finetune\\v5"
+}

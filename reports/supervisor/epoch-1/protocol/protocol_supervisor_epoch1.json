@@ -1,0 +1,47 @@
+{
+  "protocol": "supervisor chain-selection fine-tune, epoch-1",
+  "recorded_at": "unknown",
+  "line": "supervisor -- a NEW line, not a variant of the agent epoch-1/epoch-2 sweep. The agent sweep trained stage bidders to emit BID/NO_BID with a price; this trains a selector to pick one chain from a candidate list. Different task, different prompt, different metric.",
+  "base_checkpoint": "Qwen/Qwen3.5-4B @ 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "data": {
+    "train": "data/finetune/v4/supervisor/selection_train.jsonl (9,813)",
+    "holdout": "data/finetune/v4/supervisor/selection_holdout.jsonl (1,081)",
+    "split": "order-id disjoint, 9.9% holdout, seed 42, verified overlap 0",
+    "labels": "src.common.bidding_formulas.decide_chain_selection -- compound risk, budget-relative normalization, equal thirds for normal, urgent=min days, flexible=min cost",
+    "prompt": "src.common.slm.build_chain_selection_prompt (the same builder the live supervisor calls)"
+  },
+  "training": {
+    "epochs": 1,
+    "steps_per_epoch": 614,
+    "total_steps": 614,
+    "max_seq_length": 2048,
+    "batch": {
+      "per_device": 4,
+      "grad_accum": 4,
+      "effective": 16,
+      "deviation_note": "the agent sweep used 8x2. 4x4 is the protocol's own native-fit rule (reduce per-device, keep effective 16, disclose) and was chosen because 8x2 at 2048 probed at 21.5 GiB, which prior probe-to-run deltas suggest would spill. No sibling supervisor run exists to stay consistent with, so unlike smollm3 there is no comparison purity cost."
+    },
+    "lora": {
+      "rank": 16,
+      "alpha": 16,
+      "dropout": 0,
+      "targets": "q/k/v/o/gate/up/down, language tower only, 21,233,664 trainable (0.47%)"
+    },
+    "optimizer": "adamw_8bit lr 2e-4 warmup 5 linear, weight_decay 0.01, bf16, seed 42",
+    "save_steps": 50,
+    "output_dir": "models/supervisor/epoch-1/qwen3.5-4b-supervisor-lora"
+  },
+  "important_caveat_on_interpretation": "this is a FRESH run from the base checkpoint, not the epoch-2 run truncated at step 614. The linear LR schedule spans the whole run, so at step 614 the epoch-2 run sat at ~50%% of peak LR while this one decays to ~0. The two trajectories differ from step 6 onward, which is why the comparison uses two separately trained adapters.",
+  "evaluation": {
+    "harness": "src/experiments/eval_supervisor.py",
+    "metrics": [
+      "selection accuracy (exact index match with the rule)",
+      "regret on the strategy's own objective, as a fraction of the rule's value",
+      "zero-regret rate",
+      "median and p90 regret",
+      "json validity"
+    ],
+    "validation": "on 150/150 pre-check rows the rule's stored label was the argmin of the objective the harness computes, so regret is 0 by construction for a correct pick",
+    "holdout": "the full 1,081, not the 150-example pre-check sample"
+  }
+}

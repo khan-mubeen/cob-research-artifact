@@ -1,0 +1,72 @@
+{
+  "dataset_version": "v5",
+  "run": "granite-supervisor-v5-r01",
+  "mode": "supervisor",
+  "split_used": "validation",
+  "validation_rows": 4455,
+  "validation_row_ids_sha256": "0b622104e01abee2d66e8da483d395065e14899cbaf85a2162dbe9899ea922d8",
+  "rule": {
+    "key_order": [
+      "selection accuracy %",
+      "json validity %",
+      "negated mean regret %"
+    ],
+    "higher_is_better": true,
+    "tie": "the lower epoch"
+  },
+  "ranking": [
+    {
+      "epoch": 3,
+      "adapter": "./models/training/supervisor/granite/granite-supervisor-v5-r01/epoch-3",
+      "result": "reports/v5/selection/supervisor/granite/validation_epoch3.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "selection_accuracy_pct": 98.0,
+        "json_valid_pct": 100.0,
+        "mean_regret_pct": 0.0125
+      },
+      "key": [
+        98.0,
+        100.0,
+        -0.0125
+      ]
+    },
+    {
+      "epoch": 2,
+      "adapter": "./models/training/supervisor/granite/granite-supervisor-v5-r01/epoch-2",
+      "result": "reports/v5/selection/supervisor/granite/validation_epoch2.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "selection_accuracy_pct": 96.72,
+        "json_valid_pct": 100.0,
+        "mean_regret_pct": 0.0338
+      },
+      "key": [
+        96.72,
+        100.0,
+        -0.0338
+      ]
+    },
+    {
+      "epoch": 1,
+      "adapter": "./models/training/supervisor/granite/granite-supervisor-v5-r01/epoch-1",
+      "result": "reports/v5/selection/supervisor/granite/validation_epoch1.json",
+      "result_sha256": "unknown",
+      "metrics": {
+        "selection_accuracy_pct": 93.85,
+        "json_valid_pct": 100.0,
+        "mean_regret_pct": 0.0671
+      },
+      "key": [
+        93.85,
+        100.0,
+        -0.0671
+      ]
+    }
+  ],
+  "chosen": {
+    "epoch": 3,
+    "adapter": "./models/training/supervisor/granite/granite-supervisor-v5-r01/epoch-3"
+  },
+  "test_split": "not read during selection; evaluate it once, on the chosen adapter only"
+}

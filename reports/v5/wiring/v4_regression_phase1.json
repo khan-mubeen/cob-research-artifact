@@ -1,0 +1,250 @@
+{
+  "label": "phase1",
+  "files": {
+    "files": {
+      "config.py": "506d514e8112d245010d04d43f4b59398e7e0eb4478b7aa122b3e334ea504946",
+      "src/common/bidding_formulas.py": "127341bd9c2a5eb825edc97a087201f53f2fe5f3444a283bf9d625c24471935f",
+      "src/common/slm.py": "49de0cb04ea19d27d4823dabbe1b2f424870483e9f95c67cdc9378f4d28c7a11",
+      "src/common/reverse_auction.py": "1b017ea5705d26e79a42b8b0721ed16963e92c4256d6c941a417c9c4dddb1f6d",
+      "src/common/bidding_modes.py": "24f94c2c22c27474d1438c8b972332b2cea137bd2ea98acf1f8827ca99afc983",
+      "src/experiments/generate_finetune_data.py": "501a4835b06766f28ca39dd51cf9117b76f212a6bdc3f4bada06e70811c059fd",
+      "src/experiments/generate_reverse_auction_data.py": "b584c62fa194a08b25590577e0b662798b572c8039e479d8bda4e063fa3d2eb6",
+      "src/experiments/generate_supervisor_data.py": "74b852653d9b34f8b656942f607f8d29732928a46ff8e129c024bf754b2c8420",
+      "src/experiments/generate_edge_examples.py": "36897792af5338b9cf9d9e5c8fd1636997888017931dee8a4a6660595c2e8e71",
+      "src/experiments/compare_epochs.py": "8dc49a3abd31d450cd77e7f4338170519245048defa4c390db487051553bfa03",
+      "src/experiments/eval_finetune.py": "2c1cf81189bdff9bc1fe05f6ef71dfe0340ddc19ea3507d8db0a1d8542da4707",
+      "src/data_synthesis/synthesize_logistics.py": "acc0366a9b6cd6b4241409f23c338709c170ca7a94eeeb1559d2708fd1e82f2d",
+      "src/data_synthesis/synthesize_manufacturers.py": "414b953872bb8afb0348d720945259334894c6c9c2c8a62143c8aaed3243687c",
+      "src/data_synthesis/synthesize_material_providers.py": "5b16e84710577dea7cca3570e220829389f95a3df0441f0b92c6cdab50617367",
+      "src/data_synthesis/synthesize_orders.py": "f39f71f12fe9c2050863102f9bb64c1ade047b35734c37b0bb87b6fdb594ce6c",
+      "src/data_synthesis/synthesize_product.py": "ca3ab0fb36c5ec2309cda560ab33edc3b84e7ca01a0892ef753e65b65b48c2bc",
+      "data/processed/v5/logistics/agent_calibration.csv": "4de771e5a21f89d68293c529d9d77a136852cd0d50d62b045db3a0b5deebd7d1",
+      "data/processed/v5/logistics/agent_calibration_reasoning.json": "9e31419e00675ce77caab2f4ea48a14673da28a16357a0f2d8467bdff224775a"
+    },
+    "trees": {
+      "src/supervisor": {
+        "src/supervisor/auction.py": "5e21de9b7a95529fd868433f2ca26f1e12225dbc4fda9f6c93bea1fc9e1138c5",
+        "src/supervisor/Dockerfile": "7608122dac206700f21cd39938e482f557666ee1f03ec01cc42f71ca037c1b14",
+        "src/supervisor/supervisor.py": "3bed05c65ffd8fa66b41a5c103830f3c96c95ec062d747d38c8086322b2a3a32"
+      },
+      "src/agents": {
+        "src/agents/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/agents/logistics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/agents/logistics/agent.py": "504f7d1d285e6f4413bb4c53248b85152809e1b1645c5dbbc73a77638760cd15",
+        "src/agents/logistics/Dockerfile": "cce2a236aa0ed477bc2065000fc1cbbcd3f16cb1f8a4aba03e9b897eb44bb3c3",
+        "src/agents/manufacturer/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/agents/manufacturer/agent.py": "71af70080ff0507f41129414219715d02bbee6a838f46e4e96a3a1d38d1fcbf1",
+        "src/agents/manufacturer/Dockerfile": "712041c3d8f25559431cefdd60f1109fab8f208e8a5986c9c94ce24cf0105f99",
+        "src/agents/material/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "src/agents/material/agent.py": "104b1be3b2658dffc320293322a08e574654c47e07d32d31394bf73a18f2058b",
+        "src/agents/material/Dockerfile": "852541619fb4b46e4c344e7c0ed5f620f53989cddf3e3ef269c205adb0452adc"
+      },
+      "src/api": {
+        "src/api/__init__.py": "2025d322c0df7fb6db8b49e700cc940d24cab0e0b909839c5ee87ed743dfa72d",
+        "src/api/__main__.py": "4857b99223a608f0eb5e7f3ef3cd76d5419f0e1f66ffa5c84e5057df871251e5",
+        "src/api/infeasibility.py": "e9244686d8eca1cb28ad45050c83017287c826b142f288ba936781307c967fd6",
+        "src/api/nats_server.py": "e94b59a1e6c0e126bbd3a777f336e112ca1e1f70ff722e7296d6be59313fcfef",
+        "src/api/orders.py": "b3df9caf1619fac867bbea00ae1aeafb193a1412cb187ef185b9e1bb9affe3c4",
+        "src/api/pipeline.py": "cf6760fe3e1158029a0d4d75494f36c6b291c4c8eeb69fd08605b50ae2a659dc",
+        "src/api/processes.py": "1f6ccb9ba975716b5aaa696552ba9f98fb23e859cbd37988cbbccd37b49188d9",
+        "src/api/README.md": "a01d69908548ea8b0eed344d359b0a4b2a714137eb5353fddd6d2b405bc4aaad",
+        "src/api/relay.py": "e0d0d8d3815f71fe51b3759ec1ee08f68e3075b0d7b6ae9059dac0f0ebc8c53f",
+        "src/api/server.py": "ed33f652487943b5d8df30dd49229c29349db7337d2c8421cd9314b54ee8a2b3",
+        "src/api/settings.py": "2069d4002f205a5e5b798e702de82d61a14ad9d50d3bf20e272d6ad1d604faca",
+        "src/api/stack.py": "a3e91ee83084c51c349160fe8146b41a2943cbc13797165ee0bf39010ea43834",
+        "src/api/static/client.html": "9be5b840e198eb7ae14864aa5e68969bc45a70e899e1f58bb83c48586b83e99f",
+        "src/api/timing.py": "93baa1963cc70567bee969b9d66a802512bf480b9e24df30ae672e31ea4b1aba"
+      },
+      "tests/golden": {
+        "tests/golden/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tests/golden/generate_v4_golden.py": "7900075ea42b1ded207fae8f99a01288a4e07da09dc6a9e690bd21eb99ccb820",
+        "tests/golden/v4_baseline.py": "307907af0a998d25c5eafb2c5d70ee60497e9b633fcab787da1507c0596d6a17",
+        "tests/golden/v4_boundaries.py": "5afd48607aab272c39a29005c91cdd923e236bdab5d5992830a62bccf3579a30",
+        "tests/golden/v4_boundary_decisions.json": "4bba631afb962505d5861e0e03b0040b67539fdafba6095492f9bea0305c5f2e",
+        "tests/golden/v4_decision_census.json": "62f7a6ee15b5be345a50a548f0c38b6a35eab868773f632da464b9792e93357e",
+        "tests/golden/v4_file_hashes.json": "b07702fad523b3e88bb7d1742331cc5945b7cb19a0e88764f0246b02539b6b65",
+        "tests/golden/v4_prompts.json": "edf20ab3ba618fc763cd75192218ad5de648c29dbbc29c303c0e96d59c2b993c",
+        "tests/golden/v4_sample_decisions.json": "d15ff3a43f4a7673fed7745a1e46868ad380760e11da3d79b2f0f30a158a47d1"
+      },
+      "data/synthetic/v4": {
+        "data/synthetic/v4/logistics_agents.csv": "56b6145189e746007184bcf983b16bc7e39b6e2988f8f4f10969cd764a7444cf",
+        "data/synthetic/v4/manufacturer_agents.csv": "faf86a339aee3e7d827b680653e1a932bff360066a19d143fd557ac5ac792220",
+        "data/synthetic/v4/material_agents.csv": "15bfc6881d149bbaeacea1c72d11dc64ea5763ff84cf0c90d2f9f2a6e550a3b6",
+        "data/synthetic/v4/orders.csv": "4bb2b57dcf08b49691a40df188071c3cac66e13c6345e4f228885153ade1129c",
+        "data/synthetic/v4/orders_metadata.json": "35b57e1e5f92c92fa03f95288e234a506eb81f5a8ac7b4a3b0f12f634b6894cb",
+        "data/synthetic/v4/products.csv": "75c306523459eecaab2978fa067e31668e5e20e1ab08dd08b50dc5786c499554"
+      },
+      "data/synthetic/v5": {
+        "data/synthetic/v5/logistics_agents.csv": "1f13e6499d39a7facd488fd97769df7745b7f90d5481777b1fe6c916fd53c86e",
+        "data/synthetic/v5/manufacturer_agents.csv": "b9d515e926429a40204361ce37391931a2e65b38ab7ad170474a405639ba9933",
+        "data/synthetic/v5/material_agents.csv": "246a77758d3b774871f87adf82c40b07de774a705960adbfb8b7b6fa2a765298",
+        "data/synthetic/v5/material_reference_prices.csv": "f819a2b7b89f4d4284bf22bafb0d2a48cae0fc4c5db36062d678b4485ab1704c",
+        "data/synthetic/v5/orders.csv": "05774f9087d50703edbc0a3827efa786d64ba1e3875ad46a29627e4f665c7a27",
+        "data/synthetic/v5/orders_metadata.json": "a197c9be149505c17089fa4269c27cf2dadabc14734d1f2b85900226952bb7da",
+        "data/synthetic/v5/products.csv": "934f9007768259ee959d5d698231f0a3aba093f527d1617cc67f3331f0d02d73"
+      },
+      "data/finetune/v4": {
+        "data/finetune/v4/boundary_stress.jsonl": "1d3c0a485fc5db96291a430d68a5e0ae47092ad6b8cffd630f508c2b941c3646",
+        "data/finetune/v4/dynamic_nobid_pairs.csv": "55da13e6251083c25d941ec33203fe90c43ef7e3e3f5bb48a085223ffa03fca5",
+        "data/finetune/v4/edge_logistics_holdout.jsonl": "119eb08cb569753601d112fd5d86d1b0d2e6155e29e5c9834c8f704139405539",
+        "data/finetune/v4/edge_logistics_train.jsonl": "4dda4ab07f023d44ccad3869987bf033ab2ff92c063fafc0ef79889fa99ee5ba",
+        "data/finetune/v4/edge_tailoring_holdout.jsonl": "bd654d62bcf73e8503e9bd3125ea0666ba5f384e36c9c8b5f2fd0dad2676bf8c",
+        "data/finetune/v4/edge_tailoring_train.jsonl": "90f28509cf72a0eebb3abd9eb3a287ae18f9eccea9eef29d08e021b4188d780c",
+        "data/finetune/v4/final_boundary_holdout.jsonl": "278a32649108f29766c8171406cc5a4d38d581ac0d69cf621f80151ecd439e59",
+        "data/finetune/v4/logistics_holdout.jsonl": "3414bde766fe673f05193d5f21edaa9b111c2adc54623531bac2e2b58209ee53",
+        "data/finetune/v4/logistics_train.jsonl": "195574aab84e52dfc1de372aece5f06a934d41e266439b44788f295dad7a3c3a",
+        "data/finetune/v4/material_holdout.jsonl": "c329d2ef6a07b858a829853f684900e1f4c45a6afedde37ee349dd324a400d5e",
+        "data/finetune/v4/material_train.jsonl": "66e591c6e2d8557c0657ca0cdc7444bbbdac68e7ecee6d057ffee64999485908",
+        "data/finetune/v4/metadata.json": "90c6c22a420cec5a2e204443236c3a9bf454371483d628c5c261dfd6cb232f15",
+        "data/finetune/v4/protocol_v2/edge_logistics_train.jsonl": "47a1dcdf67b4b4c91374478e033fdd2a4acf459b9a2d88cfe68e37c2554dbdc2",
+        "data/finetune/v4/protocol_v2/edge_tailoring_train.jsonl": "c952f02bb0d3556c05005905ae621f023d1b503a415c94eebe6426732d836da2",
+        "data/finetune/v4/protocol_v2/json_format_stress.jsonl": "b71ffac7427f10ce9fb8387237b17788e9a7c83550de0ece6706474fc1263d4a",
+        "data/finetune/v4/protocol_v2/magnitude_diagnostic.jsonl": "617c1f32183f69bef4dce6cb8551c7450935682b85eea9fa93c25937e44408f8",
+        "data/finetune/v4/protocol_v2/robustness_holdout.jsonl": "cc65b091cc10887f785b365b6d94ee052d79cbd68bbf8a2f7c6f6dfe441ce5ba",
+        "data/finetune/v4/protocol_v2/scale_diagnostic.jsonl": "4a6bee8baafcd053b00dbaec56c223b6952f3ddfdf7d2320b2dc7bd5e69f69f1",
+        "data/finetune/v4/reverse_auction/v2/dataset_hashes.json": "d5c488082c8a50703019b4f48be6128d7ae53cd3b32996db33777ebce048f8f1",
+        "data/finetune/v4/reverse_auction/v2/logistics/holdout.jsonl": "57f247e409215a88635ef15b9ba7e4a2bc74cea853872e70f46c45f114fc60c1",
+        "data/finetune/v4/reverse_auction/v2/logistics/train.jsonl": "b7c27be5e51a22d629d101ba9c9f8e5eb682393bae5ac364f74846860a4451ea",
+        "data/finetune/v4/reverse_auction/v2/material/holdout.jsonl": "bd5b4f4d4d2bcce5b03da30cf049757f05146c669d9a2bd9a703300015ca0528",
+        "data/finetune/v4/reverse_auction/v2/material/train.jsonl": "5328d1a992cc6d85c2c723ca9672e2059ecdc9d51e026bc2cd1e0b24dd6f621f",
+        "data/finetune/v4/reverse_auction/v2/metadata.json": "25b3f4498b868ce7c4e848fd684ae9ce8689f85b0337c9a0ef0f35b7ec0b647d",
+        "data/finetune/v4/reverse_auction/v2/tailoring/holdout.jsonl": "70afdc3085eaa800912c0349ee65657c7469de4cd265d0e903fb572680060090",
+        "data/finetune/v4/reverse_auction/v2/tailoring/train.jsonl": "0047aba07fa93d65045ee92581f2e2e87017849991e972d9fc56a0f5809d94e9",
+        "data/finetune/v4/reverse_auction/v3/dataset_hashes.json": "1f9b11ced6326b4f02f89700b56cf44b132f9a208ad80b7a4d6d2616290cb8eb",
+        "data/finetune/v4/reverse_auction/v3/logistics/holdout.jsonl": "d460e3de41b06885e1232ca7c15f5bf7c0de02c42f958b3e16a5795f5d5fa1e6",
+        "data/finetune/v4/reverse_auction/v3/logistics/train.jsonl": "f8c09b462a88adc157959d85a9dffbde9e31cc20905630911b06f2b78b8d769e",
+        "data/finetune/v4/reverse_auction/v3/material/holdout.jsonl": "0e1fc520d7bd53e41c689826510f9656a79d7a10adddf629bcb1119be7ae9d7c",
+        "data/finetune/v4/reverse_auction/v3/material/train.jsonl": "6b14fc840fde5c31d41c07f697e42b9cb9b65b0042f8df8f99ab9671308cac27",
+        "data/finetune/v4/reverse_auction/v3/metadata.json": "1115ad00055386b719bd488b9957b2bd799ba6af754abe288a0363a2b71d3551",
+        "data/finetune/v4/reverse_auction/v3/tailoring/holdout.jsonl": "8709a1bea537fd9a3020afab80e3be30a90911837003ac80cfb787dad6dfbd9e",
+        "data/finetune/v4/reverse_auction/v3/tailoring/train.jsonl": "c16858e7c2f5faa92cede3cb2b9a8ee4aaa3cceaa530b624040b543603c78e0d",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/dataset_hashes.json": "da6077da1999a24dd94b51310d13adcae186196dc8527c223e28ab5aca85ef49",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/logistics/holdout.jsonl": "7af3383af319ac6481d064028641e63a837c5d9528b48436dbce443cf033cec2",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/logistics/train.jsonl": "f8c09b462a88adc157959d85a9dffbde9e31cc20905630911b06f2b78b8d769e",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/material/holdout.jsonl": "55a6f665205e8beece6f695ccc188f20f32220160451538ea4a6231a2bd8a0e8",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/material/train.jsonl": "6b14fc840fde5c31d41c07f697e42b9cb9b65b0042f8df8f99ab9671308cac27",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/metadata.json": "67125e4e1f1aafe4fcaa1adbd6b4ef8dd3928f2d88f58f06861911810643391a",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/tailoring/holdout.jsonl": "5f931fce602718c5d8e919c52531a5235b1c5afc7b471aad8274dd9acb9d06bd",
+        "data/finetune/v4/reverse_auction/v3_backup_before_floor_fix/tailoring/train.jsonl": "c16858e7c2f5faa92cede3cb2b9a8ee4aaa3cceaa530b624040b543603c78e0d",
+        "data/finetune/v4/reverse_auction/v4/dataset_hashes.json": "bc8c5291a90c667617569dccdfe62698aec1790d23cc9a89133c52300617f386",
+        "data/finetune/v4/reverse_auction/v4/logistics/holdout.jsonl": "e52b1839c9b96fe0eb48963c8b58c035cc305d9cd72f645dfb8400f0996f573f",
+        "data/finetune/v4/reverse_auction/v4/logistics/train.jsonl": "e738ae4eb46de8418cbfdf9df9c7a20d06aeb796f026c3b56dc62726fa332db1",
+        "data/finetune/v4/reverse_auction/v4/material/holdout.jsonl": "dcc5f758c3e3cf634bf6be47f3bfb2630fa5a63b041143cbf043498e0278203e",
+        "data/finetune/v4/reverse_auction/v4/material/train.jsonl": "f3f22ea71a98a52c6505cdb4b547363f070f147ba4839c6045cf4c6d9e97e00f",
+        "data/finetune/v4/reverse_auction/v4/metadata.json": "95203bddf28a5453173e99ae621826c14c5632db5a4fec2a858859ffde853f13",
+        "data/finetune/v4/reverse_auction/v4/tailoring/holdout.jsonl": "fe5dda52178e205e65f3987badc73297dc053d3f17504039d10b64a07fd1ee58",
+        "data/finetune/v4/reverse_auction/v4/tailoring/train.jsonl": "1b1da89f198765548e6896bea7e7a5482090c87cc389a04d660ad7f37e0b4b6c",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/dataset_hashes.json": "ed4b6130e1d9a95521346c0ce29988775e4e5265765b6ac3668f1a7e9a89e081",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/logistics/holdout.jsonl": "d460e3de41b06885e1232ca7c15f5bf7c0de02c42f958b3e16a5795f5d5fa1e6",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/logistics/train.jsonl": "2547f15c5295dcb4757a42b1581bbed40fbac1d58ae120b505877b7bf2bd9951",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/material/holdout.jsonl": "0e1fc520d7bd53e41c689826510f9656a79d7a10adddf629bcb1119be7ae9d7c",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/material/train.jsonl": "29647bdf26d28ac7c8ecfc6d649586b5e0bdc442633d301f96c5d09806405cf8",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/metadata.json": "e8bb771edff8c7a2b5ef4bef1e2046da545fe5cda0b3a5742fc1177ab0427480",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/tailoring/holdout.jsonl": "8709a1bea537fd9a3020afab80e3be30a90911837003ac80cfb787dad6dfbd9e",
+        "data/finetune/v4/reverse_auction/v4-control-bare-symbols/tailoring/train.jsonl": "b63d30e778056f58f32f725d8b9ae0bd9740ae4f97ca4fd815d605ac8ce9c2d7",
+        "data/finetune/v4/round1_edge/edge_logistics_holdout.jsonl": "119eb08cb569753601d112fd5d86d1b0d2e6155e29e5c9834c8f704139405539",
+        "data/finetune/v4/round1_edge/edge_logistics_train.jsonl": "c0a08cc6fb11eba50000a36e816de536bc349ec0ba46b386d82a941c501ba569",
+        "data/finetune/v4/round1_edge/edge_tailoring_holdout.jsonl": "bee2c6b56d7a244d8e7ebe2edb29825758c1c4a1f5727c8ac707f4762a5ff45f",
+        "data/finetune/v4/round1_edge/edge_tailoring_train.jsonl": "5f1bb41963d4ff62b0e3bfbb280f92a17494bb341dc172f99338d821e3d0bbf7",
+        "data/finetune/v4/supervisor/metadata.json": "cc36495878336b15845bfe5b3cc9034c519826e656112c06599677b2fc0c427b",
+        "data/finetune/v4/supervisor/selection_holdout.jsonl": "75e19f2ca669a1b6254ee7b652712d141f5f94bf58503faf8c868f53ac501078",
+        "data/finetune/v4/supervisor/selection_train.jsonl": "a2b9098313dba4f8451cbebcedd7c7fca77bd0cc03d77479f0c44e19baf2943e",
+        "data/finetune/v4/tailoring_holdout.jsonl": "628b3843006215a33cf4e644814792e7403ad9392514a66dc487c32211594399",
+        "data/finetune/v4/tailoring_train.jsonl": "0571fb511caf0242654f9e8067ccc35e458ca02be070914830b12ed0f5a5f29b"
+      }
+    }
+  },
+  "census": {
+    "live": {
+      "orders_covered": 50000,
+      "orders_skipped_no_product_row": 0,
+      "decision_counts": {
+        "sealed_bid": 809219,
+        "sealed_no_bid": 1140781,
+        "auction_bid": 1059046,
+        "auction_no_bid": 2631029
+      },
+      "reason_counts": {
+        "completion_exceeds_deadline": 2969,
+        "damage_probability_too_high": 55176,
+        "defect_probability_too_high": 327058,
+        "insufficient_stock_and_restock": 38622,
+        "material_not_supplied": 1350900,
+        "next_bid_below_minimum_bid": 475444,
+        "product_not_made": 902692,
+        "region_not_serviced": 618949
+      },
+      "digest_sha256": "c129ebe901adcc021a68ead5462bc1a768da8aada56f13ca2c3ecd9101e4316b"
+    },
+    "fixture": {
+      "orders_covered": 50000,
+      "orders_skipped_no_product_row": 0,
+      "decision_counts": {
+        "sealed_bid": 809219,
+        "sealed_no_bid": 1140781,
+        "auction_bid": 1059046,
+        "auction_no_bid": 2631029
+      },
+      "reason_counts": {
+        "completion_exceeds_deadline": 2969,
+        "damage_probability_too_high": 55176,
+        "defect_probability_too_high": 327058,
+        "insufficient_stock_and_restock": 38622,
+        "material_not_supplied": 1350900,
+        "next_bid_below_minimum_bid": 475444,
+        "product_not_made": 902692,
+        "region_not_serviced": 618949
+      },
+      "digest_sha256": "c129ebe901adcc021a68ead5462bc1a768da8aada56f13ca2c3ecd9101e4316b"
+    },
+    "live_equals_fixture": true
+  },
+  "regeneration": {
+    "files": {
+      "reverse_auction/dataset_hashes.json": "dc0eb6b2efb830888072633c13051db99b9b2919d644be309b5748d4a67dc306",
+      "reverse_auction/logistics/holdout.jsonl": "e52b1839c9b96fe0eb48963c8b58c035cc305d9cd72f645dfb8400f0996f573f",
+      "reverse_auction/logistics/train.jsonl": "e738ae4eb46de8418cbfdf9df9c7a20d06aeb796f026c3b56dc62726fa332db1",
+      "reverse_auction/material/holdout.jsonl": "dcc5f758c3e3cf634bf6be47f3bfb2630fa5a63b041143cbf043498e0278203e",
+      "reverse_auction/material/train.jsonl": "f3f22ea71a98a52c6505cdb4b547363f070f147ba4839c6045cf4c6d9e97e00f",
+      "reverse_auction/metadata.json": "95203bddf28a5453173e99ae621826c14c5632db5a4fec2a858859ffde853f13",
+      "reverse_auction/tailoring/holdout.jsonl": "fe5dda52178e205e65f3987badc73297dc053d3f17504039d10b64a07fd1ee58",
+      "reverse_auction/tailoring/train.jsonl": "1b1da89f198765548e6896bea7e7a5482090c87cc389a04d660ad7f37e0b4b6c",
+      "sealed/edge_logistics_holdout.jsonl": "119eb08cb569753601d112fd5d86d1b0d2e6155e29e5c9834c8f704139405539",
+      "sealed/edge_logistics_train.jsonl": "4dda4ab07f023d44ccad3869987bf033ab2ff92c063fafc0ef79889fa99ee5ba",
+      "sealed/edge_tailoring_holdout.jsonl": "bd654d62bcf73e8503e9bd3125ea0666ba5f384e36c9c8b5f2fd0dad2676bf8c",
+      "sealed/edge_tailoring_train.jsonl": "90f28509cf72a0eebb3abd9eb3a287ae18f9eccea9eef29d08e021b4188d780c",
+      "sealed/logistics_holdout.jsonl": "3414bde766fe673f05193d5f21edaa9b111c2adc54623531bac2e2b58209ee53",
+      "sealed/logistics_train.jsonl": "195574aab84e52dfc1de372aece5f06a934d41e266439b44788f295dad7a3c3a",
+      "sealed/material_holdout.jsonl": "c329d2ef6a07b858a829853f684900e1f4c45a6afedde37ee349dd324a400d5e",
+      "sealed/material_train.jsonl": "66e591c6e2d8557c0657ca0cdc7444bbbdac68e7ecee6d057ffee64999485908",
+      "sealed/metadata.json": "90c6c22a420cec5a2e204443236c3a9bf454371483d628c5c261dfd6cb232f15",
+      "sealed/tailoring_holdout.jsonl": "628b3843006215a33cf4e644814792e7403ad9392514a66dc487c32211594399",
+      "sealed/tailoring_train.jsonl": "0571fb511caf0242654f9e8067ccc35e458ca02be070914830b12ed0f5a5f29b",
+      "supervisor/metadata.json": "cc36495878336b15845bfe5b3cc9034c519826e656112c06599677b2fc0c427b",
+      "supervisor/selection_holdout.jsonl": "75e19f2ca669a1b6254ee7b652712d141f5f94bf58503faf8c868f53ac501078",
+      "supervisor/selection_train.jsonl": "a2b9098313dba4f8451cbebcedd7c7fca77bd0cc03d77479f0c44e19baf2943e"
+    },
+    "log_tail": {
+      "sealed": [
+        "",
+        "total examples: 49258",
+        "written to .\\data\\finetune\\.v4_regeneration_tmp\\run\\sealed"
+      ],
+      "reverse_auction": [
+        "wrote  21129 -> .\\data\\finetune\\.v4_regeneration_tmp\\run\\reverse_auction\\logistics\\train.jsonl",
+        "wrote   2280 -> .\\data\\finetune\\.v4_regeneration_tmp\\run\\reverse_auction\\logistics\\holdout.jsonl",
+        "written to .\\data\\finetune\\.v4_regeneration_tmp\\run\\reverse_auction"
+      ],
+      "supervisor": [
+        "wrote   9813 -> .\\data\\finetune\\.v4_regeneration_tmp\\run\\supervisor\\selection_train.jsonl",
+        "wrote   1081 -> .\\data\\finetune\\.v4_regeneration_tmp\\run\\supervisor\\selection_holdout.jsonl",
+        "written to .\\data\\finetune\\.v4_regeneration_tmp\\run\\supervisor"
+      ],
+      "edge": [
+        "logistics  near_boundary             8        2",
+        "",
+        "written to .\\data\\finetune\\.v4_regeneration_tmp\\run\\sealed as edge_{stage}_{split}.jsonl"
+      ]
+    }
+  }
+}

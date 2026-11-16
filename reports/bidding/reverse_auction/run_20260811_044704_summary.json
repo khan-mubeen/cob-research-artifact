@@ -1,0 +1,15 @@
+{
+  "mode": "reverse_auction",
+  "data_version": "v4",
+  "checkpoint": ".\\reports\\bidding\\reverse_auction\\run_tiebreak_dec400.jsonl",
+  "generated_at": "2026-08-11T04:47:04",
+  "totals": {
+    "orders_recorded": 1,
+    "by_status": {
+      "completed": 1
+    },
+    "stage_auctions": 3,
+    "mean_stage_reduction_eur": 400.0,
+    "max_stage_reduction_eur": 800.0
+  }
+}

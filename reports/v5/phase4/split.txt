@@ -1,0 +1,19 @@
+split {'train': 40000, 'test': 5000, 'validation': 5000} over 9 strata
+  high_quality       urgent      2500  train   2000 validation   250 test   250
+  large_quantity     normal      2500  train   2000 validation   250 test   250
+  low_budget         normal      3000  train   2400 validation   300 test   300
+  random_realistic   flexible    6981  train   5585 validation   698 test   698
+  random_realistic   normal     21323  train  17059 validation  2132 test  2132
+  random_realistic   urgent      7196  train   5756 validation   720 test   720
+  rare_combo         normal      2000  train   1600 validation   200 test   200
+  tight_deadline     urgent      3000  train   2400 validation   300 test   300
+  tight_low_budget   urgent      1500  train   1200 validation   150 test   150
+  not stratified material_type  max share deviation 0.52 points, p 0.8209928884110349, imbalanced False
+  not stratified product_id     max share deviation 1.152 points, p 0.4825257481389015, imbalanced False
+  not stratified deliver_to     max share deviation 0.636 points, p 0.8769639327524019, imbalanced False
+  not stratified month          max share deviation 1.122 points, p 0.19292475205246454, imbalanced False
+wrote data/finetune/v5/split/order_split.csv
+
+real	0m1.024s
+user	0m0.015s
+sys	0m0.000s

@@ -1,0 +1,70 @@
+{
+  "role": "robustness_eval",
+  "role_statement": "robustness evaluation only: not training data, and not counted in any train, validation or test total",
+  "data_version": "v5",
+  "currency": "USD",
+  "method": "src/experiments/generate_edge_examples.py, rebuilt for v5 as this module's docstring records",
+  "counts": {
+    "material": 108,
+    "tailoring": 60,
+    "logistics": 25
+  },
+  "by_category": {
+    "logistics:boundary_infeasible": 2,
+    "logistics:infeasible": 12,
+    "logistics:near_boundary": 11,
+    "material:in_stock_at_boundary": 27,
+    "material:restock_at_boundary": 27,
+    "material:restock_too_slow": 27,
+    "material:stock_and_restock_short": 27,
+    "tailoring:at_boundary": 12,
+    "tailoring:boundary_infeasible": 24,
+    "tailoring:infeasible": 12,
+    "tailoring:near_boundary": 12
+  },
+  "label_balance": {
+    "logistics:BID": 11,
+    "logistics:NO_BID": 14,
+    "material:BID": 54,
+    "material:NO_BID": 54,
+    "tailoring:BID": 24,
+    "tailoring:NO_BID": 36
+  },
+  "expected_decision_by_category": {
+    "infeasible": {
+      "decision": "NO_BID",
+      "reason": "completion_exceeds_deadline"
+    },
+    "boundary_infeasible": {
+      "decision": "NO_BID",
+      "reason": "completion_exceeds_deadline"
+    },
+    "at_boundary": {
+      "decision": "BID",
+      "reason": null
+    },
+    "near_boundary": {
+      "decision": "BID",
+      "reason": null
+    },
+    "restock_too_slow": {
+      "decision": "NO_BID",
+      "reason": "completion_exceeds_deadline"
+    },
+    "restock_at_boundary": {
+      "decision": "BID",
+      "reason": null
+    },
+    "stock_and_restock_short": {
+      "decision": "NO_BID",
+      "reason": "insufficient_stock_and_restock"
+    },
+    "in_stock_at_boundary": {
+      "decision": "BID",
+      "reason": null
+    }
+  },
+  "verification": "every label asserted through the dispatched decide_*_bid with its category's expected decision and reason; no parameter tuple overlaps the fixed baseline cases, another edge case, or any real v5 train, validation or test row",
+  "real_rows_checked_for_overlap": 418678,
+  "deferred": "tailoring_boundary_stress, tailoring_final_boundary_holdout and material or logistics equivalents are intentionally not generated tonight; they are supplementary evaluation artifacts for the tailoring workload-markup boundary investigation, not required for the main corpus"
+}

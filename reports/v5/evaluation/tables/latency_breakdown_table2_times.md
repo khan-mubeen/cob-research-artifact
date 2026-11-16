@@ -1,0 +1,23 @@
+| Mode | Model | TTFT base | TTFT fine-tuned | TPOT base | TPOT fine-tuned | Latency base | Latency fine-tuned | TPOT ratio |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Sealed bid | Gemma | 95.9 | 135.1 | 64.8 | 94.4 | 6408.2 | 8410.1 | 1.46 |
+| Sealed bid | Granite | 90.0 | 126.2 | 50.9 | 95.8 | 3545.8 | 6738.6 | 1.88 |
+| Sealed bid | Ministral | 73.2 | 114.7 | 32.5 | 59.8 | 2761.0 | 4921.0 | 1.84 |
+| Sealed bid | Phi | 94.6 | 103.5 | 38.1 | 61.4 | 2649.5 | 4339.2 | 1.61 |
+| Sealed bid | Qwen | 105.7 | 128.2 | 48.4 | 67.8 | 4285.8 | 5977.0 | 1.40 |
+| Sealed bid | SmolLM3 | 74.3 | 113.3 | 42.8 | 78.4 | 6399.3 | 5524.8 | 1.83 |
+| Reverse auction | Gemma | 100.2 | 140.0 | 65.0 | 95.4 | 6233.3 | 8344.4 | 1.47 |
+| Reverse auction | Granite | 102.6 | 131.3 | 51.0 | 96.0 | 3513.5 | 6608.2 | 1.88 |
+| Reverse auction | Ministral | 78.5 | 120.8 | 32.6 | 59.6 | 2626.5 | 4750.5 | 1.83 |
+| Reverse auction | Phi | 98.8 | 117.0 | 38.2 | 61.5 | 2714.9 | 4265.8 | 1.61 |
+| Reverse auction | Qwen | 113.9 | 135.7 | 48.2 | 67.5 | 4198.5 | 5645.4 | 1.40 |
+| Reverse auction | SmolLM3 | 89.4 | 123.5 | 42.9 | 83.6 | 3402.7 | 5763.8 | 1.95 |
+| Supervisor | Gemma | 144.2 | 186.8 | 66.7 | 96.1 | 2875.0 | 2459.7 | 1.44 |
+| Supervisor | Granite | 117.6 | 168.4 | 48.5 | 96.1 | 1333.7 | 2272.7 | 1.98 |
+| Supervisor | Ministral | 131.0 | 187.4 | 32.4 | 61.4 | 1528.1 | 1628.3 | 1.90 |
+| Supervisor | Phi | 116.0 | 145.1 | 38.2 | 61.0 | 1091.9 | 1480.4 | 1.60 |
+| Supervisor | Qwen | 179.7 | 206.8 | 50.1 | 66.1 | 2507.8 | 1796.5 | 1.32 |
+| Supervisor | SmolLM3 | 106.9 | 156.5 | 41.3 | 82.6 | 1272.3 | 1966.0 | 2.00 |
+
+Whole test split, one request at a time, adapter attached and not merged; latency statistics exclude warm-up rows except in Table 3, and token means use every row.
+Times in ms. TPOT is the mean over requests of (total - TTFT)/(output tokens - 1); ratio is fine-tuned/base.

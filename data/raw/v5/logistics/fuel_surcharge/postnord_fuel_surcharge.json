@@ -1,0 +1,149 @@
+{
+  "source": "PostNord Finland, fuel and sulphur surcharge",
+  "source_url": "https://www.postnord.fi/en/sending/fuel-and-sulphur-surcharge",
+  "read_from": "https://web.archive.org/web/20260218112022/https://www.postnord.fi/en/sending/fuel-and-sulphur-surcharge/",
+  "archive_capture": {
+    "timestamp": "2026-02-18T11:20:22Z",
+    "sha256_of_captured_html": "83cb8d991d8f81f6b1422df672fca501cd3f389bb0b3630161339f3aca972b89"
+  },
+  "page_or_section": "'Calculating fuel surcharge in Finland' and the parcels / pallets and groupage table",
+  "role": "source evidence of a fuel-surcharge mechanism",
+  "currency": null,
+  "unit": "percent of freight costs excluding additional services",
+  "access_date_basis": "the live page returned HTTP 403 to urllib and to WebFetch on this date. the text was read from the most recent Internet Archive capture, 18 February 2026; any percentage PostNord published after that capture is not in this record",
+  "reverification_status": "read from an archive capture; live page HTTP 403",
+  "observations_status": "partial: the capture ends at the row starting 1.2.2026",
+  "mechanism_as_printed": [
+    "The fuel surcharge cost is updated monthly.",
+    "The fuel surcharge for both domestic and international transport is updated monthly. The surcharge is the percentage of freight costs (excluding additional services) and is tied to the previous month's diesel consumer price index maintained by Statistics Finland.",
+    "The fuel surcharge can not be negative."
+  ],
+  "tariff_metadata": {
+    "vat_status": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source"
+    },
+    "effective_date": {
+      "value": "per row, the date in the 'Starting from' column",
+      "source_wording": "Starting from"
+    },
+    "currency_as_published": {
+      "value": "not applicable: published as a percentage of freight cost",
+      "source_wording": "Fuel surcharge parcels, Fuel surcharge pallets and groupage"
+    },
+    "unit_basis": {
+      "value": "percent of freight costs excluding additional services",
+      "source_wording": "The surcharge is the percentage of freight costs (excluding additional services)"
+    },
+    "service_category": {
+      "value": "parcels; pallets and groupage",
+      "source_wording": "Fuel surcharge parcels | Fuel surcharge pallets and groupage"
+    },
+    "fuel_surcharge_treatment": {
+      "value": "not applicable: this record is the surcharge itself, charged on freight cost",
+      "source_wording": "The surcharge is the percentage of freight costs"
+    }
+  },
+  "observations": [
+    {
+      "starting_from": "2026-02-01",
+      "parcels_percent": 4.6,
+      "pallets_and_groupage_percent": 6.7
+    },
+    {
+      "starting_from": "2026-01-01",
+      "parcels_percent": 4.2,
+      "pallets_and_groupage_percent": 6.2
+    },
+    {
+      "starting_from": "2025-12-01",
+      "parcels_percent": 3.2,
+      "pallets_and_groupage_percent": 4.7
+    },
+    {
+      "starting_from": "2025-11-01",
+      "parcels_percent": 2.6,
+      "pallets_and_groupage_percent": 3.8
+    },
+    {
+      "starting_from": "2025-10-01",
+      "parcels_percent": 2.8,
+      "pallets_and_groupage_percent": 4.2
+    },
+    {
+      "starting_from": "2025-09-01",
+      "parcels_percent": 2.6,
+      "pallets_and_groupage_percent": 3.8
+    },
+    {
+      "starting_from": "2025-08-01",
+      "parcels_percent": 3.3,
+      "pallets_and_groupage_percent": 4.9
+    },
+    {
+      "starting_from": "2025-07-01",
+      "parcels_percent": 2.8,
+      "pallets_and_groupage_percent": 4.2
+    },
+    {
+      "starting_from": "2025-06-01",
+      "parcels_percent": 3.0,
+      "pallets_and_groupage_percent": 4.4
+    },
+    {
+      "starting_from": "2025-05-01",
+      "parcels_percent": 3.9,
+      "pallets_and_groupage_percent": 5.8
+    },
+    {
+      "starting_from": "2025-04-01",
+      "parcels_percent": 4.8,
+      "pallets_and_groupage_percent": 7.1
+    },
+    {
+      "starting_from": "2025-03-01",
+      "parcels_percent": 4.8,
+      "pallets_and_groupage_percent": 7.1
+    },
+    {
+      "starting_from": "2025-02-01",
+      "parcels_percent": 4.9,
+      "pallets_and_groupage_percent": 7.2
+    },
+    {
+      "starting_from": "2025-01-01",
+      "parcels_percent": 4.6,
+      "pallets_and_groupage_percent": 6.7
+    }
+  ],
+  "sulphur_surcharge_as_printed": {
+    "wording": "The sulphur surcharge is calculated as a percentage of the freight cost. ... Sulphur surcharge is valid until further notice.",
+    "percent_by_destination": {
+      "Parcels": {
+        "SE, DK, NO": 1.0,
+        "EE, LT, LV, PL": 0.58,
+        "Other": 2.48
+      },
+      "Pallets": {
+        "SE, DK, NO": 3.9,
+        "EE, LT, LV, PL": 1.97,
+        "Other": 3.94
+      },
+      "Groupage": {
+        "SE, DK, NO": 4.2
+      }
+    },
+    "note": "destination-country surcharges outside Finland, kept as context only"
+  },
+  "verification_note": "this is SOURCE EVIDENCE of a real fuel-surcharge mechanism, tied to the previous month's diesel consumer price index from Statistics Finland. It is not automatically the surcharge value for every simulated logistics agent. Huong expects this component to differ between agents; record the mechanism and whatever historical percentages are actually published, do not produce or imply a single common value here.",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-13",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record",
+  "calibration_feeds": "fuel_surcharge_i(t)",
+  "metadata_convention": {
+    "not_stated": "not stated in source",
+    "unreadable": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+    "meaning": "a field reading 'not stated in source' was read and is absent from the source; a field reading 'not verified' could not be read at all"
+  }
+}

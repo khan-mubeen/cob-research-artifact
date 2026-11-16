@@ -1,0 +1,17 @@
+{
+  "differences": [
+    "files/sources/src/experiments/finetune_lora.py: 75bc53723df5828f3e48ac2b1201508323fe1976351cda861ddef0cca33163ea != 699659dfa539574d99c326ac8b65e70de9c8b02aadba1225f698fbec8149e4d2"
+  ],
+  "allowed_to_change": [
+    "src/experiments/finetune_lora.py"
+  ],
+  "unexpected_differences": [],
+  "help_lines_removed_or_changed": {
+    "src/experiments/compare_epochs.py": [],
+    "src/experiments/eval_finetune.py": [],
+    "src/experiments/finetune_lora.py": [
+      "                        [--template-kwargs TEMPLATE_KWARGS] [--optim OPTIM]"
+    ]
+  },
+  "identical_apart_from_allowed": true
+}

@@ -1,0 +1,5 @@
+mode,split,value_percent,note
+sealed,test,97.5747,"macro decision agreement of answering BID on every row: the label distribution of the test split, as drawn on the test decision-agreement chart"
+reverse_auction,test,61.4180,"macro decision agreement of answering BID on every row: the label distribution of the test split, as drawn on the test decision-agreement chart"
+sealed,validation,97.688989641384,"macro decision agreement of answering BID on every row: the label distribution of the validation split, as drawn on the validation decision-agreement chart"
+reverse_auction,validation,61.348235567438,"macro decision agreement of answering BID on every row: the label distribution of the validation split, as drawn on the validation decision-agreement chart"

@@ -1,0 +1,638 @@
+{
+  "status": "candidate",
+  "status_meaning": {
+    "candidate": "a combination of a printed corridor rate and a tested payload is numerically consistent with 0.07163. that shows consistency, not how the figure was actually computed: the method behind 0.07163 was never stated, only its source document",
+    "confirmed": "reserved for the case where the source document itself states the payload or rate relationship that produces 0.07163. it does not, so this status is not used",
+    "unresolved": "no tested combination lands within the tolerance, the same declared-blocker pattern as the SunSirs polyester observations"
+  },
+  "beta_used": {
+    "value": 0.07163,
+    "unit": "EUR/tonne-km",
+    "basis": "used as directly specified by the project supervisor, independent of whether this candidate derivation is ever confirmed"
+  },
+  "source_record": {
+    "artifact": "data/raw/v5/logistics/line_haul_rate/upply_corridor_rates.json",
+    "sha256": "3d11a8d77fdceb7c6bd2c0493bb9efc927aca6fa3d8c0d0d0bdcd40db32014d8"
+  },
+  "dimensional_reading": "the corridor rates are printed in EUR per km per truck. dividing by a payload in tonnes gives EUR per tonne-km for a truck carrying that payload over the whole distance, which is the unit of beta_i",
+  "assumptions_the_arithmetic_makes": [
+    "the printed per-km rate is the price of one truck, not of a part load",
+    "the truck carries the tested payload for every km of the lane",
+    "the rate carries no separate fuel surcharge; the source does not state either way",
+    "an international EU headhaul lane rate stands in for Finnish domestic line-haul work; the source covers no Finnish lane"
+  ],
+  "document_states_payload": {
+    "value": false,
+    "record_field": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source",
+      "note": "no payload, load factor or tonnage behind the per-km rates is stated in the 38 pages; the document was searched for payload, tonne, capacity and load factor"
+    }
+  },
+  "payloads_tested_t": [
+    24.0,
+    24.15,
+    25.0,
+    26.0,
+    28.0,
+    32.8
+  ],
+  "payload_sources": {
+    "requested_in_task": [
+      24.0,
+      24.15,
+      25.0,
+      26.0,
+      28.0,
+      32.8
+    ],
+    "methodology_scan": {
+      "section_scanned": "7. Logistics Synthesis",
+      "pattern": "a number followed by t, tonne, tonnes, ton or tons",
+      "figures_found_t": []
+    }
+  },
+  "close_match_tolerance_percent": 1.0,
+  "closest_combination": {
+    "corridor": "Duisburg to Prague",
+    "rate_type": "contract",
+    "page": 22,
+    "eur_per_km": 1.73,
+    "payload_t": 24.15,
+    "eur_per_tonne_km": 0.07163561076604555,
+    "arithmetic": "1.7300 / 24.1500 = 0.0716",
+    "difference_from_0_07163_percent": 0.0078,
+    "abs_difference_percent": 0.0078,
+    "exact_eur_per_tonne_km": 0.07163561076604555,
+    "rounded_4dp": "0.0716",
+    "match": "1.7300 / 24.1500 = 0.0716, which differs from 0.07163 by +0.0078%"
+  },
+  "combinations_within_tolerance": 3,
+  "within_tolerance": [
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.07163561076604555,
+      "arithmetic": "1.7300 / 24.1500 = 0.0716",
+      "difference_from_0_07163_percent": 0.0078,
+      "abs_difference_percent": 0.0078
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.0,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.07142857142857142,
+      "arithmetic": "2.0000 / 28.0000 = 0.0714",
+      "difference_from_0_07163_percent": -0.2812,
+      "abs_difference_percent": 0.2812
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.07208333333333333,
+      "arithmetic": "1.7300 / 24.0000 = 0.0721",
+      "difference_from_0_07163_percent": 0.6329,
+      "abs_difference_percent": 0.6329
+    }
+  ],
+  "uniqueness_note": "3 of 48 combinations land within 1.0% of 0.07163, so a close quotient is not unique to one corridor and payload. the closest one is recorded as the candidate; the others are why it stays a candidate",
+  "combination_count": 48,
+  "all_combinations": [
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.07163561076604555,
+      "arithmetic": "1.7300 / 24.1500 = 0.0716",
+      "difference_from_0_07163_percent": 0.0078,
+      "abs_difference_percent": 0.0078
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.0,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.07142857142857142,
+      "arithmetic": "2.0000 / 28.0000 = 0.0714",
+      "difference_from_0_07163_percent": -0.2812,
+      "abs_difference_percent": 0.2812
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.07208333333333333,
+      "arithmetic": "1.7300 / 24.0000 = 0.0721",
+      "difference_from_0_07163_percent": 0.6329,
+      "abs_difference_percent": 0.6329
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.0692,
+      "arithmetic": "1.7300 / 25.0000 = 0.0692",
+      "difference_from_0_07163_percent": -3.3924,
+      "abs_difference_percent": 3.3924
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.06653846153846153,
+      "arithmetic": "1.7300 / 26.0000 = 0.0665",
+      "difference_from_0_07163_percent": -7.1081,
+      "abs_difference_percent": 7.1081
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.0,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.07692307692307693,
+      "arithmetic": "2.0000 / 26.0000 = 0.0769",
+      "difference_from_0_07163_percent": 7.3895,
+      "abs_difference_percent": 7.3895
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 2.58,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.07865853658536587,
+      "arithmetic": "2.5800 / 32.8000 = 0.0787",
+      "difference_from_0_07163_percent": 9.8123,
+      "abs_difference_percent": 9.8123
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.0,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.08,
+      "arithmetic": "2.0000 / 25.0000 = 0.0800",
+      "difference_from_0_07163_percent": 11.685,
+      "abs_difference_percent": 11.685
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 1.51,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.06291666666666666,
+      "arithmetic": "1.5100 / 24.0000 = 0.0629",
+      "difference_from_0_07163_percent": -12.1644,
+      "abs_difference_percent": 12.1644
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 1.51,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.06252587991718427,
+      "arithmetic": "1.5100 / 24.1500 = 0.0625",
+      "difference_from_0_07163_percent": -12.7099,
+      "abs_difference_percent": 12.7099
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.061785714285714284,
+      "arithmetic": "1.7300 / 28.0000 = 0.0618",
+      "difference_from_0_07163_percent": -13.7432,
+      "abs_difference_percent": 13.7432
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.0,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.06097560975609757,
+      "arithmetic": "2.0000 / 32.8000 = 0.0610",
+      "difference_from_0_07163_percent": -14.8742,
+      "abs_difference_percent": 14.8742
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.0,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.08281573498964803,
+      "arithmetic": "2.0000 / 24.1500 = 0.0828",
+      "difference_from_0_07163_percent": 15.616,
+      "abs_difference_percent": 15.616
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.45,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.06041666666666667,
+      "arithmetic": "1.4500 / 24.0000 = 0.0604",
+      "difference_from_0_07163_percent": -15.6545,
+      "abs_difference_percent": 15.6545
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 1.51,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.0604,
+      "arithmetic": "1.5100 / 25.0000 = 0.0604",
+      "difference_from_0_07163_percent": -15.6778,
+      "abs_difference_percent": 15.6778
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.45,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.060041407867494824,
+      "arithmetic": "1.4500 / 24.1500 = 0.0600",
+      "difference_from_0_07163_percent": -16.1784,
+      "abs_difference_percent": 16.1784
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.0,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.08333333333333333,
+      "arithmetic": "2.0000 / 24.0000 = 0.0833",
+      "difference_from_0_07163_percent": 16.3386,
+      "abs_difference_percent": 16.3386
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 1.51,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.058076923076923075,
+      "arithmetic": "1.5100 / 26.0000 = 0.0581",
+      "difference_from_0_07163_percent": -18.921,
+      "abs_difference_percent": 18.921
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.45,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.057999999999999996,
+      "arithmetic": "1.4500 / 25.0000 = 0.0580",
+      "difference_from_0_07163_percent": -19.0283,
+      "abs_difference_percent": 19.0283
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.45,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.055769230769230765,
+      "arithmetic": "1.4500 / 26.0000 = 0.0558",
+      "difference_from_0_07163_percent": -22.1426,
+      "abs_difference_percent": 22.1426
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.89,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.08810975609756098,
+      "arithmetic": "2.8900 / 32.8000 = 0.0881",
+      "difference_from_0_07163_percent": 23.0068,
+      "abs_difference_percent": 23.0068
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 1.51,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.05392857142857143,
+      "arithmetic": "1.5100 / 28.0000 = 0.0539",
+      "difference_from_0_07163_percent": -24.7123,
+      "abs_difference_percent": 24.7123
+    },
+    {
+      "corridor": "Duisburg to Prague",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.73,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.052743902439024395,
+      "arithmetic": "1.7300 / 32.8000 = 0.0527",
+      "difference_from_0_07163_percent": -26.3662,
+      "abs_difference_percent": 26.3662
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.45,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.05178571428571428,
+      "arithmetic": "1.4500 / 28.0000 = 0.0518",
+      "difference_from_0_07163_percent": -27.7039,
+      "abs_difference_percent": 27.7039
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 2.58,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.09214285714285715,
+      "arithmetic": "2.5800 / 28.0000 = 0.0921",
+      "difference_from_0_07163_percent": 28.6372,
+      "abs_difference_percent": 28.6372
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 3.05,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.09298780487804878,
+      "arithmetic": "3.0500 / 32.8000 = 0.0930",
+      "difference_from_0_07163_percent": 29.8168,
+      "abs_difference_percent": 29.8168
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 1.51,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.046036585365853665,
+      "arithmetic": "1.5100 / 32.8000 = 0.0460",
+      "difference_from_0_07163_percent": -35.73,
+      "abs_difference_percent": 35.73
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 3.19,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.09725609756097561,
+      "arithmetic": "3.1900 / 32.8000 = 0.0973",
+      "difference_from_0_07163_percent": 35.7756,
+      "abs_difference_percent": 35.7756
+    },
+    {
+      "corridor": "Warsaw to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 1.45,
+      "payload_t": 32.8,
+      "eur_per_tonne_km": 0.044207317073170736,
+      "arithmetic": "1.4500 / 32.8000 = 0.0442",
+      "difference_from_0_07163_percent": -38.2838,
+      "abs_difference_percent": 38.2838
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 2.58,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.09923076923076923,
+      "arithmetic": "2.5800 / 26.0000 = 0.0992",
+      "difference_from_0_07163_percent": 38.5324,
+      "abs_difference_percent": 38.5324
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 2.58,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.1032,
+      "arithmetic": "2.5800 / 25.0000 = 0.1032",
+      "difference_from_0_07163_percent": 44.0737,
+      "abs_difference_percent": 44.0737
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.89,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.10321428571428572,
+      "arithmetic": "2.8900 / 28.0000 = 0.1032",
+      "difference_from_0_07163_percent": 44.0937,
+      "abs_difference_percent": 44.0937
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 2.58,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.10683229813664598,
+      "arithmetic": "2.5800 / 24.1500 = 0.1068",
+      "difference_from_0_07163_percent": 49.1446,
+      "abs_difference_percent": 49.1446
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 2.58,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.1075,
+      "arithmetic": "2.5800 / 24.0000 = 0.1075",
+      "difference_from_0_07163_percent": 50.0768,
+      "abs_difference_percent": 50.0768
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 3.05,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.10892857142857142,
+      "arithmetic": "3.0500 / 28.0000 = 0.1089",
+      "difference_from_0_07163_percent": 52.0712,
+      "abs_difference_percent": 52.0712
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.89,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.11115384615384616,
+      "arithmetic": "2.8900 / 26.0000 = 0.1112",
+      "difference_from_0_07163_percent": 55.1778,
+      "abs_difference_percent": 55.1778
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 3.19,
+      "payload_t": 28.0,
+      "eur_per_tonne_km": 0.11392857142857142,
+      "arithmetic": "3.1900 / 28.0000 = 0.1139",
+      "difference_from_0_07163_percent": 59.0515,
+      "abs_difference_percent": 59.0515
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.89,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.11560000000000001,
+      "arithmetic": "2.8900 / 25.0000 = 0.1156",
+      "difference_from_0_07163_percent": 61.3849,
+      "abs_difference_percent": 61.3849
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 3.05,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.11730769230769231,
+      "arithmetic": "3.0500 / 26.0000 = 0.1173",
+      "difference_from_0_07163_percent": 63.7689,
+      "abs_difference_percent": 63.7689
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.89,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.11966873706004141,
+      "arithmetic": "2.8900 / 24.1500 = 0.1197",
+      "difference_from_0_07163_percent": 67.0651,
+      "abs_difference_percent": 67.0651
+    },
+    {
+      "corridor": "Duisburg to Lille",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 2.89,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.12041666666666667,
+      "arithmetic": "2.8900 / 24.0000 = 0.1204",
+      "difference_from_0_07163_percent": 68.1093,
+      "abs_difference_percent": 68.1093
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 3.05,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.122,
+      "arithmetic": "3.0500 / 25.0000 = 0.1220",
+      "difference_from_0_07163_percent": 70.3197,
+      "abs_difference_percent": 70.3197
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 3.19,
+      "payload_t": 26.0,
+      "eur_per_tonne_km": 0.12269230769230768,
+      "arithmetic": "3.1900 / 26.0000 = 0.1227",
+      "difference_from_0_07163_percent": 71.2862,
+      "abs_difference_percent": 71.2862
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 3.05,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.12629399585921325,
+      "arithmetic": "3.0500 / 24.1500 = 0.1263",
+      "difference_from_0_07163_percent": 76.3144,
+      "abs_difference_percent": 76.3144
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "contract",
+      "page": 22,
+      "eur_per_km": 3.05,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.12708333333333333,
+      "arithmetic": "3.0500 / 24.0000 = 0.1271",
+      "difference_from_0_07163_percent": 77.4164,
+      "abs_difference_percent": 77.4164
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 3.19,
+      "payload_t": 25.0,
+      "eur_per_tonne_km": 0.1276,
+      "arithmetic": "3.1900 / 25.0000 = 0.1276",
+      "difference_from_0_07163_percent": 78.1377,
+      "abs_difference_percent": 78.1377
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 3.19,
+      "payload_t": 24.15,
+      "eur_per_tonne_km": 0.13209109730848861,
+      "arithmetic": "3.1900 / 24.1500 = 0.1321",
+      "difference_from_0_07163_percent": 84.4075,
+      "abs_difference_percent": 84.4075
+    },
+    {
+      "corridor": "Antwerp to Duisburg",
+      "rate_type": "spot",
+      "page": 25,
+      "eur_per_km": 3.19,
+      "payload_t": 24.0,
+      "eur_per_tonne_km": 0.13291666666666666,
+      "arithmetic": "3.1900 / 24.0000 = 0.1329",
+      "difference_from_0_07163_percent": 85.5601,
+      "abs_difference_percent": 85.5601
+    }
+  ]
+}

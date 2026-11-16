@@ -1,0 +1,37 @@
+{
+  "tag": "ministral-auction-nomtp-matched",
+  "merged_dir": "models\\reverse_auction\\epoch-1\\v4\\deployment\\ministral-auction\\text",
+  "model_type": "ministral3",
+  "converter": "e3546c7948e3af463d0b401e6421d5a4c2faf565 (vendored by llama-cpp-python 0.3.34)",
+  "flags": [],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_seconds": 52.5,
+  "bf16_gib": 6.39,
+  "bf16_meta": {
+    "architecture": "mistral3",
+    "block_count": 26,
+    "tensor_count": 236,
+    "orphan_block": false
+  },
+  "quantize_rc": 0,
+  "quant_gib": 3.4,
+  "quant_sha256": "6485f899cf1966c5ee24c6ea82fdd8ed8b6b8694da89a95cef6b6f77842d3513",
+  "quant_meta": {
+    "architecture": "mistral3",
+    "block_count": 26,
+    "tensor_count": 236,
+    "orphan_block": false
+  },
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 2.4,
+    "median_steady_s": 0.83,
+    "json_ok": "6/6"
+  },
+  "verify_gates": {
+    "block_count matches config": true,
+    "no orphan block": true,
+    "json 6/6": true
+  }
+}

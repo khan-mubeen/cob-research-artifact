@@ -1,0 +1,37 @@
+{
+  "tag": "gemma-sealed-nomtp-matched",
+  "merged_dir": ".\\models\\epoch-2\\deployment\\gemma-sealed\\merged",
+  "model_type": "gemma4",
+  "converter": "e3546c7948e3af463d0b401e6421d5a4c2faf565 (vendored by llama-cpp-python 0.3.34)",
+  "flags": [],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_seconds": 81.4,
+  "bf16_gib": 8.67,
+  "bf16_meta": {
+    "architecture": "gemma4",
+    "block_count": 35,
+    "tensor_count": 601,
+    "orphan_block": false
+  },
+  "quantize_rc": 0,
+  "quant_gib": 4.63,
+  "quant_sha256": "4228cb9ea5d588716560974de5973e8f067205b6aa367e692eaab2e32bc59628",
+  "quant_meta": {
+    "architecture": "gemma4",
+    "block_count": 35,
+    "tensor_count": 601,
+    "orphan_block": false
+  },
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 6.4,
+    "median_steady_s": 0.68,
+    "json_ok": "6/6"
+  },
+  "verify_gates": {
+    "block_count matches config": true,
+    "no orphan block": true,
+    "json 6/6": true
+  }
+}

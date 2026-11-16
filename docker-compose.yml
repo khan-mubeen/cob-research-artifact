@@ -1,0 +1,94 @@
+﻿services:
+
+  nats:
+    image: nats:latest
+    container_name: cob_nats
+    ports:
+      - "4222:4222"   # client connections
+      - "8222:8222"   # http monitoring
+    command: ["--jetstream"]
+    networks:
+      - cob_network
+
+  supervisor:
+    build:
+      context: .
+      dockerfile: src/supervisor/Dockerfile
+    container_name: cob_supervisor
+    depends_on:
+      - nats
+    environment:
+      - NATS_URL=nats://nats:4222
+      # bidding mode must match on every service, unset means sealed
+      # - BIDDING_MODE=reverse_auction
+      # - PLATFORM_MINIMUM_DECREMENT=5
+      # - AUCTION_ROUND_WINDOW_SECONDS=10
+      # - USE_SLM=true
+      # - SLM_MODEL_PATH=/app/models/Qwen3.5-4B-Q8_0.gguf
+      # - SLM_ORDER_SAMPLE_SIZE=200
+    volumes:
+      - ./data/synthetic:/app/data/synthetic
+      # - ./models:/app/models
+    networks:
+      - cob_network
+
+  material:
+    build:
+      context: .
+      dockerfile: src/agents/material/Dockerfile
+    container_name: cob_material
+    depends_on:
+      - nats
+    environment:
+      - NATS_URL=nats://nats:4222
+      # - ACTIVE_AGENT_IDS=M01,M02
+      # - BIDDING_MODE=reverse_auction
+      # - USE_SLM=true
+      # - SLM_MODEL_PATH=/app/models/Qwen3.5-4B-Q8_0.gguf
+    volumes:
+      - ./data/synthetic:/app/data/synthetic
+      # - ./models:/app/models
+    networks:
+      - cob_network
+
+  manufacturer:
+    build:
+      context: .
+      dockerfile: src/agents/manufacturer/Dockerfile
+    container_name: cob_manufacturer
+    depends_on:
+      - nats
+    environment:
+      - NATS_URL=nats://nats:4222
+      # - ACTIVE_AGENT_IDS=T1,T2
+      # - BIDDING_MODE=reverse_auction
+      # - USE_SLM=true
+      # - SLM_MODEL_PATH=/app/models/Qwen3.5-4B-Q8_0.gguf
+    volumes:
+      - ./data/synthetic:/app/data/synthetic
+      # - ./models:/app/models
+    networks:
+      - cob_network
+
+  logistics:
+    build:
+      context: .
+      dockerfile: src/agents/logistics/Dockerfile
+    container_name: cob_logistics
+    depends_on:
+      - nats
+    environment:
+      - NATS_URL=nats://nats:4222
+      # - ACTIVE_AGENT_IDS=L01,L02
+      # - BIDDING_MODE=reverse_auction
+      # - USE_SLM=true
+      # - SLM_MODEL_PATH=/app/models/Qwen3.5-4B-Q8_0.gguf
+    volumes:
+      - ./data/synthetic:/app/data/synthetic
+      # - ./models:/app/models
+    networks:
+      - cob_network
+
+networks:
+  cob_network:
+    driver: bridge

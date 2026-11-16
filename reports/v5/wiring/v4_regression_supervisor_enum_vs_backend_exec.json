@@ -1,0 +1,12 @@
+{
+  "compared": [
+    "supervisor_enum",
+    "backend_exec"
+  ],
+  "differences": [],
+  "allowed_to_change": [
+    "files/files/src/experiments/finetune_lora.py"
+  ],
+  "unexpected_differences": [],
+  "identical_apart_from_allowed": true
+}

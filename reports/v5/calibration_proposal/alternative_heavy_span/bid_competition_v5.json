@@ -1,0 +1,509 @@
+{
+  "orders": 50000,
+  "orders_by_material": {
+    "polyester": 15966,
+    "linen": 12760,
+    "cotton": 11955,
+    "leather": 4662,
+    "denim": 4657
+  },
+  "feasible_orders": 43567,
+  "cases": {
+    "feasible": 43567,
+    "case3_over_budget_only": 2972,
+    "case2_a_stage_with_no_bidder": 2771,
+    "case3_over_deadline_only": 517,
+    "case3_mixed": 173
+  },
+  "feasibility_by_material_pct": {
+    "cotton": 88.7,
+    "denim": 87.1,
+    "leather": 60.1,
+    "linen": 91.7,
+    "polyester": 90.2
+  },
+  "feasibility_by_scenario_pct": {
+    "high_quality": 61.8,
+    "large_quantity": 84.7,
+    "low_budget": 63.2,
+    "random_realistic": 93.2,
+    "rare_combo": 91.4,
+    "tight_deadline": 77.8,
+    "tight_low_budget": 50.7
+  },
+  "logistics_zero_bidders": 1541,
+  "eligible_logistics_material_manufacturer": {
+    "material": {
+      "M10": 20855,
+      "M08": 9060,
+      "M12": 14723,
+      "M11": 27276,
+      "M09": 12742,
+      "M06": 24303,
+      "M01": 24303,
+      "M02": 11955,
+      "M14": 7812,
+      "M13": 5984,
+      "M05": 15966,
+      "M07": 8876,
+      "M03": 6831,
+      "M04": 3748,
+      "M15": 1470
+    },
+    "manufacturer": {
+      "T6": 19080,
+      "T4": 29416,
+      "T10": 29927,
+      "T3": 17355,
+      "T12": 16662,
+      "T1": 32589,
+      "T11": 32107,
+      "T7": 10710,
+      "T5": 12096,
+      "T2": 19891,
+      "T9": 19584,
+      "T8": 6608
+    },
+    "logistics": {
+      "L01": 40890,
+      "L02": 36931,
+      "L04": 30087,
+      "L09": 25352,
+      "L11": 12608,
+      "L03": 906,
+      "L06": 722,
+      "L07": 2174,
+      "L10": 2514,
+      "L08": 3073,
+      "L12": 1752,
+      "L05": 1676
+    }
+  },
+  "win_share_lowest_cost": {
+    "material": {
+      "M06": 25.2,
+      "M10": 23.1,
+      "M03": 15.3,
+      "M04": 8.5,
+      "M14": 8.0,
+      "M07": 6.2,
+      "M11": 5.4,
+      "M15": 3.1,
+      "M02": 2.6,
+      "M08": 1.3,
+      "M05": 0.4,
+      "M12": 0.4,
+      "M09": 0.2,
+      "M01": 0.1,
+      "M13": 0.1
+    },
+    "manufacturer": {
+      "T7": 22.4,
+      "T3": 18.0,
+      "T12": 16.9,
+      "T8": 12.9,
+      "T6": 9.8,
+      "T5": 6.8,
+      "T2": 6.6,
+      "T4": 5.2,
+      "T9": 0.6,
+      "T1": 0.5,
+      "T11": 0.1,
+      "T10": 0.1
+    },
+    "logistics": {
+      "L09": 47.3,
+      "L02": 36.9,
+      "L08": 5.2,
+      "L07": 3.8,
+      "L05": 2.8,
+      "L03": 2.0,
+      "L11": 0.7,
+      "L04": 0.5,
+      "L01": 0.5,
+      "L10": 0.4
+    }
+  },
+  "win_share_fastest": {
+    "material": {
+      "M11": 41.4,
+      "M02": 17.7,
+      "M06": 7.7,
+      "M14": 7.1,
+      "M10": 6.9,
+      "M12": 5.7,
+      "M08": 4.2,
+      "M01": 2.4,
+      "M04": 1.8,
+      "M07": 1.7,
+      "M03": 1.4,
+      "M13": 1.0,
+      "M15": 0.5,
+      "M05": 0.4,
+      "M09": 0.2
+    },
+    "manufacturer": {
+      "T11": 38.9,
+      "T10": 21.3,
+      "T9": 12.6,
+      "T4": 7.4,
+      "T7": 5.5,
+      "T8": 4.1,
+      "T1": 4.1,
+      "T3": 2.2,
+      "T5": 1.4,
+      "T12": 1.2,
+      "T6": 0.8,
+      "T2": 0.5
+    },
+    "logistics": {
+      "L02": 49.9,
+      "L09": 13.4,
+      "L04": 12.1,
+      "L01": 11.6,
+      "L08": 5.2,
+      "L05": 2.8,
+      "L07": 1.7,
+      "L12": 1.0,
+      "L10": 1.0,
+      "L03": 0.5,
+      "L06": 0.4,
+      "L11": 0.3
+    }
+  },
+  "wins_lowest_cost": {
+    "material": {
+      "M10": 10085,
+      "M14": 3483,
+      "M11": 2358,
+      "M07": 2722,
+      "M06": 10958,
+      "M03": 6667,
+      "M04": 3685,
+      "M15": 1367,
+      "M08": 560,
+      "M02": 1133,
+      "M01": 42,
+      "M12": 164,
+      "M13": 41,
+      "M05": 194,
+      "M09": 108
+    },
+    "manufacturer": {
+      "T6": 4258,
+      "T3": 7845,
+      "T7": 9771,
+      "T2": 2874,
+      "T8": 5640,
+      "T12": 7362,
+      "T5": 2958,
+      "T4": 2287,
+      "T1": 208,
+      "T9": 262,
+      "T11": 56,
+      "T10": 46
+    },
+    "logistics": {
+      "L09": 20593,
+      "L02": 16080,
+      "L03": 886,
+      "L08": 2257,
+      "L07": 1658,
+      "L05": 1212,
+      "L11": 298,
+      "L01": 200,
+      "L10": 175,
+      "L04": 208
+    }
+  },
+  "logistics_corner_wins_by_weight": {
+    "35-500 kg": {
+      "freight": 29078,
+      "parcel": 2
+    },
+    "500-1000 kg": {
+      "freight": 8081
+    },
+    "25-35 kg": {
+      "freight": 217,
+      "parcel": 1164
+    },
+    "under 25 kg": {
+      "parcel": 1553,
+      "freight": 3
+    },
+    "1000-1500 kg": {
+      "freight": 2210
+    },
+    "1500-2000 kg": {
+      "freight": 1258
+    },
+    "2000-2500 kg": {
+      "freight": 1
+    }
+  },
+  "logistics_wins_by_agent_and_weight": {
+    "L09": {
+      "35-500 kg": 16081,
+      "500-1000 kg": 4292,
+      "25-35 kg": 217,
+      "under 25 kg": 3
+    },
+    "L02": {
+      "500-1000 kg": 3617,
+      "35-500 kg": 12463
+    },
+    "L03": {
+      "under 25 kg": 886
+    },
+    "L08": {
+      "1000-1500 kg": 1454,
+      "1500-2000 kg": 803
+    },
+    "L07": {
+      "under 25 kg": 667,
+      "25-35 kg": 989,
+      "35-500 kg": 2
+    },
+    "L05": {
+      "1000-1500 kg": 756,
+      "1500-2000 kg": 455,
+      "2000-2500 kg": 1
+    },
+    "L11": {
+      "35-500 kg": 291,
+      "500-1000 kg": 7
+    },
+    "L01": {
+      "35-500 kg": 125,
+      "500-1000 kg": 75
+    },
+    "L10": {
+      "25-35 kg": 175
+    },
+    "L04": {
+      "500-1000 kg": 90,
+      "35-500 kg": 118
+    }
+  },
+  "logistics_lightest_win_kg": {
+    "L09": 15.299999999999999,
+    "L02": 35.04,
+    "L03": 12.0,
+    "L08": 1000.0,
+    "L07": 12.0,
+    "L05": 1000.5,
+    "L11": 464.8,
+    "L01": 47.97,
+    "L10": 25.08,
+    "L04": 42.77
+  },
+  "logistics_heaviest_win_kg": {
+    "L09": 999.0,
+    "L02": 999.6,
+    "L03": 24.96,
+    "L08": 1997.0,
+    "L07": 35.0,
+    "L05": 2000.0,
+    "L11": 500.0,
+    "L01": 975.8,
+    "L10": 34.8,
+    "L04": 993.0
+  },
+  "logistics_weight_domains_kg": {
+    "L01": {
+      "min": 0.0,
+      "max": 1000.0,
+      "max_inclusive": false
+    },
+    "L02": {
+      "min": 0.0,
+      "max": 1000.0,
+      "max_inclusive": false
+    },
+    "L03": {
+      "min": 0.0,
+      "max": 25.0,
+      "max_inclusive": true
+    },
+    "L04": {
+      "min": 0.0,
+      "max": 1000.0,
+      "max_inclusive": false
+    },
+    "L05": {
+      "min": 1000.0,
+      "max": 3000.0,
+      "max_inclusive": false
+    },
+    "L06": {
+      "min": 0.0,
+      "max": 25.0,
+      "max_inclusive": true
+    },
+    "L07": {
+      "min": 0.0,
+      "max": 35.0,
+      "max_inclusive": true
+    },
+    "L08": {
+      "min": 1000.0,
+      "max": 3000.0,
+      "max_inclusive": false
+    },
+    "L09": {
+      "min": 0.0,
+      "max": 1000.0,
+      "max_inclusive": false
+    },
+    "L10": {
+      "min": 0.0,
+      "max": 35.0,
+      "max_inclusive": true
+    },
+    "L11": {
+      "min": 35.0,
+      "max": 500.0,
+      "max_inclusive": true
+    },
+    "L12": {
+      "min": 0.0,
+      "max": 35.0,
+      "max_inclusive": true
+    }
+  },
+  "weight_domain_violations": 0,
+  "median_budget_to_cheapest_chain": 1.172752898164459,
+  "material_movement": {
+    "cotton": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices": 7,
+      "min_usd_per_kg": 14.5954,
+      "max_usd_per_kg": 16.8889,
+      "observation_dates_used": [
+        "2025-10-01",
+        "2025-11-01",
+        "2025-12-01",
+        "2026-01-01",
+        "2026-02-01",
+        "2026-03-01",
+        "2026-04-01"
+      ],
+      "days_after_last_observation": 0
+    },
+    "polyester": {
+      "price_basis": "fixed_anchor_no_temporal_series",
+      "distinct_prices": 1,
+      "min_usd_per_kg": 14.6887,
+      "max_usd_per_kg": 14.6887,
+      "observation_dates_used": [],
+      "days_after_last_observation": 0
+    },
+    "linen": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices": 2,
+      "min_usd_per_kg": 32.3019,
+      "max_usd_per_kg": 45.612,
+      "observation_dates_used": [
+        "2024-03-01",
+        "2026-03-01"
+      ],
+      "days_after_last_observation": 148
+    },
+    "denim": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices": 7,
+      "min_usd_per_kg": 8.5412,
+      "max_usd_per_kg": 8.6638,
+      "observation_dates_used": [
+        "2025-10-01",
+        "2025-11-01",
+        "2025-12-01",
+        "2026-01-01",
+        "2026-02-01",
+        "2026-03-01",
+        "2026-04-01"
+      ],
+      "days_after_last_observation": 0
+    },
+    "leather": {
+      "price_basis": "anchor_times_dated_series",
+      "distinct_prices": 7,
+      "min_usd_per_kg": 64.054,
+      "max_usd_per_kg": 67.0992,
+      "observation_dates_used": [
+        "2025-10-01",
+        "2025-11-01",
+        "2025-12-01",
+        "2026-01-01",
+        "2026-02-01",
+        "2026-03-01",
+        "2026-04-01"
+      ],
+      "days_after_last_observation": 0
+    }
+  },
+  "fuel_date_pattern": {
+    "matkahuolto_lavarahti": {
+      "agents": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L09",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "distinct_percentages_over_orders": 22,
+      "distinct_observation_dates_used": 22,
+      "percent_min": 16.98,
+      "percent_max": 33.14,
+      "share_of_orders_after_last_observation": 0.0,
+      "distinct_percentages_by_month": {
+        "2025-10": 3,
+        "2025-11": 4,
+        "2025-12": 4,
+        "2026-01": 4,
+        "2026-02": 3,
+        "2026-03": 6,
+        "2026-04": 3
+      },
+      "window_coverage": {
+        "usable": true,
+        "first_observation": "2025-01-07",
+        "last_observation": "2026-09-07",
+        "observations_in_window": 21,
+        "at_window_start": {
+          "percent": 17.31,
+          "observation_date": "2025-10-13"
+        },
+        "at_last_window_day": {
+          "percent": 33.14,
+          "observation_date": "2026-04-10",
+          "days_carried": 2,
+          "after_last_observation": false
+        },
+        "distinct_percentages_across_window_days": 22,
+        "window_days_after_last_observation": 0
+      }
+    }
+  },
+  "warnings": [
+    "material agent M01 wins lowest cost in only 42 of 24303 eligible orders",
+    "material agent M09 wins lowest cost in only 108 of 12742 eligible orders",
+    "material agent M13 wins lowest cost in only 41 of 5984 eligible orders",
+    "manufacturer agent T1 wins lowest cost in only 208 of 32589 eligible orders",
+    "manufacturer agent T10 wins lowest cost in only 46 of 29927 eligible orders",
+    "manufacturer agent T11 wins lowest cost in only 56 of 32107 eligible orders",
+    "logistics agent L01 wins lowest cost in only 200 of 40890 eligible orders",
+    "logistics agent L04 wins lowest cost in only 208 of 30087 eligible orders",
+    "logistics agent L06 is eligible 722 times but never wins lowest cost",
+    "logistics agent L12 is eligible 1752 times but never wins lowest cost",
+    "lowest cost logistics: L09 takes 47.3% of wins (v4 threshold 30%)"
+  ]
+}

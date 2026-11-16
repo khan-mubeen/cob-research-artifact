@@ -1,0 +1,14 @@
+qwen:sealed                  7.480 s/step    33847 steps     70.3 h/epoch    140.7 h/2 epochs
+granite:sealed               6.370 s/step    33847 steps     59.9 h/epoch    119.8 h/2 epochs
+phi:sealed                   5.848 s/step    33847 steps     55.0 h/epoch    110.0 h/2 epochs
+ministral:sealed             6.144 s/step    33847 steps     57.8 h/epoch    115.5 h/2 epochs
+gemma:sealed                 5.122 s/step    33847 steps     48.2 h/epoch     96.3 h/2 epochs
+smollm3:sealed               5.181 s/step    33847 steps     48.7 h/epoch     97.4 h/2 epochs
+qwen:reverse_auction         8.910 s/step    37573 steps     93.0 h/epoch    186.0 h/2 epochs
+granite:reverse_auction      7.383 s/step    37573 steps     77.1 h/epoch    154.1 h/2 epochs
+phi:reverse_auction          7.178 s/step    37573 steps     74.9 h/epoch    149.8 h/2 epochs
+ministral:reverse_auction    8.002 s/step    37573 steps     83.5 h/epoch    167.0 h/2 epochs
+gemma:reverse_auction        6.234 s/step    37573 steps     65.1 h/epoch    130.1 h/2 epochs
+smollm3:reverse_auction      6.086 s/step    37573 steps     63.5 h/epoch    127.0 h/2 epochs
+supervisor {'model': 'qwen', 'train_rows': 35552, 's_per_step': 15.37, 'log': 'reports/v5/phase6/smoke_qwen_supervisor.log', 'steps_per_epoch': 2222, 'hours_one_epoch': 9.5, 'hours_two_epochs': 19.0}
+totals {'one_epoch_hours_all_six_both_modes': 797.0, 'two_epoch_hours_all_six_both_modes': 1593.7}

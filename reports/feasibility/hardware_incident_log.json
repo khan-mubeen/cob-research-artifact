@@ -1,0 +1,255 @@
+{
+  "title": "Hardware instability incident log - chain-of-bid workstation",
+  "machine": "Windows 11 laptop, RTX 5090 Laptop GPU 24463 MiB, 63.43 GB RAM, 4.0 GB pagefile",
+  "compiled_on": "2026-07-29",
+  "purpose": "single consolidated record of every observed crash/interruption and the supporting hardware evidence, for later reporting. NOT a causation claim against any model.",
+  "standing_hardware_finding": {
+    "signature": "WHEA-Logger Event 17, 'A corrected hardware error has occurred', Component: PCI Express Root Port, Error Source: Advanced Error Reporting (PCIe), Primary Bus:Device:Function 0x0:0x1:0x0, Device PCI\\VEN_8086&DEV_7ECC&SUBSYS_234717AA&REV_10",
+    "significance": "0:1:0 is the root port the discrete GPU sits behind. Errors are CORRECTED (recovered by hardware) but occur continuously, including at idle with zero GPU load and with no model process running.",
+    "daily_counts": {
+      "2026-07-19": 8015,
+      "2026-07-20": 1091,
+      "2026-07-21": 2760
+    },
+    "idle_rate_observed": "48-49 events in a 10-minute window post-reboot at 0% GPU utilisation",
+    "gpu_itself_clean": "driver 610.62; ZERO XID / nvlddmkm driver faults in 3 days; no HW thermal slowdown, no HW power brake; idle 41 C; ECC N/A (consumer part)"
+  },
+  "incidents": [
+    {
+      "n": 1,
+      "utc_local": "2026-07-19 20:30",
+      "bugcheck": "0x3B SYSTEM_SERVICE_EXCEPTION",
+      "dump": "071926-37968-01.dmp",
+      "workload_at_time": "Qwen/Granite-era Protocol v1/v2 work",
+      "models_involved": "qwen / granite",
+      "notes": "predates all Nemotron/LFM/Ministral/SmolLM3 work"
+    },
+    {
+      "n": 2,
+      "utc_local": "2026-07-20 00:57",
+      "bugcheck": "0x135",
+      "dump": "072026-18359-01.dmp",
+      "workload_at_time": "Granite v2 training window",
+      "models_involved": "granite"
+    },
+    {
+      "n": 3,
+      "utc_local": "2026-07-21 05:24",
+      "bugcheck": "0x20001",
+      "dump": "072126-20578-01.dmp",
+      "workload_at_time": "after an LFM2.5 CPU-only module inspection had completed",
+      "models_involved": "lfm2.5 (cpu only)"
+    },
+    {
+      "n": 4,
+      "utc_local": "2026-07-21 14:58",
+      "bugcheck": "0x1E KMODE_EXCEPTION_NOT_HANDLED (0xc0000005 access violation)",
+      "dump": "072126-20125-01.dmp",
+      "workload_at_time": "LFM2.5 8B loading into VRAM (reached 152/234 shards) AND a WSL2 Ubuntu VM starting concurrently",
+      "models_involved": "lfm2.5",
+      "notes": "dump never analysed; concurrency was an avoidable operator error"
+    },
+    {
+      "n": 5,
+      "utc_local": "2026-07-21 16:54",
+      "bugcheck": "not captured",
+      "dump": "072126-23609-01.dmp",
+      "workload_at_time": "no training run of ours active",
+      "models_involved": "none"
+    },
+    {
+      "n": 6,
+      "utc_local": "2026-07-21 20:05",
+      "bugcheck": "not captured",
+      "dump": "072126-20984-01.dmp",
+      "workload_at_time": "no training run of ours active",
+      "models_involved": "none"
+    },
+    {
+      "n": 7,
+      "utc_local": "2026-07-21 23:11:07",
+      "bugcheck": "NONE RECORDED",
+      "dump": "NONE PRODUCED",
+      "events": "Kernel-Power 41 (unclean shutdown) + EventLog 6008 'previous system shutdown at 11:11:07 PM was unexpected'; reboot completed 23:19:49",
+      "workload_at_time": "Ministral-3-3B Protocol v2 training at step 834/951 (88%); telemetry 3 min earlier was healthy (commit 41.7/67.43 GB, VRAM 21.5 GB, 76 C, step time nominal 5.37 s)",
+      "models_involved": "ministral3",
+      "notes": "DISTINCT SIGNATURE: unclean shutdown with NO bugcheck event and NO minidump. That is not a classic kernel-exception BSOD; it is more consistent with abrupt power/hardware loss. Recovery checkpoints at 400/600/800 survived intact (0 NaN/Inf), so only ~34 steps were lost."
+    },
+    {
+      "n": 8,
+      "utc_local": "2026-07-27 15:06:31",
+      "bugcheck": "NONE RECORDED",
+      "dump": "not checked at time of writing; no BugCheck event present in the System log",
+      "events": "Kernel-Power 41 (system rebooted without cleanly shutting down first) + EventLog 6008 'previous system shutdown at 3:06:31 PM on 7/27/2026 was unexpected'; boot completed 15:09:01, followed immediately by 5+ WHEA-Logger id 17 corrected hardware errors",
+      "workload_at_time": "Granite-4.1-3B epoch-2 pilot training at step 396/1902 (21%), 37 min into a ~176 min run; step time nominal 5.64 s/it right up to the last logged line",
+      "models_involved": "granite41-3b",
+      "notes": "Same signature as incident 7: unclean shutdown, NO bugcheck event, no kernel-exception trace. Recovery checkpoint-250 survived intact (560 tensors, 31,129,600 params, 0 NaN/Inf, optimizer+scheduler+RNG state complete). Note this run used save_steps 250 rather than epoch-1's 500 -- at 500 the crash at step 396 would have left NO usable checkpoint at all. No claim is made that the workload caused the crash; three of the eight incidents occurred with no model running."
+    },
+    {
+      "n": 9,
+      "utc_local": "2026-07-27 15:39:25",
+      "bugcheck": "0x00000135 (0xffffffffc0000005, 0xffffdd86f5875c40, 0xfffff80306b8d760, 0xffffb88a8ce03210)",
+      "dump": "C:\\Windows\\Minidump:726-22546-01.dmp (11,625,940 bytes)",
+      "events": "Kernel-Power 41 + WER-SystemErrorReporting 1001 + EventLog 6008; boot completed 15:40:28",
+      "workload_at_time": "Granite epoch-2 resume from checkpoint-250, died at global step 398/1902 (14 min in); step time nominal 5.64-5.78 s/it to the last logged line",
+      "models_involved": "granite41-3b",
+      "notes": "FIRST BUGCHECK WITH A CODE in this series. arg1 0xC0000005 = access violation."
+    },
+    {
+      "n": 10,
+      "utc_local": "2026-07-27 15:44:45",
+      "bugcheck": "0x0000001E (0xffffffffc0000005, 0xfffff80780d970b0, 0x0000000000000000, 0xffffffffffffffff)",
+      "dump": "C:\\Windows\\Minidump:726-22812-01.dmp (11,048,402 bytes)",
+      "events": "Kernel-Power 41 + WER-SystemErrorReporting 1001 + EventLog 6008; boot completed 15:45:47",
+      "workload_at_time": "NONE. No training, no model, no GPU workload -- the machine had rebooted at 15:40 and nothing had been restarted. Crashed idle, 4 min after boot.",
+      "models_involved": "none",
+      "notes": "KMODE_EXCEPTION_NOT_HANDLED, arg1 0xC0000005 = access violation. Second bugcheck in 6 minutes, different code, same access-violation first parameter. This is the fourth of ten incidents to occur with no workload running."
+    },
+    {
+      "n": 11,
+      "utc_local": "2026-07-28 06:28:39",
+      "bugcheck": "0x00000135 (0xffffffffc0000005, 0xffff82800b615c40, 0xfffff8038b06d760, 0xffffb004d3dd9880)",
+      "dump": "C:\\Windows\\Minidump\\072826-18875-01.dmp",
+      "events": "Kernel-Power 41 + WER-SystemErrorReporting 1001 + EventLog 6008; boot completed 06:29:16",
+      "workload_at_time": "Gemma epoch-2 EVALUATION (inference, not training), at main_holdout 1440/1500; generation throughput nominal 2.2 ex/s to the last logged line",
+      "models_involved": "gemma4-e2b",
+      "notes": "TWO THINGS ARE NEW. (1) 0x135 has now occurred twice (incidents 9 and 11), making it a REPEATING signature rather than a one-off; of the three incidents that produced a code, two are 0x135 and all three carry first parameter 0xC0000005 (access violation). (2) This is the FIRST crash during evaluation/inference rather than training or idle -- prior incidents struck training (5) or an idle machine (4). Gemma's training run itself completed cleanly ~2.5 h earlier. No adapter or training artifact was lost: the crash hit a read-only evaluation pass, which is fully re-runnable from the completed adapter."
+    },
+    {
+      "n": 12,
+      "utc_local": "2026-07-28 11:59:03",
+      "bugcheck": "0x0000001E (0xffffffffc0000005, 0xfffff803bb9970b0, 0xffff9583371872a8, 0xffff958337186ab0)",
+      "dump": "C:\\Windows\\Minidump\\072826-22921-01.dmp",
+      "events": "Kernel-Power 41 at 11:59:54 + WER-SystemErrorReporting 1001 + EventLog 6008; boot 11:59:48",
+      "workload_at_time": "Ministral epoch-2 training at step 128/1902 (7%), 11 minutes into a ~168 min run; step time nominal 5.33 s/it to the last logged line",
+      "models_involved": "ministral3",
+      "notes": "0x1E now repeats too (incidents 10 and 12), so BOTH identified codes have recurred: 0x135 at incidents 9 and 11, 0x1E at 10 and 12. All four carry first parameter 0xC0000005. NO CHECKPOINT SURVIVED: the crash struck at step 128, before the first save at 250, so all 11 minutes were lost and there is nothing to resume from. This is the second time save granularity has mattered (granite's first crash at step 396 would have lost everything at the epoch-1 setting of 500). Crash-to-crash interval is now the shortest observed for a training run: 11 minutes."
+    },
+    {
+      "n": 13,
+      "utc_local": "2026-07-28 13:47:22",
+      "bugcheck": "see WER 1001 for this boot cycle; Kernel-Power 41 confirmed, boot 13:48:05",
+      "dump": "C:\\Windows\\Minidump (fourth+ retained dump of the 27-28 July cluster)",
+      "events": "Kernel-Power 41; boot completed 13:48:05, 43 s after the last training log line",
+      "workload_at_time": "Ministral epoch-2 training at step 821/1902 (43%), 73 min into the restarted run; step time nominal 5.38 s/it to the last logged line",
+      "models_involved": "ministral3",
+      "notes": "THE TIGHTENED SAVE INTERVAL PAID OFF. checkpoint-800 survived intact (364 tensors, 24,707,072 params, 0 NaN/Inf, optimizer+scheduler+RNG complete), so only 21 steps (~2 min) were lost instead of the full 73 min. At the original save_steps 250 the last checkpoint would have been 750 -- still fine here -- but at the crash-128 event earlier today 250 produced NOTHING. Two crashes in one afternoon on the same model: 11 min apart on the first attempt, 73 min on the second."
+    },
+    {
+      "n": 14,
+      "utc_local": "2026-07-28 21:48:43",
+      "bugcheck": "0x00000135 (0xffffffffc0000005, 0xffff9f043a5e9c40, ...)",
+      "events": "Kernel-Power 41 + WER 1001; boot 21:48:43",
+      "workload_at_time": "supervisor smoke EVALUATION (base model), immediately after weight load",
+      "models_involved": "qwen3.5-4b (base, inference only)",
+      "notes": "0x135 for the THIRD time (incidents 9, 11, 14); it is now clearly the dominant signature. Second crash to strike an evaluation rather than training. Both smoke adapters had already been written and survived intact; only the read-only eval needed repeating."
+    },
+    {
+      "n": 15,
+      "utc_local": "2026-07-29 05:23:48",
+      "bugcheck": "0x00000051 (0x0000000000000021, 0xffffffffc00000..) - REGISTRY_ERROR class, a NEW code for this series",
+      "events": "Kernel-Power 41; boot 05:25:49",
+      "workload_at_time": "supervisor epoch-2 FULL training at step 1175/1228 (96%), 4h52m into a ~5.2h run",
+      "models_involved": "qwen3.5-4b (supervisor chain-selection)",
+      "notes": "FOURTH distinct bugcheck code (0x135 x3, 0x1E x2, now 0x51). Struck at 96% completion. checkpoint-1150 survived intact so only 25 steps (~6 min) were lost; at the agent sweep default of 250 the last checkpoint would have been 1000 and 175 steps (~44 min) would have gone. Tight-from-the-start checkpointing paid off again."
+    },
+    {
+      "n": 16,
+      "utc_local": "2026-07-29 11:47:00",
+      "bugcheck": "see WER 1001 for this boot cycle",
+      "events": "Kernel-Power 41; boot 11:48:00",
+      "workload_at_time": "supervisor epoch-1 full training at step 27/614 (4%), 6m47s in",
+      "models_involved": "qwen3.5-4b (supervisor chain-selection)",
+      "notes": "NO CHECKPOINT SURVIVED: crashed at step 27, before the first save at 50, so all 6m47s was lost. Shortest training-run survival yet (~7 min). save_steps tightened 50 -> 25 (~6.2 min at 14.8 s/step) for the restart, now inside even this interval."
+    },
+    {
+      "n": 17,
+      "utc_local": "2026-07-29 (boot +0)",
+      "workload_at_time": "supervisor epoch-1 full training at step 459/614 (75%), 1h54m in",
+      "models_involved": "qwen3.5-4b (supervisor chain-selection)",
+      "events": "Kernel-Power 41",
+      "notes": "checkpoint-450 survived: only 9 steps (~2 min) lost. The save_steps 50->25 tightening made after incident 16 worked exactly as intended. Second crash on this single run (16 at step 27, 17 at step 459)."
+    }
+  ],
+  "pattern_analysis": {
+    "count": 7,
+    "distinct_bugcheck_codes": [
+      "0x3B",
+      "0x135",
+      "0x20001",
+      "0x1E",
+      "unrecorded x2",
+      "none (power-loss style)"
+    ],
+    "crashes_with_no_model_workload": 3,
+    "models_spanned": [
+      "qwen",
+      "granite",
+      "lfm2.5",
+      "ministral3",
+      "none"
+    ],
+    "interpretation": "Seven interruptions across at least four different workload contexts and six different (or absent) bugcheck codes, three of them with no model running at all. Combined with a continuous idle-time PCIe corrected-error stream and a demonstrably clean GPU driver, the evidence points to a platform/PCIe-level hardware fault rather than to any model or training configuration.",
+    "explicitly_not_claimed": "No individual crash has been attributed to a specific driver or component; that requires minidump analysis which has not been performed. Corrected WHEA errors are by definition recovered and do not by themselves prove they escalated into any of these shutdowns.",
+    "incidents_total": 17,
+    "updated_2026_07_27": "8 incidents. The 21 July and 27 July events share a distinct signature: unclean shutdown, no bugcheck, no dump -- more consistent with abrupt power/hardware loss than a kernel exception. Both struck sustained GPU training. Causation is still not attributed to any model or workload.",
+    "updated_2026_07_27_late": "10 incidents. THREE unclean shutdowns on 27 July alone (15:06:31, 15:39:25, 15:44:45). The last two produced real kernel bugchecks and minidumps -- 0x135 and 0x1E, both with first parameter 0xC0000005 (access violation) -- which no earlier incident in this series did. One of the three struck an idle machine with no workload. Separately: the two training crashes died at global step 396 and 398 of the same run, within two steps of each other, which is either coincidence or a data-dependent trigger and has not been distinguished. Minidumps now exist and have NOT been analyzed; that is the obvious next diagnostic step and needs a debugger toolchain.",
+    "updated_2026_07_28": "11 incidents. Three consecutive clean training runs (phi, qwen, gemma -- roughly 8.6 h of sustained GPU load) sat between the 27 July cluster and this one, so the fault is intermittent rather than load-triggered. The newly repeating 0x135 code is the most specific signature yet and, combined with the standing PCIe root-port finding (99.4% of 3,545 WHEA events from port 00:01.0, workload-independent), remains consistent with a marginal platform link rather than anything workload-specific. Three dumps now exist and none has been analyzed; that still needs elevation plus a debugger toolchain.",
+    "updated_2026_07_28_later": "12 incidents, 4 of them on 27-28 July with kernel bugchecks. Both identified codes have now recurred (0x135 at 9 and 11; 0x1E at 10 and 12), every one with first parameter 0xC0000005 (access violation). Four minidumps are retained and none has been analyzed -- that still requires elevation plus a debugger toolchain, neither available in this environment. The workload distribution across all 12 is now: 6 during training, 4 idle, 1 during evaluation, 1 unknown, which continues to argue against a workload-specific cause and for the standing PCIe root-port finding (99.4% of WHEA events from port 00:01.0, present at idle).",
+    "updated_2026_07_28_ministral": "13 incidents. Ministral alone has now crashed 3 times across two epochs (epoch-1 at step 834/951, epoch-2 at 128/1902 and 821/1902). That is suggestive but NOT established as model-specific: the same host also crashed during granite training twice, during a gemma evaluation, and four times with nothing running at all. The simpler reading remains the standing PCIe root-port fault, which is workload-independent. Ministral's runs are simply long and it has had more exposure."
+  },
+  "operational_consequences": {
+    "successful_runs_despite_fault": [
+      "qwen v2",
+      "granite v2",
+      "phi v2",
+      "gemma v2",
+      "smollm3 v2"
+    ],
+    "mitigations_in_force": "--save-steps recovery checkpointing on every long run (proved its value in incident 7); 1-second telemetry (reports/feasibility/monitor_*.csv); strictly sequential GPU work; no concurrent WSL/VM startup during model load",
+    "recommended_next_step": "Investigate the PCIe root port fault before further long GPU runs: GPU seating/riser, PCIe link speed and ASPM settings, chipset and GPU driver, BIOS/EC firmware. Separately, the 4.0 GB pagefile is small for a 63 GB machine and leaves little commit headroom (peak observed 54.34 GB of a 67.43 GB limit)."
+  },
+  "minidump_analysis_2026_07_27": {
+    "attempted": true,
+    "dumps_present": [
+      "C:/Windows/Minidump/072726-22546-01.dmp (11,625,940 bytes, bugcheck 0x135)",
+      "C:/Windows/Minidump/072726-22812-01.dmp (11,048,402 bytes, bugcheck 0x1E)"
+    ],
+    "outcome": "NOT ANALYZABLE in this environment. C:\\Windows\\Minidump requires elevation to read; both direct read and PowerShell Copy-Item were denied. No debugger toolchain is installed (kd.exe, cdb.exe, windbg.exe all absent; Windows Kits Debuggers not present). A real analysis needs an elevated shell plus the Windows SDK Debugging Tools, then `!analyze -v`. No analysis was forced or guessed at.",
+    "what_is_known_without_them": "both bugchecks carry first parameter 0xC0000005 (access violation); 0x1E is KMODE_EXCEPTION_NOT_HANDLED. Two different codes six minutes apart, one of them on a machine with no workload running.",
+    "more_useful_finding_instead": "see standing_hardware_finding_2026_07_27 below -- the WHEA telemetry turned out to be more specific than the dumps were likely to be."
+  },
+  "standing_hardware_finding_2026_07_27": {
+    "summary": "A single PCI Express Root Port is generating corrected AER errors continuously, at a rate of hundreds per hour, all day, independent of workload.",
+    "evidence": {
+      "total_whea_events_24h": 3545,
+      "all_event_id": 17,
+      "by_source": {
+        "PCI Express Root Port 0x0:0x1:0x0": 3522,
+        "PCI Express Endpoint 0x84:0x0:0x0": 12,
+        "PCI Express Legacy Endpoint 0x1:0x0:0x0": 11
+      },
+      "hourly_counts": {
+        "15": 189,
+        "16": 302,
+        "17": 496,
+        "18": 434,
+        "19": 646,
+        "20": 398,
+        "21": 418,
+        "22": 534,
+        "23": 128
+      },
+      "in_crash_window_1530_1550": 121
+    },
+    "interpretation": "99.4% of errors come from root port 00:01.0, which on this platform is the port the discrete GPU attaches through. Corrected means the link is recovering, but a sustained ~400/hour is a genuinely marginal link, not incidental noise. Note the rate does NOT spike around the crashes (121 in the 20-minute crash window is in line with the hourly baseline), so the crashes are not preceded by an error storm -- the link is simply marginal all the time.",
+    "why_this_matters_operationally": "it is independent of workload, which matches the observation that 4 of 10 incidents happened with nothing running. It also means no amount of training-side mitigation (checkpointing, smaller batches) addresses the cause; it only limits the damage.",
+    "suggested_next_steps_not_taken": [
+      "reseat / inspect the GPU PCIe link if physically possible",
+      "check for BIOS/chipset firmware updates addressing PCIe AER on this platform",
+      "try forcing the link to a lower PCIe generation in firmware -- a standard mitigation for a marginal high-speed link",
+      "if elevation becomes available, run `!analyze -v` on the two retained dumps to confirm or refute a driver-level cause"
+    ],
+    "not_claimed": "This does not prove the root port caused the bugchecks. It is a strong, specific, workload-independent platform signal that was not previously characterized."
+  }
+}

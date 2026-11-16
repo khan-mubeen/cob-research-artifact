@@ -1,0 +1,45 @@
+{
+  "group": "material/cotton",
+  "hash_algorithm": "sha256",
+  "hash_purpose_means": {
+    "source_artifact_integrity": "sha-256 of the downloaded artifact itself. it proves the pinned file stored in this repository has not changed since it was retrieved from the source url on the recorded retrieval date. it says nothing about whether the source has since revised or withdrawn the series",
+    "record_integrity": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record"
+  },
+  "sources": [
+    {
+      "artifact": "material/cotton/PCOTTINDUSDM.csv",
+      "acquisition_mode": "downloaded",
+      "sha256": "900505dbc00da597955427d125f4b15c45e2bcce1179b584986208bcf21d1f51",
+      "hash_purpose": "source_artifact_integrity",
+      "bytes": 12105,
+      "source": "FRED / IMF, Global price of Cotton",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PCOTTINDUSDM",
+      "source_page": "https://fred.stlouisfed.org/series/PCOTTINDUSDM",
+      "series_id": "PCOTTINDUSDM",
+      "retrieval_date": "2026-09-12",
+      "unit": "U.S. Cents per Pound",
+      "unit_confirmed_from": "the Units line printed on the FRED series page",
+      "frequency": "Monthly",
+      "role": "primary temporal reference for cotton",
+      "licence_note": "IMF Primary Commodity Prices, reprinted by FRED with permission",
+      "seasonal_adjustment": "Not Seasonally Adjusted"
+    },
+    {
+      "artifact": "material/cotton/tabb_jersey_knit.json",
+      "acquisition_mode": "manual_record",
+      "sha256": "63e84df0f99d8001fe437ff10426f29b204577c0509b5dcadc996265c7f38662",
+      "hash_purpose": "record_integrity",
+      "bytes": 2163,
+      "source": "Tabb Textile Company, 2024 Product Catalog",
+      "source_url": "https://www.tabbtextileinc.com/wp-content/uploads/2024/11/Tabb-Textile-Fabric-Catalog-Final-Version-1.pdf",
+      "page_or_section": "jersey knit section of the fabric catalog",
+      "access_date": "2026-09-11",
+      "access_date_basis": "the date these hand-verified values were committed into docs/data_synthesis_methodology.md (02a3fb5); the original browsing date was not recorded at verification time, so this is the earliest date this repository can evidence for the value",
+      "unit": "USD per pound",
+      "currency": "USD",
+      "role": "finished-fabric price level for cotton",
+      "observation_count": 4,
+      "verification_note": "confirmed '100% Cotton' printed directly on each line; catalog's separate JKPCWI/JKPCCI/JKPCWD/JKPCCD 'Jersey Knit Poly/Cotton' SKUs checked and explicitly excluded as blends"
+    }
+  ]
+}

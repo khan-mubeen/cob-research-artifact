@@ -1,0 +1,23 @@
+| Mode | Model | Input | Output base | Output fine-tuned |
+|---|---|---:|---:|---:|
+| Sealed bid | Gemma | 807.9 | 98.5 | 88.6 |
+| Sealed bid | Granite | 709.0 | 68.9 | 70.0 |
+| Sealed bid | Ministral | 769.7 | 83.8 | 81.4 |
+| Sealed bid | Phi | 699.8 | 68.0 | 70.0 |
+| Sealed bid | Qwen | 769.3 | 87.4 | 87.2 |
+| Sealed bid | SmolLM3 | 747.0 | 148.8 | 70.0 |
+| Reverse auction | Gemma | 900.6 | 95.3 | 87.0 |
+| Reverse auction | Granite | 787.1 | 67.8 | 68.5 |
+| Reverse auction | Ministral | 859.5 | 79.3 | 78.7 |
+| Reverse auction | Phi | 779.8 | 69.5 | 68.5 |
+| Reverse auction | Qwen | 854.1 | 85.8 | 82.7 |
+| Reverse auction | SmolLM3 | 825.1 | 78.3 | 68.5 |
+| Supervisor | Gemma | 1643.5 | 41.9 | 24.7 |
+| Supervisor | Granite | 1293.6 | 26.1 | 22.9 |
+| Supervisor | Ministral | 1574.7 | 44.1 | 24.5 |
+| Supervisor | Phi | 1285.6 | 26.6 | 22.9 |
+| Supervisor | Qwen | 1530.3 | 47.5 | 25.1 |
+| Supervisor | SmolLM3 | 1331.6 | 29.2 | 22.9 |
+
+Whole test split, one request at a time, adapter attached and not merged; latency statistics exclude warm-up rows except in Table 3, and token means use every row.
+Mean tokens per request over every row; output tokens include the stop token.

@@ -1,0 +1,37 @@
+{
+  "tag": "phi-sealed-nomtp-matched",
+  "merged_dir": ".\\models\\epoch-2\\deployment\\phi-sealed\\merged",
+  "model_type": "phi3",
+  "converter": "e3546c7948e3af463d0b401e6421d5a4c2faf565 (vendored by llama-cpp-python 0.3.34)",
+  "flags": [],
+  "quantize_bin": "llama.cpp release b10068",
+  "convert_rc": 0,
+  "convert_seconds": 44.0,
+  "bf16_gib": 7.15,
+  "bf16_meta": {
+    "architecture": "phi3",
+    "block_count": 32,
+    "tensor_count": 196,
+    "orphan_block": false
+  },
+  "quantize_rc": 0,
+  "quant_gib": 3.8,
+  "quant_sha256": "fd0d493df1c94f347b5adda68039ef5087c74f4122ec54b1176c2ea908dd7607",
+  "quant_meta": {
+    "architecture": "phi3",
+    "block_count": 32,
+    "tensor_count": 196,
+    "orphan_block": false
+  },
+  "runtime_test": {
+    "llama_cpp_python": "0.3.34",
+    "load_s": 4.0,
+    "median_steady_s": 0.71,
+    "json_ok": "6/6"
+  },
+  "verify_gates": {
+    "block_count matches config": true,
+    "no orphan block": true,
+    "json 6/6": true
+  }
+}

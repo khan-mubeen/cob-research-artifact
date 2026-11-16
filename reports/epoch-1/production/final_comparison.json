@@ -1,0 +1,699 @@
+{
+  "scope": {
+    "architectures": [
+      "gemma",
+      "granite",
+      "ministral",
+      "phi",
+      "qwen",
+      "smollm3"
+    ],
+    "arms": [
+      "base",
+      "pure Protocol-v2 fine-tune",
+      "fine-tune + Guard B (derived)"
+    ],
+    "sets_scored": [
+      "baseline_six",
+      "edge_holdout",
+      "main_holdout",
+      "boundary_stress",
+      "final_boundary_holdout",
+      "robustness_holdout_v2"
+    ],
+    "malformed_total_denominator": "the six sets listed in sets_scored (1,626 rows); the scale/json-stress/magnitude diagnostic sets are section-3/4 explanatory evidence and are excluded",
+    "generated_by": "src/experiments/cross_model/consolidate_final.py",
+    "criteria_semantics_version": "2026-07-26",
+    "criteria_semantics_note": "criterion 3 (offer-deviation improvement) may return INDETERMINATE when a base checkpoint produced no scorable offers on a stage, making the comparison undefined rather than failed. Before 2026-07-26 that case collapsed to a bare FAIL. If this file lacks criteria_semantics_version it was produced by the older logic: a phi_v2 criterion-3 'FAIL' there is the old collapse, not a different measurement. 'overall' semantics are unchanged (PASS only if every criterion is exactly PASS) and no overall verdict moved. See the criteria() docstring for the full rationale."
+  },
+  "models": {
+    "qwen_base": {
+      "baseline_six": "0/6",
+      "main_holdout_decisions": {
+        "material": 92.2,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 53.882,
+        "tailoring": 36.285,
+        "logistics": 24.587
+      },
+      "main_holdout_json": 100.0,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "malformed_total": 0,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 12,
+          "robustness_holdout_v2": 12,
+          "baseline_six": 6,
+          "edge_holdout": 6
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 0,
+          "robustness_holdout_v2": 0,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "12/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "12/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "qwen_v2": {
+      "baseline_six": "4/6",
+      "main_holdout_decisions": {
+        "material": 98.0,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 0.86,
+        "tailoring": 0.705,
+        "logistics": 0.713
+      },
+      "main_holdout_json": 100.0,
+      "edge_holdout_all12": 83.3,
+      "edge_holdout_clean10": 90.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "2/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "10/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "12/12",
+        "below_feasible": "5/12",
+        "exact_feasible": "0/12"
+      },
+      "malformed_total": 0,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 10,
+          "robustness_holdout_v2": 0,
+          "baseline_six": 2,
+          "edge_holdout": 2
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 2,
+          "robustness_holdout_v2": 19,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "10/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "5/12",
+          "exact_feasible": "0/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "granite_base": {
+      "baseline_six": "1/6",
+      "main_holdout_decisions": {
+        "material": 88.8,
+        "tailoring": 95.4,
+        "logistics": 54.8
+      },
+      "main_holdout_offer_dev": {
+        "material": 60.332,
+        "tailoring": 79.784,
+        "logistics": 46.271
+      },
+      "main_holdout_json": 99.7,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "1/12",
+        "below_feasible": "11/12",
+        "exact_feasible": "6/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "4/12",
+        "below_feasible": "10/12",
+        "exact_feasible": "10/12"
+      },
+      "malformed_total": 5,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 11,
+          "robustness_holdout_v2": 8,
+          "baseline_six": 4,
+          "edge_holdout": 6
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 7,
+          "robustness_holdout_v2": 4,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "11/12",
+          "exact_feasible": "6/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "10/12",
+          "exact_feasible": "10/12"
+        },
+        "baseline_six_guarded": "5/6"
+      }
+    },
+    "granite_v2": {
+      "baseline_six": "0/6",
+      "main_holdout_decisions": {
+        "material": 98.0,
+        "tailoring": 99.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 1.607,
+        "tailoring": 1.638,
+        "logistics": 1.161
+      },
+      "main_holdout_json": 99.7,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "1/12",
+        "below_feasible": "8/12",
+        "exact_feasible": "10/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "2/12",
+        "below_feasible": "3/12",
+        "exact_feasible": "4/12"
+      },
+      "malformed_total": 15,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 10,
+          "robustness_holdout_v2": 9,
+          "baseline_six": 6,
+          "edge_holdout": 6
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 6,
+          "robustness_holdout_v2": 17,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "11/12",
+          "below_feasible": "8/12",
+          "exact_feasible": "10/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "11/12",
+          "below_feasible": "3/12",
+          "exact_feasible": "4/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "phi_base": {
+      "baseline_six": "4/6",
+      "main_holdout_decisions": {
+        "material": 30.6,
+        "tailoring": 24.0,
+        "logistics": 26.8
+      },
+      "main_holdout_offer_dev": {
+        "material": 28.964,
+        "tailoring": null,
+        "logistics": 52.209
+      },
+      "main_holdout_json": 99.9,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 50.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "6/12",
+        "below_feasible": "2/12",
+        "exact_feasible": "6/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "11/12",
+        "below_feasible": "1/12",
+        "exact_feasible": "2/12"
+      },
+      "malformed_total": 2,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 6,
+          "robustness_holdout_v2": 1,
+          "baseline_six": 2,
+          "edge_holdout": 5
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 16,
+          "robustness_holdout_v2": 21,
+          "baseline_six": 0,
+          "edge_holdout": 1
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "2/12",
+          "exact_feasible": "6/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "1/12",
+          "exact_feasible": "2/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "phi_v2": {
+      "baseline_six": "1/6",
+      "main_holdout_decisions": {
+        "material": 98.0,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 1.089,
+        "tailoring": 1.102,
+        "logistics": 1.472
+      },
+      "main_holdout_json": 100.0,
+      "edge_holdout_all12": 66.7,
+      "edge_holdout_clean10": 80.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "1/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "10/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "11/12",
+        "below_feasible": "2/12",
+        "exact_feasible": "1/12"
+      },
+      "malformed_total": 0,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 11,
+          "robustness_holdout_v2": 1,
+          "baseline_six": 5,
+          "edge_holdout": 4
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 2,
+          "robustness_holdout_v2": 21,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "10/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "2/12",
+          "exact_feasible": "1/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "gemma_base": {
+      "baseline_six": "0/6",
+      "main_holdout_decisions": {
+        "material": 92.0,
+        "tailoring": 100.0,
+        "logistics": 99.4
+      },
+      "main_holdout_offer_dev": {
+        "material": 82.521,
+        "tailoring": 60.403,
+        "logistics": 61.435
+      },
+      "main_holdout_json": 99.7,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "malformed_total": 18,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 12,
+          "robustness_holdout_v2": 12,
+          "baseline_six": 6,
+          "edge_holdout": 6
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 0,
+          "robustness_holdout_v2": 0,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "12/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "12/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "gemma_v2": {
+      "baseline_six": "3/6",
+      "main_holdout_decisions": {
+        "material": 97.4,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 2.411,
+        "tailoring": 2.615,
+        "logistics": 1.861
+      },
+      "main_holdout_json": 100.0,
+      "edge_holdout_all12": 58.3,
+      "edge_holdout_clean10": 70.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "8/12",
+        "below_feasible": "7/12",
+        "exact_feasible": "6/12"
+      },
+      "malformed_total": 14,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 12,
+          "robustness_holdout_v2": 4,
+          "baseline_six": 3,
+          "edge_holdout": 4
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 0,
+          "robustness_holdout_v2": 11,
+          "baseline_six": 0,
+          "edge_holdout": 1
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "12/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "7/12",
+          "exact_feasible": "6/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "ministral_base": {
+      "baseline_six": "0/6",
+      "main_holdout_decisions": {
+        "material": 92.2,
+        "tailoring": 89.4,
+        "logistics": 79.6
+      },
+      "main_holdout_offer_dev": {
+        "material": 33.395,
+        "tailoring": 44.669,
+        "logistics": 47.095
+      },
+      "main_holdout_json": 92.9,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "9/12",
+        "exact_feasible": "9/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "3/12",
+        "below_feasible": "9/12",
+        "exact_feasible": "4/12"
+      },
+      "malformed_total": 110,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 12,
+          "robustness_holdout_v2": 9,
+          "baseline_six": 5,
+          "edge_holdout": 5
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 6,
+          "robustness_holdout_v2": 11,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "9/12",
+          "exact_feasible": "9/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "9/12",
+          "exact_feasible": "4/12"
+        },
+        "baseline_six_guarded": "5/6"
+      }
+    },
+    "ministral_v2": {
+      "baseline_six": "2/6",
+      "main_holdout_decisions": {
+        "material": 98.0,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 1.231,
+        "tailoring": 1.136,
+        "logistics": 0.819
+      },
+      "main_holdout_json": 100.0,
+      "edge_holdout_all12": 66.7,
+      "edge_holdout_clean10": 80.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "12/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "12/12",
+        "below_feasible": "0/12",
+        "exact_feasible": "0/12"
+      },
+      "malformed_total": 0,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 12,
+          "robustness_holdout_v2": 0,
+          "baseline_six": 4,
+          "edge_holdout": 4
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 0,
+          "robustness_holdout_v2": 24,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "12/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "0/12",
+          "exact_feasible": "0/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "smollm3_base": {
+      "baseline_six": "0/6",
+      "main_holdout_decisions": {
+        "material": 29.0,
+        "tailoring": 58.0,
+        "logistics": 97.8
+      },
+      "main_holdout_offer_dev": {
+        "material": 91.218,
+        "tailoring": 70.195,
+        "logistics": 51.212
+      },
+      "main_holdout_json": 61.7,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "7/12",
+        "exact_feasible": "10/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "11/12",
+        "exact_feasible": "9/12"
+      },
+      "malformed_total": 591,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 9,
+          "robustness_holdout_v2": 12,
+          "baseline_six": 6,
+          "edge_holdout": 5
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 7,
+          "robustness_holdout_v2": 4,
+          "baseline_six": 0,
+          "edge_holdout": 0
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "9/12",
+          "below_feasible": "7/12",
+          "exact_feasible": "10/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "11/12",
+          "exact_feasible": "9/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    },
+    "smollm3_v2": {
+      "baseline_six": "1/6",
+      "main_holdout_decisions": {
+        "material": 98.4,
+        "tailoring": 100.0,
+        "logistics": 100.0
+      },
+      "main_holdout_offer_dev": {
+        "material": 1.175,
+        "tailoring": 1.096,
+        "logistics": 1.439
+      },
+      "main_holdout_json": 100.0,
+      "edge_holdout_all12": 50.0,
+      "edge_holdout_clean10": 60.0,
+      "final_boundary_per_class": {
+        "above_infeasible": "0/12",
+        "below_feasible": "12/12",
+        "exact_feasible": "11/12"
+      },
+      "robustness_v2_per_class": {
+        "above_infeasible": "12/12",
+        "below_feasible": "0/12",
+        "exact_feasible": "0/12"
+      },
+      "malformed_total": 0,
+      "guarded_arm": {
+        "false_bids_removed": {
+          "final_boundary_holdout": 12,
+          "robustness_holdout_v2": 0,
+          "baseline_six": 5,
+          "edge_holdout": 5
+        },
+        "false_nobids_remaining": {
+          "final_boundary_holdout": 1,
+          "robustness_holdout_v2": 24,
+          "baseline_six": 0,
+          "edge_holdout": 1
+        },
+        "final_boundary_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "12/12",
+          "exact_feasible": "11/12"
+        },
+        "robustness_v2_per_class": {
+          "above_infeasible": "12/12",
+          "below_feasible": "0/12",
+          "exact_feasible": "0/12"
+        },
+        "baseline_six_guarded": "6/6"
+      }
+    }
+  },
+  "criteria": {
+    "qwen_v2": {
+      "1_json_100": "PASS",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "PASS",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 4_robustness_9of12"
+    },
+    "granite_v2": {
+      "1_json_100": "FAIL (15 malformed)",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "PASS",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 1_json_100,4_robustness_9of12"
+    },
+    "phi_v2": {
+      "1_json_100": "PASS",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "INDETERMINATE (no scorable base offers on: tailoring; improved on all measurable stages)",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 3_offer_improvement,4_robustness_9of12"
+    },
+    "gemma_v2": {
+      "1_json_100": "FAIL (14 malformed)",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "PASS",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 1_json_100,4_robustness_9of12"
+    },
+    "ministral_v2": {
+      "1_json_100": "PASS",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "PASS",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 4_robustness_9of12"
+    },
+    "smollm3_v2": {
+      "1_json_100": "PASS",
+      "2_no_decision_regression": "PASS",
+      "3_offer_improvement": "PASS",
+      "4_robustness_9of12": "FAIL",
+      "overall": "FAIL: 4_robustness_9of12"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "purpose": "the settled six-model slate for the Protocol v2 cross-model comparison (Huong's requirement). this file is the slate of record.",
+  "status": "COMPLETE \u2014 all six architectures trained and evaluated under the unchanged Protocol v2; no model is pending, and no slot is open.",
+  "updated_at": "2026-07-25",
+  "supersedes": "the 2026-07-21 four-model-plus-two-pending revision of this file, which was written before Ministral and SmolLM3 passed their feasibility gates and was left stale by the 2026-07-25 repository reorganization (the file was moved, not corrected)",
+  "headline_result": "6 of 6 architectures FAIL the pre-registered criteria, every one of them on criterion 4 (near-boundary robustness >=9/12 per class). this is the pre-registered outcome and is not softened.",
+  "slate": [
+    {
+      "slot": 1,
+      "model": "Qwen/Qwen3.5-4B",
+      "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "status": "trained and evaluated under Protocol v2",
+      "adapter": "models/epoch-1/production/qwen3.5-4b-bidding-lora-v2",
+      "criteria": {
+        "1_json_100": "PASS",
+        "2_no_decision_regression": "PASS",
+        "3_offer_improvement": "PASS",
+        "4_robustness_9of12": "FAIL"
+      },
+      "overall": "FAIL",
+      "failed_criteria": [
+        "4_robustness_9of12"
+      ]
+    },
+    {
+      "slot": 2,
+      "model": "ibm-granite/granite-4.1-3b",
+      "revision": "c0650403e44e78ec0262dab1c90914c65b196c4e",
+      "status": "trained and evaluated under Protocol v2",
+      "adapter": "models/epoch-1/production/granite-4.1-3b-bidding-lora-v2",
+      "criteria": {
+        "1_json_100": "FAIL (15 malformed)",
+        "2_no_decision_regression": "PASS",
+        "3_offer_improvement": "PASS",
+        "4_robustness_9of12": "FAIL"
+      },
+      "overall": "FAIL",
+      "failed_criteria": [
+        "1_json_100",
+        "4_robustness_9of12"
+      ]
+    },
+    {
+      "slot": 3,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "status": "trained and evaluated under Protocol v2",
+      "adapter": "models/epoch-1/production/phi4mini-bidding-lora-v2",
+      "criteria": {
+        "1_json_100": "PASS",
+        "2_no_decision_regression": "PASS",
+        "3_offer_improvement": "INDETERMINATE (no scorable base offers on: tailoring; improved on all measurable stages)",
+        "4_robustness_9of12": "FAIL"
+      },
+      "overall": "FAIL",
+      "failed_criteria": [
+        "3_offer_improvement",
+        "4_robustness_9of12"
+      ]
+    },
+    {
+      "slot": 4,
+      "model": "google/gemma-4-E2B-it",
+      "revision": "179516f0c449474fdc46f08f30ead5b11e178497",
+      "status": "trained and evaluated under Protocol v2",
+      "adapter": "models/epoch-1/production/gemma4-e2b-bidding-lora-v2",
+      "criteria": {
+        "1_json_100": "FAIL (14 malformed)",
+        "2_no_decision_regression": "PASS",
+        "3_offer_improvement": "PASS",
+        "4_robustness_9of12": "FAIL"
+      },
+      "overall": "FAIL",
+      "failed_criteria": [
+        "1_json_100",
+        "4_robustness_9of12"
+      ]
+    },
+    {
+      "slot": 5,
+      "model": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+      "revision": "b6d637bef2393152b3da2b2fde72eecdee30557e",
+      "status": "trained and evaluated under Protocol v2",
+      "adapter": "models/epoch-1/production/ministral3-bidding-lora-v2",
+      "criteria": {
+        "1_json_100": "PASS",
+        "2_no_decision_regression": "PASS",
+        "3_offer_improvement": "PASS",
+        "4_robustness_9of12": "FAIL"
+      },
+      "overall": "FAIL",
+      "failed_criteria": [
+        "4_robustness_9of12"
+      ]
+    },
+    {
+      "slot": 6,
+      "model": "HuggingFaceTB/SmolLM3-3B",
+      "revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+      "status": "trained and evaluated under Protocol v2",
+      "adapter": "models/epoch-1/production/smollm3-bidding-lora-v2",
+      "criteria": {
+        "1_json_100": "PASS",
+        "2_no_decision_regression": "PASS",
+        "3_offer_improvement": "PASS",
+        "4_robustness_9of12": "FAIL"
+      },
+      "overall": "FAIL",
+      "failed_criteria": [
+        "4_robustness_9of12"
+      ]
+    }
+  ],
+  "descoped_and_replaced": [
+    {
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+      "revision": "dfaf35de3e30f1867dd8dbc38a7fc9fb52d3914f",
+      "replaced_by": "mistralai/Ministral-3-3B-Instruct-2512-BF16 (slot 5)",
+      "reason": "mamba-ssm hard dependency unavailable on native Windows; template blocker resolved but load remains blocked without WSL2 toolchain build. Evidence preserved in reports/feasibility/ (probe_nemotron3-nano.json, nemotron_load_infer_result.json).",
+      "descoped_on": "2026-07-21"
+    },
+    {
+      "model": "LiquidAI/LFM2.5-8B-A1B",
+      "revision": "5673e0de372b64331504de73bbbc33b0dde71903",
+      "replaced_by": "HuggingFaceTB/SmolLM3-3B (slot 6)",
+      "reason": "always-on reasoning with no functional off-switch (0/3 and 0/1 strict JSON in probes) and 91.5% of parameters in fused 3D expert tensors outside standard LoRA reach. Evidence preserved in reports/feasibility/ (probe_lfm25-8b-a1b.json, lfm_load_infer_result.json, lfm_deep_probe.log).",
+      "descoped_on": "2026-07-21"
+    }
+  ],
+  "replacement_note": "each replacement passed its feasibility gate independently before training; gate records are in reports/epoch-1/production/gates/. neither de-scoped model was proven impossible, and neither was proven responsible for any hardware crash.",
+  "authoritative_sources": {
+    "criteria_verdicts": "reports/epoch-1/production/final_comparison.json",
+    "narrative_report": "reports/epoch-1/production/protocol_v2_six_model_report.md",
+    "frozen_protocol": "reports/epoch-1/production/protocol/protocol_v2.json",
+    "launch_gates": "reports/epoch-1/production/gates/"
+  },
+  "maintenance_note": "hand-maintained: no script generates this file. the criteria/overall fields were copied from final_comparison.json, which IS generated (src/experiments/cross_model/consolidate_final.py). if they ever disagree, final_comparison.json wins."
+}

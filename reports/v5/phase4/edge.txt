@@ -1,0 +1,17 @@
+  logistics  boundary_infeasible         2
+  logistics  infeasible                 12
+  logistics  near_boundary              11
+  material   in_stock_at_boundary       27
+  material   restock_at_boundary        27
+  material   restock_too_slow           27
+  material   stock_and_restock_short    27
+  tailoring  at_boundary                12
+  tailoring  boundary_infeasible        24
+  tailoring  infeasible                 12
+  tailoring  near_boundary              12
+written to data/finetune/v5/edge
+
+real	0m10.955s
+user	0m0.000s
+sys	0m0.015s
+exit 0

@@ -1,0 +1,16 @@
+{
+  "question": "provenance of every Qwen baseline-six result; where did the remembered 6/6 come from",
+  "generated_at": "2026-07-20",
+  "method": "read model_decision for the 6 baseline cases from every saved eval_*.json in reports/slm_comparison/v4",
+  "finding": "the 6/6 result belongs to Qwen round TWO and round THREE, never round one. round one is 4/6 in ALL four of its saved evaluations. this is a documentation/memory attribution issue, NOT an artifact mismatch: every raw artifact is internally self-consistent (r1 always 4/6, r2 always 6/6, r3 6/6).",
+  "lineage": [
+    {"adapter": "Qwen/Qwen3.5-4B (base)", "adapter_hash": "n/a", "runtime": "native-hf", "baseline_six": "0/6", "reports": ["eval_base_20260718_140749.json", "eval_base-audit_20260718_235632.json"]},
+    {"adapter": "models/finetune/qwen3.5-4b-bidding-lora/final (r1)", "adapter_hash_sha256_16": "2b49bfd7b96ad73b", "runtime": "native-hf", "baseline_six": "4/6", "reports": ["eval_finetuned_20260718_142238.json", "eval_finetuned-r1-stress_20260718_174859.json", "eval_finetuned-r1-audit_20260719_001029.json"]},
+    {"adapter": "models/gguf_fix/qwen35-r1-merged (r1 merged)", "runtime": "merged-hf", "baseline_six": "4/6", "reports": ["eval_r1-merged-hf_20260719_173449.json"]},
+    {"adapter": "models/finetune/qwen3.5-4b-bidding-lora-r2/final (r2)", "adapter_hash_sha256_16": "14bd53d4d7c2920d", "runtime": "native-hf", "baseline_six": "6/6", "reports": ["eval_finetuned-r2_20260718_173424.json", "eval_finetuned-r2-finalb_20260718_230247.json"]},
+    {"adapter": "models/finetune/qwen3.5-4b-bidding-lora-r3/final (r3)", "adapter_hash_sha256_16": "21dd99d91350d69d", "runtime": "native-hf", "baseline_six": "6/6", "reports": ["eval_finetuned-r3_20260718_224755.json"]},
+    {"adapter": "models/finetune/qwen3.5-4b-bidding-lora-v2/final (v2)", "adapter_hash_sha256_16": "6201adf16d695cbf", "runtime": "native-hf", "baseline_six": "4/6", "reports": ["eval_qwen-v2_20260720_025436.json"]}
+  ],
+  "verdict": "DOCUMENTATION/MEMORY ISSUE, not artifact mismatch. r2 and r3 (over-conservative / erratic on other metrics) each scored 6/6 on baseline six; r1 (the checkpoint chosen as the official pure-FT arm for its balance on other metrics) scored 4/6. The v1 selection of r1 as official was made on the full metric picture, not baseline-six alone, so it stands. No historical raw artifact needs correction; only summaries that attributed 6/6 to r1 were wrong.",
+  "eval_script": "src/experiments/eval_finetune.py (baseline_six from src/experiments/nobid_edge_baseline.py CASES, 6 fixed cases)"
+}

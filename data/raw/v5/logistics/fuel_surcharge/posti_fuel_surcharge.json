@@ -1,0 +1,114 @@
+{
+  "source": "Posti, fuel and energy surcharge",
+  "source_url": "https://www.posti.fi/en/for-businesses/customer-support/fuel-surcharge",
+  "page_or_section": "the Parcel, Freight/Express freight/Transport units, Pick-up and delivery service, Printed matter transport and Warehousing Services lists",
+  "role": "source evidence of a fuel-surcharge mechanism",
+  "currency": null,
+  "unit": "percent; the base the percentage is applied to is not stated on this page",
+  "access_date_basis": "read on this date from the live page named in source_url",
+  "reverification_status": "read from the live page",
+  "observations_status": "partial history: the page publishes only the two most recent values per service",
+  "tariff_metadata": {
+    "vat_status": {
+      "value": "not stated in source",
+      "source_wording": "not stated in source"
+    },
+    "effective_date": {
+      "value": "per row, the 'from' date",
+      "source_wording": "from September 9, 2026"
+    },
+    "currency_as_published": {
+      "value": "not applicable: published as a percentage",
+      "source_wording": "%"
+    },
+    "unit_basis": {
+      "value": "percent",
+      "source_wording": "not stated in source",
+      "note": "the page does not state what the percentage is applied to or how it is set"
+    },
+    "service_category": {
+      "value": "per series, as printed below",
+      "source_wording": "Parcel; Freight, Express freight and Transport units"
+    },
+    "fuel_surcharge_treatment": {
+      "value": "not applicable: this record is the surcharge itself",
+      "source_wording": "not stated in source",
+      "note": "Posti's 16.11.2025 contract price list states 'Kulloinkin voimassaoleva polttoainelisä veloitetaan erikseen.' and points to posti.fi/polttoainelisa"
+    }
+  },
+  "observations": [
+    {
+      "series": "Parcel",
+      "from": "2026-09-09",
+      "percent": 21.1,
+      "printed_as": "21.10 % from September 9, 2026"
+    },
+    {
+      "series": "Parcel",
+      "from": "2026-09-02",
+      "percent": 20.76,
+      "printed_as": "20.76 % from September 2, 2026"
+    },
+    {
+      "series": "Freight, Express freight and Transport units",
+      "from": "2026-09-09",
+      "percent": 33.93,
+      "printed_as": "33.93 % from September 9, 2026"
+    },
+    {
+      "series": "Freight, Express freight and Transport units",
+      "from": "2026-09-02",
+      "percent": 33.21,
+      "printed_as": "33.21 % from September 2, 2026"
+    },
+    {
+      "series": "Pick-up and delivery service",
+      "from": "2026-09-01",
+      "percent": 19.61,
+      "printed_as": "19.61 % from September 1, 2026"
+    },
+    {
+      "series": "Pick-up and delivery service",
+      "from": "2026-08-01",
+      "percent": 18.07,
+      "printed_as": "18.07 % from August 1, 2026"
+    },
+    {
+      "series": "Printed matter transport",
+      "from": "2026-09-01",
+      "percent": 34.59,
+      "printed_as": "34.59 % from September 1, 2026"
+    },
+    {
+      "series": "Printed matter transport",
+      "from": "2026-08-01",
+      "percent": 32.05,
+      "printed_as": "32.05 % from August 1, 2026"
+    },
+    {
+      "series": "Warehousing Services energy surcharge",
+      "from": "2026-04-01",
+      "percent": 1.21,
+      "printed_as": "From April 1, 2026 the energy supplement is 1,21%",
+      "note": "an energy supplement for warehousing, not a transport fuel surcharge"
+    },
+    {
+      "series": "Warehousing Services energy surcharge",
+      "from": "2026-07-01",
+      "percent": 1.16,
+      "printed_as": "From July 1, 2026 the energy supplement is 1,16%",
+      "note": "an energy supplement for warehousing, not a transport fuel surcharge"
+    }
+  ],
+  "verification_note": "source evidence of Posti's published fuel and energy surcharge percentages, recorded as printed; the page states neither how the surcharge is set nor what it is applied to nor its VAT treatment, so it is not comparable percentage for percentage with PostNord's or Matkahuolto's; not a per-agent value",
+  "acquisition_mode": "manual_record",
+  "access_date": "2026-09-13",
+  "hash_purpose": "record_integrity",
+  "hash_purpose_means": "record integrity only. this is the sha-256 of this repository's local json record file, not of anything external. it proves the recorded value has not been edited since it was written here. it is NOT evidence that the original web page, catalog or pdf still contains the same value, and it cannot become such evidence. re-checking the source is a manual step that produces a new record",
+  "calibration_feeds": "fuel_surcharge_i(t)",
+  "metadata_convention": {
+    "not_stated": "not stated in source",
+    "unreadable": "not verified: the source returned HTTP 403 to every automated request made on the access date and has no Internet Archive capture, so this field could not be read from the document itself",
+    "meaning": "a field reading 'not stated in source' was read and is absent from the source; a field reading 'not verified' could not be read at all"
+  }
+}

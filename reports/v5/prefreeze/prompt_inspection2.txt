@@ -1,0 +1,265 @@
+COB_DATASET_VERSION = v5
+
+SEALED / tailoring / NO_BID: none in the validation split
+
+SEALED / logistics / NO_BID: none in the validation split
+
+==============================================================================
+REVERSE AUCTION / material / BID
+==============================================================================
+order ORD-12448  agent M09  stage material  priority normal  round 1  category auction_round
+--- USER PROMPT ---
+AGENT PROFILE
+agent_id: M09
+location: Helsinki
+materials supplied: leather|linen
+available stock for requested material (kg): 280.0
+price ratio to reference for requested material: 1.12
+restock amount (kg): 495.0
+restock time (days): 4.0
+default completion days: 1
+defect probability: 0.02
+reputation score: 0.5
+min profit margin: 0.1
+initial markup: 0.33
+
+RFQ
+order_id: ORD-12448
+pricing date: 2026-01-31
+material needed: linen
+reference price on the pricing date (USD per kg): 45.612
+required quantity (kg): 130.2
+max allowed defect rate: 0.052
+min required reputation: 0.49
+days until deadline: 22
+priority: normal
+current_best_bid (USD): null
+platform_minimum_decrement (USD): 684.82
+round_number: 1
+your minimum_bid (USD): 7462.79
+
+TASK
+1. Check if you supply this material. If not, return NO_BID.
+2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.
+3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.
+4. Check stock:
+   if available_kg greater than or equal to (>=) required_kg: completion = default_completion_days
+   else if available_kg plus (+) restock_amount_kg greater than or equal to (>=) required_kg: completion = default_completion_days plus (+) restock_time_days
+   else: return NO_BID
+5. Check completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.
+6. Calculate, in USD:
+   material_cost  = required_kg multiplied by (x) price_ratio_to_reference multiplied by (x) reference_price_usd_per_kg
+   internal_cost  = material_cost multiplied by (x) (1 plus (+) defect_probability)
+   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) priority_markup)
+   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)
+7. Return BID with calculated values.
+In rounds after round 1: if current_best_bid minus (-) platform_minimum_decrement greater than or equal to (>=) minimum_bid, submit that as offer. Otherwise stay silent.
+
+Return this JSON only:
+{
+  "order_id": "ORD-12448",
+  "stage": "material",
+  "agent_id": "M09",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.02
+}
+--- LABEL ---
+{"order_id": "ORD-12448", "stage": "material", "agent_id": "M09", "decision": "BID", "offer_amount": 9023.19, "estimated_completion_days": 1, "defect_probability": 0.02}
+expected from the rule: {'decision': 'BID', 'offer': 9023.19, 'days': 1, 'minimum': 7462.785851136002}
+independent re-derivation agrees: True
+
+==============================================================================
+REVERSE AUCTION / logistics / NO_BID
+==============================================================================
+order ORD-12448  agent L01  stage logistics  priority normal  round 2  category auction_round
+--- USER PROMPT ---
+AGENT PROFILE
+agent_id: L01
+location: Helsinki
+service regions: Espoo|Helsinki|Jyvaskyla|Lahti|Oulu|Tampere|Turku
+fixed charge (EUR per shipment): 42.3967
+alpha (EUR per kg): 0.12692
+beta (EUR per tonne-km): 0.07163
+shipment weight limit (kg): none
+oversized fee (EUR): none
+same-city delivery days: 1
+intercity delivery days: 3.0
+damage probability: 0.035
+reputation score: 0.5
+
+RFQ
+order_id: ORD-12448
+pricing date: 2026-01-31
+pickup from: Lahti
+deliver to: Lahti
+route distance from pickup (km): 0.0
+shipment weight (kg): 162.75
+fuel surcharge on the pricing date (%): 19.67
+EUR to USD on the pricing date: 1.1919
+max allowed damage rate: 0.052
+min required reputation: 0.49
+days until deadline: 22
+priority: normal
+current_best_bid (USD): 90.99
+platform_minimum_decrement (USD): 9.1
+round_number: 2
+your minimum_bid (USD): 93.09
+
+TASK
+1. Check if deliver_to is in your service_regions. If not, return NO_BID.
+2. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.
+3. Check damage_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.
+4. Check shipment_weight_kg is inside your shipment weight limit. If not, return NO_BID.
+5. Calculate route days:
+   if deliver_to == your location: route_days = default_completion_same_city_days
+   else: route_days = default_completion_intercity_days
+6. Check route_days less than or equal to (<=) days_until_deadline. If not, return NO_BID.
+7. Calculate, in EUR:
+   freight_eur    = fixed_charge plus (+) alpha multiplied by (x) shipment_weight_kg plus (+) beta multiplied by (x) shipment_weight_kg divided by (/) 1000 multiplied by (x) route_distance_km
+   with_fuel_eur  = freight_eur multiplied by (x) (1 plus (+) fuel_surcharge_percent divided by (/) 100)
+   oversized_eur  = the oversized fee if it applies to this shipment, else 0
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   price_eur      = (with_fuel_eur plus (+) oversized_eur) multiplied by (x) (1 plus (+) damage_probability) multiplied by (x) (1 plus (+) priority_markup)
+8. Convert to USD, the currency of every offer:
+   offer_amount   = price_eur multiplied by (x) eur_to_usd
+   minimum_bid    = offer_amount, a market price with no markup on top and no margin below
+9. Return BID with calculated values.
+In rounds after round 1: if current_best_bid minus (-) platform_minimum_decrement greater than or equal to (>=) minimum_bid, submit that as offer. Otherwise stay silent.
+
+Return this JSON only:
+{
+  "order_id": "ORD-12448",
+  "stage": "logistics",
+  "agent_id": "L01",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.035
+}
+--- LABEL ---
+{"order_id": "ORD-12448", "stage": "logistics", "agent_id": "L01", "decision": "NO_BID", "offer_amount": null, "estimated_completion_days": null, "defect_probability": 0.035}
+expected from the rule: {'decision': 'NO_BID'}
+independent re-derivation agrees: True
+
+==============================================================================
+FLOOR BOUNDARY / material / below floor
+==============================================================================
+order ORD-33554  agent M11  stage material  priority urgent  round 3  category floor_boundary:below_floor
+--- USER PROMPT ---
+AGENT PROFILE
+agent_id: M11
+location: Espoo
+materials supplied: linen|polyester
+available stock for requested material (kg): 320.0
+price ratio to reference for requested material: 1.08
+restock amount (kg): 550.0
+restock time (days): 4.0
+default completion days: 1
+defect probability: 0.03
+reputation score: 0.5
+min profit margin: 0.1
+initial markup: 0.3
+
+RFQ
+order_id: ORD-33554
+pricing date: 2026-02-16
+material needed: linen
+reference price on the pricing date (USD per kg): 45.612
+required quantity (kg): 42.32
+max allowed defect rate: 0.033
+min required reputation: 0.48
+days until deadline: 7
+priority: urgent
+current_best_bid (USD): 2366.99
+platform_minimum_decrement (USD): 5.0
+round_number: 3
+your minimum_bid (USD): 2362.0
+
+TASK
+1. Check if you supply this material. If not, return NO_BID.
+2. Check defect_probability less than or equal to (<=) max_defect_rate. If not, return NO_BID.
+3. Check reputation_score greater than or equal to (>=) min_reputation_score. If not, return NO_BID.
+4. Check stock:
+   if available_kg greater than or equal to (>=) required_kg: completion = default_completion_days
+   else if available_kg plus (+) restock_amount_kg greater than or equal to (>=) required_kg: completion = default_completion_days plus (+) restock_time_days
+   else: return NO_BID
+5. Check completion less than or equal to (<=) days_until_deadline. If not, return NO_BID.
+6. Calculate, in USD:
+   material_cost  = required_kg multiplied by (x) price_ratio_to_reference multiplied by (x) reference_price_usd_per_kg
+   internal_cost  = material_cost multiplied by (x) (1 plus (+) defect_probability)
+   minimum_bid    = internal_cost multiplied by (x) (1 plus (+) min_profit_margin)
+   priority_markup: urgent=0.30, normal=0.00, flexible=-0.15
+   initial_bid    = internal_cost multiplied by (x) (1 plus (+) initial_markup) multiplied by (x) (1 plus (+) priority_markup)
+   offer_amount   = the larger of the two values max(minimum_bid, initial_bid)
+7. Return BID with calculated values.
+In rounds after round 1: if current_best_bid minus (-) platform_minimum_decrement greater than or equal to (>=) minimum_bid, submit that as offer. Otherwise stay silent.
+
+Return this JSON only:
+{
+  "order_id": "ORD-33554",
+  "stage": "material",
+  "agent_id": "M11",
+  "decision": "BID or NO_BID",
+  "offer_amount": null,
+  "estimated_completion_days": null,
+  "defect_probability": 0.03
+}
+--- LABEL ---
+{"order_id": "ORD-33554", "stage": "material", "agent_id": "M11", "decision": "NO_BID", "offer_amount": null, "estimated_completion_days": null, "defect_probability": 0.03}
+printed floor 2362.0  expected 2362.0  displayed_minimum_bid 2362.0
+expected decision for 'below': NO_BID  label: NO_BID
+independent re-derivation agrees: True
+
+==============================================================================
+FLOOR BOUNDARY / material / at floor
+==============================================================================
+order ORD-33554  agent M11  stage material  priority urgent  round 3  category floor_boundary:at_floor
+--- LABEL ---
+{"order_id": "ORD-33554", "stage": "material", "agent_id": "M11", "decision": "BID", "offer_amount": 2362, "estimated_completion_days": 1, "defect_probability": 0.03}
+printed floor 2362.0  expected 2362.0  displayed_minimum_bid 2362.0
+expected decision for 'at': BID  label: BID
+independent re-derivation agrees: True
+
+==============================================================================
+FLOOR BOUNDARY / material / above floor
+==============================================================================
+order ORD-33554  agent M11  stage material  priority urgent  round 3  category floor_boundary:above_floor
+--- LABEL ---
+{"order_id": "ORD-33554", "stage": "material", "agent_id": "M11", "decision": "BID", "offer_amount": 2385.62, "estimated_completion_days": 1, "defect_probability": 0.03}
+printed floor 2362.0  expected 2362.0  displayed_minimum_bid 2362.0
+expected decision for 'above': BID  label: BID
+independent re-derivation agrees: True
+
+==============================================================================
+EDGE / material
+==============================================================================
+order SYNEDGE5-M-RESTOCK-M01-cotton  agent M01  stage material  priority normal  round None  category restock_too_slow
+--- LABEL ---
+{"order_id": "SYNEDGE5-M-RESTOCK-M01-cotton", "stage": "material", "agent_id": "M01", "decision": "NO_BID", "offer_amount": null, "estimated_completion_days": null, "defect_probability": 0.04}
+edge_check problems: none
+
+==============================================================================
+SUPERVISOR / chain selection
+==============================================================================
+order ORD-12448  agent None  stage supervisor  priority normal  round None  category None
+--- LABEL ---
+{"selected_candidate": 9, "reason": "best equal-weight balance of cost, days and compound risk"}
+priority normal  budget 12253.28  deadline 22  candidates 12
+label index 9  independent rule's tied-optimal indices [9]
+independent re-derivation agrees: True
+
+
+SUMMARY
+  none in split  sealed tailoring NO_BID
+  none in split  sealed logistics NO_BID
+  True  REVERSE AUCTION / material / BID
+  True  REVERSE AUCTION / logistics / NO_BID
+  True  floor below
+  True  floor at
+  True  floor above
+  True  edge material
+  True  supervisor
