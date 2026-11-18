@@ -10,11 +10,13 @@ value from the per-request records in `evaluation/latency_records/`; no number i
 | path | contents |
 |---|---|
 | `evaluation/<mode>/validation/`, `evaluation/<mode>/test/` | per-metric charts (`.png` and `.pdf`), base and epochs 1-3, the selected epoch ringed: decision agreement (sealed, reverse auction) or selection accuracy (supervisor), price deviation or cost deviation, and completion-time deviation |
+| `evaluation/<mode>/validation/completion_time_deviation_percent.{png,pdf}`, `evaluation/<mode>/test/completion_time_deviation_percent.{png,pdf}` | sealed-bid and reverse auction only: the same dot plot with the completion-time deviation in percent of the rule-based value, drawn from the `mean days deviation (%)` column of `tables/completion_time_deviation.csv` (read only) |
 | `evaluation/<mode>/latency.{png,pdf}` | mean latency per decision on the whole test split, base beside the epoch selected on validation, whiskers one standard deviation (read from `tables/latency_breakdown_arms.csv`) |
 | `evaluation/<mode>/radar.{png,pdf}` | test scores (0 to 10, outward is better) of the three top-ranked fine-tuned models on accuracy, price or cost accuracy, time accuracy, speed and token efficiency |
+| `evaluation/validation_figures.{tex,pdf}` | supplement with every validation chart of the three modes, one figure each (S1 to S9), completion-time deviation in percent; the `.tex` reads the charts from this folder (`\figroot` sets another root, for example `figures/` in Overleaf) |
 | `evaluation/captions.md` | one caption per chart type and mode and one for the token summary table; the notes that are no longer drawn on the charts live here |
 | `evaluation/tables/` | metric, token, radar and latency tables, listed in the file index below |
-| evaluation/provenance/ | redacted provenance table; Git and operational ledgers withheld |
+| `evaluation/provenance/` | `provenance.csv` (for every number: the result file and its sha256, checkpoint, rows, row-id digest, selection sha256, corpus manifest hash, slurm job); `code_sha256.csv`, `old_to_new_paths.csv`, `deleted_qwen_ra.txt` (see below); `code_sha256_at_campaign_start.txt` and `evaluate_sharded.py.as_run` (the evaluation code as it ran) |
 | `selection/<mode>/<model>/` | the authoritative results: `selection.json`, `validation_base.json`, `validation_epoch<N>.json`, `test_base.json`, `test_selected.json`, `test_descriptive_epoch<N>.json` |
 | `results/records/<mode>/<model>/records.*` | one provenance record per result (results_store) |
 | `evaluation/latency_records/` | per-request counts and timings of all 36 arms (gzip csv), the source of every latency and token value in `evaluation/` |
@@ -190,19 +192,78 @@ generation also stops on the chat template's end-of-turn id when the model does 
 already stop on their end-of-turn token, so the rule changes nothing for them; for the other qwen cells it
 changes outputs only by a trailing newline, so it is applied to qwen reverse_auction only. A 201-row
 validation probe passed (0 % run-on, 100 % strict JSON, 100 % decision agreement for epochs 1-3). The
-cell's old results were deleted (`identifying operation log omitted`) and it was re-evaluated from scratch:
+cell's old results were deleted (`provenance/deleted_qwen_ra.txt`) and it was re-evaluated from scratch:
 validation, selection with the same rule, and one deliberately re-authorized test read for base and the
 selected epoch.
 
-## Review-copy disclosures
+## Disclosures and how to read the records
 
-The Qwen reverse-auction stop-token correction described above deliberately re-authorized its base and selected-epoch test reads after the first results were discarded. Descriptive epochs were read after selection and did not affect it.
+- The qwen reverse_auction correction above re-read the test split: its base and selected-epoch test
+  reads were deliberately re-authorized after the first results were deleted. The descriptive test arms
+  (non-selected epochs) were read after selection and are reported, never used for selection.
+- Historical hashes: the authorization blocks in the test results and the per-result provenance records
+  keep the sha256 values of the files as they were before the restructure, while their paths point at
+  the new locations. Resolve them through `provenance/old_to_new_paths.csv`, which maps each old path to
+  its new one with both hashes.
+- The generation stop rule is applied by the canonical run name `<model>-<mode>-v5-r01`. A custom, smoke
+  or `r02` run name is not recognised, so its model must be given explicitly (`--model-name` in
+  `evaluate.py` and `evaluate_sharded.py`); otherwise qwen reverse_auction would fall outside the rule.
+- The original profiling records (`results/latency/`) carry `git_commit: "unknown"` by design: they were
+  produced with `COB_NO_GIT=1`, so no git process ran (`latency_records/` has no commit field).
+  The recorded source fingerprints identify the evaluation code: `provenance/code_sha256_at_campaign_start.txt`
+  holds the hashes at the start of the campaign, and `provenance/code_sha256.csv` the hashes before and after
+  the changes made during it. Four listed files changed later, and 13 listed files are not in this repository
+  (see "Code changes after the freeze"). The `transformers`, `peft` and `unsloth` packages of the
+  Python environment were installed before the first evaluation and the first profiling record, and none of
+  their files changed afterwards.
+- Three documents moved from the former `reports/v5/_migration/` folder to `evaluation/provenance/`:
+  `code_sha256.csv` (evaluation code hashes before and after the change), `old_to_new_paths.csv` (the
+  restructure ledger) and `deleted_qwen_ra.txt` (the deleted qwen reverse_auction results and the
+  re-authorization). Their hashes, ids, dates and facts are unchanged; host paths are written relative to the
+  repository root, `<scratch>/` stands for the project scratch copy of the repository, and the former report
+  folder and its report script are named `old_report`. `provenance.csv` writes its paths the same way.
+  The `code_identity` field in `results/records/**/records.*` still names the old location of `code_sha256.csv`.
 
-Names, personal paths, hostnames, scheduler identifiers, workflow timestamps and Git references are withheld. Identifying operational ledgers and local source snapshots are omitted. Per-row decisions, metrics, selected epochs, model revisions and measured timings are retained.
+## Code changes after the freeze
 
-Anonymization changes file bytes. Original result and selection hashes are withheld where marked; they must not certify the sanitized files. The review ZIP supplies its own SHA-256 manifest. Corpus and row-identity hashes describe scientific inputs and remain where needed.
+`provenance/code_sha256.csv` records the evaluation code after the changes made during the campaign
+(`sha256_after`). The ledger is unchanged. Four files it lists now have a different hash:
 
-This copy includes reporting improvements and metadata redactions. It is not a byte-identical copy of the original frozen environment.
+| file | ledger hash | current hash |
+|---|---|---|
+| `src/experiments/v5/evaluate_descriptive.py` | `a8fa2e2c8766` | `66b62298f6c3` |
+| `src/experiments/v5/execution.py` | `67d0798ddc80` | `3a06c2831af2` |
+| `src/experiments/v5/inference_profile.py` | `a480644b5794` | `63805a029317` |
+| `tests/test_v5_layout_and_descriptive.py` | `972eb7652c61` | `81535945052a` |
+
+Three comments in the frozen files are stale. The comment at the top of `stop_rule.py` points to a local note that is not part of this repository. The docstring of `evaluate_sharded.py` calls `evaluate.py` the only path for the test split, but descriptive test reads also run through `evaluate_descriptive.py`. A comment in `inference_profile.py` says the end-of-turn id is a stop id, but `stop_rule.py` adds it only for Qwen in the reverse auction.
+
+Recorded reasons for these changes:
+
+- `inference_profile.py`: the dry-run and version checks run before the shard and merge steps, the merge
+  checks the identity of the rows it combines, and the metadata file is written after the csv.
+- `evaluate_descriptive.py`: a smoke run can no longer take the place of an official result.
+- `execution.py`: a path in a docstring.
+- `tests/test_v5_layout_and_descriptive.py`: one new test.
+
+Thirteen listed files are not in this repository. The campaign orchestration scripts in `eval_jobs/` ran
+outside it.
+
+| file | ledger hash |
+|---|---|
+| `eval_jobs/cob_eval_glue.py` | `e1dc500723f9` |
+| `eval_jobs/plan.py` | `f7e6f23b0685` |
+| `eval_jobs/shardplan.py` | `b559cc54bbaf` |
+| `eval_jobs/reconcile.py` | `d9bf467cfea0` |
+| `eval_jobs/submit.py` | `5f299185d73e` |
+| `eval_jobs/autodrive.py` | `598ece9fc388` |
+| `eval_jobs/render.sh` | `4241194d10b3` |
+| `eval_jobs/render_loop.sh` | `6e9c2cf11687` |
+| `eval_jobs/evaluation_report.py` | `5779105d1f3b` |
+| `eval_jobs/old_report.py` | `bd769847a50f` (before; renamed to `evaluation_report.py`) |
+| `eval_jobs/pack.sh` | `3aa240a746b8` |
+| `eval_jobs/campaign/campaign.py` | `95a9870628a5` |
+| `eval_jobs/campaign/multi.sh` | `6698a2831dcc` |
 
 ## Regenerate
 
@@ -266,6 +327,7 @@ Per-mode charts (`<mode>` is `sealed`, `reverse_auction` or `supervisor`; each c
 | `<mode>/validation/selection_accuracy`, `<mode>/test/selection_accuracy` | selection accuracy (supervisor) |
 | `<mode>/validation/cost_deviation`, `<mode>/test/cost_deviation` | mean absolute cost deviation (supervisor) |
 | `<mode>/validation/completion_time_deviation`, `<mode>/test/completion_time_deviation` | completion-time deviation |
+| `<mode>/validation/completion_time_deviation_percent`, `<mode>/test/completion_time_deviation_percent` | completion-time deviation in percent (sealed, reverse auction) |
 | `<mode>/latency` | mean latency per decision, base and fine-tuned |
 | `<mode>/radar` | test scores of the three top-ranked fine-tuned models on five axes |
 
@@ -291,7 +353,15 @@ Tables (`tables/`):
 Records (`latency_records/`): `<mode>_<model>_<arm>.csv.gz` for the 36 arms and `README.md` (columns,
 units, rows, warm-up flag).
 
-Provenance: provenance.csv retains metric origins with identifying metadata withheld. The packaged SHA256SUMS.txt checks the distributed files.
+Provenance (`provenance/`):
+
+| file | purpose |
+|---|---|
+| `provenance.csv` | for every number: the result file and its sha256, checkpoint, rows, row-id digest, selection sha256, corpus manifest hash, slurm job |
+| `code_sha256.csv`, `code_sha256_at_campaign_start.txt` | evaluation code hashes |
+| `evaluate_sharded.py.as_run` | the sharded evaluation script as run |
+| `old_to_new_paths.csv` | the restructure ledger: old and new paths with both hashes |
+| `deleted_qwen_ra.txt` | the deleted qwen reverse_auction results and the re-authorization |
 
 Text: `captions.md` (one caption per chart type and mode and for the token summary table) and this
 `README.md`.
