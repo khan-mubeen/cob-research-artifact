@@ -44,6 +44,17 @@ the base model and the epoch selected on validation are one-shot test reads and 
 descriptive only. The Phi base value covers the material stage only: its tailoring and logistics rows
 carry no completion-time value, on validation and on test.
 
+**Completion-time deviation in percent** (`sealed/validation/completion_time_deviation_percent`,
+`sealed/test/completion_time_deviation_percent`). The same chart with the completion-time deviation in percent
+of the rule-based value instead of days: macro absolute deviation of the estimated completion time from the
+rule-based value, relative to the rule-based value and measured on the decisions where the model and the rule
+both bid and the completion time can be read, on validation and on test, for the base model and epochs 1 to 3.
+The black ring marks the epoch selected on validation; the dashed line is the rule-based ground truth at 0.
+The strip magnifies the shaded range 0 to 0.03 %; the data scale is unchanged. On the test chart, the base
+model and the epoch selected on validation are one-shot test reads and the other epochs are descriptive only.
+The Phi base value covers the material stage only: its tailoring and logistics rows carry no completion-time
+value, on validation and on test.
+
 **Inference latency** (`sealed/latency`). Mean latency per decision in seconds on the whole test split,
 one request at a time (batch size 1) on one GCD of an AMD MI250X, with warm-up requests excluded (the
 first 3 requests of each shard and the first after a resume). Gray bars are the base model; coloured bars
@@ -94,6 +105,17 @@ The strip magnifies the shaded range 0 to 0.04 days; the data scale is unchanged
 decimals, so the epoch differences inside the strip are at the precision limit of the stored values. On
 the test chart, the base model and the epoch selected on validation are one-shot test reads and the other
 epochs are descriptive only.
+
+**Completion-time deviation in percent** (`reverse_auction/validation/completion_time_deviation_percent`,
+`reverse_auction/test/completion_time_deviation_percent`). The same chart with the completion-time deviation
+in percent of the rule-based value instead of days: macro absolute deviation of the estimated completion time
+from the rule-based value, relative to the rule-based value and measured on the decisions where the model and
+the rule both bid and the completion time can be read, on validation and on test, for the base model and
+epochs 1 to 3. The black ring marks the epoch selected on validation; the dashed line is the rule-based ground
+truth at 0. The strip magnifies the shaded range 0 to 2.0 %, which is set by one descriptive arm (Granite
+epoch 2 on the test split, 1.74 %); the data scale is unchanged. On the test chart, the base model and the
+epoch selected on validation are one-shot test reads and the other epochs are descriptive only. The Phi base
+value rests on very few readable completion times, on validation and on test.
 
 **Inference latency** (`reverse_auction/latency`). Mean latency per decision in seconds on the whole test
 split, one request at a time (batch size 1) on one GCD of an AMD MI250X, with warm-up requests excluded
