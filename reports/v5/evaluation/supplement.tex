@@ -1,10 +1,12 @@
 \documentclass[a4paper,fontsize=10.5pt]{scrartcl}
 \usepackage[T1]{fontenc}
-\usepackage[default]{sourcesanspro}
+% source sans when it is installed (as on overleaf), helvetica as a fallback
+\IfFileExists{sourcesanspro.sty}{\usepackage[default]{sourcesanspro}}{\usepackage{helvet}\renewcommand{\familydefault}{\sfdefault}}
 \usepackage[a4paper,margin=2.2cm]{geometry}
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{adjustbox}
 \usepackage{float}
 \usepackage{array}
 \usepackage{booktabs}
@@ -12,13 +14,16 @@
 \usepackage[labelfont=bf,font=small,labelsep=period,justification=raggedright,singlelinecheck=false,skip=4pt]{caption}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
-\usepackage[hidelinks,pdftitle={Validation figures}]{hyperref}
+\usepackage[hidelinks,pdftitle={Chain-of-Bid: Supplementary Material}]{hyperref}
 \ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
 
-% folder that holds <mode>/validation/; empty when compiled in reports/v5/evaluation, figures/ in Overleaf
+% folder of the validation charts: empty inside reports/v5/evaluation, "figures/" in overleaf
 \newcommand{\figroot}{}
+% folder of the table files
+\newcommand{\tabroot}{tables/}
+% font size of the tables; pass another size as the optional argument of \tablefile
+\newcommand{\tablefont}{\small}
 
-% colours: one dark slate for title, headings and rules; the chart colours as drawn by the charts
 \definecolor{slate}{HTML}{1F2A44}
 \definecolor{framegray}{HTML}{C9CDD3}
 \definecolor{armbase}{HTML}{999999}
@@ -29,8 +34,11 @@
 \definecolor{bandfill}{HTML}{EEF1F5}
 \definecolor{bandedge}{HTML}{555555}
 
+\restylefloat{table}
 \renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
 \setkomafont{section}{\sffamily\Large\bfseries\color{slate}}
+\setkomafont{subsection}{\sffamily\large\bfseries\color{slate}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt plus 1pt}
 \setlength{\floatsep}{6pt}
@@ -39,25 +47,20 @@
 \setlength{\fboxrule}{0.4pt}
 \setlength{\fboxsep}{3pt}
 
-% figure width on the mode pages; the three charts of a mode must fit on one page
 \newlength{\figw}
 \setlength{\figw}{0.78\textwidth}
-\captionsetup{width=\figw}
+\captionsetup[figure]{width=\figw}
+\captionsetup[table]{width=\linewidth}
 
-% header: title with a thin rule; footer: page n / N
 \pagestyle{fancy}
 \fancyhf{}
 \setlength{\headheight}{14pt}
-\fancyhead[L]{\small\color{slate}Validation figures}
+\fancyhead[L]{\small\color{slate}Chain-of-Bid: Supplementary Material}
 \fancyfoot[C]{\small\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{slate}\leaders\hrule height 0.4pt\hfill}}
 \renewcommand{\footrulewidth}{0pt}
 
-\title{Validation figures}
-\author{}
-\date{}
-
-% one chart: path below the folder root, caption, label
+% one validation chart in a light frame, with caption and label, same width everywhere
 \newcommand{\chart}[3]{%
   \begin{figure}[H]
     \centering
@@ -65,36 +68,63 @@
     \caption{#2}\label{#3}
   \end{figure}}
 
-% section of one mode: a new page, the heading and a thin rule under it
-\newcommand{\modesection}[2]{%
-  \clearpage
-  \section{#1}\label{#2}
-  \vspace{-8pt}{\color{slate}\hrule height 0.5pt}\vspace{8pt}}
+% one table file. the table is placed right here, whatever placement the file asks for,
+% and a table wider than the text is scaled down to the text width
+\newcommand{\tablefile}[2][\tablefont]{%
+  \begingroup
+  #1
+  \let\origtable\table
+  \renewenvironment{table}[1][]{\origtable[H]}{\endtable}%
+  \renewenvironment{table*}[1][]{\origtable[H]}{\endtable}%
+  \let\origtabular\tabular \let\endorigtabular\endtabular
+  \renewenvironment{tabular}[1]{\begin{adjustbox}{max width=\textwidth}\origtabular{##1}}{\endorigtabular\end{adjustbox}}%
+  \input{\tabroot #2}%
+  \endgroup}
 
-% block heading on the first page
+% heading helpers: a thin rule below the heading
+\newcommand{\headruleafter}{\vspace{-8pt}{\color{slate}\hrule height 0.5pt}\vspace{8pt}}
+\newcommand{\newsection}[2]{\clearpage\section{#1}\label{#2}\headruleafter}
+\newcommand{\newsubsection}[2]{\clearpage\subsection{#1}\label{#2}}
 \newcommand{\blockhead}[1]{\vspace{10pt}{\sffamily\large\bfseries\color{slate}#1\par}\vspace{3pt}}
 
-% reading guide: marker pictures, 1.6 cm wide each
+% small markers for the reading guide
 \newcommand{\guidepic}[1]{\begin{tikzpicture}[baseline=-0.5ex]\useasboundingbox (-0.8,-0.2) rectangle (0.8,0.2);#1\end{tikzpicture}}
 \newcommand{\diamondmark}[3]{\draw[markedge,fill=#3,line width=0.5pt] (#1,#2+0.13)--(#1+0.13,#2)--(#1,#2-0.13)--(#1-0.13,#2)--cycle;}
 \newcommand{\circlemark}[3]{\draw[markedge,fill=#3,line width=0.5pt] (#1,#2) circle (0.1);}
 
 \begin{document}
 
-% page 1
-{\sffamily\fontsize{28}{32}\selectfont\bfseries\color{slate}Validation figures\par}
-\vspace{4pt}
-{\sffamily\Large\color{slate!75}Supplementary material\par}
+% title page: scope, contents, reading guide
+{\sffamily\fontsize{30}{34}\selectfont\bfseries\color{slate}Chain-of-Bid\par}
+\vspace{2pt}
+{\sffamily\fontsize{20}{24}\selectfont\color{slate!75}Supplementary Material\par}
 \vspace{8pt}
 {\color{slate}\hrule height 0.8pt}
 \vspace{10pt}
 
-The charts show the validation split of the three modes, with the base model and every fine-tuned epoch.
-The ring marks the epoch selected on validation.
-Time deviation is in percent relative to the rule completion time.
+This document accompanies the paper. It collects the validation figures of the three bidding modes, the table behind the choice of the fine-tuned epochs, and the tables on the inference time measurements.
 
-\blockhead{How to read the charts}
-\renewcommand{\arraystretch}{1.45}
+\blockhead{Contents}
+\renewcommand{\arraystretch}{1.3}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{6.7cm}>{\raggedright\arraybackslash}p{3.0cm}r@{}}
+  \toprule
+  Section & Content & Items & Page \\
+  \midrule
+  \textbf{1 Validation figures} & & & \pageref{sec:validation} \\
+  \quad 1.1 Sealed bid & Decision agreement, price deviation, completion-time deviation & Figures S1 to S3 & \pageref{sec:sealed} \\
+  \quad 1.2 Reverse auction & Decision agreement, price deviation, completion-time deviation & Figures S4 to S6 & \pageref{sec:reverse} \\
+  \quad 1.3 Supervisor selection & Selection accuracy, cost deviation, completion-time deviation & Figures S7 to S9 & \pageref{sec:supervisor} \\
+  \textbf{2 Checkpoint selection} & Selection margin & Table S1 & \pageref{sec:selection} \\
+  \textbf{3 Inference measurement} & Warm-up, original profile with two runs & Tables S2, S3 & \pageref{sec:inference} \\
+  \bottomrule
+\end{tabular}
+\normalsize
+
+\blockhead{How to read the validation charts}
+The charts show the validation split of the three bidding modes, with the base model and every fine-tuned epoch.\par
+\vspace{2pt}
+\renewcommand{\arraystretch}{1.3}
 \begin{tabular}{@{}c@{\hspace{10pt}}p{13cm}@{}}
   \guidepic{\diamondmark{0}{0}{armbase}} & Base model \\
   \guidepic{\circlemark{-0.45}{0}{armone}\circlemark{0}{0}{armtwo}\circlemark{0.45}{0}{armthree}} & Epochs 1, 2 and 3 (orange, green, blue) \\
@@ -104,44 +134,33 @@ Time deviation is in percent relative to the rule completion time.
   \guidepic{\draw[fill=bandfill,draw=bandedge,line width=0.4pt] (-0.55,-0.16) rectangle (0.55,0.16);} & Shaded strip: the magnified range near the ground truth \\
 \end{tabular}
 
-\blockhead{Notes}
+\blockhead{Notes on the validation charts}
 \begin{itemize}\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}
   \item Sealed bid and reverse auction values are macro averages over the three stages; supervisor values are means over all supervisor rows.
   \item Price and time deviations are absolute and relative to the rule-based value, in percent (supervisor: relative to the optimal plan).
   \item The strip beside each main plot magnifies the shaded range; the data scale is unchanged, and each chart has its own axis range.
   \item The Phi base value in sealed bidding covers the material stage only. The Phi base value in the reverse auction rests on very few readable completion times.
-  \item The base model and epochs 1 to 3 are all evaluated on the full validation split; the ring marks the epoch selected on validation.
+  \item The base model and epochs 1 to 3 are all evaluated on the full validation split.
 \end{itemize}
 
-\blockhead{Contents}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}p{3.2cm}p{7.6cm}p{2.2cm}r@{}}
-  \toprule
-  Mode & Metrics & Figures & Page \\
-  \midrule
-  Sealed bid & Decision agreement, price deviation, completion-time deviation & S1 to S3 & \pageref{sec:sealed} \\
-  Reverse auction & Decision agreement, price deviation, completion-time deviation & S4 to S6 & \pageref{sec:reverse} \\
-  Supervisor selection & Selection accuracy, cost deviation, completion-time deviation & S7 to S9 & \pageref{sec:supervisor} \\
-  \bottomrule
-\end{tabular}
+% section 1: validation figures, one mode per page
+\newsection{Validation figures}{sec:validation}
 
-% page 2
-\modesection{Sealed bid}{sec:sealed}
+\subsection{Sealed bid}\label{sec:sealed}
 
 \chart{sealed/validation/decision_agreement.pdf}
   {Macro decision agreement (\%) with the rule-based bidding decisions on the validation set.}
   {fig:val-sealed-decision-agreement}
 
 \chart{sealed/validation/price_deviation.pdf}
-  {Macro absolute price deviation (\%) from the rule-based price on the validation set (lower is better). The Phi base value covers the material stage only.}
+  {Macro absolute price deviation (\%) from the rule-based price on the validation set (lower is better).}
   {fig:val-sealed-price-deviation}
 
 \chart{sealed/validation/completion_time_deviation_percent.pdf}
-  {Macro absolute completion-time deviation (\%) from the rule-based completion time on the validation set (lower is better). The Phi base value covers the material stage only.}
+  {Macro absolute completion-time deviation (\%) from the rule-based completion time on the validation set (lower is better).}
   {fig:val-sealed-completion-time-deviation}
 
-% page 3
-\modesection{Reverse auction}{sec:reverse}
+\newsubsection{Reverse auction}{sec:reverse}
 
 \chart{reverse_auction/validation/decision_agreement.pdf}
   {Macro decision agreement (\%) with the rule-based bidding decisions on the validation set.}
@@ -152,11 +171,10 @@ Time deviation is in percent relative to the rule completion time.
   {fig:val-reverse-auction-price-deviation}
 
 \chart{reverse_auction/validation/completion_time_deviation_percent.pdf}
-  {Macro absolute completion-time deviation (\%) from the rule-based completion time on the validation set (lower is better). The Phi base value rests on very few readable completion times.}
+  {Macro absolute completion-time deviation (\%) from the rule-based completion time on the validation set (lower is better).}
   {fig:val-reverse-auction-completion-time-deviation}
 
-% page 4
-\modesection{Supervisor selection}{sec:supervisor}
+\newsubsection{Supervisor selection}{sec:supervisor}
 
 \chart{supervisor/validation/selection_accuracy.pdf}
   {Share (\%) of decisions in which the model picks the optimal plan on the validation set.}
@@ -169,5 +187,21 @@ Time deviation is in percent relative to the rule completion time.
 \chart{supervisor/validation/completion_time_deviation.pdf}
   {Mean absolute completion-time deviation (\%) of the chosen plan from the optimal plan on the validation set (lower is better).}
   {fig:val-supervisor-completion-time-deviation}
+
+% section 2: checkpoint selection
+\newsection{Checkpoint selection}{sec:selection}
+
+This section collects the table behind the choice of the fine-tuned epoch on validation.
+
+\tablefile{selection_margin.tex}
+
+% section 3: inference measurement
+\newsection{Inference measurement}{sec:inference}
+
+This section collects the tables on how the inference time was measured: the effect of the warm-up requests, and the original profile compared with a second run.
+
+\tablefile{warm_up.tex}
+
+\tablefile{original_profile_2_runs.tex}
 
 \end{document}
