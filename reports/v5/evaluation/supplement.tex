@@ -17,6 +17,10 @@
 \usepackage[hidelinks,pdftitle={Chain-of-Bid: Supplementary Material}]{hyperref}
 \ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
 
+% plain pdf 1.4 output, which web viewers render more reliably
+\ifdefined\pdfminorversion\pdfminorversion=4\fi
+\ifdefined\pdfobjcompresslevel\pdfobjcompresslevel=0\fi
+
 % folder of the validation charts: empty inside reports/v5/evaluation, "figures/" in overleaf
 \newcommand{\figroot}{}
 % folder of the table files
